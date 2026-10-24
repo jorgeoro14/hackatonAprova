@@ -1,3 +1,4 @@
+import { useTitle } from '@/lib/utils/useTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Search } from 'lucide-react'
@@ -13,6 +14,7 @@ const PAGE_SIZE = 10
 const control = 'h-10 rounded-lg border border-line bg-surface px-3 text-sm text-ink focus:border-cyan'
 
 export function ClientsPage() {
+  useTitle('Clientes')
   const navigate = useNavigate()
   const isHead = useAuthStore((s) => s.user!.role === 'head')
   const { implementerId } = useScope()

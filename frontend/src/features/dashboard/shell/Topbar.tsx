@@ -6,7 +6,7 @@ import { authApi } from '@/lib/api/endpoints'
 import { useAuthStore } from '@/lib/api/authStore'
 import { useImplementers } from '@/lib/api/hooks'
 import { cn } from '@/lib/utils/cn'
-import { PERIODS, useFilters } from '../filters'
+import { PERIODS, useFilters, type PeriodKey } from '../filters'
 
 const control = 'h-9 rounded-lg border border-line bg-surface px-3 text-sm text-ink focus:border-cyan'
 
@@ -46,6 +46,10 @@ export function Topbar({ onMenu }: { onMenu: () => void }) {
           ))}
         </select>
       )}
+
+      <select aria-label="Período" value={period} onChange={(e) => setPeriod(e.target.value as PeriodKey)} className={cn(control, 'sm:hidden')}>
+        {PERIODS.map((p) => <option key={p.key} value={p.key}>{p.label}</option>)}
+      </select>
 
       <div role="group" aria-label="Período" className="hidden items-center rounded-lg border border-line bg-surface p-0.5 sm:flex">
         {PERIODS.map((p) => (

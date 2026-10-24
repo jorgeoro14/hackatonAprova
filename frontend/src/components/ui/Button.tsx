@@ -15,7 +15,7 @@ const variants: Record<Variant, string> = {
   primary: 'bg-cyan text-on-cyan hover:brightness-95 font-semibold',
   secondary: 'border border-line bg-surface text-ink hover:bg-soft',
   ghost: 'text-muted hover:bg-soft hover:text-ink',
-  danger: 'bg-danger text-white hover:brightness-95',
+  danger: 'bg-danger text-on-danger hover:brightness-95',
 }
 const sizes: Record<Size, string> = {
   sm: 'h-8 px-3 text-sm',

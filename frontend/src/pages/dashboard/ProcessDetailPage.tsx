@@ -1,3 +1,4 @@
+import { useTitle } from '@/lib/utils/useTitle'
 import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, MessageSquare } from 'lucide-react'
@@ -23,6 +24,7 @@ export function ProcessDetailPage() {
   const [filter, setFilter] = useState<Filter>('all')
   const q = useProcess(id)
   const p = q.data
+  useTitle(p?.name ?? 'Processo')
   const back = p ? `/dashboard/clients/${p.clientId}?tab=processos` : '/dashboard/clients'
 
   if (q.isError) {

@@ -11,10 +11,11 @@ export function DashboardLayout() {
   const [menu, setMenu] = useState(false)
   return (
     <ThemeScope className="flex">
+      <a href="#conteudo" className="sr-only z-50 rounded-lg bg-cyan px-3 py-2 text-on-cyan focus:not-sr-only focus:fixed focus:left-3 focus:top-3">Pular para o conteúdo</a>
       <Sidebar role={role} open={menu} onClose={() => setMenu(false)} />
       <div className="flex min-h-screen min-w-0 flex-1 flex-col">
         <Topbar onMenu={() => setMenu(true)} />
-        <main className="flex-1 p-4 sm:p-6">
+        <main id="conteudo" tabIndex={-1} className="flex-1 p-4 outline-none sm:p-6">
           <Outlet />
         </main>
       </div>

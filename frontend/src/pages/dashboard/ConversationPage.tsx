@@ -1,3 +1,4 @@
+import { useTitle } from '@/lib/utils/useTitle'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { Badge, Card, ErrorState, Skeleton } from '@/components/ui'
@@ -13,6 +14,7 @@ export function ConversationPage() {
   const navigate = useNavigate()
   const q = useConversation(id)
   const c = q.data
+  useTitle(c ? `Conversa com ${c.contactName}` : 'Conversa')
   const back = c ? `/dashboard/clients/${c.clientId}?tab=conversas` : '/dashboard/clients'
 
   const notFound = q.error instanceof ApiError && q.error.status === 404

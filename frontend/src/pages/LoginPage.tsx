@@ -1,3 +1,4 @@
+import { useTitle } from '@/lib/utils/useTitle'
 import { Navigate } from 'react-router-dom'
 import { Card, ThemeToggle } from '@/components/ui'
 import { LoginForm } from '@/features/auth/LoginForm'
@@ -6,6 +7,7 @@ import { ThemeScope } from '@/lib/theme/ThemeScope'
 
 /** Login de implantador e head (username + senha). Segue o tema do dashboard. */
 export function LoginPage() {
+  useTitle('Entrar')
   const loggedIn = useAuthStore((s) => !!s.token && !!s.user && !!s.expiresAt && new Date(s.expiresAt) > new Date())
   if (loggedIn) return <Navigate to="/dashboard" replace />
   return (

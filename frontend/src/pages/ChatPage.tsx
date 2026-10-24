@@ -1,3 +1,4 @@
+import { useTitle } from '@/lib/utils/useTitle'
 import { useQueryClient } from '@tanstack/react-query'
 import { useChatSessionStore } from '@/lib/api/authStore'
 import { ThemeScope } from '@/lib/theme/ThemeScope'
@@ -7,6 +8,7 @@ import { useCallback } from 'react'
 
 /** Chat público da prefeitura: sempre tema claro, sem login. */
 export function ChatPage() {
+  useTitle('Assistente de implantação')
   const { sessionId, sessionToken, contact, set, clear } = useChatSessionStore()
   const qc = useQueryClient()
 

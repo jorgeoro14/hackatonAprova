@@ -12,6 +12,8 @@ import { ClientDetailPage } from '@/pages/dashboard/ClientDetailPage'
 import { OverviewPage } from '@/pages/dashboard/OverviewPage'
 import { RequireAuth, RequireRole } from './guards'
 import { LoginPage } from '@/pages/LoginPage'
+import { NotFoundPage } from '@/pages/NotFoundPage'
+import { ErrorBoundary } from './ErrorBoundary'
 import { UiShowcasePage } from '@/pages/UiShowcasePage'
 
 const queryClient = new QueryClient({
@@ -27,6 +29,7 @@ const queryClient = new QueryClient({
 
 export function App() {
   return (
+    <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
@@ -47,9 +50,10 @@ export function App() {
             </Route>
           </Route>
           {import.meta.env.DEV && <Route path="/ui" element={<UiShowcasePage />} />}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
+    </ErrorBoundary>
   )
 }

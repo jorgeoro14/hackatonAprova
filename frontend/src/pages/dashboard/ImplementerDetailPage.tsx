@@ -1,3 +1,4 @@
+import { useTitle } from '@/lib/utils/useTitle'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Eye } from 'lucide-react'
 import { Button, Card, ErrorState, ProgressBar, Skeleton, Table, TBody, TD, TH, THead, TR } from '@/components/ui'
@@ -21,6 +22,7 @@ export function ImplementerDetailPage() {
   const setImplementerId = useFilters((s) => s.setImplementerId)
   const q = useImplementer(id)
   const i = q.data
+  useTitle(i?.name ?? 'Implantador')
 
   const viewAs = () => {
     setImplementerId(id)

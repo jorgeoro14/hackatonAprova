@@ -1,3 +1,4 @@
+import { useTitle } from '@/lib/utils/useTitle'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { useState } from 'react'
 import { ArrowLeft } from 'lucide-react'
@@ -32,6 +33,7 @@ export function ClientDetailPage() {
   const [secretariat, setSecretariat] = useState('')
   const client = useClient(id)
   const c = client.data
+  useTitle(c?.name ?? 'Cliente')
 
   const setTab = (t: Tab) => setParams(t === 'resumo' ? {} : { tab: t }, { replace: true })
 

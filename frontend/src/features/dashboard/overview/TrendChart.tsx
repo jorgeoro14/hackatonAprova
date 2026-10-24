@@ -19,7 +19,7 @@ export function TrendChart({ scope, granularity }: { scope: Scope; granularity: 
     <Card>
       <CardHeader title="Evolução" description={`${info.label} por ${granularity === 'week' ? 'semana' : 'dia'}`} />
       <Tabs tabs={tabs} value={metric} onChange={setMetric} />
-      <div className="mt-4 h-64">
+      <div className="mt-4 h-64" role="img" aria-label={`Gráfico de ${info.label} por ${granularity === 'week' ? 'semana' : 'dia'}`}>
         {q.isLoading ? (
           <Skeleton className="h-full w-full" />
         ) : q.isError ? (

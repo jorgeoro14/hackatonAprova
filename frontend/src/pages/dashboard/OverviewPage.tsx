@@ -1,3 +1,4 @@
+import { useTitle } from '@/lib/utils/useTitle'
 import { Card, ErrorState } from '@/components/ui'
 import { useScope, useFilters } from '@/features/dashboard/filters'
 import { KpiCard } from '@/features/dashboard/overview/KpiCard'
@@ -8,6 +9,7 @@ import { useAuthStore } from '@/lib/api/authStore'
 import { formatDuration, formatHours, formatNumber, formatPercent } from '@/lib/utils/format'
 
 export function OverviewPage() {
+  useTitle('Visão geral')
   const user = useAuthStore((s) => s.user)!
   const scope = useScope()
   const period = useFilters((s) => s.period)

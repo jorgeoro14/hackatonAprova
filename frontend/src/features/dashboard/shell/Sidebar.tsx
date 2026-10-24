@@ -22,7 +22,7 @@ export function Sidebar({ role, open, onClose }: Props) {
       <aside
         className={cn(
           'fixed inset-y-0 left-0 z-40 flex w-60 flex-col border-r border-line bg-surface transition-transform lg:static lg:translate-x-0',
-          open ? 'translate-x-0' : '-translate-x-full',
+          open ? 'translate-x-0' : 'invisible -translate-x-full lg:visible',
         )}
       >
         <div className="flex h-14 items-center justify-between px-5">

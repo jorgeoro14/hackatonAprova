@@ -18,9 +18,10 @@
   --petrol: #0b4d55;
   --cyan: #00dae7;
   --on-cyan: #020a0f;
-  --success: #16a34a;
-  --warning: #d97706;
-  --danger: #dc2626;
+  --success: #166534;
+  --warning: #92400e;
+  --danger: #b91c1c;
+  --on-danger: #ffffff;
   color-scheme: light;
 }
 
@@ -37,6 +38,7 @@
   --success: #4ade80;
   --warning: #fbbf24;
   --danger: #f87171;
+  --on-danger: #1a0505;
   color-scheme: dark;
 }
 
@@ -53,6 +55,7 @@
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-danger: var(--danger);
+  --color-on-danger: var(--on-danger);
   --font-sans: 'Inter Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
   --font-title: 'Geist Variable', 'Inter Variable', 'Helvetica Neue', Arial, sans-serif;
 }
@@ -86,4 +89,15 @@ h4 {
 :focus-visible {
   outline: 2px solid var(--cyan);
   outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

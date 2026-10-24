@@ -1,3 +1,4 @@
+import { useTitle } from '@/lib/utils/useTitle'
 import { useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AlertTriangle, ArrowDown, ArrowUp } from 'lucide-react'
@@ -26,6 +27,7 @@ function SortTH({ label, k, sort, onSort, right }: { label: string; k: SortKey; 
 
 /** Visão da head: comparativo de implantadores e clientes em risco. */
 export function TeamPage() {
+  useTitle('Time')
   const navigate = useNavigate()
   const team = useImplementers()
   const atRisk = useClients({ status: 'at_risk', pageSize: 20 })
@@ -90,8 +92,8 @@ export function TeamPage() {
           </Table>
 
           <div className="grid gap-4 lg:grid-cols-5">
-            <div className="lg:col-span-3"><ImplementerChart data={rows} /></div>
-            <Card className="lg:col-span-2">
+            <div className="min-w-0 lg:col-span-3"><ImplementerChart data={rows} /></div>
+            <Card className="min-w-0 lg:col-span-2">
               <CardHeader title="Clientes em risco" description="Atrasados ou com avanço abaixo do esperado" />
               {atRisk.isLoading ? (
                 <Skeleton className="h-20" />

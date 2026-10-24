@@ -22,7 +22,7 @@ export function ImplementerChart({ data }: { data: Implementer[] }) {
     <Card>
       <CardHeader title="Comparativo entre implantadores" description={m.hint} />
       <Tabs tabs={tabs} value={key} onChange={setKey} />
-      <div className="mt-4 h-60">
+      <div className="mt-4 h-60" role="img" aria-label={`Gráfico comparando ${m.label} entre implantadores`}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={rows} margin={{ top: 20, right: 8, bottom: 0, left: 0 }}>
             <CartesianGrid stroke="var(--line)" strokeDasharray="3 3" vertical={false} />
