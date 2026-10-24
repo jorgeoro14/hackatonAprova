@@ -3,7 +3,9 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { ApiError } from '@/lib/api/client'
 import { ChatPage } from '@/pages/ChatPage'
 import { DashboardLayout } from '@/features/dashboard/shell/DashboardLayout'
-import { ClientsPage, TeamPage } from '@/pages/dashboard/Placeholders'
+import { TeamPage } from '@/pages/dashboard/Placeholders'
+import { ClientsPage } from '@/pages/dashboard/ClientsPage'
+import { ClientDetailPage } from '@/pages/dashboard/ClientDetailPage'
 import { OverviewPage } from '@/pages/dashboard/OverviewPage'
 import { RequireAuth, RequireRole } from './guards'
 import { LoginPage } from '@/pages/LoginPage'
@@ -32,6 +34,7 @@ export function App() {
             <Route path="/dashboard" element={<DashboardLayout />}>
               <Route index element={<OverviewPage />} />
               <Route path="clients" element={<ClientsPage />} />
+              <Route path="clients/:id" element={<ClientDetailPage />} />
               <Route element={<RequireRole role="head" />}>
                 <Route path="team" element={<TeamPage />} />
               </Route>

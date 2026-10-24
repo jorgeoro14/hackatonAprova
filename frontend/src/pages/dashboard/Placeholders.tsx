@@ -17,5 +17,4 @@ function Placeholder({ title, task }: { title: string; task: string }) {
   )
 }
 
-export const ClientsPage = () => <Placeholder title="Clientes" task="T13" />
 export const TeamPage = () => <Placeholder title="Time" task="T16" />

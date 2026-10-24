@@ -65,7 +65,8 @@ export const useAddMeeting = (clientId: string) => {
   return useMutation({
     mutationFn: (b: Parameters<typeof clientsApi.addMeeting>[1]) => clientsApi.addMeeting(clientId, b),
     onSuccess: () => {
-      qc.invalidateQueries({ queryKey: qk.meetings(clientId) })
+      qc.invalidateQueries({ queryKey: qk.client(clientId) })
+      qc.invalidateQueries({ queryKey: ['clients'] })
       qc.invalidateQueries({ queryKey: ['metrics'] })
     },
   })

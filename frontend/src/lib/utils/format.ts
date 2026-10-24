@@ -23,8 +23,9 @@ export const formatPercent = (n: number, digits = 0) =>
 export const formatDelta = (pct: number) =>
   `${pct > 0 ? '+' : pct < 0 ? '−' : ''}${Math.abs(pct).toLocaleString('pt-BR', { maximumFractionDigits: 0 })}%`
 
+/** Datas "YYYY-MM-DD" são tratadas como locais (evita voltar um dia por fuso). */
 export const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })
+  new Date(iso.length === 10 ? `${iso}T12:00:00` : iso).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })
 
 export const formatDateTime = (iso: string) =>
   new Date(iso).toLocaleString('pt-BR', {

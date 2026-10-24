@@ -132,6 +132,20 @@ const sessionFrom = (req: Request, id: string) => {
 }
 const contactOf = (s: Session) => ({ name: s.name, municipality: { id: s.municipalityId, name: s.municipality }, secretariat: { id: s.secretariatId, name: s.secretariat } })
 
+/* ----------------------------- Reuniões (mock) ----------------------------- */
+
+const meetings: { id: string; clientId: string; date: string; durationMinutes: number; notes: string }[] = []
+const meetingsOf = (clientId: string) => {
+  const c = clients.find((x) => x.id === clientId)!
+  // semeia reuniões antigas conforme o contador do cliente, uma única vez
+  if (!meetings.some((m) => m.clientId === clientId) && c.meetingsCount > 0) {
+    for (let i = 0; i < c.meetingsCount; i++) {
+      meetings.push({ id: `seed-${clientId}-${i}`, clientId, date: new Date(NOW - (3 + i * 5) * 86_400_000).toISOString().slice(0, 10), durationMinutes: [30, 45, 60, 90][i % 4], notes: i === 0 ? 'Alinhamento inicial' : '' })
+    }
+  }
+  return meetings.filter((m) => m.clientId === clientId)
+}
+
 /* ----------------------------- Handlers ----------------------------- */
 
 export const handlers = [
@@ -217,10 +231,18 @@ export const handlers = [
     ]
     return HttpResponse.json({ ...p, fields })
   })),
-  http.get(url('/clients/:id/meetings'), authed(() => HttpResponse.json([]))),
-  http.post(url('/clients/:id/meetings'), authed(async ({ req, params }) => {
+  http.get(url('/clients/:id/meetings'), authed(({ user, params }) => {
+    if (!visibleClients(user).some((c) => c.id === params.id)) return err(404, 'NOT_FOUND', 'Cliente não encontrado')
+    return HttpResponse.json(meetingsOf(params.id))
+  })),
+  http.post(url('/clients/:id/meetings'), authed(async ({ user, req, params }) => {
+    const c = visibleClients(user).find((x) => x.id === params.id)
+    if (!c) return err(404, 'NOT_FOUND', 'Cliente não encontrado')
     const b = (await req.json()) as { date: string; durationMinutes: number; notes?: string }
-    return HttpResponse.json({ id: uid(), clientId: params.id, notes: '', ...b }, { status: 201 })
+    const m = { id: uid(), clientId: c.id, notes: '', ...b }
+    meetings.push(m)
+    c.meetingsCount += 1 // reflete nas métricas do mock
+    return HttpResponse.json(m, { status: 201 })
   })),
 
   http.get(url('/implementers'), authed(() => {
