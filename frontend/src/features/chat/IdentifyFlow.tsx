@@ -1,11 +1,12 @@
 import { useState, type FormEvent } from 'react'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import { Button, Card, Input, Logo, Select } from '@/components/ui'
-import { catalogApi, chatApi } from '@/lib/api/endpoints'
+import { chatApi } from '@/lib/api/endpoints'
 import type { SessionResponse } from '@/types/schemas'
 import { isValidPhone, maskPhone, toE164 } from './phone'
 
-const OTHER = '__other'
+/** Por ora o chat atende só Cascavel (PR): é a única opção do cadastro e vai como parâmetro para o back. */
+const CIDADE = { value: 'cascavel-pr', label: 'Cascavel - PR', municipality: { name: 'Cascavel' } } as const
 
 interface Props {
   onReady: (s: SessionResponse) => void
@@ -21,9 +22,7 @@ export function IdentifyFlow({ onReady }: Props) {
   const [name, setName] = useState('')
   const [regToken, setRegToken] = useState('')
   const [mun, setMun] = useState('')
-  const [munOther, setMunOther] = useState('')
   const [sec, setSec] = useState('')
-  const [secOther, setSecOther] = useState('')
   const [touched, setTouched] = useState(false)
 
   const identify = useMutation({
@@ -38,29 +37,21 @@ export function IdentifyFlow({ onReady }: Props) {
     },
   })
 
-  const municipalities = useQuery({ queryKey: ['catalog', 'municipalities'], queryFn: () => catalogApi.municipalities(), enabled: step === 'register' })
-  const munId = mun && mun !== OTHER ? mun : ''
-  const secretariats = useQuery({
-    queryKey: ['catalog', 'secretariats', munId],
-    queryFn: () => catalogApi.secretariats(munId),
-    enabled: !!munId,
-  })
-
   const register = useMutation({
     mutationFn: () =>
       chatApi.register({
         registrationToken: regToken,
         phone: toE164(phone),
         name: name.trim() || undefined,
-        municipality: mun === OTHER ? { name: munOther.trim() } : { id: mun },
-        secretariat: sec === OTHER || mun === OTHER ? { name: secOther.trim() } : { id: sec },
+        municipality: CIDADE.municipality,
+        secretariat: { name: sec.trim() },
       }),
     onSuccess: onReady,
   })
 
   const phoneError = touched && !isValidPhone(phone) ? 'Informe o telefone com DDD.' : undefined
-  const munOk = mun === OTHER ? munOther.trim().length > 1 : !!mun
-  const secOk = mun === OTHER || sec === OTHER ? secOther.trim().length > 1 : !!sec
+  const munOk = mun === CIDADE.value
+  const secOk = sec.trim().length > 1
   const regError = (ok: boolean, msg: string) => (touched && !ok ? msg : undefined)
 
   const onPhone = (e: FormEvent) => {
@@ -111,27 +102,14 @@ export function IdentifyFlow({ onReady }: Props) {
               <Input label="Seu nome (opcional)" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} />
               <Select
                 label="Prefeitura"
-                placeholder={municipalities.isLoading ? 'Carregando…' : 'Selecione'}
+                placeholder="Selecione"
                 value={mun}
-                onChange={(e) => { setMun(e.target.value); setSec('') }}
-                options={[...(municipalities.data ?? []).map((m) => ({ value: m.id, label: `${m.name} - ${m.uf}` })), { value: OTHER, label: 'Outra (não está na lista)' }]}
+                onChange={(e) => setMun(e.target.value)}
+                options={[{ value: CIDADE.value, label: CIDADE.label }]}
                 error={regError(munOk, 'Selecione a prefeitura.')}
               />
-              {mun === OTHER && (
-                <Input label="Nome da prefeitura" value={munOther} onChange={(e) => setMunOther(e.target.value)} error={regError(munOk, 'Informe o nome.')} />
-              )}
-              {mun && mun !== OTHER && (
-                <Select
-                  label="Secretaria"
-                  placeholder={secretariats.isLoading ? 'Carregando…' : 'Selecione'}
-                  value={sec}
-                  onChange={(e) => setSec(e.target.value)}
-                  options={[...(secretariats.data ?? []).map((s) => ({ value: s.id, label: s.name })), { value: OTHER, label: 'Outra (não está na lista)' }]}
-                  error={regError(secOk, 'Selecione a secretaria.')}
-                />
-              )}
-              {(mun === OTHER || sec === OTHER) && (
-                <Input label="Nome da secretaria" value={secOther} onChange={(e) => setSecOther(e.target.value)} error={regError(secOk, 'Informe o nome.')} />
+              {mun && (
+                <Input label="Secretaria" value={sec} onChange={(e) => setSec(e.target.value)} error={regError(secOk, 'Informe a secretaria.')} />
               )}
               {register.isError && <p role="alert" className="text-sm text-danger">{register.error.message}</p>}
               <div className="flex gap-3">
