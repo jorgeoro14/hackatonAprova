@@ -1,7 +1,7 @@
 import type { Banco, Linha } from "../db/banco.js";
-import { mudarStatusProcesso, type StatusProcesso } from "../dashboard/repositorio.js";
+import { formularioParaCampos } from "../dashboard/campos.js";
+import { gravarCamposProcesso, mudarStatusProcesso, type StatusProcesso } from "../dashboard/repositorio.js";
 import type { FormularioImplantacao } from "../implantacao/formulario.js";
-import { formularioParaCampos } from "./campos.js";
 
 export type StatusFormulario = "rascunho" | "em_revisao" | "confirmado";
 
@@ -72,12 +72,14 @@ export async function sincronizarProcesso(
   const secretariaId = conversa.secretaria_id ?? conversa.contato_secretaria ?? (await secretariaPadrao(db, conversa.cliente_id));
 
   const nome = p.form.processo.nome;
+  // "Licença Ambiental Prévia (LAP)" e "Licença ambiental previa" são o mesmo processo
+  const chave = chaveNome(nome);
   const existente = (
-    await db.consultar<{ id: string; status: StatusProcesso }>(
-      "SELECT id, status FROM processos WHERE cliente_id = $1 AND secretaria_id = $2 AND lower(nome) = lower($3) LIMIT 1",
-      [conversa.cliente_id, secretariaId, nome],
+    await db.consultar<{ id: string; status: StatusProcesso; nome: string }>(
+      "SELECT id, status, nome FROM processos WHERE cliente_id = $1 AND secretaria_id = $2",
+      [conversa.cliente_id, secretariaId],
     )
-  )[0];
+  ).find((r) => chaveNome(r.nome) === chave);
   const processoId =
     existente?.id ??
     (
@@ -90,25 +92,17 @@ export async function sincronizarProcesso(
   await db.consultar("UPDATE formularios SET processo_id = $1 WHERE id = $2", [processoId, p.formularioId]);
   await db.consultar("INSERT INTO conversa_processos (conversa_id, processo_id) VALUES ($1, $2) ON CONFLICT DO NOTHING", [p.conversaId, processoId]);
 
-  const campos = formularioParaCampos(p.form);
-  for (const c of campos) {
-    await db.consultar(
-      `INSERT INTO campos_processo (processo_id, chave, rotulo, categoria, valor, status, origem, coletado_em, mensagem_origem_id)
-       VALUES ($1, $2, $3, $4::public.categoria_campo, $5, $6::public.status_campo, 'agente', $7, $8)
-       ON CONFLICT (processo_id, chave) DO UPDATE SET
-         rotulo = EXCLUDED.rotulo, categoria = EXCLUDED.categoria, valor = EXCLUDED.valor, status = EXCLUDED.status,
-         coletado_em = CASE WHEN EXCLUDED.status = 'filled' THEN COALESCE(campos_processo.coletado_em, EXCLUDED.coletado_em) END,
-         mensagem_origem_id = COALESCE(campos_processo.mensagem_origem_id, EXCLUDED.mensagem_origem_id)`,
-      [processoId, c.chave, c.rotulo, c.categoria, c.valor, c.status, c.status === "filled" ? p.agora.toISOString() : null, p.mensagemId ?? null],
-    );
-  }
-  await db.consultar("DELETE FROM campos_processo WHERE processo_id = $1 AND NOT (chave = ANY($2::text[]))", [processoId, campos.map((c) => c.chave)]);
+  await gravarCamposProcesso(db, processoId, formularioParaCampos(p.form, p.agora.toISOString()), p.mensagemId);
 
   const atual = existente?.status ?? "not_started";
   // processo já enviado ao time ou validado não volta para coleta
   if (!ESTAGIOS_FINAIS.includes(atual)) await mudarStatusProcesso(db, processoId, p.alvo, p.agora);
   return processoId;
 }
+
+/** Nome sem acento, caixa e complemento entre parênteses, para casar processos do seed com os do modelo. */
+export const chaveNome = (nome: string) =>
+  nome.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\([^)]*\)/g, "").replace(/\s+/g, " ").trim().toLowerCase();
 
 async function secretariaPadrao(db: Banco, clienteId: string): Promise<string> {
   const nome = "Não informada";

@@ -82,6 +82,20 @@ function fluxosValidados(db: Banco, clientes: string[], p: Periodo) {
   );
 }
 
+/** Formulários confirmados no período, com o instante em que a mensagem `form` chegou à prefeitura. */
+function formulariosConfirmados(db: Banco, clientes: string[], p: Periodo) {
+  return consulta<{ emitido_em: string; confirmado_em: string }>(
+    db, clientes,
+    `SELECT MIN(m.criada_em) AS emitido_em, f.confirmado_em
+     FROM formularios f
+     JOIN conversas cv ON cv.id = f.conversa_id
+     JOIN mensagens m ON m.conversa_id = f.conversa_id AND m.tipo = 'form' AND m.dados->>'formularioId' = f.id::text
+     WHERE cv.cliente_id = ANY($1::uuid[]) AND f.confirmado_em >= $2 AND f.confirmado_em < $3
+     GROUP BY f.id, f.confirmado_em`,
+    p.de.toISOString(), p.ate.toISOString(),
+  );
+}
+
 // ---------- Resumo (GET /metrics/summary) ----------
 
 export interface ResumoMetricas {
@@ -92,6 +106,8 @@ export interface ResumoMetricas {
   /** samples = fluxos validados no período; com 0, avgMinutes e deltaPct são 0 */
   flowCreation: { avgMinutes: number; baselineMinutes: number; deltaPct: number; samples: number };
   processes: { total: number; complete: number; validated: number };
+  /** Quanto a prefeitura leva do formulário recebido até confirmar; samples 0 → avgMinutes 0 (sem dado) */
+  formValidation: { avgMinutes: number; samples: number };
   /** média entre os processos completos (processes.complete); 0 sem nenhum */
   backAndForthsAvg: number;
 }
@@ -104,6 +120,8 @@ export async function resumoMetricas(db: Banco, clientes: string[], p: Periodo):
 
   const tempos = (await fluxosValidados(db, clientes, p)).map((f) => minutosEntre(f.primeiro_contato_em, f.validado_em));
   const avgMinutes = media(tempos);
+
+  const validacoes = (await formulariosConfirmados(db, clientes, p)).map((f) => minutosEntre(f.emitido_em, f.confirmado_em));
 
   const [proc] = await consulta<{ total: number; complete: number; validated: number; idas: number | null }>(
     db, clientes,
@@ -125,6 +143,7 @@ export async function resumoMetricas(db: Banco, clientes: string[], p: Periodo):
       samples: tempos.length,
     },
     processes: { total: proc?.total ?? 0, complete: proc?.complete ?? 0, validated: proc?.validated ?? 0 },
+    formValidation: { avgMinutes: media(validacoes), samples: validacoes.length },
     backAndForthsAvg: proc?.idas == null ? 0 : Math.round(Number(proc.idas) * 10) / 10,
   };
 }
