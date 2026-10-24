@@ -89,6 +89,9 @@ As premissas do modelo manual ficam em `src/dashboard/parametros.ts`.
 - `baselineMinutes` = 10 dias (14400 min).
 - O processo chega a `validated` por `POST /processes/:id/status`.
 
+**Tempo de validação do formulário** (`formValidation`, só no resumo)
+- `avgMinutes` = média de `confirmado_em − (mensagem kind=form entregue)` dos formulários confirmados no período; `samples` = quantos. Sem amostra, `0` e `samples: 0`. O front ainda não exibe esse número.
+
 **Processos**: `total`, `complete` (status `confirmed`, `sent_to_dev` ou `validated`) e `validated` mostram a situação atual, sem filtro de período.
 
 **Idas e vindas**: conta cada vez que o processo volta para `collecting` depois de ter sido apresentado ou confirmado. `backAndForthsAvg` é a média entre os processos completos (`processes.complete`); sem nenhum, `0`.
@@ -116,6 +119,7 @@ Nenhuma métrica numérica de `/metrics`, `/clients` e `/implementers` vem `null
 | `flowCreation.avgMinutes` / `deltaPct` | `flowCreation.samples === 0` |
 | `backAndForthsAvg` | `processes.complete === 0` |
 | `points[].value` de `flowCreation` | `points[].samples === 0` |
+| `formValidation.avgMinutes` | `formValidation.samples === 0` |
 | `Client.flowCreationMinutes` | `Client.flowCreationSamples === 0` |
 | `Implementer.flowCreationAvgMinutes` | `Implementer.flowCreationSamples === 0` |
 

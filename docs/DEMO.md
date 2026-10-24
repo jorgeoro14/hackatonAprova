@@ -24,3 +24,29 @@ Pré-requisito: `cd frontend && npm install --legacy-peer-deps && npm run dev`. 
 - **Vídeo de backup:** grave este roteiro (QuickTime/Win+G, 4 min) e salve como `docs/demo-backup.mp4` (ou link no README) **antes das 16h**.
 - Se o Service Worker falhar, o app usa um interceptador de `fetch` automaticamente; recarregar a página resolve.
 - Telas travadas no chat: `/chat?reset`.
+
+---
+
+# Modo real (back + banco + agente)
+
+Em vez dos mocks, o front conversa com o back de verdade. Veja a ordem de subida no [README](../README.md#subir-tudo-modo-real). Sem Supabase e sem o agente, use `npm run demo:local` (agente falso) e, no front, `VITE_USE_MOCKS=false VITE_API_URL=http://localhost:3333/api/v1 npm run dev`.
+
+Diferenças em relação ao roteiro com mocks:
+- Usuários: `head`, `maria.silva`, `joao.pereira`, `ana.costa`, senha `aprova123` (`SEED_SENHA`).
+- Telefone conhecido: `(51) 99000-0000`. Qualquer outro cai no cadastro; escolha a prefeitura e a secretaria da lista (ou "Outra").
+- Com o agente falso, o formulário chega na 2ª mensagem. Com o real, quando o agente julgar o processo completo.
+- O que a prefeitura confirma aparece no dashboard: o processo vira **Confirmado**, ganha o formulário (modo leitura) e as métricas mudam. Para fechar o ciclo, o implantador usa `POST /api/v1/processes/:id/status` (`sent_to_dev` → `validated`); sem isso o tempo de criação do fluxo fica em "—".
+
+## Ensaio de falhas (E2)
+
+Cobertos por `test/falhas.test.ts`. Para ver na tela, derrube o agente (`DEMO_AGENTE_REAL=1` com `AGENT_URL` apontando para uma porta sem serviço) e envie uma mensagem no chat.
+
+| Falha | O que acontece |
+|---|---|
+| Agente fora do ar ou respondendo erro | `502 AGENT_UNAVAILABLE`; o chat mostra "Não foi possível enviar a mensagem. Tente novamente." |
+| Agente lento (> `AGENT_TIMEOUT_MS`, 60 s) | `504 AGENT_TIMEOUT`, mesma mensagem |
+| Agente devolve resposta fora do contrato | `502`, nada é gravado |
+| Reenvio depois da falha | a mensagem do usuário não duplica; o agente responde normalmente |
+| Submit do formulário inválido | `422 VALIDATION_ERROR` com `details` por caminho; o formulário continua em revisão |
+| Token de sessão inválido ou adulterado | `401`; o front volta para a identificação |
+| Back reinicia no meio da conversa | a conversa continua: histórico, formulário e token estão no banco |

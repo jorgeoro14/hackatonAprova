@@ -15,6 +15,7 @@
     "test": "vitest run",
     "kb:validate": "tsx scripts/validate-kb.ts",
     "kb:importar-leis": "tsx scripts/importar-legislacao.ts",
+    "demo:local": "tsx scripts/demo-local.ts",
     "db:seed": "tsx scripts/seed.ts",
     "db:migrate": "tsx scripts/migrate.ts"
   },

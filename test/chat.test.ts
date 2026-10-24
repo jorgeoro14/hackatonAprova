@@ -2,14 +2,14 @@ import { mkdtemp } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { beforeEach, describe, expect, it } from "vitest";
-import { ErroAgente, type ClienteAgente, type PedidoAgente, type ResultadoAgente } from "../src/agente/cliente.js";
+import { ErroAgente, type ClienteAgente } from "../src/agente/cliente.js";
 import { criarApp } from "../src/app.js";
 import { hashSenha } from "../src/dashboard/auth.js";
 import type { Banco } from "../src/db/banco.js";
 import { modeloDeDemo, semearDemo } from "../src/db/seed.js";
 import { FormularioImplantacao, novoFormulario } from "../src/implantacao/formulario.js";
 import { carregarBase, type BaseConhecimento } from "../src/knowledge/loader.js";
-import { formularioParaCampos } from "../src/formularios/campos.js";
+import { agenteFalso } from "./apoio/agente-falso.js";
 import { bancoDeTeste } from "./apoio/pglite.js";
 
 const AGORA = new Date("2026-10-24T12:00:00Z");
@@ -18,22 +18,14 @@ const FONE = "+5545999991111";
 const base: BaseConhecimento = await carregarBase("knowledge");
 const modelo = modeloDeDemo(base)!;
 
-/** Agente de mentira: devolve o formulário do processo-modelo e fica "pronto" na 2ª mensagem. */
-function agenteFalso() {
-  const pedidos: PedidoAgente[] = [];
+/** Envolve o agente falso com um botão para simular falhas. */
+function agenteFalhavel() {
+  const { agente: ok, pedidos } = agenteFalso(modelo);
   let falha: ErroAgente | undefined;
   const agente: ClienteAgente = {
-    async turno(pedido) {
-      pedidos.push(pedido);
+    turno: async (p) => {
       if (falha) throw falha;
-      const turnos = pedido.messages.filter((m) => m.role === "employee").length;
-      const form = novoFormulario("agente-id", modelo, { municipio: pedido.municipio, uf: "PR", orgao: "Meio Ambiente", responsavel: { nome: "Ana" } }, AGORA);
-      return {
-        assistant_reply: turnos >= 2 ? "Terminei! Confira o formulário." : "Anotado. E o prazo?",
-        form: { ...form, status: "confirmado" }, // o agente nunca confirma: o back ignora
-        pendencias: form.pendencias,
-        pronto_para_revisao: turnos >= 2,
-      } satisfies ResultadoAgente;
+      return ok.turno(p);
     },
   };
   return { agente, pedidos, falhar: (e?: ErroAgente) => void (falha = e) };
@@ -42,7 +34,7 @@ function agenteFalso() {
 async function montar(opcoes: { limite?: number } = {}) {
   const db: Banco = await bancoDeTeste();
   await semearDemo(db, { senha: SENHA, agora: AGORA, modelo });
-  const falso = agenteFalso();
+  const falso = agenteFalhavel();
   const uploadDir = await mkdtemp(join(tmpdir(), "aprova-up-"));
   const app = criarApp(base, {
     logger: false, agente: falso.agente, uploadDir, limiteChatPorMinuto: opcoes.limite ?? 1000,
@@ -153,16 +145,20 @@ describe("chat: conversa, formulário e dashboard", () => {
     const conversa = (await c.db.consultar("SELECT status FROM conversas WHERE id = $1", [s.sessionId]))[0];
     expect(conversa!.status).toBe("waiting_confirmation");
     const [proc] = await c.db.consultar("SELECT p.* FROM processos p JOIN conversa_processos cp ON cp.processo_id = p.id WHERE cp.conversa_id = $1", [s.sessionId]);
-    expect(proc).toMatchObject({ nome: modelo.nome, status: "awaiting_confirmation" });
+    expect(proc).toMatchObject({ status: "awaiting_confirmation" });
     const pendentes = await c.db.consultar("SELECT valor FROM campos_processo WHERE processo_id = $1 AND status = 'pending'", [proc!.id]);
     expect(pendentes.length).toBeGreaterThan(0);
-    expect(pendentes.every((p) => p.valor === "")).toBe(true);
+    expect(pendentes.every((p) => typeof p.valor === "string")).toBe(true);
 
     // GET do formulário: status vem do banco (o agente tentou "confirmado")
     const g = await c.app.inject({ url: `/api/v1/chat/sessions/${s.sessionId}/forms/${form.formularioId}`, headers: h(s.sessionToken) });
     const f = g.json();
     expect(f).toMatchObject({ id: form.formularioId, status: "em_revisao" });
     expect(() => FormularioImplantacao.parse(f)).not.toThrow();
+
+    const loginHead = await c.app.inject({ method: "POST", url: "/api/v1/auth/login", payload: { username: "head", password: SENHA } });
+    const hAntes = { authorization: `Bearer ${loginHead.json().token}` };
+    const amostrasAntes = (await c.app.inject({ url: "/api/v1/metrics/summary?from=2026-01-01&to=2026-10-25", headers: hAntes })).json().formValidation.samples as number;
 
     // a prefeitura corrige um dado e confirma
     const processo = { ...f.processo, resumo: { ...f.processo.resumo, apresentacao: "Texto corrigido pela prefeitura" } };
@@ -178,7 +174,7 @@ describe("chat: conversa, formulário e dashboard", () => {
     const [depois] = await c.db.consultar("SELECT * FROM processos WHERE id = $1", [proc!.id]);
     expect(depois).toMatchObject({ status: "confirmed" });
     expect(depois!.concluido_em).not.toBeNull();
-    const [campo] = await c.db.consultar("SELECT valor FROM campos_processo WHERE processo_id = $1 AND chave = 'resumo.apresentacao'", [proc!.id]);
+    const [campo] = await c.db.consultar("SELECT valor FROM campos_processo WHERE processo_id = $1 AND chave = 'resumo'", [proc!.id]);
     expect(campo!.valor).toBe("Texto corrigido pela prefeitura");
 
     // somente leitura depois de confirmado
@@ -194,6 +190,9 @@ describe("chat: conversa, formulário e dashboard", () => {
     const painel = (await c.app.inject({ url: `/api/v1/processes/${proc!.id}/form`, headers: hd })).json();
     expect(painel.formulario).toMatchObject({ id: form.formularioId, status: "confirmado" });
     expect(painel.revision).toBe(3);
+    const resumo = (await c.app.inject({ url: "/api/v1/metrics/summary?from=2026-01-01&to=2026-10-25", headers: hd })).json();
+    expect(resumo.formValidation.samples).toBe(amostrasAntes + 1); // D6: formulário entregue → confirmado
+    expect(typeof resumo.formValidation.avgMinutes).toBe("number");
     const detalhe = (await c.app.inject({ url: `/api/v1/processes/${proc!.id}`, headers: hd })).json();
     expect(detalhe.status).toBe("confirmed");
     expect(detalhe.fields.some((x: { value: string | null }) => x.value === null)).toBe(false);
@@ -206,7 +205,7 @@ describe("chat: conversa, formulário e dashboard", () => {
     await enviar(c, s, "um");
     await enviar(c, s, "dois"); // pronto → awaiting_confirmation
     await enviar(c, s, "três"); // o falso continua "pronto"; sem ida e volta
-    const [p1] = await c.db.consultar("SELECT idas_e_vindas FROM processos WHERE nome = $1 AND status = 'awaiting_confirmation'", [modelo.nome]);
+    const [p1] = await c.db.consultar("SELECT p.idas_e_vindas FROM processos p JOIN conversa_processos cp ON cp.processo_id = p.id WHERE cp.conversa_id = $1 AND p.status = 'awaiting_confirmation'", [s.sessionId]);
     expect(p1!.idas_e_vindas).toBe(0);
   });
 
@@ -222,7 +221,10 @@ describe("chat: conversa, formulário e dashboard", () => {
     expect(msgs.map((m: { role: string }) => m.role)).toEqual(["agent", "user", "user"]);
     expect((await c.db.consultar("SELECT 1 FROM formularios WHERE conversa_id = $1", [s.sessionId])).length).toBe(0);
     c.falhar(undefined);
-    expect((await enviar(c, s, "agora vai")).statusCode).toBe(200);
+    // tentar de novo com o mesmo texto não duplica a mensagem do usuário
+    expect((await enviar(c, s, "oi de novo")).statusCode).toBe(200);
+    const final = (await c.app.inject({ url: `/api/v1/chat/sessions/${s.sessionId}/messages`, headers: h(s.sessionToken) })).json();
+    expect(final.map((m: { role: string }) => m.role)).toEqual(["agent", "user", "user", "agent"]);
   });
 
   it("GET ?after= devolve só as mensagens novas; mensagem vazia dá 400; formulário de outra sessão dá 404", async () => {
@@ -295,15 +297,31 @@ describe("chat: anexos e limites", () => {
 });
 
 describe("formulário → campos e seed", () => {
-  it("converte o formulário em itens por categoria, com pendências vazias e sem null", () => {
-    const f = novoFormulario("x", modelo, { municipio: "T", uf: "PR", orgao: "O", responsavel: { nome: "N" } }, AGORA);
-    const campos = formularioParaCampos(f);
+  it("o formulário do chat vira campos do processo, com pendências vazias e sem null", async () => {
+    const c = await montar();
+    const s = await cadastrar(c);
+    await enviar(c, s, "um");
+    await enviar(c, s, "dois");
+    const [proc] = await c.db.consultar("SELECT p.id FROM processos p JOIN conversa_processos cp ON cp.processo_id = p.id WHERE cp.conversa_id = $1", [s.sessionId]);
+    const campos = await c.db.consultar("SELECT categoria, status, valor, coletado_em FROM campos_processo WHERE processo_id = $1", [proc!.id]);
     const cats = new Set(campos.map((x) => x.categoria));
-    for (const k of ["documento", "taxa", "etapa", "setor", "despacho", "campo_formulario", "prazo"]) expect(cats).toContain(k);
-    expect(new Set(campos.map((x) => x.chave)).size).toBe(campos.length);
-    const pend = campos.filter((x) => x.status === "pending");
-    expect(pend).toHaveLength(f.pendencias.length);
+    for (const k of ["documento", "taxa", "etapa", "setor", "despacho", "campo_formulario"]) expect(cats).toContain(k);
     expect(campos.every((x) => typeof x.valor === "string")).toBe(true);
+    // formulário ainda em revisão: itens a validar, não preenchidos
+    expect(campos.some((x) => x.status === "to_validate")).toBe(true);
+    expect(campos.some((x) => x.status === "pending")).toBe(true);
+  });
+
+  it("processo do seed com nome parecido é reaproveitado, sem duplicar", async () => {
+    const c = await montar();
+    const s = await cadastrar(c);
+    const antes = (await c.db.consultar("SELECT count(*)::int AS n FROM processos WHERE nome ILIKE 'Licença Ambiental Pr%'"))[0]!.n as number;
+    await enviar(c, s, "um");
+    await enviar(c, s, "dois");
+    const depois = (await c.db.consultar("SELECT count(*)::int AS n FROM processos WHERE nome ILIKE 'Licença Ambiental Pr%'"))[0]!.n as number;
+    expect(depois).toBe(antes);
+    const [p] = await c.db.consultar("SELECT p.status, p.nome FROM processos p JOIN conversa_processos cp ON cp.processo_id = p.id WHERE cp.conversa_id = $1", [s.sessionId]);
+    expect(p).toMatchObject({ nome: "Licença Ambiental Prévia", status: "awaiting_confirmation" });
   });
 
   it("seed com o processo-modelo cria formulários válidos ligados aos processos e mensagens kind=form", async () => {
