@@ -140,5 +140,5 @@ Base: `VITE_API_URL`. Todas retornam JSON; auth via `Authorization: Bearer <jwt>
 
 ## 7. Decisões
 
-Resolvidas: o implantador não usa o chat; o cálculo das métricas é do back (o front só exibe); anexos até 10 MB, 5 por mensagem; formulário é preenchido pelo agente no back.
+Resolvidas: **quem edita o formulário é a prefeitura** (campos já preenchidos pelo agente, editáveis; ex.: NOME [PREFEITURA DA VILA DOS HOBITTS] → ela corrige) e confirma no fim do chat; o implantador não usa o chat; o cálculo das métricas é do back (o front só exibe); anexos até 10 MB, 5 por mensagem; formulário é preenchido pelo agente no back.
 Em aberto (com o back): ver seção 10 de `BACKEND_CONTRACT.md` (tempo de resposta do agente, fórmulas das métricas, origem dos dados de reuniões).

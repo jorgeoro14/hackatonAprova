@@ -98,6 +98,7 @@ const loadSessions = (): Record<string, Session> => {
 }
 const saveSessions = (s: Record<string, Session>) => { try { localStorage.setItem(SESSIONS_KEY, JSON.stringify(s)) } catch { /* ignora */ } }
 
+const uploaded = new Map<string, Message['attachments'][number]>()
 const uid = () => Math.random().toString(36).slice(2, 10)
 const msg = (role: Message['role'], text: string, extra: Partial<Message> = {}): Message => ({
   id: uid(), role, kind: 'text', text, createdAt: new Date().toISOString(), attachments: [], ...extra,
@@ -262,7 +263,7 @@ export const handlers = [
     if (!s) return err(401, 'INVALID_SESSION', 'Sessão inválida')
     const b = (await request.json()) as { text: string; attachmentIds?: string[] }
     await delay(900)
-    const userMessage = msg('user', b.text)
+    const userMessage = msg('user', b.text, { attachments: (b.attachmentIds ?? []).flatMap((id) => uploaded.get(id) ?? []) })
     const agentMessage = msg('agent', agentScript[Math.min(s.userTurns, agentScript.length - 1)])
     s.userTurns++
     s.messages.push(userMessage, agentMessage)
@@ -274,7 +275,9 @@ export const handlers = [
     const file = (await request.formData()).get('file') as File
     if (file.size > 10 * 1024 * 1024) return err(413, 'FILE_TOO_LARGE', 'Arquivo maior que 10 MB')
     const id = `a-${uid()}`
-    return HttpResponse.json({ id, name: file.name, mimeType: file.type || 'application/octet-stream', sizeBytes: file.size, url: `/files/${id}` }, { status: 201 })
+    const att = { id, name: file.name, mimeType: file.type || 'application/octet-stream', sizeBytes: file.size, url: `/files/${id}` }
+    uploaded.set(id, att)
+    return HttpResponse.json(att, { status: 201 })
   }),
 ]
 

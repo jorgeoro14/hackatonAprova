@@ -1,10 +1,27 @@
+import { useQueryClient } from '@tanstack/react-query'
+import { useChatSessionStore } from '@/lib/api/authStore'
 import { ThemeScope } from '@/lib/theme/ThemeScope'
+import { ChatWindow } from '@/features/chat/ChatWindow'
+import { IdentifyFlow } from '@/features/chat/IdentifyFlow'
+import { useCallback } from 'react'
 
-/** Placeholder — implementado nas tasks T5–T7. Chat é sempre claro. */
+/** Chat público da prefeitura: sempre tema claro, sem login. */
 export function ChatPage() {
+  const { sessionId, sessionToken, contact, set, clear } = useChatSessionStore()
+  const qc = useQueryClient()
+
+  const exit = useCallback(() => {
+    qc.removeQueries({ queryKey: ['chat'] })
+    clear()
+  }, [qc, clear])
+
   return (
-    <ThemeScope fixed="light" className="grid place-items-center">
-      <p className="text-muted">Chat (T5–T7)</p>
+    <ThemeScope fixed="light">
+      {sessionId && sessionToken && contact ? (
+        <ChatWindow sessionId={sessionId} sessionToken={sessionToken} contact={contact} onExit={exit} />
+      ) : (
+        <IdentifyFlow onReady={set} />
+      )}
     </ThemeScope>
   )
 }

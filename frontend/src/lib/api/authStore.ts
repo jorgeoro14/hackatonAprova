@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { User } from '@/types/schemas'
+import type { Contact, User } from '@/types/schemas'
 
 interface AuthState {
   token: string | null
@@ -27,7 +27,8 @@ export const useAuthStore = create<AuthState>()(
 interface ChatSessionState {
   sessionId: string | null
   sessionToken: string | null
-  set: (s: { sessionId: string; sessionToken: string }) => void
+  contact: Contact | null
+  set: (s: { sessionId: string; sessionToken: string; contact: Contact }) => void
   clear: () => void
 }
 
@@ -36,8 +37,9 @@ export const useChatSessionStore = create<ChatSessionState>()(
     (set) => ({
       sessionId: null,
       sessionToken: null,
-      set: ({ sessionId, sessionToken }) => set({ sessionId, sessionToken }),
-      clear: () => set({ sessionId: null, sessionToken: null }),
+      contact: null,
+      set: ({ sessionId, sessionToken, contact }) => set({ sessionId, sessionToken, contact }),
+      clear: () => set({ sessionId: null, sessionToken: null, contact: null }),
     }),
     { name: 'aprova.chatSession' },
   ),
