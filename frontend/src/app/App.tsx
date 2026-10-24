@@ -2,7 +2,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { ApiError } from '@/lib/api/client'
 import { ChatPage } from '@/pages/ChatPage'
-import { DashboardPage } from '@/pages/DashboardPage'
+import { DashboardLayout } from '@/features/dashboard/shell/DashboardLayout'
+import { ClientsPage, OverviewPage, TeamPage } from '@/pages/dashboard/Placeholders'
+import { RequireAuth, RequireRole } from './guards'
 import { LoginPage } from '@/pages/LoginPage'
 import { UiShowcasePage } from '@/pages/UiShowcasePage'
 
@@ -25,7 +27,15 @@ export function App() {
           <Route path="/" element={<Navigate to="/chat" replace />} />
           <Route path="/chat" element={<ChatPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/dashboard/*" element={<DashboardPage />} />
+          <Route element={<RequireAuth />}>
+            <Route path="/dashboard" element={<DashboardLayout />}>
+              <Route index element={<OverviewPage />} />
+              <Route path="clients" element={<ClientsPage />} />
+              <Route element={<RequireRole role="head" />}>
+                <Route path="team" element={<TeamPage />} />
+              </Route>
+            </Route>
+          </Route>
           {import.meta.env.DEV && <Route path="/ui" element={<UiShowcasePage />} />}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

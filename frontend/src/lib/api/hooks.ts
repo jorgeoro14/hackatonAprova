@@ -71,7 +71,8 @@ export const useAddMeeting = (clientId: string) => {
   })
 }
 
-export const useImplementers = () => useQuery({ queryKey: qk.implementers, queryFn: implementersApi.list })
+export const useImplementers = (enabled = true) =>
+  useQuery({ queryKey: qk.implementers, queryFn: implementersApi.list, enabled })
 
 export const useImplementer = (id: string) =>
   useQuery({ queryKey: qk.implementer(id), queryFn: () => implementersApi.get(id) })

@@ -134,7 +134,7 @@ export const handlers = [
     const u = users.find((x) => x.username === username.trim().toLowerCase())
     if (!u || password !== PASSWORD) return err(401, 'INVALID_CREDENTIALS', 'Usuário ou senha inválidos')
     const { password: _pw, ...user } = u
-    return HttpResponse.json({ token: tokenFor(u.id), expiresAt: new Date(NOW + 8 * 3_600_000).toISOString(), user })
+    return HttpResponse.json({ token: tokenFor(u.id), expiresAt: new Date(Date.now() + 8 * 3_600_000).toISOString(), user })
   }),
   http.get(url('/auth/me'), authed(({ user }) => {
     const { password: _pw, ...u } = user
