@@ -25,3 +25,6 @@ skills-lock.json
 # Municipal source documents, corpus manifests, chunks and vector indexes stay local.
 agents/data/
 agents/.local/
+agents/tests/rag/analysis/*
+!agents/tests/rag/analysis/README.md
+.langgraph_api/

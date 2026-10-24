@@ -1,0 +1,10 @@
+{
+  "dependencies": ["./agents"],
+  "graphs": {
+    "requirements": "./agents/app/requirements/server.py:create_demo_graph"
+  },
+  "env": {
+    "LANGSMITH_TRACING": "false",
+    "LANGGRAPH_STRICT_MSGPACK": "true"
+  }
+}

@@ -1,0 +1,952 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<title>IPC &#8211; Instituto de Planejamento de Cascavel</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel="alternate" type="application/rss+xml" title="Feed para IPC &raquo;" href="https://ipc.cascavel.pr.gov.br/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para IPC &raquo;" href="https://ipc.cascavel.pr.gov.br/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para IPC &raquo; Home" href="https://ipc.cascavel.pr.gov.br/home/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://ipc.cascavel.pr.gov.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fipc.cascavel.pr.gov.br%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://ipc.cascavel.pr.gov.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fipc.cascavel.pr.gov.br%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-styles-placeholder-inline-css">
+:root { --wp-internal-comment: "Placeholder for wp_hoist_late_printed_styles() to replace with the block styles printed at wp_footer." }
+/*# sourceURL=wp-block-styles-placeholder-inline-css */
+</style>
+<link rel='stylesheet' id='jet-engine-frontend-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/jet-engine/assets/css/frontend.css?ver=3.9.0' media='all' />
+<style id="wp-global-styles-placeholder-inline-css">
+:root { --wp-internal-comment: "Placeholder for wp_hoist_late_printed_styles() to replace with the global-styles printed at wp_footer." }
+/*# sourceURL=wp-global-styles-placeholder-inline-css */
+</style>
+<link rel='stylesheet' id='hello-elementor-css' href='https://ipc.cascavel.pr.gov.br/wp-content/themes/hello-elementor/assets/css/reset.css?ver=3.5.1' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://ipc.cascavel.pr.gov.br/wp-content/themes/hello-elementor/assets/css/theme.css?ver=3.5.1' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='https://ipc.cascavel.pr.gov.br/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=3.5.1' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=4.3.5' media='all' />
+<link rel='stylesheet' id='elementor-post-7-css' href='https://ipc.cascavel.pr.gov.br/wp-content/uploads/elementor/css/post-7.css?ver=1792112386' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.3.5' media='all' />
+<link rel='stylesheet' id='widget-nav-menu-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css?ver=4.1.2' media='all' />
+<link rel='stylesheet' id='widget-search-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor-pro/assets/css/widget-search.min.css?ver=4.1.2' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.3.5' media='all' />
+<link rel='stylesheet' id='widget-google_maps-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/css/widget-google_maps.min.css?ver=4.3.5' media='all' />
+<link rel='stylesheet' id='widget-form-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor-pro/assets/css/widget-form.min.css?ver=4.1.2' media='all' />
+<link rel='stylesheet' id='widget-icon-list-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=4.3.5' media='all' />
+<link rel='stylesheet' id='widget-social-icons-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=4.3.5' media='all' />
+<link rel='stylesheet' id='e-apple-webkit-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=4.3.5' media='all' />
+<link rel='stylesheet' id='widget-divider-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/css/widget-divider.min.css?ver=4.3.5' media='all' />
+<link rel='stylesheet' id='widget-nested-accordion-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/css/widget-nested-accordion.min.css?ver=4.3.5' media='all' />
+<link rel='stylesheet' id='elementor-post-2-css' href='https://ipc.cascavel.pr.gov.br/wp-content/uploads/elementor/css/post-2.css?ver=1792112386' media='all' />
+<link rel='stylesheet' id='elementor-post-52-css' href='https://ipc.cascavel.pr.gov.br/wp-content/uploads/elementor/css/post-52.css?ver=1792112386' media='all' />
+<link rel='stylesheet' id='elementor-post-90-css' href='https://ipc.cascavel.pr.gov.br/wp-content/uploads/elementor/css/post-90.css?ver=1792112386' media='all' />
+<link rel='stylesheet' id='elementor-post-65-css' href='https://ipc.cascavel.pr.gov.br/wp-content/uploads/elementor/css/post-65.css?ver=1792112386' media='all' />
+<link rel='stylesheet' id='elementor-post-174-css' href='https://ipc.cascavel.pr.gov.br/wp-content/uploads/elementor/css/post-174.css?ver=1792112386' media='all' />
+<link rel='stylesheet' id='elementor-gf-geologica-css' href='https://fonts.googleapis.com/css?family=Geologica:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&#038;display=swap' media='all' />
+<link rel='stylesheet' id='elementor-gf-robotoslab-css' href='https://fonts.googleapis.com/css?family=Roboto+Slab:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&#038;display=swap' media='all' />
+<script id="jquery-core-js" src="https://ipc.cascavel.pr.gov.br/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://ipc.cascavel.pr.gov.br/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<link rel="https://api.w.org/" href="https://ipc.cascavel.pr.gov.br/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://ipc.cascavel.pr.gov.br/wp-json/wp/v2/pages/2" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://ipc.cascavel.pr.gov.br/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.3" />
+<link rel="canonical" href="https://ipc.cascavel.pr.gov.br/" />
+<link rel='shortlink' href='https://ipc.cascavel.pr.gov.br/' />
+<meta name="cdp-version" content="1.5.7" /><meta name="generator" content="Elementor 4.3.5; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/favicon.png" sizes="32x32" />
+<link rel="icon" href="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/favicon.png" />
+<meta name="msapplication-TileImage" content="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/favicon.png" />
+</head>
+<body class="home wp-singular page-template page-template-elementor_header_footer page page-id-2 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor eio-default hello-elementor-default elementor-default elementor-template-full-width elementor-kit-7 elementor-page elementor-page-2">
+
+
+<a class="skip-link screen-reader-text" href="#content">Ir para o conteúdo</a>
+
+		<header data-elementor-type="header" data-elementor-id="65" class="elementor elementor-65 elementor-location-header" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-c4ec527 e-con-full e-flex e-con e-parent" data-id="c4ec527" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-b23b412 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="b23b412" data-element_type="widget" data-e-type="widget" data-widget_type="theme-site-logo.default">
+											<a href="https://ipc.cascavel.pr.gov.br">
+			<img width="101" height="85" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/logo-ipc.png" class="attachment-full size-full wp-image-13" alt="" />				</a>
+											</div>
+				<div class="elementor-element elementor-element-dbbd7ae elementor-nav-menu--dropdown-none elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-nav-menu" data-id="dbbd7ae" data-element_type="widget" data-e-type="widget" data-settings="{&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-angle-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;layout&quot;:&quot;horizontal&quot;}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-dbbd7ae" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-has-children menu-item-37"><a href="https://ipc.cascavel.pr.gov.br/" aria-current="page" class="elementor-item elementor-item-active">IPC</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38"><a href="https://ipc.cascavel.pr.gov.br/sobre-nos/" class="elementor-sub-item">Sobre nós</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42"><a href="https://ipc.cascavel.pr.gov.br/atribuicoes/" class="elementor-sub-item">Atribuições</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39"><a href="https://ipc.cascavel.pr.gov.br/diretoria/" class="elementor-sub-item">Gestão</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43"><a href="https://ipc.cascavel.pr.gov.br/departamentos/" class="elementor-sub-item">Departamentos</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="https://ipc.cascavel.pr.gov.br/organograma/" class="elementor-sub-item">Organograma</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="https://ipc.cascavel.pr.gov.br/perguntas-frequentes/" class="elementor-sub-item">Perguntas Frequentes</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-46"><a href="https://cascavel.atende.net/transparencia/item/licitacoes-gerais" class="elementor-sub-item">Licitações</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"><a href="https://ipc.cascavel.pr.gov.br/obras-executadas/" class="elementor-sub-item">Obras Executadas</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-378"><a href="https://ipc.cascavel.pr.gov.br/ex-presidentes/" class="elementor-sub-item">Ex-Presidentes</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-580"><a href="https://ipc.cascavel.pr.gov.br/projetos/" class="elementor-item">Projetos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-337"><a href="https://ipc.cascavel.pr.gov.br/noticias/" class="elementor-item">Notícias</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-440"><a href="https://ipc.cascavel.pr.gov.br/legislacao/" class="elementor-item">Legislação</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-730"><a href="https://ipc.cascavel.pr.gov.br/downloads/" class="elementor-item">Downloads</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1085"><a href="https://ipc.cascavel.pr.gov.br/plano-diretor-2027-2037/" class="elementor-item">Plano Diretor 2027-2037</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1236"><a href="https://ipc.cascavel.pr.gov.br/diagnostico-participativo/" class="elementor-sub-item">Diagnóstico Participativo</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1096"><a href="https://docs.google.com/forms/d/e/1FAIpQLSe8qOiSARLvDJUqlBarQf8fRS0q_pZ390MbWzIFWjtlOAOA4A/viewform" class="elementor-sub-item">Diagnóstico Participativo</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-categoria-noticias menu-item-1205"><a href="https://ipc.cascavel.pr.gov.br/categoria-noticias/audiencias-publicas/" class="elementor-sub-item">Audiências Públicas Plano Diretor</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-categoria-noticias menu-item-1208"><a href="https://ipc.cascavel.pr.gov.br/categoria-noticias/reunioes-nos-bairros/" class="elementor-sub-item">Reuniões nos Bairros</a></li>
+</ul>
+</li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-dbbd7ae" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-has-children menu-item-37"><a href="https://ipc.cascavel.pr.gov.br/" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">IPC</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38"><a href="https://ipc.cascavel.pr.gov.br/sobre-nos/" class="elementor-sub-item" tabindex="-1">Sobre nós</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42"><a href="https://ipc.cascavel.pr.gov.br/atribuicoes/" class="elementor-sub-item" tabindex="-1">Atribuições</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39"><a href="https://ipc.cascavel.pr.gov.br/diretoria/" class="elementor-sub-item" tabindex="-1">Gestão</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43"><a href="https://ipc.cascavel.pr.gov.br/departamentos/" class="elementor-sub-item" tabindex="-1">Departamentos</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="https://ipc.cascavel.pr.gov.br/organograma/" class="elementor-sub-item" tabindex="-1">Organograma</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="https://ipc.cascavel.pr.gov.br/perguntas-frequentes/" class="elementor-sub-item" tabindex="-1">Perguntas Frequentes</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-46"><a href="https://cascavel.atende.net/transparencia/item/licitacoes-gerais" class="elementor-sub-item" tabindex="-1">Licitações</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"><a href="https://ipc.cascavel.pr.gov.br/obras-executadas/" class="elementor-sub-item" tabindex="-1">Obras Executadas</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-378"><a href="https://ipc.cascavel.pr.gov.br/ex-presidentes/" class="elementor-sub-item" tabindex="-1">Ex-Presidentes</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-580"><a href="https://ipc.cascavel.pr.gov.br/projetos/" class="elementor-item" tabindex="-1">Projetos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-337"><a href="https://ipc.cascavel.pr.gov.br/noticias/" class="elementor-item" tabindex="-1">Notícias</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-440"><a href="https://ipc.cascavel.pr.gov.br/legislacao/" class="elementor-item" tabindex="-1">Legislação</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-730"><a href="https://ipc.cascavel.pr.gov.br/downloads/" class="elementor-item" tabindex="-1">Downloads</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1085"><a href="https://ipc.cascavel.pr.gov.br/plano-diretor-2027-2037/" class="elementor-item" tabindex="-1">Plano Diretor 2027-2037</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1236"><a href="https://ipc.cascavel.pr.gov.br/diagnostico-participativo/" class="elementor-sub-item" tabindex="-1">Diagnóstico Participativo</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1096"><a href="https://docs.google.com/forms/d/e/1FAIpQLSe8qOiSARLvDJUqlBarQf8fRS0q_pZ390MbWzIFWjtlOAOA4A/viewform" class="elementor-sub-item" tabindex="-1">Diagnóstico Participativo</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-categoria-noticias menu-item-1205"><a href="https://ipc.cascavel.pr.gov.br/categoria-noticias/audiencias-publicas/" class="elementor-sub-item" tabindex="-1">Audiências Públicas Plano Diretor</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-categoria-noticias menu-item-1208"><a href="https://ipc.cascavel.pr.gov.br/categoria-noticias/reunioes-nos-bairros/" class="elementor-sub-item" tabindex="-1">Reuniões nos Bairros</a></li>
+</ul>
+</li>
+</ul>			</nav>
+						</div>
+				<div class="elementor-element elementor-element-68452f1 elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-button" data-id="68452f1" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://geocascavel.cascavel.pr.gov.br/geo-view/index.ctm" target="_blank">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">GeoCascavel</span>
+					</span>
+					</a>
+								</div>
+				<div class="elementor-element elementor-element-9635c3c elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-button" data-id="9635c3c" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://cascavel.aprova.com.br/home" target="_blank">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Aprova Digital</span>
+					</span>
+					</a>
+								</div>
+				<div class="elementor-element elementor-element-8ea1205 elementor-widget__width-initial elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-search" data-id="8ea1205" data-element_type="widget" data-e-type="widget" data-settings="{&quot;submit_trigger&quot;:&quot;key_enter&quot;,&quot;pagination_type_options&quot;:&quot;none&quot;}" data-widget_type="search.default">
+							<search class="e-search hidden" role="search">
+			<form class="e-search-form" action="https://ipc.cascavel.pr.gov.br" method="get">
+
+				
+				<label class="e-search-label" for="search-8ea1205">
+					<span class="elementor-screen-only">
+						Pesquisar					</span>
+					<svg aria-hidden="true" class="e-font-icon-svg e-fas-search" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>				</label>
+
+				<div class="e-search-input-wrapper">
+					<input id="search-8ea1205" placeholder="Pesquisar" class="e-search-input" type="search" name="s" value="" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="results-8ea1205" aria-haspopup="listbox">
+					<svg aria-hidden="true" class="e-font-icon-svg e-fas-times" viewBox="0 0 352 512" xmlns="http://www.w3.org/2000/svg"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>										<output id="results-8ea1205" class="e-search-results-container hide-loader" aria-live="polite" aria-atomic="true" aria-label="Resultados da pesquisa" tabindex="0">
+						<div class="e-search-results"></div>
+											</output>
+									</div>
+				
+				
+				<button class="e-search-submit elementor-screen-only " type="submit" aria-label="Pesquisar">
+					
+									</button>
+				<input type="hidden" name="e_search_props" value="8ea1205-65">
+			</form>
+		</search>
+						</div>
+				<div class="elementor-element elementor-element-758acea elementor-hidden-desktop elementor-view-default elementor-widget elementor-widget-icon" data-id="758acea" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjQwMiIsInRvZ2dsZSI6ZmFsc2V9">
+			<svg aria-hidden="true" class="e-font-icon-svg e-fas-bars" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>			</a>
+		</div>
+						</div>
+				</div>
+				</header>
+				<div data-elementor-type="wp-page" data-elementor-id="2" class="elementor elementor-2" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-ff73810 e-con-full jedv-enabled--yes e-flex e-con e-parent" data-id="ff73810" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-8b92143 elementor-widget elementor-widget-jet-listing-grid" data-id="8b92143" data-element_type="widget" data-e-type="widget" data-settings="{&quot;columns&quot;:&quot;1&quot;}" data-widget_type="jet-listing-grid.default">
+					<div class="jet-listing-grid jet-listing"><div class="jet-listing-grid__slider swiper-lib swiper" data-slider_options="{&quot;autoplaySpeed&quot;:5000,&quot;autoplay&quot;:true,&quot;pauseOnHover&quot;:true,&quot;infinite&quot;:true,&quot;centerMode&quot;:false,&quot;speed&quot;:500,&quot;arrows&quot;:true,&quot;dots&quot;:false,&quot;slidesToScroll&quot;:1,&quot;prevArrow&quot;:&quot;\u003Cdiv class=\u0027jet-listing-grid__slider-icon prev-arrow \u0027 role=\u0027button\u0027 aria-label=\u0027Previous\u0027\u003E\u003Csvg width=\u0027180\u0027 height=\u0027180\u0027 viewBox=\u00270 0 180 180\u0027 fill=\u0027none\u0027 xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027\u003E\u003Cpath d=\u0027M119 47.3166C119 48.185 118.668 48.9532 118.003 49.6212L78.8385 89L118.003 128.379C118.668 129.047 119 129.815 119 130.683C119 131.552 118.668 132.32 118.003 132.988L113.021 137.998C112.356 138.666 111.592 139 110.729 139C109.865 139 109.101 138.666 108.436 137.998L61.9966 91.3046C61.3322 90.6366 61 89.8684 61 89C61 88.1316 61.3322 87.3634 61.9966 86.6954L108.436 40.002C109.101 39.334 109.865 39 110.729 39C111.592 39 112.356 39.334 113.021 40.002L118.003 45.012C118.668 45.68 119 46.4482 119 47.3166Z\u0027 fill=\u0027black\u0027\/\u003E\u003C\/svg\u003E\u003C\/div\u003E&quot;,&quot;nextArrow&quot;:&quot;\u003Cdiv class=\u0027jet-listing-grid__slider-icon next-arrow \u0027 role=\u0027button\u0027 aria-label=\u0027Next\u0027\u003E\u003Csvg width=\u0027180\u0027 height=\u0027180\u0027 viewBox=\u00270 0 180 180\u0027 fill=\u0027none\u0027 xmlns=\u0027http:\/\/www.w3.org\/2000\/svg\u0027\u003E\u003Cpath d=\u0027M119 47.3166C119 48.185 118.668 48.9532 118.003 49.6212L78.8385 89L118.003 128.379C118.668 129.047 119 129.815 119 130.683C119 131.552 118.668 132.32 118.003 132.988L113.021 137.998C112.356 138.666 111.592 139 110.729 139C109.865 139 109.101 138.666 108.436 137.998L61.9966 91.3046C61.3322 90.6366 61 89.8684 61 89C61 88.1316 61.3322 87.3634 61.9966 86.6954L108.436 40.002C109.101 39.334 109.865 39 110.729 39C111.592 39 112.356 39.334 113.021 40.002L118.003 45.012C118.668 45.68 119 46.4482 119 47.3166Z\u0027 fill=\u0027black\u0027\/\u003E\u003C\/svg\u003E\u003C\/div\u003E&quot;,&quot;rtl&quot;:false,&quot;itemsCount&quot;:3,&quot;fade&quot;:false,&quot;slidesToShow&quot;:{&quot;desktop&quot;:1,&quot;tablet&quot;:1,&quot;mobile&quot;:1}}" dir="ltr"><div class="jet-listing-grid__items grid-col-desk-1 grid-col-tablet-1 grid-col-mobile-1 jet-listing-grid--52 swiper-wrapper" data-queried-id="2|WP_Post" data-nav="{&quot;enabled&quot;:false,&quot;type&quot;:null,&quot;more_el&quot;:null,&quot;query&quot;:{&quot;allowed_query_ids&quot;:[&quot;&quot;],&quot;signature&quot;:&quot;ab3ebed148a346c87dad504eef07b66634d0ce3346859f76493e843e77277a18&quot;},&quot;widget_settings&quot;:{&quot;lisitng_id&quot;:52,&quot;posts_num&quot;:6,&quot;columns&quot;:1,&quot;columns_tablet&quot;:1,&quot;columns_mobile&quot;:1,&quot;column_min_width&quot;:240,&quot;column_min_width_tablet&quot;:240,&quot;column_min_width_mobile&quot;:240,&quot;inline_columns_css&quot;:false,&quot;is_archive_template&quot;:&quot;&quot;,&quot;post_status&quot;:[&quot;publish&quot;],&quot;use_random_posts_num&quot;:&quot;&quot;,&quot;max_posts_num&quot;:9,&quot;not_found_message&quot;:&quot;No data was found&quot;,&quot;is_masonry&quot;:false,&quot;equal_columns_height&quot;:&quot;&quot;,&quot;use_load_more&quot;:&quot;&quot;,&quot;load_more_id&quot;:&quot;&quot;,&quot;load_more_type&quot;:&quot;click&quot;,&quot;load_more_offset&quot;:null,&quot;use_custom_post_types&quot;:&quot;&quot;,&quot;custom_post_types&quot;:[],&quot;hide_widget_if&quot;:&quot;&quot;,&quot;carousel_enabled&quot;:&quot;yes&quot;,&quot;slides_to_scroll&quot;:&quot;1&quot;,&quot;arrows&quot;:&quot;true&quot;,&quot;arrow_icon&quot;:&quot;fa fa-angle-left&quot;,&quot;dots&quot;:&quot;&quot;,&quot;autoplay&quot;:&quot;true&quot;,&quot;pause_on_hover&quot;:&quot;true&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;true&quot;,&quot;center_mode&quot;:&quot;&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500,&quot;inject_alternative_items&quot;:&quot;&quot;,&quot;injection_items&quot;:[],&quot;scroll_slider_enabled&quot;:&quot;&quot;,&quot;scroll_slider_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;custom_query&quot;:false,&quot;custom_query_id&quot;:&quot;&quot;,&quot;_element_id&quot;:&quot;&quot;,&quot;collapse_first_last_gap&quot;:false,&quot;list_tag_selection&quot;:&quot;&quot;,&quot;list_items_wrapper_tag&quot;:&quot;div&quot;,&quot;list_item_tag&quot;:&quot;div&quot;,&quot;empty_items_wrapper_tag&quot;:&quot;div&quot;,&quot;_jet_engine_settings_signature&quot;:&quot;c425fb88118bc4e3b709f641235e3f2d056d226e94028acd1347d73d763db78c&quot;}}" data-page="1" data-pages="1" data-listing-source="posts" data-listing-id="52" data-query-id=""><div class="jet-listing-grid__item swiper-slide jet-listing-dynamic-post-1299 elementor-dcss-32041472423672792" data-post-id="1299"  ><style type="text/css">:is( .jet-listing-dynamic-post-1299:not( [class*="elementor-dcss-"] ), .elementor-dcss-32041472423672792 ) .elementor-element.elementor-element-4c94bd7:not(.elementor-motion-effects-element-type-background), :is( .jet-listing-dynamic-post-1299:not( [class*="elementor-dcss-"] ), .elementor-dcss-32041472423672792 ) .elementor-element.elementor-element-4c94bd7 > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-image:url("https://ipc.cascavel.pr.gov.br/wp-content/uploads/2026/05/LOTEAMENTO-DE-ACESSO-DE-CONTROLADO-1.jpg");}</style>		<div data-elementor-type="jet-listing-items" data-elementor-id="52" class="elementor elementor-52" data-elementor-post-type="jet-engine">
+				<div class="elementor-element elementor-element-4c94bd7 e-flex e-con-boxed e-con e-parent" data-id="4c94bd7" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d4a5625 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="d4a5625" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-title.default">
+					<h1 class="elementor-heading-title elementor-size-default">Audiência Pública: LOTEAMENTO DE ACESSO CONTROLADO</h1>				</div>
+				<div class="elementor-element elementor-element-b950d45 elementor-widget__width-initial elementor-widget-tablet__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="b950d45" data-element_type="widget" data-e-type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content" ><p><span style="color: #ffffff; text-shadow: 2px 2px 4px #000000;">O Instituto de Planejamento de Cascavel apresentará em audiência pública a minuta de projeto de lei que institui a modalidade de <b data-path-to-node="3,0" data-index-in-node="137">Loteamento de Acesso Controlado</b> . A iniciativa responde à demanda por novos modelos urbanísticos pautados na escala humana, inspirados em experiências consolidadas de bairros planejados no país.</span></p>
+<div><span style="color: #ffffff; text-shadow: 2px 2px 4px #000000;">A audiência pública ocorrerá:</span></div>
+<ul data-path-to-node="7">
+<li>
+<div><span style="color: #ffffff; text-shadow: 2px 2px 4px #000000;"><b data-path-to-node="7,0,0" data-index-in-node="0">Data:</b> 23 de novembro de 2026</span></div>
+</li>
+<li>
+<div><span style="color: #ffffff; text-shadow: 2px 2px 4px #000000;"><b data-path-to-node="7,1,0" data-index-in-node="0">Horário:</b> 18h00</span></div>
+</li>
+<li>
+<div><span style="color: #ffffff; text-shadow: 2px 2px 4px #000000;"><b data-path-to-node="7,2,0" data-index-in-node="0">Local:</b> Plenário da Câmara Municipal de Vereadores de Cascavel</span></div>
+</li>
+</ul>
+</div></div></div>				</div>
+				<div class="elementor-element elementor-element-2b673cc elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="2b673cc" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://ipc.cascavel.pr.gov.br/projeto/loteamento-de-acesso-controlado/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</span>
+									<span class="elementor-button-text">👉 Clique aqui para saber mais:</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+				</div>
+		</div><div class="jet-listing-grid__item swiper-slide jet-listing-dynamic-post-981 elementor-dcss-32041472444247192" data-post-id="981"  ><style type="text/css">:is( .jet-listing-dynamic-post-981:not( [class*="elementor-dcss-"] ), .elementor-dcss-32041472444247192 ) .elementor-element.elementor-element-4c94bd7:not(.elementor-motion-effects-element-type-background), :is( .jet-listing-dynamic-post-981:not( [class*="elementor-dcss-"] ), .elementor-dcss-32041472444247192 ) .elementor-element.elementor-element-4c94bd7 > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-image:url("https://ipc.cascavel.pr.gov.br/wp-content/uploads/2026/05/IMAGEM-SITE-ESTUDOS-DOS-BAIRROS.jpg");}</style>		<div data-elementor-type="jet-listing-items" data-elementor-id="52" class="elementor elementor-52" data-elementor-post-type="jet-engine">
+				<div class="elementor-element elementor-element-4c94bd7 e-flex e-con-boxed e-con e-parent" data-id="4c94bd7" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d4a5625 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="d4a5625" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-title.default">
+					<h1 class="elementor-heading-title elementor-size-default">📍 PARTICIPAÇÃO: PLANO DIRETOR DE CASCAVEL 2027</h1>				</div>
+				<div class="elementor-element elementor-element-b950d45 elementor-widget__width-initial elementor-widget-tablet__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="b950d45" data-element_type="widget" data-e-type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content" ><p><span style="color: #ffffff; text-shadow: 3px 3px 2px rgba(0, 0, 0, 2);">O Instituto de Planejamento de Cascavel quer ouvir você! Estamos revisando o <strong>Plano Diretor</strong> e as regras da nossa cidade.</span></p>
+<p><span style="color: #ffffff; text-shadow: 3px 3px 2px rgba(0, 0, 0, 2);">Não deixe que os outros decidam por você. O que é prioridade no seu bairro? Melhores calçadas? Mais praças? Mais árvores?</span></p>
+<p><span style="color: #ffffff; text-shadow: 3px 3px 2px rgba(0, 0, 0, 2);">O formulário é muito rápido (prometemos! ⏱️) e você só precisa escolher <strong>3 itens</strong>.</span></p>
+</div></div></div>				</div>
+				<div class="elementor-element elementor-element-2b673cc elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="2b673cc" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://forms.gle/AmJPvGAG84MqS6Fe8">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</span>
+									<span class="elementor-button-text">👉 Clique aqui para responder:</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+				</div>
+		</div><div class="jet-listing-grid__item swiper-slide jet-listing-dynamic-post-50 elementor-dcss-32041472460744648" data-post-id="50"  ><style type="text/css">:is( .jet-listing-dynamic-post-50:not( [class*="elementor-dcss-"] ), .elementor-dcss-32041472460744648 ) .elementor-element.elementor-element-4c94bd7:not(.elementor-motion-effects-element-type-background), :is( .jet-listing-dynamic-post-50:not( [class*="elementor-dcss-"] ), .elementor-dcss-32041472460744648 ) .elementor-element.elementor-element-4c94bd7 > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-image:url("https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/Imagem_Banner-01.jpg");}</style>		<div data-elementor-type="jet-listing-items" data-elementor-id="52" class="elementor elementor-52" data-elementor-post-type="jet-engine">
+				<div class="elementor-element elementor-element-4c94bd7 e-flex e-con-boxed e-con e-parent" data-id="4c94bd7" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d4a5625 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="d4a5625" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-title.default">
+					<h1 class="elementor-heading-title elementor-size-default">Planejar o presente para construir o futuro de Cascavel</h1>				</div>
+				<div class="elementor-element elementor-element-b950d45 elementor-widget__width-initial elementor-widget-tablet__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="b950d45" data-element_type="widget" data-e-type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content" ><p>O Instituto de Planejamento de Cascavel é o órgão técnico responsável por integrar estudos e projetos que orientam o desenvolvimento urbano e sustentável do município.</p>
+</div></div></div>				</div>
+				<div class="elementor-element elementor-element-2b673cc elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="2b673cc" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://ipc.cascavel.pr.gov.br/sobre-nos/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</span>
+									<span class="elementor-button-text">Conheça o IPC</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+				</div>
+		</div></div></div></div>				</div>
+				</div>
+		<div class="elementor-element elementor-element-b721cd4 e-flex e-con-boxed e-con e-parent" data-id="b721cd4" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-d11e3d5 elementor-widget elementor-widget-heading" data-id="d11e3d5" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h4 class="elementor-heading-title elementor-size-default">NOTÍCIAS</h4>				</div>
+				<div class="elementor-element elementor-element-b02970e elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="b02970e" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Acompanhe as ações, projetos e comunicados do instituto.</h2>				</div>
+				<div class="elementor-element elementor-element-0c5b609 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="0c5b609" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-6cc5f07 elementor-widget elementor-widget-jet-listing-grid" data-id="6cc5f07" data-element_type="widget" data-e-type="widget" data-settings="{&quot;columns_tablet&quot;:&quot;2&quot;,&quot;columns_mobile&quot;:&quot;1&quot;,&quot;columns&quot;:3}" data-widget_type="jet-listing-grid.default">
+					<div class="jet-listing-grid jet-listing"><div class="jet-listing-grid__items grid-col-desk-3 grid-col-tablet-2 grid-col-mobile-1 jet-listing-grid--90" data-queried-id="2|WP_Post" data-nav="{&quot;enabled&quot;:false,&quot;type&quot;:null,&quot;more_el&quot;:null,&quot;query&quot;:{&quot;allowed_query_ids&quot;:[&quot;&quot;],&quot;signature&quot;:&quot;ab3ebed148a346c87dad504eef07b66634d0ce3346859f76493e843e77277a18&quot;},&quot;widget_settings&quot;:{&quot;lisitng_id&quot;:90,&quot;posts_num&quot;:3,&quot;columns&quot;:3,&quot;columns_tablet&quot;:2,&quot;columns_mobile&quot;:1,&quot;column_min_width&quot;:240,&quot;column_min_width_tablet&quot;:240,&quot;column_min_width_mobile&quot;:240,&quot;inline_columns_css&quot;:false,&quot;is_archive_template&quot;:&quot;&quot;,&quot;post_status&quot;:[&quot;publish&quot;],&quot;use_random_posts_num&quot;:&quot;&quot;,&quot;max_posts_num&quot;:9,&quot;not_found_message&quot;:&quot;No data was found&quot;,&quot;is_masonry&quot;:false,&quot;equal_columns_height&quot;:&quot;&quot;,&quot;use_load_more&quot;:&quot;&quot;,&quot;load_more_id&quot;:&quot;&quot;,&quot;load_more_type&quot;:&quot;click&quot;,&quot;load_more_offset&quot;:null,&quot;use_custom_post_types&quot;:&quot;&quot;,&quot;custom_post_types&quot;:[],&quot;hide_widget_if&quot;:&quot;&quot;,&quot;carousel_enabled&quot;:&quot;&quot;,&quot;slides_to_scroll&quot;:&quot;1&quot;,&quot;arrows&quot;:&quot;true&quot;,&quot;arrow_icon&quot;:&quot;fa fa-angle-left&quot;,&quot;dots&quot;:&quot;&quot;,&quot;autoplay&quot;:&quot;true&quot;,&quot;pause_on_hover&quot;:&quot;true&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;true&quot;,&quot;center_mode&quot;:&quot;&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500,&quot;inject_alternative_items&quot;:&quot;&quot;,&quot;injection_items&quot;:[],&quot;scroll_slider_enabled&quot;:&quot;&quot;,&quot;scroll_slider_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;custom_query&quot;:false,&quot;custom_query_id&quot;:&quot;&quot;,&quot;_element_id&quot;:&quot;&quot;,&quot;collapse_first_last_gap&quot;:false,&quot;list_tag_selection&quot;:&quot;&quot;,&quot;list_items_wrapper_tag&quot;:&quot;div&quot;,&quot;list_item_tag&quot;:&quot;div&quot;,&quot;empty_items_wrapper_tag&quot;:&quot;div&quot;,&quot;_jet_engine_settings_signature&quot;:&quot;7b76ae53dbfae47a30bb905d8bb7ea342eb735bbee51d6d7b5437bc630b19631&quot;}}" data-page="1" data-pages="9" data-listing-source="posts" data-listing-id="90" data-query-id=""><div class="jet-listing-grid__item jet-listing-dynamic-post-1292 elementor-dcss-32041472483291480" data-post-id="1292"  >		<div data-elementor-type="jet-listing-items" data-elementor-id="90" class="elementor elementor-90" data-elementor-post-type="jet-engine">
+				<div class="elementor-element elementor-element-8eb9033 e-flex e-con-boxed e-con e-parent" data-id="8eb9033" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-c53eb33 elementor-widget elementor-widget-theme-post-featured-image elementor-widget-image" data-id="c53eb33" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-featured-image.default">
+																<a href="https://ipc.cascavel.pr.gov.br/noticia/planejamento-urbano-ipc-inicia-debate-sobre-lei-de-loteamentos-de-acesso-controlado-em-cascavel/">
+							<img decoding="async" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/elementor/thumbs/WhatsApp-Image-2026-10-07-at-13_00_20-rukf0t22t6l9dj3j0mvsy75qd3fs31wbqp78ivv5tc.jpeg" title="WhatsApp Image 2026-10-07 at 13_00_20" alt="WhatsApp Image 2026-10-07 at 13_00_20" loading="lazy" />								</a>
+															</div>
+				<div class="elementor-element elementor-element-ec68265 elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="ec68265" data-element_type="widget" data-e-type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content" >08/10/2026</div></div></div>				</div>
+				<div class="elementor-element elementor-element-a6c5200 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="a6c5200" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-title.default">
+					<h2 class="elementor-heading-title elementor-size-default">PLANEJAMENTO URBANO | IPC inicia debate sobre lei de loteamentos de acesso controlado em Cascavel</h2>				</div>
+				<div class="elementor-element elementor-element-5ebbb53 elementor-widget elementor-widget-button" data-id="5ebbb53" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://ipc.cascavel.pr.gov.br/noticia/planejamento-urbano-ipc-inicia-debate-sobre-lei-de-loteamentos-de-acesso-controlado-em-cascavel/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</span>
+									<span class="elementor-button-text">Saiba mais</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+				</div>
+		</div><div class="jet-listing-grid__item jet-listing-dynamic-post-1267 elementor-dcss-32041472510413512" data-post-id="1267"  >		<div data-elementor-type="jet-listing-items" data-elementor-id="90" class="elementor elementor-90" data-elementor-post-type="jet-engine">
+				<div class="elementor-element elementor-element-8eb9033 e-flex e-con-boxed e-con e-parent" data-id="8eb9033" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-c53eb33 elementor-widget elementor-widget-theme-post-featured-image elementor-widget-image" data-id="c53eb33" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-featured-image.default">
+																<a href="https://ipc.cascavel.pr.gov.br/noticia/avanco-ipc-conclui-projetos-para-pavimentacao-de-14-trechos-de-ruas-sem-asfalto-em-cascavel/">
+							<img decoding="async" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/elementor/thumbs/WhatsApp-Image-2026-07-08-at-09_05_13-rotated-rqco5fi53r95e9mi0b4pk0lwma6sqixbdd0vy0m434.jpeg" title="WhatsApp Image 2026-07-08 at 09_05_13" alt="WhatsApp Image 2026-07-08 at 09_05_13" loading="lazy" />								</a>
+															</div>
+				<div class="elementor-element elementor-element-ec68265 elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="ec68265" data-element_type="widget" data-e-type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content" >13/07/2026</div></div></div>				</div>
+				<div class="elementor-element elementor-element-a6c5200 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="a6c5200" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-title.default">
+					<h2 class="elementor-heading-title elementor-size-default">AVANÇO | IPC conclui projetos para pavimentação de 14 trechos de ruas sem asfalto em Cascavel</h2>				</div>
+				<div class="elementor-element elementor-element-5ebbb53 elementor-widget elementor-widget-button" data-id="5ebbb53" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://ipc.cascavel.pr.gov.br/noticia/avanco-ipc-conclui-projetos-para-pavimentacao-de-14-trechos-de-ruas-sem-asfalto-em-cascavel/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</span>
+									<span class="elementor-button-text">Saiba mais</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+				</div>
+		</div><div class="jet-listing-grid__item jet-listing-dynamic-post-1248 elementor-dcss-32041472523717048" data-post-id="1248"  >		<div data-elementor-type="jet-listing-items" data-elementor-id="90" class="elementor elementor-90" data-elementor-post-type="jet-engine">
+				<div class="elementor-element elementor-element-8eb9033 e-flex e-con-boxed e-con e-parent" data-id="8eb9033" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-c53eb33 elementor-widget elementor-widget-theme-post-featured-image elementor-widget-image" data-id="c53eb33" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-featured-image.default">
+																<a href="https://ipc.cascavel.pr.gov.br/noticia/ipc-celebra-conclusao-das-obras-de-reforma-do-teatro-emir-sfair/">
+							<img decoding="async" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/elementor/thumbs/WhatsApp-Image-2026-07-03-at-13.57.49-1-rpvg22wv689rk3jaox2az8ig1j4za8rvj1enp7o10w.jpeg" title="WhatsApp Image 2026-07-03 at 13.57.49 (1)" alt="WhatsApp Image 2026-07-03 at 13.57.49 (1)" loading="lazy" />								</a>
+															</div>
+				<div class="elementor-element elementor-element-ec68265 elementor-widget elementor-widget-jet-listing-dynamic-field" data-id="ec68265" data-element_type="widget" data-e-type="widget" data-widget_type="jet-listing-dynamic-field.default">
+					<div class="jet-listing jet-listing-dynamic-field display-inline"><div class="jet-listing-dynamic-field__inline-wrap"><div class="jet-listing-dynamic-field__content" >03/07/2026</div></div></div>				</div>
+				<div class="elementor-element elementor-element-a6c5200 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="a6c5200" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-title.default">
+					<h2 class="elementor-heading-title elementor-size-default">IPC celebra conclusão das obras de reforma do Teatro Emir Sfair</h2>				</div>
+				<div class="elementor-element elementor-element-5ebbb53 elementor-widget elementor-widget-button" data-id="5ebbb53" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://ipc.cascavel.pr.gov.br/noticia/ipc-celebra-conclusao-das-obras-de-reforma-do-teatro-emir-sfair/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</span>
+									<span class="elementor-button-text">Saiba mais</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+				</div>
+		</div></div></div>				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-866f701 e-flex e-con-boxed e-con e-parent" data-id="866f701" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-fcca101 e-con-full e-flex e-con e-child" data-id="fcca101" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-e2d1473 e-con-full e-flex e-con e-child" data-id="e2d1473" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-3e3d23a elementor-widget elementor-widget-heading" data-id="3e3d23a" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h4 class="elementor-heading-title elementor-size-default">ESTRUTURA</h4>				</div>
+				<div class="elementor-element elementor-element-a7a5557 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="a7a5557" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Conheça as áreas responsáveis por planejar o desenvolvimento de Cascavel</h2>				</div>
+				</div>
+		<div class="elementor-element elementor-element-2a47ecd e-con-full e-flex e-con e-child" data-id="2a47ecd" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-e5772de elementor-widget elementor-widget-image" data-id="e5772de" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+															<img fetchpriority="high" decoding="async" width="640" height="416" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/thumb01.webp" class="attachment-full size-full wp-image-104" alt="" srcset="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/thumb01.webp 640w, https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/thumb01-300x195.webp 300w" sizes="(max-width: 640px) 100vw, 640px" />															</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-f51858c elementor-align-center elementor-mobile-align-justify elementor-widget__width-inherit elementor-widget elementor-widget-button" data-id="f51858c" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://ipc.cascavel.pr.gov.br/organograma/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</span>
+									<span class="elementor-button-text">Veja o organograma completo</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-e0b8b20 e-con-full e-flex e-con e-parent" data-id="e0b8b20" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-e32a754 elementor-widget elementor-widget-template" data-id="e32a754" data-element_type="widget" data-e-type="widget" data-widget_type="template.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-template">
+					<div data-elementor-type="archive" data-elementor-id="203" class="elementor elementor-203" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-5f048ea e-flex e-con-boxed e-con e-parent" data-id="5f048ea" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-cf54d7c elementor-widget__width-inherit elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="cf54d7c" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Acesso Rápido</h2>				</div>
+				<div class="elementor-element elementor-element-8285e57 elementor-widget elementor-widget-jet-listing-grid" data-id="8285e57" data-element_type="widget" data-e-type="widget" data-settings="{&quot;columns&quot;:&quot;6&quot;,&quot;columns_tablet&quot;:&quot;3&quot;,&quot;columns_mobile&quot;:&quot;2&quot;}" data-widget_type="jet-listing-grid.default">
+					<div class="jet-listing-grid jet-listing"><div class="jet-listing-grid__items grid-col-desk-6 grid-col-tablet-3 grid-col-mobile-2 jet-listing-grid--393 jet-equal-columns__wrapper" data-queried-id="2|WP_Post" data-nav="{&quot;enabled&quot;:false,&quot;type&quot;:null,&quot;more_el&quot;:null,&quot;query&quot;:{&quot;allowed_query_ids&quot;:[&quot;&quot;],&quot;signature&quot;:&quot;ab3ebed148a346c87dad504eef07b66634d0ce3346859f76493e843e77277a18&quot;},&quot;widget_settings&quot;:{&quot;lisitng_id&quot;:393,&quot;posts_num&quot;:12,&quot;columns&quot;:6,&quot;columns_tablet&quot;:3,&quot;columns_mobile&quot;:2,&quot;column_min_width&quot;:240,&quot;column_min_width_tablet&quot;:240,&quot;column_min_width_mobile&quot;:240,&quot;inline_columns_css&quot;:false,&quot;is_archive_template&quot;:&quot;&quot;,&quot;post_status&quot;:[&quot;publish&quot;],&quot;use_random_posts_num&quot;:&quot;&quot;,&quot;max_posts_num&quot;:9,&quot;not_found_message&quot;:&quot;No data was found&quot;,&quot;is_masonry&quot;:false,&quot;equal_columns_height&quot;:&quot;yes&quot;,&quot;use_load_more&quot;:&quot;&quot;,&quot;load_more_id&quot;:&quot;&quot;,&quot;load_more_type&quot;:&quot;click&quot;,&quot;load_more_offset&quot;:null,&quot;use_custom_post_types&quot;:&quot;&quot;,&quot;custom_post_types&quot;:[],&quot;hide_widget_if&quot;:&quot;&quot;,&quot;carousel_enabled&quot;:&quot;&quot;,&quot;slides_to_scroll&quot;:&quot;1&quot;,&quot;arrows&quot;:&quot;true&quot;,&quot;arrow_icon&quot;:&quot;fa fa-angle-left&quot;,&quot;dots&quot;:&quot;&quot;,&quot;autoplay&quot;:&quot;true&quot;,&quot;pause_on_hover&quot;:&quot;true&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;true&quot;,&quot;center_mode&quot;:&quot;&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500,&quot;inject_alternative_items&quot;:&quot;&quot;,&quot;injection_items&quot;:[],&quot;scroll_slider_enabled&quot;:&quot;&quot;,&quot;scroll_slider_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;custom_query&quot;:false,&quot;custom_query_id&quot;:&quot;&quot;,&quot;_element_id&quot;:&quot;&quot;,&quot;collapse_first_last_gap&quot;:false,&quot;list_tag_selection&quot;:&quot;&quot;,&quot;list_items_wrapper_tag&quot;:&quot;div&quot;,&quot;list_item_tag&quot;:&quot;div&quot;,&quot;empty_items_wrapper_tag&quot;:&quot;div&quot;,&quot;_jet_engine_settings_signature&quot;:&quot;79fc460c21db11c5a6e31dd9590d041c940970ef1d4442335088f23b36c3adb4&quot;}}" data-page="1" data-pages="1" data-listing-source="posts" data-listing-id="393" data-query-id=""><div class="jet-listing-grid__item jet-listing-dynamic-post-379 jet-equal-columns elementor-dcss-32041472551940960" data-post-id="379"  >		<div data-elementor-type="jet-listing-items" data-elementor-id="393" class="elementor elementor-393" data-elementor-post-type="jet-engine">
+				<a class="elementor-element elementor-element-31984f5 e-flex e-con-boxed e-con e-parent" data-id="31984f5" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" href="https://cascavel.atende.net/transparencia/item/licitacoes-gerais%20" target="_blank">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2de9255 elementor-widget elementor-widget-jet-listing-dynamic-image" data-id="2de9255" data-element_type="widget" data-e-type="widget" data-widget_type="jet-listing-dynamic-image.default">
+					<div class="jet-listing jet-listing-dynamic-image" ><img decoding="async" width="60" height="60" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/icon-links.webp" class="jet-listing-dynamic-image__img attachment-full size-full" alt="icon-links" loading="eager" /></div>				</div>
+				<div class="elementor-element elementor-element-c52b1a3 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="c52b1a3" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-title.default">
+					<h3 class="elementor-heading-title elementor-size-default">Licitações</h3>				</div>
+					</div>
+				</a>
+				</div>
+		</div><div class="jet-listing-grid__item jet-listing-dynamic-post-387 jet-equal-columns elementor-dcss-32041472569244004" data-post-id="387"  >		<div data-elementor-type="jet-listing-items" data-elementor-id="393" class="elementor elementor-393" data-elementor-post-type="jet-engine">
+				<a class="elementor-element elementor-element-31984f5 e-flex e-con-boxed e-con e-parent" data-id="31984f5" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" href="https://cascavel.atende.net/transparencia/%20" target="_blank">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2de9255 elementor-widget elementor-widget-jet-listing-dynamic-image" data-id="2de9255" data-element_type="widget" data-e-type="widget" data-widget_type="jet-listing-dynamic-image.default">
+					<div class="jet-listing jet-listing-dynamic-image" ><img decoding="async" width="60" height="60" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/icon-portal.webp" class="jet-listing-dynamic-image__img attachment-full size-full" alt="icon-portal" loading="eager" /></div>				</div>
+				<div class="elementor-element elementor-element-c52b1a3 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="c52b1a3" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-title.default">
+					<h3 class="elementor-heading-title elementor-size-default">Portal Transparência</h3>				</div>
+					</div>
+				</a>
+				</div>
+		</div><div class="jet-listing-grid__item jet-listing-dynamic-post-389 jet-equal-columns elementor-dcss-32041472578666976" data-post-id="389"  >		<div data-elementor-type="jet-listing-items" data-elementor-id="393" class="elementor elementor-393" data-elementor-post-type="jet-engine">
+				<a class="elementor-element elementor-element-31984f5 e-flex e-con-boxed e-con e-parent" data-id="31984f5" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" href="https://cascavel.atende.net/cidadao/acesso-informacao" target="_blank">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2de9255 elementor-widget elementor-widget-jet-listing-dynamic-image" data-id="2de9255" data-element_type="widget" data-e-type="widget" data-widget_type="jet-listing-dynamic-image.default">
+					<div class="jet-listing jet-listing-dynamic-image" ><img decoding="async" width="60" height="60" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/icon-info.webp" class="jet-listing-dynamic-image__img attachment-full size-full" alt="icon-info" loading="eager" /></div>				</div>
+				<div class="elementor-element elementor-element-c52b1a3 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="c52b1a3" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-title.default">
+					<h3 class="elementor-heading-title elementor-size-default">Acesso à informação</h3>				</div>
+					</div>
+				</a>
+				</div>
+		</div><div class="jet-listing-grid__item jet-listing-dynamic-post-391 jet-equal-columns elementor-dcss-32041472587990716" data-post-id="391"  >		<div data-elementor-type="jet-listing-items" data-elementor-id="393" class="elementor elementor-393" data-elementor-post-type="jet-engine">
+				<a class="elementor-element elementor-element-31984f5 e-flex e-con-boxed e-con e-parent" data-id="31984f5" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" href="https://prefa.cascavel.pr.gov.br/" target="_blank">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2de9255 elementor-widget elementor-widget-jet-listing-dynamic-image" data-id="2de9255" data-element_type="widget" data-e-type="widget" data-widget_type="jet-listing-dynamic-image.default">
+					<div class="jet-listing jet-listing-dynamic-image" ><img decoding="async" width="60" height="60" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/icon-prefeitura.webp" class="jet-listing-dynamic-image__img attachment-full size-full" alt="icon-prefeitura" loading="eager" /></div>				</div>
+				<div class="elementor-element elementor-element-c52b1a3 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="c52b1a3" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-title.default">
+					<h3 class="elementor-heading-title elementor-size-default">Prefeitura de Cascavel</h3>				</div>
+					</div>
+				</a>
+				</div>
+		</div><div class="jet-listing-grid__item jet-listing-dynamic-post-595 jet-equal-columns elementor-dcss-32041472597703612" data-post-id="595"  >		<div data-elementor-type="jet-listing-items" data-elementor-id="393" class="elementor elementor-393" data-elementor-post-type="jet-engine">
+				<a class="elementor-element elementor-element-31984f5 e-flex e-con-boxed e-con e-parent" data-id="31984f5" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" href="https://geocascavel.cascavel.pr.gov.br/geo-view/index.ctm" target="_blank">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2de9255 elementor-widget elementor-widget-jet-listing-dynamic-image" data-id="2de9255" data-element_type="widget" data-e-type="widget" data-widget_type="jet-listing-dynamic-image.default">
+					<div class="jet-listing jet-listing-dynamic-image" ><img decoding="async" width="60" height="60" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2026/01/Icone_GeoCascavel.png" class="jet-listing-dynamic-image__img attachment-full size-full" alt="Icone_GeoCascavel" loading="eager" /></div>				</div>
+				<div class="elementor-element elementor-element-c52b1a3 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="c52b1a3" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-title.default">
+					<h3 class="elementor-heading-title elementor-size-default">GeoCascavel</h3>				</div>
+					</div>
+				</a>
+				</div>
+		</div><div class="jet-listing-grid__item jet-listing-dynamic-post-596 jet-equal-columns elementor-dcss-32041472607540008" data-post-id="596"  >		<div data-elementor-type="jet-listing-items" data-elementor-id="393" class="elementor elementor-393" data-elementor-post-type="jet-engine">
+				<a class="elementor-element elementor-element-31984f5 e-flex e-con-boxed e-con e-parent" data-id="31984f5" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" href="https://cascavel.aprova.com.br/home" target="_blank">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2de9255 elementor-widget elementor-widget-jet-listing-dynamic-image" data-id="2de9255" data-element_type="widget" data-e-type="widget" data-widget_type="jet-listing-dynamic-image.default">
+					<div class="jet-listing jet-listing-dynamic-image" ><img decoding="async" width="60" height="60" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2026/01/Icone_AprovaDigital.png" class="jet-listing-dynamic-image__img attachment-full size-full" alt="Icone_AprovaDigital" loading="eager" /></div>				</div>
+				<div class="elementor-element elementor-element-c52b1a3 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="c52b1a3" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-title.default">
+					<h3 class="elementor-heading-title elementor-size-default">Aprova Digital</h3>				</div>
+					</div>
+				</a>
+				</div>
+		</div></div></div>				</div>
+					</div>
+				</div>
+				</div>
+				</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-6f27f27 e-flex e-con-boxed e-con e-parent" data-id="6f27f27" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-5839ccf e-con-full e-flex e-con e-child" data-id="5839ccf" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-5bb2eed e-con-full e-flex e-con e-child" data-id="5bb2eed" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-c135938 elementor-widget elementor-widget-heading" data-id="c135938" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h4 class="elementor-heading-title elementor-size-default">INSTITUCIONAL</h4>				</div>
+				<div class="elementor-element elementor-element-9627b21 elementor-widget__width-inherit elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="9627b21" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">O que é o IPC?</h2>				</div>
+				<div class="elementor-element elementor-element-075e2ec elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="075e2ec" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									<p>O Instituto de Planejamento de<br />Cascavel (IPC) é uma autarquia<br />municipal criada pela Lei nº 6.791/2017.</p><p>Atua de forma técnica e estratégica, coordenando o planejamento urbano, territorial e econômico do município.<br />O Instituto é responsável por elaborar planos, programas e projetos que orientam o crescimento sustentável<br />e integrado da cidade.</p>								</div>
+				<div class="elementor-element elementor-element-bf38d78 elementor-align-left elementor-mobile-align-justify elementor-widget__width-inherit elementor-widget elementor-widget-button" data-id="bf38d78" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://ipc.cascavel.pr.gov.br/sobre-nos/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</span>
+									<span class="elementor-button-text">Saiba mais</span>
+					</span>
+					</a>
+								</div>
+				</div>
+		<div class="elementor-element elementor-element-5ea3821 e-con-full e-flex e-con e-child" data-id="5ea3821" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-38c8f9e elementor-widget elementor-widget-image" data-id="38c8f9e" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+															<img decoding="async" width="641" height="664" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/sobre-ipc.webp" class="attachment-full size-full wp-image-127" alt="" srcset="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/sobre-ipc.webp 641w, https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/sobre-ipc-290x300.webp 290w" sizes="(max-width: 641px) 100vw, 641px" />															</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-c79d512 e-flex e-con-boxed e-con e-parent" data-id="c79d512" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-9f30e10 e-con-full e-flex e-con e-child" data-id="9f30e10" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-bb66edc e-con-full e-flex e-con e-child" data-id="bb66edc" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-9e0dd77 elementor-widget elementor-widget-heading" data-id="9e0dd77" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h4 class="elementor-heading-title elementor-size-default">PERGUNTAS FREQUENTES</h4>				</div>
+				<div class="elementor-element elementor-element-70e0e2a elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="70e0e2a" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Encontre repostas rápidas sobre os processos e serviços do IPC.</h2>				</div>
+				<div class="elementor-element elementor-element-a39e22e elementor-align-left elementor-mobile-align-justify elementor-widget__width-inherit elementor-widget elementor-widget-button" data-id="a39e22e" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://ipc.cascavel.pr.gov.br/perguntas-frequentes/">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</span>
+									<span class="elementor-button-text">Encontre mais respostas</span>
+					</span>
+					</a>
+								</div>
+				</div>
+		<div class="elementor-element elementor-element-eaef67d e-con-full e-flex e-con e-child" data-id="eaef67d" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-b493328 elementor-widget elementor-widget-n-accordion" data-id="b493328" data-element_type="widget" data-e-type="widget" data-settings="{&quot;default_state&quot;:&quot;all_collapsed&quot;,&quot;max_items_expended&quot;:&quot;one&quot;,&quot;n_accordion_animation_duration&quot;:{&quot;unit&quot;:&quot;ms&quot;,&quot;size&quot;:400,&quot;sizes&quot;:[]}}" data-widget_type="nested-accordion.default">
+							<div class="e-n-accordion" aria-label="Accordion. Open links with Enter or Space, close with Escape, and navigate with Arrow Keys">
+						<details id="e-n-accordion-item-1890" class="e-n-accordion-item" >
+				<summary class="e-n-accordion-item-title" data-accordion-index="1" tabindex="0" aria-expanded="false" aria-controls="e-n-accordion-item-1890" >
+					<span class='e-n-accordion-item-title-header'><div class="e-n-accordion-item-title-text"> O que é e como gerar uma Consulta Prévia? </div></span>
+							<span class='e-n-accordion-item-title-icon'>
+			<span class='e-opened' ><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+			<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+		</span>
+
+						</summary>
+				<div role="region" aria-labelledby="e-n-accordion-item-1890" class="elementor-element elementor-element-ab9d982 e-con-full e-flex e-con e-child" data-id="ab9d982" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-215603d elementor-widget elementor-widget-text-editor" data-id="215603d" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									<div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">A Consulta Prévia é o documento que resume o que pode ser feito em um determinado lote, conforme a Lei de Uso e Ocupação do Solo do Município.</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock"> </div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">Antes de construir, ampliar ou reformar uma edificação ou antes de subdividir e unificar um lote você deve gerar uma Consulta Prévia para conhecer os parâmetros que devem ser atendidos.</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock"> </div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">Antes de gerar uma Consulta Prévia você deve saber o nome do loteamento, o número da quadra e o número do lote do seu interesse. Você também pode localizar o lote através do endereço (Rua e número predial). Com essas informações, você deve entrar</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">no <a href="https://geocascavel.cascavel.pr.gov.br/geo-view/index.ctm">portal GeoCascavel</a>, localizar o lote, ir na aba “Consulta de Viabilidade” no menu lateral esquerdo do portal, selecionar o “Tipo de documento” e clicar em “Gerar Documento”.</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock"> </div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">Para saber mais, <a href="https://www.instagram.com/p/DSAVhICgN0g/">clique aqui</a>.</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock"><a href="https://www.instagram.com/p/DTfiILIEWER/">Tutorial em vídeo</a>.</div>								</div>
+				</div>
+					</details>
+						<details id="e-n-accordion-item-1891" class="e-n-accordion-item" >
+				<summary class="e-n-accordion-item-title" data-accordion-index="2" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-1891" >
+					<span class='e-n-accordion-item-title-header'><div class="e-n-accordion-item-title-text"> Onde encontro o Plano Diretor? </div></span>
+							<span class='e-n-accordion-item-title-icon'>
+			<span class='e-opened' ><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+			<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+		</span>
+
+						</summary>
+				<div role="region" aria-labelledby="e-n-accordion-item-1891" class="elementor-element elementor-element-fdb7df2 e-con-full e-flex e-con e-child" data-id="fdb7df2" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-f160cf9 elementor-widget elementor-widget-text-editor" data-id="f160cf9" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									<div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock"><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">Antes de iniciar uma obra, você deve solicitar o Alvará de Construção para que seu projeto seja analisado e aprovado e assim ter autorização de iniciar a construção.</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock"> </div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">O Alvará de Construção deve ser solicitado preferencialmente pelo arquiteto ou engenheiro responsável pelo projeto/obra, visto que haverá documentação técnica a ser apresentada.</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock"> </div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">Esse profissional deverá ter cadastro no site do <a href="https://app.aprova.com.br/cascavelpr">Aprova Digital </a>e após login deverá selecionar a opção“Criar processo” e clicar no botão “Solicitar” no card “Alvará de Construção”, onde você deverá incluir toda a documentação e informações necessárias. Lembre-se de ler com</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">atenção as orientações contidas na lateral direita dos campos para evitar erros ao criar seu processo. Após criar seu processo, ele será automaticamente encaminhado para os setores responsáveis e quando for será analisado.</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock"> </div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">Para saber mais, <a href="https://www.instagram.com/p/DS2Xn0qiUCl/">clique aqui.</a></div></div>								</div>
+				</div>
+					</details>
+						<details id="e-n-accordion-item-1892" class="e-n-accordion-item" >
+				<summary class="e-n-accordion-item-title" data-accordion-index="3" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-1892" >
+					<span class='e-n-accordion-item-title-header'><div class="e-n-accordion-item-title-text"> Posso dividir meu lote? </div></span>
+							<span class='e-n-accordion-item-title-icon'>
+			<span class='e-opened' ><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+			<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+		</span>
+
+						</summary>
+				<div role="region" aria-labelledby="e-n-accordion-item-1892" class="elementor-element elementor-element-336ce44 e-con-full e-flex e-con e-child" data-id="336ce44" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-8f57f8f elementor-widget elementor-widget-text-editor" data-id="8f57f8f" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									<div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">A subdivisão de lotes é um processo de Parcelamento do Solo.</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">Para ser possível a subdivisão, deve-se observar os seguintes Parâmetros Urbanísticos:</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">• A testada de cada lote resultante;</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">• A área de cada lote resultante;</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock"> </div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">Estes parâmetros podem ser obtidos na Consulta Prévia de Parcelamento, emitida através do portal GeoCascavel.</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock"> </div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">Caso a subdivisão seja permitida, deverá ser aprovado projeto e memorial, elaborados por profissionais habilitados, através do site Aprova Digital Cascavel.</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock"> </div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">Para saber mais, <a href="https://www.instagram.com/p/DSaEpYQiWy3/">clique aqui</a>.</div>								</div>
+				</div>
+					</details>
+						<details id="e-n-accordion-item-1893" class="e-n-accordion-item" >
+				<summary class="e-n-accordion-item-title" data-accordion-index="4" tabindex="-1" aria-expanded="false" aria-controls="e-n-accordion-item-1893" >
+					<span class='e-n-accordion-item-title-header'><div class="e-n-accordion-item-title-text"> O que é um embargo de obra e quando ele ocorre? </div></span>
+							<span class='e-n-accordion-item-title-icon'>
+			<span class='e-opened' ><svg aria-hidden="true" class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+			<span class='e-closed'><svg aria-hidden="true" class="e-font-icon-svg e-fas-plus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+		</span>
+
+						</summary>
+				<div role="region" aria-labelledby="e-n-accordion-item-1893" class="elementor-element elementor-element-007d713 e-con-full e-flex e-con e-child" data-id="007d713" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-64e237f elementor-widget elementor-widget-text-editor" data-id="64e237f" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									<div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock">O embargo é aplicado quando a obra é executada em desacordo com o projeto aprovado, quando não é possível regularizar devido a construção em recuo obrigatório, taxa de ocupação excedida, em área de preservação permanente, ou ainda quando realizada sem responsável técnico, oferecendo risco aos vizinhos ou pedestres, ou apresentando condições perigosas ou inseguras.</div><div class="TypographyPresentation TypographyPresentation--medium RichText3-paragraph--withVSpacingNormal RichText3-paragraph HighlightSol HighlightSol--buildingBlock"> </div>								</div>
+				</div>
+					</details>
+					</div>
+						</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+				<footer data-elementor-type="footer" data-elementor-id="174" class="elementor elementor-174 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-7c62fb5 e-flex e-con-boxed e-con e-parent" data-id="7c62fb5" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-76ddf86 e-con-full e-flex e-con e-child" data-id="76ddf86" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-1ae5dc2 e-con-full e-flex e-con e-child" data-id="1ae5dc2" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-a11c9d9 elementor-widget elementor-widget-heading" data-id="a11c9d9" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h4 class="elementor-heading-title elementor-size-default">FALE COM A GENTE</h4>				</div>
+				<div class="elementor-element elementor-element-59f281c elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="59f281c" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Entre em contato com o IPC</h2>				</div>
+				<div class="elementor-element elementor-element-2faaada elementor-widget__width-inherit elementor-widget-mobile__width-inherit elementor-widget elementor-widget-text-editor" data-id="2faaada" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+									<p>Nossa localização</p>								</div>
+				<div class="elementor-element elementor-element-b826019 elementor-widget__width-initial elementor-widget-tablet__width-inherit elementor-widget elementor-widget-google_maps" data-id="b826019" data-element_type="widget" data-e-type="widget" data-widget_type="google_maps.default">
+							<div class="elementor-custom-embed">
+			<iframe loading="lazy"
+					src="https://maps.google.com/maps?q=R.%20Pres.%20Juscelino%20Kubitscheck%2C%201242%20-%20Centro%2C%20Cascavel%20-%20PR%2C%2085805-002&#038;t=m&#038;z=15&#038;output=embed&#038;iwloc=near"
+					title="R. Pres. Juscelino Kubitscheck, 1242 - Centro, Cascavel - PR, 85805-002"
+					aria-label="R. Pres. Juscelino Kubitscheck, 1242 - Centro, Cascavel - PR, 85805-002"
+			></iframe>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-82b3ca2 elementor-align-left elementor-mobile-align-justify elementor-widget__width-inherit elementor-widget elementor-widget-button" data-id="82b3ca2" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://maps.app.goo.gl/NQ6x9KVXwax5RrDv8" target="_blank">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-right" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg>			</span>
+									<span class="elementor-button-text">Abrir Mapa</span>
+					</span>
+					</a>
+								</div>
+				</div>
+		<div class="elementor-element elementor-element-fe14a38 e-con-full e-flex e-con e-child" data-id="fe14a38" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-1b0ae8c elementor-button-align-end elementor-widget elementor-widget-form" data-id="1b0ae8c" data-element_type="widget" data-e-type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Pr\u00f3ximo&quot;,&quot;step_previous_label&quot;:&quot;Anterior&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+							<form class="elementor-form" method="post" name="Contato IPC" aria-label="Contato IPC">
+			<input type="hidden" name="post_id" value="174"/>
+			<input type="hidden" name="form_id" value="1b0ae8c"/>
+			<input type="hidden" name="referer_title" value="" />
+
+							<input type="hidden" name="queried_id" value="2"/>
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-above">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-nome_lead elementor-col-100 elementor-field-required">
+													<input size="1" type="text" name="form_fields[nome_lead]" id="form-field-nome_lead" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Nome" required="required">
+											</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email_lead elementor-col-100 elementor-field-required">
+													<input size="1" type="email" name="form_fields[email_lead]" id="form-field-email_lead" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="E-mail" required="required">
+											</div>
+								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-telefone_lead elementor-col-100 elementor-field-required">
+							<input size="1" type="tel" name="form_fields[telefone_lead]" id="form-field-telefone_lead" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Telefone" required="required" pattern="[0-9()#&amp;+*-=.]+" title="Apenas números e caracteres de telefone (#, -, *, etc.) são aceitos.">
+
+						</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-assunto elementor-col-100 elementor-field-required">
+													<input size="1" type="text" name="form_fields[assunto]" id="form-field-assunto" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Assunto" required="required">
+											</div>
+								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-mensagem elementor-col-100">
+					<textarea class="elementor-field-textual elementor-field  elementor-size-sm" name="form_fields[mensagem]" id="form-field-mensagem" rows="8" placeholder="Mensagem"></textarea>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-sm" type="submit">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">Enviar</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-26597f4 e-flex e-con-boxed e-con e-parent" data-id="26597f4" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-0ad6140 e-con-full e-flex e-con e-child" data-id="0ad6140" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-22cc393 elementor-widget elementor-widget-image" data-id="22cc393" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+															<img width="166" height="140" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/ipc-branca.webp" class="attachment-full size-full wp-image-175" alt="" />															</div>
+				<div class="elementor-element elementor-element-e7993d2 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="e7993d2" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">(45) 3321-2112</span>
+									</li>
+								<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">ipc@cascavel.pr.gov.br</span>
+									</li>
+								<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">R. Pres. Juscelino Kubitscheck, 1242 - Centro, Cascavel - PR, 85805-002</span>
+									</li>
+								<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">Segunda a Sexta-feira:<br>
+das 08h00 às 12h00<br>
+e das 13h30 às 17h30</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-96f50f7 e-con-full e-flex e-con e-child" data-id="96f50f7" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-81ffb97 elementor-widget elementor-widget-heading" data-id="81ffb97" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">IPC</h2>				</div>
+				<div class="elementor-element elementor-element-872984c elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="872984c" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-872984c" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-180"><a href="https://ipc.cascavel.pr.gov.br/sobre-nos/" class="elementor-item">Sobre nós</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-181"><a href="https://ipc.cascavel.pr.gov.br/organograma/" class="elementor-item">Organograma</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-182"><a href="https://ipc.cascavel.pr.gov.br/atribuicoes/" class="elementor-item">Atribuições</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-183"><a href="https://ipc.cascavel.pr.gov.br/departamentos/" class="elementor-item">Departamentos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-747"><a href="https://ipc.cascavel.pr.gov.br/projetos/" class="elementor-item">Projetos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-746"><a href="https://ipc.cascavel.pr.gov.br/noticias/" class="elementor-item">Notícias</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-745"><a href="https://ipc.cascavel.pr.gov.br/legislacao/" class="elementor-item">Legislação</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-744"><a href="https://ipc.cascavel.pr.gov.br/downloads/" class="elementor-item">Downloads</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-872984c" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-180"><a href="https://ipc.cascavel.pr.gov.br/sobre-nos/" class="elementor-item" tabindex="-1">Sobre nós</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-181"><a href="https://ipc.cascavel.pr.gov.br/organograma/" class="elementor-item" tabindex="-1">Organograma</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-182"><a href="https://ipc.cascavel.pr.gov.br/atribuicoes/" class="elementor-item" tabindex="-1">Atribuições</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-183"><a href="https://ipc.cascavel.pr.gov.br/departamentos/" class="elementor-item" tabindex="-1">Departamentos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-747"><a href="https://ipc.cascavel.pr.gov.br/projetos/" class="elementor-item" tabindex="-1">Projetos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-746"><a href="https://ipc.cascavel.pr.gov.br/noticias/" class="elementor-item" tabindex="-1">Notícias</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-745"><a href="https://ipc.cascavel.pr.gov.br/legislacao/" class="elementor-item" tabindex="-1">Legislação</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-744"><a href="https://ipc.cascavel.pr.gov.br/downloads/" class="elementor-item" tabindex="-1">Downloads</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+		<div class="elementor-element elementor-element-5a60ab8 e-con-full e-flex e-con e-child" data-id="5a60ab8" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-561d788 elementor-widget elementor-widget-heading" data-id="561d788" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">Navegação</h2>				</div>
+				<div class="elementor-element elementor-element-c123253 elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="c123253" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-c123253" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-190"><a href="#" class="elementor-item elementor-item-anchor">Portal Transparência</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-191"><a href="#" class="elementor-item elementor-item-anchor">Acesso à Informação</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-192"><a target="_blank" href="https://cascavel.atende.net/" class="elementor-item">Prefeitura de Cascavel</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-193"><a target="_blank" href="https://geocascavel.cascavel.pr.gov.br/geo-view/index.ctm" class="elementor-item">GeoCascavel</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-194"><a href="https://cascavel.aprova.com.br/home" class="elementor-item">Aprova Digital</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-c123253" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-190"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Portal Transparência</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-191"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Acesso à Informação</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-192"><a target="_blank" href="https://cascavel.atende.net/" class="elementor-item" tabindex="-1">Prefeitura de Cascavel</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-193"><a target="_blank" href="https://geocascavel.cascavel.pr.gov.br/geo-view/index.ctm" class="elementor-item" tabindex="-1">GeoCascavel</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-194"><a href="https://cascavel.aprova.com.br/home" class="elementor-item" tabindex="-1">Aprova Digital</a></li>
+</ul>			</nav>
+						</div>
+				<div class="elementor-element elementor-element-b987e6e elementor-shape-circle e-grid-align-right e-grid-align-mobile-left elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="b987e6e" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default">
+							<div class="elementor-social-icons-wrapper elementor-grid" role="list">
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-43f9d3b" href="#" target="_blank">
+						<span class="elementor-screen-only">Facebook</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-facebook" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-whatsapp elementor-repeater-item-846a66f" href="https://wa.me/5545998260619" target="_blank">
+						<span class="elementor-screen-only">Whatsapp</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-whatsapp" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-b0c584e" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-6cfe38b" href="https://www.instagram.com/ipc.cascavel/" target="_blank">
+						<span class="elementor-screen-only">Instagram</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-0970929" href="#" target="_blank">
+						<span class="elementor-screen-only">Linkedin</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-linkedin" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>					</a>
+				</span>
+					</div>
+						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-d4678a5 e-flex e-con-boxed e-con e-parent" data-id="d4678a5" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2276e56 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="2276e56" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				<div class="elementor-element elementor-element-157d9c6 elementor-widget elementor-widget-heading" data-id="157d9c6" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">IPC - Todos os direitos reservados.</h2>				</div>
+					</div>
+				</div>
+				</footer>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+		<div data-elementor-type="popup" data-elementor-id="402" class="elementor elementor-402 elementor-location-popup" data-elementor-settings="{&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;timing&quot;:[]}" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-4057a48 e-flex e-con-boxed e-con e-parent" data-id="4057a48" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1350956 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="1350956" data-element_type="widget" data-e-type="widget" data-widget_type="theme-site-logo.default">
+											<a href="https://ipc.cascavel.pr.gov.br">
+			<img width="101" height="85" src="https://ipc.cascavel.pr.gov.br/wp-content/uploads/2025/12/logo-ipc.png" class="attachment-full size-full wp-image-13" alt="" />				</a>
+											</div>
+				<div class="elementor-element elementor-element-9b1d691 elementor-widget__width-inherit elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-search" data-id="9b1d691" data-element_type="widget" data-e-type="widget" data-settings="{&quot;submit_trigger&quot;:&quot;key_enter&quot;,&quot;pagination_type_options&quot;:&quot;none&quot;}" data-widget_type="search.default">
+							<search class="e-search hidden" role="search">
+			<form class="e-search-form" action="https://ipc.cascavel.pr.gov.br" method="get">
+
+				
+				<label class="e-search-label" for="search-9b1d691">
+					<span class="elementor-screen-only">
+						Pesquisar					</span>
+					<svg aria-hidden="true" class="e-font-icon-svg e-fas-search" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>				</label>
+
+				<div class="e-search-input-wrapper">
+					<input id="search-9b1d691" placeholder="Pesquisar" class="e-search-input" type="search" name="s" value="" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="results-9b1d691" aria-haspopup="listbox">
+					<svg aria-hidden="true" class="e-font-icon-svg e-fas-times" viewBox="0 0 352 512" xmlns="http://www.w3.org/2000/svg"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>										<output id="results-9b1d691" class="e-search-results-container hide-loader" aria-live="polite" aria-atomic="true" aria-label="Resultados da pesquisa" tabindex="0">
+						<div class="e-search-results"></div>
+											</output>
+									</div>
+				
+				
+				<button class="e-search-submit elementor-screen-only " type="submit" aria-label="Pesquisar">
+					
+									</button>
+				<input type="hidden" name="e_search_props" value="9b1d691-402">
+			</form>
+		</search>
+						</div>
+				<div class="elementor-element elementor-element-a439fed elementor-widget elementor-widget-heading" data-id="a439fed" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">IPC</h2>				</div>
+				<div class="elementor-element elementor-element-bf4cf47 elementor-nav-menu__align-start elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="bf4cf47" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-bf4cf47" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-180"><a href="https://ipc.cascavel.pr.gov.br/sobre-nos/" class="elementor-item">Sobre nós</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-181"><a href="https://ipc.cascavel.pr.gov.br/organograma/" class="elementor-item">Organograma</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-182"><a href="https://ipc.cascavel.pr.gov.br/atribuicoes/" class="elementor-item">Atribuições</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-183"><a href="https://ipc.cascavel.pr.gov.br/departamentos/" class="elementor-item">Departamentos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-747"><a href="https://ipc.cascavel.pr.gov.br/projetos/" class="elementor-item">Projetos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-746"><a href="https://ipc.cascavel.pr.gov.br/noticias/" class="elementor-item">Notícias</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-745"><a href="https://ipc.cascavel.pr.gov.br/legislacao/" class="elementor-item">Legislação</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-744"><a href="https://ipc.cascavel.pr.gov.br/downloads/" class="elementor-item">Downloads</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-bf4cf47" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-180"><a href="https://ipc.cascavel.pr.gov.br/sobre-nos/" class="elementor-item" tabindex="-1">Sobre nós</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-181"><a href="https://ipc.cascavel.pr.gov.br/organograma/" class="elementor-item" tabindex="-1">Organograma</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-182"><a href="https://ipc.cascavel.pr.gov.br/atribuicoes/" class="elementor-item" tabindex="-1">Atribuições</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-183"><a href="https://ipc.cascavel.pr.gov.br/departamentos/" class="elementor-item" tabindex="-1">Departamentos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-747"><a href="https://ipc.cascavel.pr.gov.br/projetos/" class="elementor-item" tabindex="-1">Projetos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-746"><a href="https://ipc.cascavel.pr.gov.br/noticias/" class="elementor-item" tabindex="-1">Notícias</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-745"><a href="https://ipc.cascavel.pr.gov.br/legislacao/" class="elementor-item" tabindex="-1">Legislação</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-744"><a href="https://ipc.cascavel.pr.gov.br/downloads/" class="elementor-item" tabindex="-1">Downloads</a></li>
+</ul>			</nav>
+						</div>
+				<div class="elementor-element elementor-element-fef6e8d elementor-nav-menu__align-start elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="fef6e8d" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-fef6e8d" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-190"><a href="#" class="elementor-item elementor-item-anchor">Portal Transparência</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-191"><a href="#" class="elementor-item elementor-item-anchor">Acesso à Informação</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-192"><a target="_blank" href="https://cascavel.atende.net/" class="elementor-item">Prefeitura de Cascavel</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-193"><a target="_blank" href="https://geocascavel.cascavel.pr.gov.br/geo-view/index.ctm" class="elementor-item">GeoCascavel</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-194"><a href="https://cascavel.aprova.com.br/home" class="elementor-item">Aprova Digital</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-fef6e8d" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-190"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Portal Transparência</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-191"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Acesso à Informação</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-192"><a target="_blank" href="https://cascavel.atende.net/" class="elementor-item" tabindex="-1">Prefeitura de Cascavel</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-193"><a target="_blank" href="https://geocascavel.cascavel.pr.gov.br/geo-view/index.ctm" class="elementor-item" tabindex="-1">GeoCascavel</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-194"><a href="https://cascavel.aprova.com.br/home" class="elementor-item" tabindex="-1">Aprova Digital</a></li>
+</ul>			</nav>
+						</div>
+				<div class="elementor-element elementor-element-cf7e6cd elementor-align-justify elementor-widget elementor-widget-button" data-id="cf7e6cd" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://geocascavel.cascavel.pr.gov.br/geo-view/index.ctm" target="_blank">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Geo Portal</span>
+					</span>
+					</a>
+								</div>
+				<div class="elementor-element elementor-element-2522786 elementor-align-justify elementor-widget elementor-widget-button" data-id="2522786" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="https://cascavel.aprova.com.br/home" target="_blank">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Aprova Digital</span>
+					</span>
+					</a>
+								</div>
+					</div>
+				</div>
+				</div>
+					<script>
+				( () => {
+					const lazyloadRunObserver = () => {
+						const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+						const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+							entries.forEach( ( entry ) => {
+								if ( entry.isIntersecting ) {
+									let lazyloadBackground = entry.target;
+									if( lazyloadBackground ) {
+										lazyloadBackground.classList.add( 'e-lazyloaded' );
+									}
+									lazyloadBackgroundObserver.unobserve( entry.target );
+								}
+							});
+						}, { rootMargin: '200px 0px 200px 0px' } );
+						lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+							lazyloadBackgroundObserver.observe( lazyloadBackground );
+						} );
+					};
+					const events = [
+						'DOMContentLoaded',
+						'elementor/lazyload/observe',
+					];
+					events.forEach( ( event ) => {
+						document.addEventListener( event, lazyloadRunObserver );
+					} );
+				} )();
+			</script>
+			<link rel='stylesheet' id='swiper-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5' media='all' />
+<link rel='stylesheet' id='e-swiper-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=4.3.5' media='all' />
+<link rel='stylesheet' id='elementor-post-203-css' href='https://ipc.cascavel.pr.gov.br/wp-content/uploads/elementor/css/post-203.css?ver=1792112386' media='all' />
+<link rel='stylesheet' id='elementor-post-393-css' href='https://ipc.cascavel.pr.gov.br/wp-content/uploads/elementor/css/post-393.css?ver=1792112386' media='all' />
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel='stylesheet' id='elementor-post-402-css' href='https://ipc.cascavel.pr.gov.br/wp-content/uploads/elementor/css/post-402.css?ver=1792112387' media='all' />
+<link rel='stylesheet' id='e-popup-css' href='https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor-pro/assets/css/conditionals/popup.min.css?ver=4.1.2' media='all' />
+<script id="hello-theme-frontend-js" src="https://ipc.cascavel.pr.gov.br/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=3.5.1"></script>
+<script id="elementor-webpack-runtime-js" src="https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.3.5"></script>
+<script id="elementor-frontend-modules-js" src="https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.3.5"></script>
+<script id="jquery-ui-core-js-before">
+jQuery.uiBackCompat = true;
+//# sourceURL=jquery-ui-core-js-before
+</script>
+<script id="jquery-ui-core-js" src="https://ipc.cascavel.pr.gov.br/wp-includes/js/jquery/ui/core.min.js?ver=1.14.2"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Compartilhar no Facebook","shareOnX":"Compartilhar no X","pinIt":"Fixar","download":"Baixar","downloadImage":"Baixar imagem","fullscreen":"Tela cheia","zoom":"Zoom","share":"Compartilhar","playVideo":"Reproduzir v\u00eddeo","previous":"Anterior","next":"Pr\u00f3ximo","close":"Fechar","a11yCarouselPrevSlideMessage":"Slide anterior","a11yCarouselNextSlideMessage":"Pr\u00f3ximo slide","a11yCarouselFirstSlideMessage":"Este \u00e9 o primeiro slide","a11yCarouselLastSlideMessage":"Este \u00e9 o \u00faltimo slide","a11yCarouselPaginationBulletMessage":"Ir para o slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Dispositivos m\u00f3veis no modo retrato","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Dispositivos m\u00f3veis no modo paisagem","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet no modo retrato","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet no modo paisagem","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Notebook","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Tela ampla (widescreen)","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.3.5","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_optimized_markup":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"import-export-customization":true,"e_pro_atomic_form":true,"mega-menu":true,"e_pro_variables":true,"e_pro_interactions":true},"urls":{"assets":"https:\/\/ipc.cascavel.pr.gov.br\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/ipc.cascavel.pr.gov.br\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/ipc.cascavel.pr.gov.br\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"8543ac2b7b","atomicFormsSendForm":"fb0a98f393"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"body_background_background":"classic","active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":2,"title":"IPC%20%E2%80%93%20Instituto%20de%20Planejamento%20de%20Cascavel","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script id="elementor-frontend-js" src="https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.3.5"></script>
+<script id="smartmenus-js" src="https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1"></script>
+<script id="swiper-js" src="https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5"></script>
+<script id="jet-plugins-js" src="https://ipc.cascavel.pr.gov.br/wp-content/plugins/jet-engine/assets/lib/jet-plugins/jet-plugins.js?ver=1.1.0"></script>
+<script id="jet-engine-jet-smart-filters-compatibility-js" src="https://ipc.cascavel.pr.gov.br/wp-content/plugins/jet-engine/assets/js/frontend/modules/jet-smart-filters.js?ver=3.9.0"></script>
+<script id="jet-engine-frontend-js-extra">
+var JetEngineSettings = {"ajaxurl":"https://ipc.cascavel.pr.gov.br/wp-admin/admin-ajax.php","ajaxlisting":"https://ipc.cascavel.pr.gov.br/?nocache=1","restNonce":"9adb2df2f1","hoverActionTimeout":"400","post_id":"2","sliderLibrary":"swiper","query_builder":{"custom_ids":[]},"addedPostCSS":["52","90"],"queried_object_id":"2","queried_object_class":"WP_Post"};
+//# sourceURL=jet-engine-frontend-js-extra
+</script>
+<script id="jet-engine-frontend-js" src="https://ipc.cascavel.pr.gov.br/wp-content/plugins/jet-engine/assets/js/frontend/frontend.js?ver=3.9.0"></script>
+<script id="elementor-pro-webpack-runtime-js" src="https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=4.1.2"></script>
+<script id="wp-hooks-js" src="https://ipc.cascavel.pr.gov.br/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255"></script>
+<script id="wp-i18n-js" src="https://ipc.cascavel.pr.gov.br/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/ipc.cascavel.pr.gov.br\/wp-admin\/admin-ajax.php","nonce":"d0aa73b997","urls":{"assets":"https:\/\/ipc.cascavel.pr.gov.br\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/ipc.cascavel.pr.gov.br\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"pt_BR","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/ipc.cascavel.pr.gov.br\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script id="elementor-pro-frontend-js" src="https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=4.1.2"></script>
+<script id="pro-elements-handlers-js" src="https://ipc.cascavel.pr.gov.br/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=4.1.2"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://ipc.cascavel.pr.gov.br/wp-includes/js/wp-emoji-release.min.js?ver=7.1.3"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://ipc.cascavel.pr.gov.br/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html>

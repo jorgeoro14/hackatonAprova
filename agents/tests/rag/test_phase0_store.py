@@ -8,31 +8,9 @@ from agents.app.paths import REPOSITORY_ROOT
 from agents.app.rag.ingest import prepare_corpus
 from agents.app.rag.schemas import EmbeddingSpec
 from agents.app.rag.store import ChromaMunicipalRetriever, build_index, read_descriptor
-from langchain_core.embeddings import Embeddings
+from agents.tests.rag.fakes import OfflineEmbeddings as TestEmbeddings
 
 pytest.importorskip("langchain_chroma")
-
-
-class TestEmbeddings(Embeddings):
-    __test__ = False
-
-    def __init__(self):
-        self.document_calls = 0
-        self.query_calls = 0
-
-    def embed_documents(self, texts):
-        self.document_calls += 1
-        return [[1.0, float(len(text) % 7 + 1), 0.5] for text in texts]
-
-    def embed_query(self, text):
-        self.query_calls += 1
-        return [1.0, 1.0, 0.5]
-
-
-@pytest.fixture(autouse=True)
-def disable_external_tracing(monkeypatch):
-    monkeypatch.setenv("LANGSMITH_TRACING", "false")
-    monkeypatch.setenv("LANGCHAIN_TRACING_V2", "false")
 
 
 @pytest.fixture
@@ -106,3 +84,6 @@ def test_failed_rebuild_keeps_previous_active_snapshot(tmp_path, corpus):
         json.loads((tmp_path / "index.json").read_text())["collection_name"]
         == first.collection_name
     )
+
+
+pytestmark = pytest.mark.phase0

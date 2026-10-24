@@ -1,4 +1,4 @@
-"""Offline ingestion, retrieval, citation and municipality-boundary checks."""
+"""Offline Phase 3 regression checks."""
 
 import json
 from copy import deepcopy
@@ -6,19 +6,13 @@ from copy import deepcopy
 import pytest
 from agents.app.paths import REPOSITORY_ROOT
 from agents.app.rag.ingest import prepare_corpus
-from agents.app.rag.loaders import load_documents, load_manifest
-from agents.app.rag.schemas import ChunkSettings, CorpusManifest
+from agents.app.rag.loaders import load_manifest
 from agents.app.rag.workflow import MunicipalRag
 from langchain_core.runnables import RunnableLambda
-from pydantic import ValidationError
 
 EXAMPLE_MANIFEST = REPOSITORY_ROOT / "agents/examples/rag/manifest.synthetic.json"
 
-
-@pytest.fixture(autouse=True)
-def disable_external_tracing(monkeypatch):
-    monkeypatch.setenv("LANGSMITH_TRACING", "false")
-    monkeypatch.setenv("LANGCHAIN_TRACING_V2", "false")
+pytestmark = pytest.mark.phase3
 
 
 class StructuredModel:
@@ -47,66 +41,6 @@ class Retriever:
 
 def evidence_document():
     return prepare_corpus(EXAMPLE_MANIFEST).chunks[0]
-
-
-def test_prepare_is_offline_deterministic_and_keeps_source_provenance():
-    first = prepare_corpus(EXAMPLE_MANIFEST)
-    second = prepare_corpus(EXAMPLE_MANIFEST)
-    assert [chunk.id for chunk in first.chunks] == [chunk.id for chunk in second.chunks]
-    assert first.manifest.data_kind == "synthetic"
-    for chunk in first.chunks:
-        assert chunk.metadata["municipality_id"] == "example-city"
-        assert chunk.metadata["document_id"] == "demo-permit-guide"
-        assert chunk.metadata["chunk_id"] == chunk.id
-        assert len(chunk.metadata["content_sha256"]) == 64
-        assert chunk.metadata["start_index"] >= 0
-        assert chunk.metadata["page"] == 0
-        assert "version" not in chunk.metadata
-        assert len(chunk.page_content) <= first.settings.chunk_size
-
-
-def test_changed_content_and_chunk_configuration_change_chunk_ids(tmp_path):
-    manifest = load_manifest(EXAMPLE_MANIFEST)
-    (tmp_path / manifest.documents[0].path).write_text("Synthetic text. " * 100, encoding="utf-8")
-    path = tmp_path / "manifest.json"
-    path.write_text(manifest.model_dump_json(), encoding="utf-8")
-    first = prepare_corpus(path)
-    smaller = prepare_corpus(path, ChunkSettings(chunk_size=200, chunk_overlap=30))
-    assert len(smaller.chunks) > len(first.chunks)
-    assert {chunk.id for chunk in smaller.chunks}.isdisjoint(chunk.id for chunk in first.chunks)
-    (tmp_path / manifest.documents[0].path).write_text(
-        "Different synthetic text.", encoding="utf-8"
-    )
-    assert prepare_corpus(path).chunks[0].id != first.chunks[0].id
-
-
-def test_manifest_rejects_path_escape_duplicates_and_invalid_overlap(tmp_path):
-    manifest = load_manifest(EXAMPLE_MANIFEST)
-    outside = tmp_path / "outside.txt"
-    outside.write_text("Synthetic unrelated file", encoding="utf-8")
-    inside = tmp_path / "inside"
-    inside.mkdir()
-    altered = manifest.model_dump(mode="json")
-    altered["documents"][0]["path"] = "../outside.txt"
-    with pytest.raises(ValueError, match="inside"):
-        load_documents(CorpusManifest.model_validate(altered), inside)
-    altered["documents"][0]["path"] = str(outside)
-    with pytest.raises(ValueError, match="relative"):
-        load_documents(CorpusManifest.model_validate(altered), inside)
-    altered["documents"].append(altered["documents"][0])
-    with pytest.raises(ValidationError, match="unique"):
-        CorpusManifest.model_validate(altered)
-    with pytest.raises(ValidationError, match="smaller"):
-        ChunkSettings(chunk_size=100, chunk_overlap=100)
-
-
-def test_missing_and_empty_sources_do_not_publish_partial_corpus(tmp_path):
-    manifest = load_manifest(EXAMPLE_MANIFEST)
-    with pytest.raises(FileNotFoundError):
-        load_documents(manifest, tmp_path)
-    (tmp_path / manifest.documents[0].path).write_text(" \n ", encoding="utf-8")
-    with pytest.raises(ValueError, match="unreadable"):
-        load_documents(manifest, tmp_path)
 
 
 def test_grade_then_generate_returns_only_real_citations():
@@ -237,35 +171,85 @@ def test_no_scope_argument_is_exposed_to_the_model():
     assert not result["sources"]
 
 
-def test_cli_preview_neither_embeds_nor_writes_an_index(monkeypatch, capsys, tmp_path):
-    from agents.app.rag import providers
-    from agents.scripts.ingest_municipal_docs import main
+def test_phase3_evaluates_actual_graph_and_keeps_judge_scores_separate():
+    from agents.app.rag.evaluation import Experiment, QueryDataset, evaluate_agentic_rag, summarize
 
-    def embedding_must_not_run():
-        raise AssertionError("Preview must not request embeddings")
-
-    index_dir = tmp_path / "index"
-    monkeypatch.setattr(providers, "embeddings_from_environment", embedding_must_not_run)
-    monkeypatch.setattr(
-        "sys.argv", ["ingest", str(EXAMPLE_MANIFEST), "--index-dir", str(index_dir)]
+    doc = evidence_document()
+    retriever = Retriever([doc])
+    dataset = QueryDataset.model_validate(
+        {
+            "scope": retriever.scope.model_dump(),
+            "data_kind": "synthetic",
+            "queries": [
+                {
+                    "id": "triage",
+                    "question": "What is checked?",
+                    "expected_document_ids": ["demo-permit-guide"],
+                    "expected_phrases": ["site description"],
+                    "reference_answer": "The synthetic clerk checks the site description.",
+                },
+                {"id": "fee", "question": "Exact fee?", "should_abstain": True},
+            ],
+        }
     )
-    assert main() == 0
-    captured = capsys.readouterr()
-    result = json.loads(captured.out)
-    assert result["mode"] == "preview"
-    assert result["chunk_count"] > 0
-    assert "licensing clerk" not in captured.out
-    assert not captured.err
-    assert not index_dir.exists()
+    model = StructuredModel(
+        RelevanceGrade=[{"relevant_chunk_ids": [doc.id]}, {"relevant_chunk_ids": []}],
+        GroundedAnswer=[
+            {
+                "supported": True,
+                "answer": "The synthetic clerk checks the site description.",
+                "citation_ids": [doc.id],
+            }
+        ],
+    )
+    judge = StructuredModel(AnswerJudgment=[{"correct": True, "relevant": True, "grounded": True}])
+    rows = evaluate_agentic_rag(
+        dataset,
+        MunicipalRag(model, retriever, max_attempts=1),
+        Experiment(name="test", index="test"),
+        judge,
+    )
+    assert rows[0]["source_recall"] == 1
+    assert rows[0]["answer_phrase_coverage"] == 1
+    assert rows[0]["correctness"] is True
+    assert rows[1]["result_status"] == "no_evidence"
+    assert rows[1]["abstention_correct"] is True
+    assert rows[1]["correctness"] is None
+    summary = summarize(rows)[0]
+    assert summary["correctness_count"] == 1
+    assert summary["abstention_correct_count"] == 2
 
 
-def test_cli_ingestion_failure_does_not_print_source_details(monkeypatch, capsys, tmp_path):
-    from agents.scripts.ingest_municipal_docs import main
+def test_judge_failure_is_recorded_as_error_and_never_a_negative_judgment():
+    from agents.app.rag.evaluation import Experiment, QueryDataset, evaluate_agentic_rag
 
-    missing = tmp_path / "sensitive-document-title.json"
-    monkeypatch.setattr("sys.argv", ["ingest", str(missing)])
-    assert main() == 1
-    captured = capsys.readouterr()
-    assert not captured.out
-    assert "sensitive-document-title" not in captured.err
-    assert "No new index snapshot was activated" in captured.err
+    doc = evidence_document()
+    retriever = Retriever([doc])
+    dataset = QueryDataset.model_validate(
+        {
+            "scope": retriever.scope.model_dump(),
+            "data_kind": "synthetic",
+            "queries": [
+                {
+                    "id": "triage",
+                    "question": "What is checked?",
+                    "expected_document_ids": ["demo-permit-guide"],
+                }
+            ],
+        }
+    )
+    model = StructuredModel(
+        RelevanceGrade=[{"relevant_chunk_ids": [doc.id]}],
+        GroundedAnswer=[
+            {"supported": True, "answer": "Synthetic answer", "citation_ids": [doc.id]}
+        ],
+    )
+    rows = evaluate_agentic_rag(
+        dataset,
+        MunicipalRag(model, retriever),
+        Experiment(name="test", index="test"),
+        StructuredModel(),
+    )
+    assert rows[0]["status"] == "error"
+    assert rows[0]["error_code"] == "judge_failed"
+    assert rows[0]["correctness"] is None

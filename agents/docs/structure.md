@@ -25,22 +25,35 @@ agents/
       store.py          # Persistent municipal vector indexes and scoped retrieval
       workflow.py       # Relevance, rewrite and grounded answer graph
       providers.py      # Explicit server-side embedding configuration
+      evaluation.py     # Phase datasets, experiments, scoring and reports
+      structured.py     # Shared structured-model invocation
     contracts.py        # Validation using the shared repository schemas
     paths.py            # Working-directory-independent asset locations
   scripts/
     run_interview.py    # Provider setup and one-turn CLI
     extract_aprova_docs.py # Public OpenAPI snapshot extraction
     ingest_municipal_docs.py # Offline preview or explicit embedding/indexing
+    rag_phase0.py       # Chunk/index variant preparation
+    rag_phase1_runner.py # Vector retrieval baseline
+    rag_phase2_runner.py # Retrieval experiment comparisons
+    rag_phase3_runner.py # Agentic RAG and optional answer judging
+    rag_phase_common.py # Shared CLI planning, preflight and report orchestration
   knowledge/aprova/     # Documentation data and synthetic response templates
   docs/
     implementation-form.md # Pinned questionnaire guidance loaded into the prompt
     intents.md          # Intent selection guide
     structure.md        # This guide
     rag.md              # Municipal document preparation and agentic retrieval
+    rag_testing_flow.md # Phase commands and reference/documentation audit
   examples/             # Explicitly selected synthetic process catalog
   data/municipal/       # Incoming documents/manifests; local and ignored
   .local/rag/           # Persistent indexes; local and ignored
-  tests/                # Offline workflow and documentation checks
+  tests/
+    rag/                # Phase-marked RAG checks, shared dataset and experiment matrix
+      data/             # Explicitly synthetic evaluation documents
+      analysis/         # Local reports; generated files ignored
+    test_interview.py   # Interview adapter and RAG-tool integration checks
+    test_aprova_reference.py # Public API-reference checks
   interview.py          # Stable backend import; delegates to app/agent/workflow.py
   __main__.py           # Stable python -m agents entry point
   Makefile              # Optional component check shortcuts
@@ -73,10 +86,17 @@ subgraph grades, optionally rewrites and generates cited evidence. See
 [the RAG guide](rag.md). The course project's sales CRM and data are not part
 of this component.
 
-The reference also registers raw graphs through `langgraph.json`. This component
-continues to use a backend adapter with the shared request/result contract;
-deploying a raw graph would bypass its validation and merge step. Graph-server
-configuration remains a separate integration decision.
+The [phase organization audit](rag_testing_flow.md) records what matches the
+reference, what was adapted, and which retrieval features remain unimplemented.
+Phase runners use the same ingestion/retrieval/graph code as the application;
+scoring and reports are shared rather than copied into each runner.
+
+The root `langgraph.json` now registers a separate synthetic requirements graph
+for local Studio inspection. `app/requirements/` contains its schemas, comparison,
+retrieval adapters, graph, prompts and exports. The live graph has a separate
+configuration and requires server-side settings. This development surface does
+not replace the current backend adapter or its shared request/result contract;
+see [requirements.md](requirements.md) for the remaining integration boundary.
 
 ## Commands and deployment
 

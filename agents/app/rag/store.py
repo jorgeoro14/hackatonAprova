@@ -9,7 +9,7 @@ from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 
 from .ingest import PreparedCorpus
-from .schemas import CorpusScope, EmbeddingSpec, Evidence, IndexDescriptor
+from .schemas import CorpusScope, EmbeddingSpec, Evidence, IndexDescriptor, RetrievalSettings
 
 
 class MunicipalRetriever(Protocol):
@@ -86,14 +86,20 @@ def scoped_evidence(document: Document, scope: CorpusScope) -> Evidence:
 
 
 class ChromaMunicipalRetriever:
-    def __init__(self, index_dir: Path, embeddings: Embeddings, spec: EmbeddingSpec, *, k: int = 4):
-        if not 1 <= k <= 8:
-            raise ValueError("Retrieval result count must be between one and eight")
+    def __init__(
+        self,
+        index_dir: Path,
+        embeddings: Embeddings,
+        spec: EmbeddingSpec,
+        *,
+        k: int = 4,
+        settings: RetrievalSettings | None = None,
+    ):
         descriptor = read_descriptor(index_dir)
         if spec != descriptor.embedding:
             raise ValueError("Query embeddings must match the indexed provider/model")
         self.scope = descriptor.scope
-        self._k = k
+        self.settings = settings or RetrievalSettings(k=k)
         self._store = _open_store(index_dir, descriptor, embeddings, create=False)
         self._filter = {
             "$and": [
@@ -103,7 +109,17 @@ class ChromaMunicipalRetriever:
         }
 
     def search(self, query: str) -> list[Document]:
-        documents = self._store.similarity_search(query, k=self._k, filter=self._filter)
+        settings = self.settings
+        if settings.search_type == "mmr":
+            documents = self._store.max_marginal_relevance_search(
+                query,
+                k=settings.k,
+                fetch_k=settings.fetch_k,
+                lambda_mult=settings.lambda_mult,
+                filter=self._filter,
+            )
+        else:
+            documents = self._store.similarity_search(query, k=settings.k, filter=self._filter)
         for document in documents:
             scoped_evidence(document, self.scope)
         return documents

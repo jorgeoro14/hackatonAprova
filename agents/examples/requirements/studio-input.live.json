@@ -1,0 +1,11 @@
+{
+  "messages": [
+    {
+      "type": "human",
+      "content": "We want to adapt the existing building permit form for Cascavel, Parana. Start by identifying the process and the baseline information we still need.",
+      "additional_kwargs": {
+        "actor_role": "municipal_representative"
+      }
+    }
+  ]
+}

@@ -2,13 +2,13 @@
 
 import argparse
 import json
-import os
 import sys
 from pathlib import Path
 
 from ..app.agent.workflow import ProcessInterviewAgent
 from ..app.contracts import load_json
 from ..app.knowledge.catalog import JsonProcessCatalog
+from ..app.rag.providers import chat_from_environment
 
 
 def main() -> int:
@@ -19,17 +19,9 @@ def main() -> int:
         "--rag-index", type=Path, help="Backend-authorized municipal index directory"
     )
     args = parser.parse_args()
-    if os.environ.get("MODEL_PROVIDER") != "openai":
-        parser.error("Set MODEL_PROVIDER=openai for the initial CLI adapter")
-    model_name = os.environ.get("MODEL_NAME", "").strip()
-    api_key = os.environ.get("MODEL_API_KEY", "").strip()
-    if not model_name or not api_key:
-        parser.error("Set server-side MODEL_NAME and MODEL_API_KEY")
-    from langchain_openai import ChatOpenAI
-
     try:
         catalog = JsonProcessCatalog(load_json(args.catalog) if args.catalog else [])
-        model = ChatOpenAI(model=model_name, api_key=api_key, timeout=40, max_retries=0)
+        model = chat_from_environment(timeout=40)
         municipal_rag = None
         if args.rag_index is not None:
             from ..app.rag.providers import embeddings_from_environment
@@ -38,7 +30,7 @@ def main() -> int:
 
             embeddings, spec = embeddings_from_environment()
             retriever = ChromaMunicipalRetriever(args.rag_index, embeddings, spec)
-            rag_model = ChatOpenAI(model=model_name, api_key=api_key, timeout=10, max_retries=0)
+            rag_model = chat_from_environment()
             municipal_rag = MunicipalRag(rag_model, retriever)
         result = ProcessInterviewAgent(model, catalog, municipal_rag).invoke(
             load_json(args.request)

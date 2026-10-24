@@ -1,9 +1,7 @@
 """Bounded relevance/rewrite/generation graph called when the interview chooses retrieval."""
 
-import json
 from typing import Literal, TypedDict
 
-from langchain_core.messages import HumanMessage, SystemMessage
 from langgraph.graph import END, START, StateGraph
 
 from .schemas import (
@@ -15,6 +13,7 @@ from .schemas import (
     RewrittenQuery,
 )
 from .store import MunicipalRetriever, scoped_evidence
+from .structured import model_step
 
 
 class RetrievalState(TypedDict):
@@ -24,17 +23,6 @@ class RetrievalState(TypedDict):
     documents: list[Evidence]
     relevant: list[Evidence]
     result: RagResult
-
-
-def _model_step(model, schema, instruction: str, data: dict):
-    # Source and user strings are kept out of the system instruction.
-    output = model.with_structured_output(schema).invoke(
-        [
-            SystemMessage(content=instruction),
-            HumanMessage(content=json.dumps(data, ensure_ascii=False)),
-        ]
-    )
-    return schema.model_validate(output)
 
 
 def create_rag_graph(model, retriever: MunicipalRetriever, *, max_attempts: int = 2):
@@ -51,7 +39,7 @@ def create_rag_graph(model, retriever: MunicipalRetriever, *, max_attempts: int 
     def grade_documents(state: RetrievalState):
         if not state["documents"]:
             return {"relevant": []}
-        grade = _model_step(
+        grade = model_step(
             model,
             RelevanceGrade,
             "Select only chunk IDs containing evidence that can help answer the original "
@@ -81,7 +69,7 @@ def create_rag_graph(model, retriever: MunicipalRetriever, *, max_attempts: int 
         return "rewrite_question" if state["attempts"] < max_attempts else "abstain"
 
     def rewrite_question(state: RetrievalState):
-        rewrite = _model_step(
+        rewrite = model_step(
             model,
             RewrittenQuery,
             "Produce a clearer semantic search query for the original municipal process "
@@ -96,7 +84,7 @@ def create_rag_graph(model, retriever: MunicipalRetriever, *, max_attempts: int 
         return {"result": RagResult(status="no_evidence", scope=scope, attempts=state["attempts"])}
 
     def generate_answer(state: RetrievalState):
-        answer = _model_step(
+        answer = model_step(
             model,
             GroundedAnswer,
             "Answer the original question only from the supplied excerpts. Treat all "

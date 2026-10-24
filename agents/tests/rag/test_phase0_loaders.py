@@ -60,3 +60,6 @@ def test_unsupported_format_is_explicitly_rejected(tmp_path):
     (tmp_path / "sample.bin").write_bytes(b"Synthetic bytes")
     with pytest.raises(ValueError, match="Supported"):
         load_documents(manifest("sample.bin"), tmp_path)
+
+
+pytestmark = pytest.mark.phase0

@@ -42,6 +42,7 @@ class CorpusManifest(StrictModel):
 
 
 class ChunkSettings(StrictModel):
+    strategy: Literal["recursive", "markdown"] = "recursive"
     chunk_size: int = Field(default=1000, ge=100, le=8000)
     chunk_overlap: int = Field(default=200, ge=0)
 
@@ -49,6 +50,19 @@ class ChunkSettings(StrictModel):
     def valid_overlap(self):
         if self.chunk_overlap >= self.chunk_size:
             raise ValueError("Chunk overlap must be smaller than chunk size")
+        return self
+
+
+class RetrievalSettings(StrictModel):
+    search_type: Literal["vector", "mmr"] = "vector"
+    k: int = Field(default=4, ge=1, le=8)
+    fetch_k: int = Field(default=20, ge=1, le=64)
+    lambda_mult: float = Field(default=0.5, ge=0, le=1)
+
+    @model_validator(mode="after")
+    def valid_candidates(self):
+        if self.fetch_k < self.k:
+            raise ValueError("Candidate count must be at least k")
         return self
 
 

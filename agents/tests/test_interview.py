@@ -32,12 +32,6 @@ class ScriptedModel(BaseChatModel):
         return ChatResult(generations=[ChatGeneration(message=self.responses.pop(0))])
 
 
-@pytest.fixture(autouse=True)
-def disable_external_tracing(monkeypatch):
-    monkeypatch.setenv("LANGSMITH_TRACING", "false")
-    monkeypatch.setenv("LANGCHAIN_TRACING_V2", "false")
-
-
 @pytest.fixture
 def request_payload():
     return load_json(ROOT / "contracts/examples/agent-request.json")
@@ -346,6 +340,7 @@ def test_target_model_keys_cannot_bypass_current_public_contract(request_payload
     assert request_payload == original
 
 
+@pytest.mark.phase3
 def test_municipal_search_unconfigured_keeps_form_unknown(request_payload):
     model = ScriptedModel(
         responses=[
@@ -362,6 +357,7 @@ def test_municipal_search_unconfigured_keeps_form_unknown(request_payload):
     assert result["form"] == request_payload["form"]
 
 
+@pytest.mark.phase3
 def test_municipal_graph_tool_roundtrip_returns_evidence_without_autofill(request_payload):
     from agents.app.rag.ingest import prepare_corpus
     from agents.app.rag.workflow import MunicipalRag

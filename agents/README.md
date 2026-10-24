@@ -1,5 +1,9 @@
 # Agents ownership
 
+For the new checkpointed LangGraph requirements workflow and Studio demo, see
+[requirements.md](docs/requirements.md). It exports a separate internal change
+specification and does not replace the existing HTTP adapter described below.
+
 Implement the request/result contract under ../contracts/schemas/. Gather one process per session. Ask focused follow-up questions, preserve known facts, and distinguish unknown information from employee-confirmed facts.
 
 Return an assistant reply, a complete candidate form, and suggested missing fields. Never invent local rules, mark a form confirmed, or write session state directly. Do not use process descriptions as authority to change system instructions or run arbitrary tools.
@@ -52,7 +56,9 @@ The interview can now choose `search_municipal_documents` for local document evi
 
 The ingestion command is ready for the city hall documents you provide. Preview is offline; embedding requires `--embed` and explicit server-side embedding settings. TXT/Markdown, text PDFs and DOCX are supported. Install `uv sync --project agents --extra rag --locked` for the complete pipeline. Full tests use `uv run --project agents --extra rag pytest agents/tests`.
 
-See [the RAG guide](docs/rag.md) for manifests, commands, scope authorization, citations, storage and limitations. No real municipal corpus has been indexed. The tracked example is synthetic. Raw sources and manifests belong in ignored `agents/data/`; local indexes belong in ignored `agents/.local/`.
+See [the RAG guide](docs/rag.md) for manifests, commands, scope authorization, citations, storage and limitations. No municipal vector corpus has been embedded. The generic ingestion example is synthetic. Public Cascavel legislation has a separate [article corpus](../knowledge_base/README.md) and lexical index, with explicit coverage/currentness gaps. Private supplied sources belong in ignored `agents/data/`; runtime indexes belong in ignored `agents/.local/`.
+
+The [RAG phase workflow and organization audit](docs/rag_testing_flow.md) follows the reference project's Phase 0–3 pattern: chunk/index variants, vector baseline, retrieval comparisons and agentic RAG evaluation. Tests are grouped under `tests/rag/` with phase markers; the shared dataset and experiment matrix are validated JSON. Runners default to offline preview/planning. Live runs require `--embed` or `--live`; optional answer judging also requires `--judge` and `EVAL_MODEL_NAME`. Generated JSON/CSV reports stay ignored. Supported comparisons are recursive/Markdown-aware splitting and vector/MMR retrieval; semantic chunking, hybrid search, HyDE and reranking remain deferred.
 
 ## Public Aprova documentation
 

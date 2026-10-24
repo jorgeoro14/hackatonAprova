@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "scope": {"municipality_id": "example-city", "municipality_name": "Example City", "corpus_id": "phase-fixtures"},
+  "data_kind": "synthetic",
+  "documents": [
+    {"document_id": "demo-triage", "title": "Synthetic application triage", "path": "triage.synthetic.md", "kind": "procedure", "version": null},
+    {"document_id": "demo-final-output", "title": "Synthetic final output", "path": "final-output.synthetic.md", "kind": "procedure", "version": null}
+  ]
+}

@@ -15,6 +15,7 @@ def main() -> int:
         "manifest", type=Path, help="Local corpus manifest with relative source paths"
     )
     parser.add_argument("--chunk-size", type=int, default=1000)
+    parser.add_argument("--strategy", choices=["recursive", "markdown"], default="recursive")
     parser.add_argument("--chunk-overlap", type=int, default=200)
     parser.add_argument(
         "--embed", action="store_true", help="Send chunks to the embedding provider"
@@ -26,7 +27,9 @@ def main() -> int:
     if args.embed and args.index_dir is None:
         parser.error("--embed requires --index-dir")
     try:
-        settings = ChunkSettings(chunk_size=args.chunk_size, chunk_overlap=args.chunk_overlap)
+        settings = ChunkSettings(
+            strategy=args.strategy, chunk_size=args.chunk_size, chunk_overlap=args.chunk_overlap
+        )
         corpus = prepare_corpus(args.manifest, settings)
         summary = {
             "mode": "embed" if args.embed else "preview",

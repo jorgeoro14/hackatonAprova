@@ -1,9 +1,17 @@
 # Municipal document RAG
 
-The scaffold is ready to receive approved city hall process documents. No real
-municipal documents have been ingested, embedded or supplied to a model. The
+The scaffold is ready to receive approved city hall process documents. No municipal
+vector embeddings or live model evaluations have been run. A separate public
+[Cascavel article corpus](../../knowledge_base/README.md) now supports lexical
+retrieval with explicit legal-coverage gaps; it does not use this generic ingestion
+manifest or imply verified current municipal requirements. The
 tracked example is explicitly synthetic. Embedding and retrieval quality must
 be evaluated once the documents arrive.
+
+The [phase workflow and organization review](rag_testing_flow.md) maps the
+reference project's `rag_phase` organization to this repository. It adds shared
+datasets, experiment variants, Phase 0–3 runners and local reports without
+changing the default requirement for explicit embedding/provider execution.
 
 ## Agentic flow
 
@@ -52,7 +60,10 @@ It does not automatically turn them into accepted form answers.
 | `app/rag/store.py` | Persistent Chroma snapshots and fixed-scope retrieval |
 | `app/rag/workflow.py` | Grade/rewrite/generate graph and `MunicipalRag` facade |
 | `app/rag/providers.py` | Explicit server-side OpenAI embedding setup |
+| `app/rag/evaluation.py` | Validated phase datasets/matrix, metrics and reports |
 | `scripts/ingest_municipal_docs.py` | Preview and opt-in embedding CLI |
+| `scripts/rag_phase0.py`, `rag_phase1_runner.py`, `rag_phase2_runner.py`, `rag_phase3_runner.py` | Phase preparation, retrieval comparisons and agentic RAG evaluation |
+| `tests/rag/` | Phase-marked regression checks, synthetic dataset and experiment matrix |
 | `examples/rag/` | Synthetic manifest and document for offline checks |
 | `data/municipal/` | Local incoming documents/manifests; ignored by Git |
 | `.local/rag/` | Local vector indexes; ignored by Git |

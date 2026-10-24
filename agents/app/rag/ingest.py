@@ -6,7 +6,7 @@ from hashlib import sha256
 from pathlib import Path
 
 from langchain_core.documents import Document
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_text_splitters import Language, RecursiveCharacterTextSplitter
 
 from .loaders import load_documents, load_manifest
 from .schemas import ChunkSettings, CorpusManifest
@@ -23,11 +23,17 @@ def prepare_corpus(manifest_path: Path, settings: ChunkSettings | None = None) -
     settings = settings or ChunkSettings()
     manifest = load_manifest(manifest_path)
     pages = load_documents(manifest, manifest_path.parent)
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=settings.chunk_size,
-        chunk_overlap=settings.chunk_overlap,
-        add_start_index=True,
-    )
+    options = {
+        "chunk_size": settings.chunk_size,
+        "chunk_overlap": settings.chunk_overlap,
+        "add_start_index": True,
+    }
+    if settings.strategy == "markdown":
+        if any(Path(source.path).suffix.casefold() != ".md" for source in manifest.documents):
+            raise ValueError("Markdown chunking requires Markdown source files")
+        splitter = RecursiveCharacterTextSplitter.from_language(Language.MARKDOWN, **options)
+    else:
+        splitter = RecursiveCharacterTextSplitter(**options)
     chunks = splitter.split_documents(pages)
     if not chunks:
         raise ValueError("Corpus contains no indexable text")

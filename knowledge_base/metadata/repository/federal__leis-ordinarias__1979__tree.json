@@ -1,0 +1,1183 @@
+{
+  "sha": "c484712886b06006b0dfa3eca728ac7198fe8a2d",
+  "url": "https://api.github.com/repos/ctresb/leis/git/trees/c484712886b06006b0dfa3eca728ac7198fe8a2d",
+  "tree": [
+    {
+      "path": "lei-6622-1979-03-23.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8dfbe213980a689f9cc5d17a26aa9ea97ca830f",
+      "size": 1313,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/c8dfbe213980a689f9cc5d17a26aa9ea97ca830f"
+    },
+    {
+      "path": "lei-6623-1979-03-23.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c3a3728b621d909b09b0fcb3f32b9b30ea618ce",
+      "size": 1688,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/6c3a3728b621d909b09b0fcb3f32b9b30ea618ce"
+    },
+    {
+      "path": "lei-6624-1979-03-23.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0a289daf1b9ed6c851ca0ce6af2073d2f6e4220",
+      "size": 1672,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/f0a289daf1b9ed6c851ca0ce6af2073d2f6e4220"
+    },
+    {
+      "path": "lei-6625-1979-03-23.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1767e5ba798068289c3cff69831736f5786ebcdd",
+      "size": 1592,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/1767e5ba798068289c3cff69831736f5786ebcdd"
+    },
+    {
+      "path": "lei-6626-1979-04-02.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a05d281b7d7b2d3651c8104443672dce757e932e",
+      "size": 2388,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/a05d281b7d7b2d3651c8104443672dce757e932e"
+    },
+    {
+      "path": "lei-6627-1979-04-02.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "845ed025e30f47f07e702c2bc8ac16c3d8942e64",
+      "size": 2939,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/845ed025e30f47f07e702c2bc8ac16c3d8942e64"
+    },
+    {
+      "path": "lei-6628-1979-04-02.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9b703e33c08b4dd80be4fd408cd540df8f508a00",
+      "size": 1160,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/9b703e33c08b4dd80be4fd408cd540df8f508a00"
+    },
+    {
+      "path": "lei-6629-1979-04-16.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2576a82d38c88ff122c8176c7ae701629a4f8ed2",
+      "size": 1634,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/2576a82d38c88ff122c8176c7ae701629a4f8ed2"
+    },
+    {
+      "path": "lei-6630-1979-04-16.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9680470cd55d61d371a8defb3907e95c9cd539a",
+      "size": 1799,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/c9680470cd55d61d371a8defb3907e95c9cd539a"
+    },
+    {
+      "path": "lei-6631-1979-04-19.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "058747ccdf92d6b39966080493748ae9237d2b64",
+      "size": 1753,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/058747ccdf92d6b39966080493748ae9237d2b64"
+    },
+    {
+      "path": "lei-6632-1979-04-28.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95e257618af572fba638ebb6b7bc7c933bdc75fd",
+      "size": 1709,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/95e257618af572fba638ebb6b7bc7c933bdc75fd"
+    },
+    {
+      "path": "lei-6633-1979-04-28.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c3101ef34bcb7eeac68ea9ab34560e94ce41b2a",
+      "size": 1974,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/5c3101ef34bcb7eeac68ea9ab34560e94ce41b2a"
+    },
+    {
+      "path": "lei-6634-1979-05-02.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78f1457f946f6cda0f2b2305b8a1f417f4de83c7",
+      "size": 8748,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/78f1457f946f6cda0f2b2305b8a1f417f4de83c7"
+    },
+    {
+      "path": "lei-6635-1979-05-02.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8804ee153376e0d0e39fa43c16a1a1ceb25c44de",
+      "size": 3733,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/8804ee153376e0d0e39fa43c16a1a1ceb25c44de"
+    },
+    {
+      "path": "lei-6636-1979-05-08.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4f2103def7350cf2187f07c18297b51a2fe5f4e",
+      "size": 1962,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/a4f2103def7350cf2187f07c18297b51a2fe5f4e"
+    },
+    {
+      "path": "lei-6637-1979-05-08.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "889f5ad21db399cc4d882e6730379e95c5ba2843",
+      "size": 1307,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/889f5ad21db399cc4d882e6730379e95c5ba2843"
+    },
+    {
+      "path": "lei-6638-1979-05-08.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f59e196f0d129cfe1fa47534cb8928e37d16a6cd",
+      "size": 3172,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/f59e196f0d129cfe1fa47534cb8928e37d16a6cd"
+    },
+    {
+      "path": "lei-6639-1979-05-08.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a5553f6e72f04bfb3bd63e15e9f9be697df683c6",
+      "size": 1671,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/a5553f6e72f04bfb3bd63e15e9f9be697df683c6"
+    },
+    {
+      "path": "lei-6640-1979-05-08.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b90ad110158439558a4b74ac8e1e85dfda62368",
+      "size": 1692,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/8b90ad110158439558a4b74ac8e1e85dfda62368"
+    },
+    {
+      "path": "lei-6641-1979-05-08.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d4d85744af7e2de231cd7e3a0302df3be14f012e",
+      "size": 2291,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/d4d85744af7e2de231cd7e3a0302df3be14f012e"
+    },
+    {
+      "path": "lei-6642-1979-05-14.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "20f80d4d6d4d163e8a210028bd0273c39bf7f3b3",
+      "size": 2143,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/20f80d4d6d4d163e8a210028bd0273c39bf7f3b3"
+    },
+    {
+      "path": "lei-6643-1979-05-14.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ed0065b17178ae4648b4ba675fc54dfd26b20c3",
+      "size": 1979,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/5ed0065b17178ae4648b4ba675fc54dfd26b20c3"
+    },
+    {
+      "path": "lei-6644-1979-05-14.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3c5dbd852ef36d6e8386fef4baccb7c4103eb19",
+      "size": 3480,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/e3c5dbd852ef36d6e8386fef4baccb7c4103eb19"
+    },
+    {
+      "path": "lei-6645-1979-05-14.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2bb198dc7f356f8502f62f45195a01e2b13b51ec",
+      "size": 19108,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/2bb198dc7f356f8502f62f45195a01e2b13b51ec"
+    },
+    {
+      "path": "lei-6646-1979-05-16.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "141b31d47dfa6c9ceeb4ecdba958df11201b550d",
+      "size": 1305,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/141b31d47dfa6c9ceeb4ecdba958df11201b550d"
+    },
+    {
+      "path": "lei-6647-1979-05-16.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7d0da1d3b9f77fcd2d3a463d556d78338a7ac88",
+      "size": 2041,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/d7d0da1d3b9f77fcd2d3a463d556d78338a7ac88"
+    },
+    {
+      "path": "lei-6648-1979-05-16.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8222e4712d57fe6adcc291d9203c7eba4eb71d0",
+      "size": 1353,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/c8222e4712d57fe6adcc291d9203c7eba4eb71d0"
+    },
+    {
+      "path": "lei-6649-1979-05-16.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4cd79c38c8896b64d6c8b2d19baf42578761018f",
+      "size": 30123,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/4cd79c38c8896b64d6c8b2d19baf42578761018f"
+    },
+    {
+      "path": "lei-6650-1979-05-23.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0364b9647033bb03f1176b10f8bff3af44f3f377",
+      "size": 10658,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/0364b9647033bb03f1176b10f8bff3af44f3f377"
+    },
+    {
+      "path": "lei-6651-1979-05-23.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50207ec9d6ca33a5f47c26f85f29a88358880596",
+      "size": 1456,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/50207ec9d6ca33a5f47c26f85f29a88358880596"
+    },
+    {
+      "path": "lei-6652-1979-05-30.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e13d694ce0dc6880e4315f4fa2a61b6187420bc",
+      "size": 89236,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/9e13d694ce0dc6880e4315f4fa2a61b6187420bc"
+    },
+    {
+      "path": "lei-6653-1979-05-30.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "977e6bffce233234d6e64d6368e11d547c206f95",
+      "size": 3219,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/977e6bffce233234d6e64d6368e11d547c206f95"
+    },
+    {
+      "path": "lei-6654-1979-05-30.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b03656c97b53ef0793f6f939994f8fd919075510",
+      "size": 1556,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/b03656c97b53ef0793f6f939994f8fd919075510"
+    },
+    {
+      "path": "lei-6655-1979-06-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7029c3ac77680c1eb8e2dd25c2a585d55a74a2ae",
+      "size": 6058,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/7029c3ac77680c1eb8e2dd25c2a585d55a74a2ae"
+    },
+    {
+      "path": "lei-6656-1979-06-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8f014b39ac67f398a0fa7f3defcf78926ed482f",
+      "size": 2091,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/c8f014b39ac67f398a0fa7f3defcf78926ed482f"
+    },
+    {
+      "path": "lei-6657-1979-06-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "219c0cee06d546d8faa59ab69588f72d2cedcac9",
+      "size": 1513,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/219c0cee06d546d8faa59ab69588f72d2cedcac9"
+    },
+    {
+      "path": "lei-6658-1979-06-07.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "902f16207794c26d07a21684cc2c5d5e7e2b44e4",
+      "size": 1385,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/902f16207794c26d07a21684cc2c5d5e7e2b44e4"
+    },
+    {
+      "path": "lei-6659-1979-06-18.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa0014d3472d899be57f8ed9981f23af6da2e4dc",
+      "size": 1385,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/fa0014d3472d899be57f8ed9981f23af6da2e4dc"
+    },
+    {
+      "path": "lei-6660-1979-06-21.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f04654b46efef664dbe4e18c2a51c38421896835",
+      "size": 1745,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/f04654b46efef664dbe4e18c2a51c38421896835"
+    },
+    {
+      "path": "lei-6661-1979-06-21.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "75ca87325166931bb33bc471583a433692b3b052",
+      "size": 1667,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/75ca87325166931bb33bc471583a433692b3b052"
+    },
+    {
+      "path": "lei-6662-1979-06-25.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fd66c2476a9492edf1704c505073a0685f26c660",
+      "size": 20755,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/fd66c2476a9492edf1704c505073a0685f26c660"
+    },
+    {
+      "path": "lei-6663-1979-06-25.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a30e32ab6aefe7d0082feeb8c4caff9b672ca51a",
+      "size": 1602,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/a30e32ab6aefe7d0082feeb8c4caff9b672ca51a"
+    },
+    {
+      "path": "lei-6664-1979-06-26.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41a0ec3bfa5785b58761500651af4a75a278eae3",
+      "size": 6182,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/41a0ec3bfa5785b58761500651af4a75a278eae3"
+    },
+    {
+      "path": "lei-6665-1979-07-03.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a1924bbe46df983acaa6e619b6b12c9b769b9a3",
+      "size": 5703,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/7a1924bbe46df983acaa6e619b6b12c9b769b9a3"
+    },
+    {
+      "path": "lei-6666-1979-07-03.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3f8e4b542d473c91fd6a927753dc30399992d4c",
+      "size": 2225,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/a3f8e4b542d473c91fd6a927753dc30399992d4c"
+    },
+    {
+      "path": "lei-6667-1979-07-03.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a2b59584a41e93c4aae9b8d810085b817a5c9eb",
+      "size": 1451,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/1a2b59584a41e93c4aae9b8d810085b817a5c9eb"
+    },
+    {
+      "path": "lei-6668-1979-07-03.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ad4c1d849f501bed4a8e9d4c4357a1c481bf8983",
+      "size": 1563,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/ad4c1d849f501bed4a8e9d4c4357a1c481bf8983"
+    },
+    {
+      "path": "lei-6669-1979-07-04.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a4d7508b33593f6597c63517ba047e84723e2d2",
+      "size": 4982,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/9a4d7508b33593f6597c63517ba047e84723e2d2"
+    },
+    {
+      "path": "lei-6670-1979-07-04.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b5080a9033b8a7e15ae145adfd6572d873db75cb",
+      "size": 1172,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/b5080a9033b8a7e15ae145adfd6572d873db75cb"
+    },
+    {
+      "path": "lei-6671-1979-07-04.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "768bd53e10c00930f0daac20245e60ce33d28d8f",
+      "size": 1381,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/768bd53e10c00930f0daac20245e60ce33d28d8f"
+    },
+    {
+      "path": "lei-6672-1979-07-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "827aa5cfe22b80faec27b401dc69e50acb24ce10",
+      "size": 1744,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/827aa5cfe22b80faec27b401dc69e50acb24ce10"
+    },
+    {
+      "path": "lei-6673-1979-07-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d2e92b3f74a3f19b85af2bc36e3b671222af70cc",
+      "size": 2380,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/d2e92b3f74a3f19b85af2bc36e3b671222af70cc"
+    },
+    {
+      "path": "lei-6674-1979-07-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "89cc1fdc93be0cc8fa3649e7bd19d7ae3966f4e6",
+      "size": 7302,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/89cc1fdc93be0cc8fa3649e7bd19d7ae3966f4e6"
+    },
+    {
+      "path": "lei-6675-1979-07-09.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6372ab0eae7d34cfe5963ec903d1b3307ef04b51",
+      "size": 1455,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/6372ab0eae7d34cfe5963ec903d1b3307ef04b51"
+    },
+    {
+      "path": "lei-6676-1979-07-09.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ac2b35faa26da77f86d945fa9b2518c24919cf8",
+      "size": 1941,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/1ac2b35faa26da77f86d945fa9b2518c24919cf8"
+    },
+    {
+      "path": "lei-6677-1979-07-24.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "467654a280ecda49b45599ca948089e7bcbab5a6",
+      "size": 3070,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/467654a280ecda49b45599ca948089e7bcbab5a6"
+    },
+    {
+      "path": "lei-6678-1979-08-14.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b1ea7ceb3c0954cb7bfef5ffe9b2dad8c22cf73",
+      "size": 3731,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/0b1ea7ceb3c0954cb7bfef5ffe9b2dad8c22cf73"
+    },
+    {
+      "path": "lei-6679-1979-08-14.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec32fd65694076448ecb11d703be7598e1bf828d",
+      "size": 1695,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/ec32fd65694076448ecb11d703be7598e1bf828d"
+    },
+    {
+      "path": "lei-6680-1979-08-16.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d230c25dde3deb6141f07bff5ef48cfd7a46b87",
+      "size": 3505,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/3d230c25dde3deb6141f07bff5ef48cfd7a46b87"
+    },
+    {
+      "path": "lei-6681-1979-08-16.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b0143b376cc3f626da0346a9b8b69c3e9b9c67d",
+      "size": 6288,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/4b0143b376cc3f626da0346a9b8b69c3e9b9c67d"
+    },
+    {
+      "path": "lei-6682-1979-08-27.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "337cda948660ac72c8e89eb1a8f3359c63e43311",
+      "size": 1927,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/337cda948660ac72c8e89eb1a8f3359c63e43311"
+    },
+    {
+      "path": "lei-6683-1979-08-28.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85d0f7abf8051735d7e2339b3b24b3d82ad11efe",
+      "size": 6607,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/85d0f7abf8051735d7e2339b3b24b3d82ad11efe"
+    },
+    {
+      "path": "lei-6684-1979-09-03.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d02bc8e6e0ac9b60912e3280f9da0c011fcbbbf",
+      "size": 21835,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/9d02bc8e6e0ac9b60912e3280f9da0c011fcbbbf"
+    },
+    {
+      "path": "lei-6685-1979-09-03.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0dbf9649038b642eb4dcc3ed1f4237b0205fbb9",
+      "size": 1889,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/a0dbf9649038b642eb4dcc3ed1f4237b0205fbb9"
+    },
+    {
+      "path": "lei-6686-1979-09-11.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74bb5abb619a088160146cbb8c60db9d693c52d6",
+      "size": 1874,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/74bb5abb619a088160146cbb8c60db9d693c52d6"
+    },
+    {
+      "path": "lei-6687-1979-09-17.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f1e20b52cc54f4fdf3eca794678fd261ca3f104d",
+      "size": 5789,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/f1e20b52cc54f4fdf3eca794678fd261ca3f104d"
+    },
+    {
+      "path": "lei-6688-1979-09-17.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f04d2e47a3c69cf0d5a687dad9c5f72e4fc010f",
+      "size": 1892,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/5f04d2e47a3c69cf0d5a687dad9c5f72e4fc010f"
+    },
+    {
+      "path": "lei-6689-1979-09-24.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ca213a474100142178818eb73bcddcc7df577bac",
+      "size": 1745,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/ca213a474100142178818eb73bcddcc7df577bac"
+    },
+    {
+      "path": "lei-6690-1979-09-25.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21cfb56d40ba8c7ae226c960cce076c02ee4f9df",
+      "size": 3612,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/21cfb56d40ba8c7ae226c960cce076c02ee4f9df"
+    },
+    {
+      "path": "lei-6691-1979-10-01.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c8def0deec492016342213f4826f387fca7658f",
+      "size": 1254,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/0c8def0deec492016342213f4826f387fca7658f"
+    },
+    {
+      "path": "lei-6692-1979-10-01.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9518a98a5891edccb18b38e4187f1ebe064d210e",
+      "size": 1783,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/9518a98a5891edccb18b38e4187f1ebe064d210e"
+    },
+    {
+      "path": "lei-6693-1979-10-03.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1fd6f307a94a20c7b927957d74cf0457aac831b",
+      "size": 6196,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/c1fd6f307a94a20c7b927957d74cf0457aac831b"
+    },
+    {
+      "path": "lei-6694-1979-10-03.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e59f78275177cdb83785b050425afe16f42c7ef2",
+      "size": 1674,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/e59f78275177cdb83785b050425afe16f42c7ef2"
+    },
+    {
+      "path": "lei-6695-1979-10-08.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8f2b9ad68eb2f0d27c210339171ae40bf3f83c8",
+      "size": 1265,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/e8f2b9ad68eb2f0d27c210339171ae40bf3f83c8"
+    },
+    {
+      "path": "lei-6696-1979-10-08.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec68b7b54c33fca1bd41597cf81795070204addd",
+      "size": 5751,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/ec68b7b54c33fca1bd41597cf81795070204addd"
+    },
+    {
+      "path": "lei-6697-1979-10-10.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "084570b47a70dc57da987bcaf1abb9d062506920",
+      "size": 51613,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/084570b47a70dc57da987bcaf1abb9d062506920"
+    },
+    {
+      "path": "lei-6698-1979-10-15.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "790571c8f4779f7b2048a2d812fdbb4c07cb062b",
+      "size": 3860,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/790571c8f4779f7b2048a2d812fdbb4c07cb062b"
+    },
+    {
+      "path": "lei-6699-1979-10-15.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "892f9d859715fb666aaa8c3298e0a532a9d57dbc",
+      "size": 1626,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/892f9d859715fb666aaa8c3298e0a532a9d57dbc"
+    },
+    {
+      "path": "lei-6700-1979-10-23.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e928fc93a3cf5735f0d645c46b46f9f31ba80e85",
+      "size": 2529,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/e928fc93a3cf5735f0d645c46b46f9f31ba80e85"
+    },
+    {
+      "path": "lei-6701-1979-10-24.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9330ba975a136358b1a720524c55547d8530b082",
+      "size": 1570,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/9330ba975a136358b1a720524c55547d8530b082"
+    },
+    {
+      "path": "lei-6702-1979-10-24.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "278fc00c1b5e2116753dab6769cdb689f293acbf",
+      "size": 1563,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/278fc00c1b5e2116753dab6769cdb689f293acbf"
+    },
+    {
+      "path": "lei-6703-1979-10-26.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8a415802caa9f0703af384f6439ee4433333aff4",
+      "size": 6210,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/8a415802caa9f0703af384f6439ee4433333aff4"
+    },
+    {
+      "path": "lei-6704-1979-10-26.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7eb334436c9fbaea34c2f69d977303964c1e5ed5",
+      "size": 11104,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/7eb334436c9fbaea34c2f69d977303964c1e5ed5"
+    },
+    {
+      "path": "lei-6705-1979-10-26.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b735426112e78cbc3a14db1827ed0f4b1d1380e3",
+      "size": 3743,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/b735426112e78cbc3a14db1827ed0f4b1d1380e3"
+    },
+    {
+      "path": "lei-6706-1979-10-29.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c39e264dc6272cc52d65f05e8fdf4cb98a34cf7f",
+      "size": 1248,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/c39e264dc6272cc52d65f05e8fdf4cb98a34cf7f"
+    },
+    {
+      "path": "lei-6707-1979-10-29.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24a08d730771f5d9b0839039a2e71bd9159baafd",
+      "size": 1753,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/24a08d730771f5d9b0839039a2e71bd9159baafd"
+    },
+    {
+      "path": "lei-6708-1979-10-30.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cfdc8ab57788699ece355b55aef04bd33a9739b5",
+      "size": 11410,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/cfdc8ab57788699ece355b55aef04bd33a9739b5"
+    },
+    {
+      "path": "lei-6709-1979-10-31.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f114d48f03cac790a5364876140c50427f6b8772",
+      "size": 2515,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/f114d48f03cac790a5364876140c50427f6b8772"
+    },
+    {
+      "path": "lei-6710-1979-11-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "240ae49c84cada6e9726ae1b41f39efbd6ed6295",
+      "size": 3122,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/240ae49c84cada6e9726ae1b41f39efbd6ed6295"
+    },
+    {
+      "path": "lei-6711-1979-11-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2afcccd2d7c47ec348bde1e4e9a3b4bd4938877d",
+      "size": 1215,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/2afcccd2d7c47ec348bde1e4e9a3b4bd4938877d"
+    },
+    {
+      "path": "lei-6712-1979-11-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7721c2575645da841a464448bffef2ff45b04288",
+      "size": 2070,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/7721c2575645da841a464448bffef2ff45b04288"
+    },
+    {
+      "path": "lei-6713-1979-11-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "994fb511fe50cc2d8f3ab3de09e05759c34efdc8",
+      "size": 2713,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/994fb511fe50cc2d8f3ab3de09e05759c34efdc8"
+    },
+    {
+      "path": "lei-6714-1979-11-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d0d28cf2d83ec255a90fa240dfbceb0fe1e5940",
+      "size": 2905,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/3d0d28cf2d83ec255a90fa240dfbceb0fe1e5940"
+    },
+    {
+      "path": "lei-6715-1979-11-12.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74c2337437cad03eb2e4b0c1661f309ee59299ea",
+      "size": 8013,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/74c2337437cad03eb2e4b0c1661f309ee59299ea"
+    },
+    {
+      "path": "lei-6716-1979-11-12.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b863cd36d1289a84084edff9efe928eb2eec6183",
+      "size": 2473,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/b863cd36d1289a84084edff9efe928eb2eec6183"
+    },
+    {
+      "path": "lei-6717-1979-11-12.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "32d6303dd5cc8eae64943c7fe267c112dec450ca",
+      "size": 1968,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/32d6303dd5cc8eae64943c7fe267c112dec450ca"
+    },
+    {
+      "path": "lei-6718-1979-11-12.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7e7e8c32615861637027c2cfdfb4c04d1542f030",
+      "size": 3396,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/7e7e8c32615861637027c2cfdfb4c04d1542f030"
+    },
+    {
+      "path": "lei-6719-1979-11-12.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "469f935e4904921840afb1d0c6a22285da48d863",
+      "size": 1289,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/469f935e4904921840afb1d0c6a22285da48d863"
+    },
+    {
+      "path": "lei-6720-1979-11-12.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a026c75dfd0c02a550a2573f9126a6b811549af4",
+      "size": 1335,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/a026c75dfd0c02a550a2573f9126a6b811549af4"
+    },
+    {
+      "path": "lei-6721-1979-11-12.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c28ddcaa23bbd81c0cf59a55b6f32c9f4f7997cc",
+      "size": 2008,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/c28ddcaa23bbd81c0cf59a55b6f32c9f4f7997cc"
+    },
+    {
+      "path": "lei-6722-1979-11-19.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0856ce3aef17c2f8c2621a1e064fe36dfbfb5955",
+      "size": 2705,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/0856ce3aef17c2f8c2621a1e064fe36dfbfb5955"
+    },
+    {
+      "path": "lei-6723-1979-11-19.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae8c326ef45b666cc05899dbcae35020eeeec275",
+      "size": 1256,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/ae8c326ef45b666cc05899dbcae35020eeeec275"
+    },
+    {
+      "path": "lei-6724-1979-11-19.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74551b29b47c2b174536daf7b181e3b308893a61",
+      "size": 1488,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/74551b29b47c2b174536daf7b181e3b308893a61"
+    },
+    {
+      "path": "lei-6725-1979-11-21.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9ced74749fc33471f60a6a565ce506f4fdb9452a",
+      "size": 1816,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/9ced74749fc33471f60a6a565ce506f4fdb9452a"
+    },
+    {
+      "path": "lei-6726-1979-11-21.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e08ebb0f9e7fc9f3aaf4877c2eaa03dff0d1a3d",
+      "size": 1497,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/9e08ebb0f9e7fc9f3aaf4877c2eaa03dff0d1a3d"
+    },
+    {
+      "path": "lei-6727-1979-11-21.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ea4abf193dd39beaf9b6085674889b2875e8e81",
+      "size": 2221,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/5ea4abf193dd39beaf9b6085674889b2875e8e81"
+    },
+    {
+      "path": "lei-6728-1979-11-22.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab55e054eec2ce8f9c64261b41eeeab37d629cda",
+      "size": 1854,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/ab55e054eec2ce8f9c64261b41eeeab37d629cda"
+    },
+    {
+      "path": "lei-6729-1979-11-28.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82145662c9e21de9753aa6ec5ffa887018a9ce62",
+      "size": 26384,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/82145662c9e21de9753aa6ec5ffa887018a9ce62"
+    },
+    {
+      "path": "lei-6730-1979-12-03.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "def96ec45e478384c4d55434bf1485684cb3de24",
+      "size": 1186,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/def96ec45e478384c4d55434bf1485684cb3de24"
+    },
+    {
+      "path": "lei-6731-1979-12-04.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cfeaa84c65f5e09ba2fdc7d99d660dcc20ce2f49",
+      "size": 5331,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/cfeaa84c65f5e09ba2fdc7d99d660dcc20ce2f49"
+    },
+    {
+      "path": "lei-6732-1979-12-04.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "13b708892eacec100cac32edacf16b69fc0adfc2",
+      "size": 4959,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/13b708892eacec100cac32edacf16b69fc0adfc2"
+    },
+    {
+      "path": "lei-6733-1979-12-04.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "066cf13bdb1046e68d6e990a7c7942be64003f69",
+      "size": 1199,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/066cf13bdb1046e68d6e990a7c7942be64003f69"
+    },
+    {
+      "path": "lei-6734-1979-12-04.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e139b589beabdb55d21f241c1b0a3ab6bc1665b",
+      "size": 1214,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/5e139b589beabdb55d21f241c1b0a3ab6bc1665b"
+    },
+    {
+      "path": "lei-6735-1979-12-04.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f5e9a2ae21031c67d61a9bb842c95ea0f237ce2",
+      "size": 1431,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/4f5e9a2ae21031c67d61a9bb842c95ea0f237ce2"
+    },
+    {
+      "path": "lei-6736-1979-12-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70ce342cdf4ac385a6143b02b8784b73fe3828e8",
+      "size": 4902,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/70ce342cdf4ac385a6143b02b8784b73fe3828e8"
+    },
+    {
+      "path": "lei-6737-1979-12-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "200f7b379229a8c1da8771732d4ebdbc3829b4c0",
+      "size": 7673,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/200f7b379229a8c1da8771732d4ebdbc3829b4c0"
+    },
+    {
+      "path": "lei-6738-1979-12-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "836b773c4202f0d09b9f91279515e8d33c9518f0",
+      "size": 2738,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/836b773c4202f0d09b9f91279515e8d33c9518f0"
+    },
+    {
+      "path": "lei-6739-1979-12-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10d9558736989bcd2a3bd04a95c1d5f93afc81d6",
+      "size": 8947,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/10d9558736989bcd2a3bd04a95c1d5f93afc81d6"
+    },
+    {
+      "path": "lei-6740-1979-12-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab493853daf1685fe89367edd6a3cc94787df52e",
+      "size": 1307,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/ab493853daf1685fe89367edd6a3cc94787df52e"
+    },
+    {
+      "path": "lei-6741-1979-12-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c2a38da7e1dfd2e3f6304a1784e5a02910380b07",
+      "size": 1688,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/c2a38da7e1dfd2e3f6304a1784e5a02910380b07"
+    },
+    {
+      "path": "lei-6742-1979-12-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef66458ca6a7ca7bb05b0bf888d8aec70de5f31a",
+      "size": 1331,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/ef66458ca6a7ca7bb05b0bf888d8aec70de5f31a"
+    },
+    {
+      "path": "lei-6743-1979-12-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "92789a3be0acc9f523dc6cc8b8d8e12758490483",
+      "size": 1582,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/92789a3be0acc9f523dc6cc8b8d8e12758490483"
+    },
+    {
+      "path": "lei-6744-1979-12-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79e25d1686de67d047e4ee97b8030d41865166e6",
+      "size": 1530,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/79e25d1686de67d047e4ee97b8030d41865166e6"
+    },
+    {
+      "path": "lei-6745-1979-12-05.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38ef55f96984ce7766ce84bb914a0ace11ffd355",
+      "size": 2169,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/38ef55f96984ce7766ce84bb914a0ace11ffd355"
+    },
+    {
+      "path": "lei-6746-1979-12-10.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d1d6abe1b55f1775b9a467a5abe8036572412b02",
+      "size": 12026,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/d1d6abe1b55f1775b9a467a5abe8036572412b02"
+    },
+    {
+      "path": "lei-6747-1979-12-10.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c97216e0cb9f08446bfdf7b96a472834d49f838",
+      "size": 1447,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/6c97216e0cb9f08446bfdf7b96a472834d49f838"
+    },
+    {
+      "path": "lei-6748-1979-12-10.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0681d2cb553062f9f4338d7076cd485cafb48da",
+      "size": 3240,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/f0681d2cb553062f9f4338d7076cd485cafb48da"
+    },
+    {
+      "path": "lei-6749-1979-12-10.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d23ef6330e17c6508519385bdade0178fd6796f",
+      "size": 1894,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/3d23ef6330e17c6508519385bdade0178fd6796f"
+    },
+    {
+      "path": "lei-6750-1979-12-10.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c20b8ac378517a6f3fef8c88cd23799da8da0160",
+      "size": 53961,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/c20b8ac378517a6f3fef8c88cd23799da8da0160"
+    },
+    {
+      "path": "lei-6751-1979-12-10.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10967c239a24c94fd53ccd9fc177c8e034cccac6",
+      "size": 2565,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/10967c239a24c94fd53ccd9fc177c8e034cccac6"
+    },
+    {
+      "path": "lei-6752-1979-12-17.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "60ff4cc068aa57d05d54bf0ea40faa795f796e60",
+      "size": 19234,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/60ff4cc068aa57d05d54bf0ea40faa795f796e60"
+    },
+    {
+      "path": "lei-6753-1979-12-17.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a918da89accf4d91cc3a1a9b668bc12270d20930",
+      "size": 2036,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/a918da89accf4d91cc3a1a9b668bc12270d20930"
+    },
+    {
+      "path": "lei-6754-1979-12-17.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b74f435a4437bc30d9a65fb5fefc0690befa06a5",
+      "size": 1891,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/b74f435a4437bc30d9a65fb5fefc0690befa06a5"
+    },
+    {
+      "path": "lei-6755-1979-12-17.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05d6484a2bde9b0f9ab8b84cdc886404462ccac2",
+      "size": 3139,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/05d6484a2bde9b0f9ab8b84cdc886404462ccac2"
+    },
+    {
+      "path": "lei-6756-1979-12-17.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3e1288dc78084fffe970b3e4e6d3ba68d05d2065",
+      "size": 2375,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/3e1288dc78084fffe970b3e4e6d3ba68d05d2065"
+    },
+    {
+      "path": "lei-6757-1979-12-17.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "83cf6756aa4a4733ecba2770e67c2dec6e5fb8b5",
+      "size": 7529,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/83cf6756aa4a4733ecba2770e67c2dec6e5fb8b5"
+    },
+    {
+      "path": "lei-6758-1979-12-17.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3fdc6b285f222d24de7187c6377cf33e48f5708",
+      "size": 6863,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/e3fdc6b285f222d24de7187c6377cf33e48f5708"
+    },
+    {
+      "path": "lei-6759-1979-12-17.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c2fd08210fd7e18d0df205df6eebbacf29473f4b",
+      "size": 2043,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/c2fd08210fd7e18d0df205df6eebbacf29473f4b"
+    },
+    {
+      "path": "lei-6760-1979-12-17.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d28f506aa4b4e90768c2784473d69fdc69bea88",
+      "size": 1685,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/2d28f506aa4b4e90768c2784473d69fdc69bea88"
+    },
+    {
+      "path": "lei-6761-1979-12-17.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1c3899f58dcd739c381f8a04ad9e10acfc1c010",
+      "size": 1683,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/c1c3899f58dcd739c381f8a04ad9e10acfc1c010"
+    },
+    {
+      "path": "lei-6762-1979-12-18.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8abf67010cf20efc95177ffabd29d1c443aaf986",
+      "size": 2852,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/8abf67010cf20efc95177ffabd29d1c443aaf986"
+    },
+    {
+      "path": "lei-6763-1979-12-18.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ee66284a3a26529128b88aba2f74d94643459ca",
+      "size": 1568,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/6ee66284a3a26529128b88aba2f74d94643459ca"
+    },
+    {
+      "path": "lei-6764-1979-12-18.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7a307be9e4939914d04e627f86abe8ff84b8ef5",
+      "size": 2167,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/c7a307be9e4939914d04e627f86abe8ff84b8ef5"
+    },
+    {
+      "path": "lei-6765-1979-12-18.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26cc52daea594e9a33443f2772691e3e782e47bc",
+      "size": 2585,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/26cc52daea594e9a33443f2772691e3e782e47bc"
+    },
+    {
+      "path": "lei-6766-1979-12-19.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1545b0ca7fd7cc3a4990d13765f2d3e2cfcc1a01",
+      "size": 67622,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/1545b0ca7fd7cc3a4990d13765f2d3e2cfcc1a01"
+    },
+    {
+      "path": "lei-6767-1979-12-20.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "006c9b0a7de38dd355fb3fd5241c3f36c9376fce",
+      "size": 29513,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/006c9b0a7de38dd355fb3fd5241c3f36c9376fce"
+    },
+    {
+      "path": "lei-6768-1979-12-20.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "afc5fa9af3b7d3b9254f8f443fd1c8c3ec0fe4b5",
+      "size": 5785,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/afc5fa9af3b7d3b9254f8f443fd1c8c3ec0fe4b5"
+    }
+  ],
+  "truncated": false
+}

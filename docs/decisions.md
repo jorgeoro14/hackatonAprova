@@ -74,3 +74,39 @@ For each new decision record date, owner, choice, reason, trade-off, and affecte
 - Choice: bind each retriever to an operator/backend-authorized municipality and corpus, with matching session municipality required. Scope is not a model tool argument. Each content/config/embedding fingerprint gets a separate collection, with mandatory scope filters and post-retrieval checks. Activate an index descriptor atomically after its chunks are present. Repeating the same build reuses chunk IDs; changed corpora get a new snapshot. Only one writer per index directory is supported; old snapshots remain until operator cleanup.
 - Trade-offs: local Chroma is suitable for this scaffold, not a production authorization service or multi-writer database. The backend must authorize index access; a matching municipality name alone is not authentication. Text/Markdown, text PDFs and DOCX are supported; scanned/blank PDF pages require extraction/OCR, DOCX headers/footers and complex layout are not extracted, and document currency/applicability remain human checks. Retrieval/grading/generation accuracy needs evaluation on the supplied corpus.
 - Boundaries: no municipal corpus or paid embedding/model call is created by this change. Synthetic fixtures stay labeled. Raw documents/manifests belong in ignored `agents/data/`, indexes in ignored `agents/.local/`; do not commit municipal content. No public schema changes. Tool answers include source evidence, but the shared form still cannot persist structured citations/origins. The model must propose documentary facts for acceptance rather than treating them as employee answers. The backend still enforces the overall 60-second deadline; nested RAG calls add latency and do not extend it. Tracing remains opt-in.
+
+## 2026-10-24: align RAG files and experiments with the reference phases
+
+- Owner: Agents.
+- Sources: inspected the local `ai-agent-sales` phase scripts, Makefile, pytest markers, dataset, experiment template and RAG testing guide; checked the current [LangGraph agentic RAG tutorial](https://docs.langchain.com/oss/python/langgraph/agentic-rag), [Chroma integration](https://docs.langchain.com/oss/python/integrations/vectorstores/chroma) and [LangSmith RAG evaluation guide](https://docs.langchain.com/langsmith/evaluate-rag-tutorial).
+- Choice: use `scripts/rag_phase0.py` and Phase 1/2/3 runners, a shared validated question dataset and experiment matrix, phase-marked tests under `tests/rag/`, local JSON/CSV reports and Make targets. Keep reusable scoring/reporting in `app/rag/evaluation.py` and common CLI behavior in one module. Extract the common structured-model call to avoid duplicating source-data handling.
+- Choice: compare recursive vs Markdown-aware recursive chunk variants and vector vs MMR retrieval with the same municipality/corpus filters and post-checks. Keep previous single-index CLI and `k=` constructor compatible. The additive internal chunk-strategy setting defaults to recursive for existing index descriptors. No shared request/form schema changes and no new dependencies are required.
+- Choice: default Phase 0 to preview and Phase 1/2/3 to plan. Require `--embed` or `--live` before provider calls. Optional Phase 3 judging also requires `--judge` and explicit `EVAL_MODEL_NAME`. Record real snapshot identity, dataset/config/lockfile hashes, model configuration, per-case failures and metric denominators; do not convert errors into successful runs or negative judge scores. Do not include raw question/answer/passage text in generated reports. Reports are ignored by Git.
+- Metrics: document-ID hit@1/hit@k, recall@k and reciprocal rank for answerable cases; lexical coverage is diagnostic. Phase 3 measures abstention, cited-source recall and optional independent correctness/relevance/groundedness judgments. Its live target is the agentic RAG subgraph; the outer interview tool-choice/adapter has separate scripted regression coverage. Fast sampling preserves a negative case where available. Offline fakes validate mechanics, not embedding or model quality.
+- Trade-offs: preserve the phase organization rather than copying the reference's destructive database resets, PostgreSQL staging, company-specific filters, YAML dependency or implicit provider/judge calls. Semantic chunking, lexical/hybrid search, HyDE and reranking remain deferred and invalid options are rejected. Markdown splitting here is language-aware recursive splitting, not an implementation of all the course's header/semantic methods. Multi-writer indexing, corpus evaluation and live quality validation remain future work.
+# 2026-10-24 — Requirements graph and local review persistence
+
+Register separate synthetic/live local Studio graph factories through root
+`langgraph.json` and `langgraph.live.json`. The optional `studio` extra installs
+`langgraph-cli[inmem]`; Agent Server owns checkpointing in that mode. The default
+configuration disables tracing and uses only a deterministic synthetic interview.
+The local development server is not the production authenticated agent endpoint.
+
+Use the existing LangGraph/Python/Pydantic stack for a separate requirements
+discovery workflow. Its closed change schema is an internal declarative proposal,
+not a replacement for `contracts/` or a vendor-certified builder payload. Read
+the team field enum from `src/knowledge/schemas.ts`; a supplied capability profile
+must independently confirm supported operations. Public API documentation and
+synthetic examples cannot establish a real municipal baseline.
+
+Add optional `langgraph-checkpoint-sqlite` for local restartable interviews and
+human review. SQLite is a local development store; the hosting backend must own
+authorization, session serialization and retention before integration. Keep the
+existing stateless HTTP agent adapter unchanged. Strict checkpoint deserialization
+is enabled in the CLI. No Aprova mutation tool is introduced, even after approval.
+
+Public legislation is collected separately with original bytes/provenance, exact
+article offsets and SQLite FTS5/BM25. JSONL is ready for later semantic indexing;
+no embeddings are generated. Currentness and municipality applicability remain
+separate review gates, including the Council-hosted 2023 Organic Law consolidation.
+SQLite FTS5 uses the Python standard library and adds no service dependency.
