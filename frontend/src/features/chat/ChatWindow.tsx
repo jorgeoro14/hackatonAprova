@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { LogOut } from 'lucide-react'
 import { ApiError } from '@/lib/api/client'
-import { ErrorState, Skeleton } from '@/components/ui'
+import { ErrorState, Logo, Skeleton } from '@/components/ui'
 import type { Contact } from '@/types/schemas'
 import { ChatSessionProvider } from './ChatContext'
 import { Composer } from './Composer'
@@ -41,9 +41,7 @@ export function ChatWindow({ sessionId, sessionToken, contact, onExit }: Props) 
     <div className="flex h-dvh flex-col">
       <header className="flex items-center justify-between gap-3 border-b border-line bg-surface px-4 py-3">
         <div className="min-w-0">
-          <p className="font-title text-lg font-semibold leading-tight">
-            aprova<span className="text-cyan">.</span> <span className="font-normal text-muted">implantação</span>
-          </p>
+          <Logo className="h-5" />
           <p className="truncate text-xs text-muted">
             {contact.municipality.name} · {contact.secretariat.name}
           </p>

@@ -101,3 +101,8 @@ h4 {
     scroll-behavior: auto !important;
   }
 }
+
+/* Logo: mostra a variante certa conforme o tema do container mais próximo */
+.logo-on-dark { display: none; }
+[data-theme='dark'] .logo-on-dark { display: block; }
+[data-theme='dark'] .logo-on-light { display: none; }

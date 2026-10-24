@@ -1,3 +1,4 @@
+import { Logo } from '@/components/ui'
 import { NavLink } from 'react-router-dom'
 import { Building2, LayoutDashboard, Users, X } from 'lucide-react'
 import type { Role } from '@/types/schemas'
@@ -26,9 +27,7 @@ export function Sidebar({ role, open, onClose }: Props) {
         )}
       >
         <div className="flex h-14 items-center justify-between px-5">
-          <p className="font-title text-lg font-semibold">
-            aprova<span className="text-cyan">.</span>
-          </p>
+          <Logo className="h-5" />
           <button type="button" onClick={onClose} aria-label="Fechar menu" className="text-muted lg:hidden">
             <X size={18} />
           </button>

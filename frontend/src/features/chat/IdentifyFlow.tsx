@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { Button, Card, Input, Select } from '@/components/ui'
+import { Button, Card, Input, Logo, Select } from '@/components/ui'
 import { catalogApi, chatApi } from '@/lib/api/endpoints'
 import type { SessionResponse } from '@/types/schemas'
 import { isValidPhone, maskPhone, toE164 } from './phone'
@@ -77,9 +77,7 @@ export function IdentifyFlow({ onReady }: Props) {
   return (
     <div className="grid min-h-dvh place-items-center bg-bg px-4 py-8">
       <div className="w-full max-w-md">
-        <p className="mb-6 text-center font-title text-2xl font-semibold">
-          aprova<span className="text-cyan">.</span> <span className="font-normal text-muted">implantação</span>
-        </p>
+        <div className="mb-6 flex flex-col items-center gap-1"><Logo className="h-7" /><span className="text-sm text-muted">Implantação</span></div>
         <Card className="p-6">
           {step === 'phone' ? (
             <form onSubmit={onPhone} className="flex flex-col gap-4" noValidate>

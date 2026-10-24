@@ -1,6 +1,6 @@
 import { useTitle } from '@/lib/utils/useTitle'
 import { Navigate } from 'react-router-dom'
-import { Card, ThemeToggle } from '@/components/ui'
+import { Card, Logo, ThemeToggle } from '@/components/ui'
 import { LoginForm } from '@/features/auth/LoginForm'
 import { useAuthStore } from '@/lib/api/authStore'
 import { ThemeScope } from '@/lib/theme/ThemeScope'
@@ -14,9 +14,7 @@ export function LoginPage() {
     <ThemeScope className="relative grid place-items-center px-4 py-10">
       <div className="absolute right-4 top-4"><ThemeToggle /></div>
       <div className="w-full max-w-sm">
-        <p className="mb-6 text-center font-title text-2xl font-semibold">
-          aprova<span className="text-cyan">.</span> <span className="font-normal text-muted">implantação</span>
-        </p>
+        <div className="mb-6 flex flex-col items-center gap-1"><Logo className="h-7" /><span className="text-sm text-muted">Implantação</span></div>
         <Card className="p-6">
           <h1 className="text-xl font-semibold">Entrar</h1>
           <p className="mb-5 mt-1 text-sm text-muted">Acesso para implantadores e head de implantação.</p>
