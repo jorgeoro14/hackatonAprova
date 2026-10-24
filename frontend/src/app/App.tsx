@@ -3,7 +3,8 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { ApiError } from '@/lib/api/client'
 import { ChatPage } from '@/pages/ChatPage'
 import { DashboardLayout } from '@/features/dashboard/shell/DashboardLayout'
-import { TeamPage } from '@/pages/dashboard/Placeholders'
+import { TeamPage } from '@/pages/dashboard/TeamPage'
+import { ImplementerDetailPage } from '@/pages/dashboard/ImplementerDetailPage'
 import { ClientsPage } from '@/pages/dashboard/ClientsPage'
 import { ConversationPage } from '@/pages/dashboard/ConversationPage'
 import { ProcessDetailPage } from '@/pages/dashboard/ProcessDetailPage'
@@ -41,6 +42,7 @@ export function App() {
               <Route path="conversations/:id" element={<ConversationPage />} />
               <Route element={<RequireRole role="head" />}>
                 <Route path="team" element={<TeamPage />} />
+                <Route path="team/:id" element={<ImplementerDetailPage />} />
               </Route>
             </Route>
           </Route>
