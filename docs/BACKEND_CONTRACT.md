@@ -1,4 +1,4 @@
-# Contrato Front ↔ Back (v0.1)
+# Contrato Front ↔ Back (v0.2)
 
 Documento para o time de back-end (Node.js). Define **o que o front consome** e **o que o back precisa entregar**. O front já trabalha com mocks idênticos a este contrato, então basta implementar igual e trocar a `VITE_API_URL`.
 
@@ -104,7 +104,7 @@ Timeout sugerido do agente: 60s. Se demorar, responder `202` com `{ "pending": t
   "createdAt": "2026-10-24T14:30:00Z",
   "attachments": [ Attachment ],
   "quickReplies": [ { "id": "qr1", "label": "Sim" }, { "id": "qr2", "label": "Não" } ],   // só em kind=quick_replies
-  "form": Form                                                                            // só em kind=form
+  "formularioId": "f-123"                                                                // só em kind=form (ver abaixo)
 }
 ```
 `text` aceita **markdown simples** (negrito, listas). O front não executa HTML.
@@ -222,7 +222,7 @@ O back precisa saber quantas reuniões aconteceram. Sugestão: o implantador reg
 Dashboard pode usar polling (30s). SSE/WebSocket só se sobrar tempo.
 
 ## 8. Variáveis e execução
-- Back expõe porta configurável (sugestão `3000`); front usa `VITE_API_URL=http://localhost:3000/api/v1`.
+- O back atual sobe em `http://localhost:3333` e **ainda não usa o prefixo `/api/v1`**. Opções: registrar as rotas com `prefix: "/api/v1"` no Fastify (recomendado) ou ajustar `VITE_API_URL` no front. Front: `VITE_API_URL=http://localhost:3333/api/v1` e `VITE_USE_MOCKS=false`.
 - Seed mínimo para demo: 1 head, 2–3 implantadores, 4+ prefeituras, ~100 processos por prefeitura em estados variados, conversas com mensagens e formulários.
 - Usuários de teste (combinar): `head / ...`, `maria.silva / ...`.
 
@@ -241,4 +241,5 @@ Dashboard pode usar polling (30s). SSE/WebSocket só se sobrar tempo.
 1. **Resposta do agente demora?** Se passar de ~60s, usar polling (`?after=`) em vez de bloquear a requisição.
 2. **Fórmula das métricas:** como o back define o `baseline` de reuniões e de tempo de fluxo, e como estima as horas economizadas (sugestão: minutos manuais estimados por tipo de informação × itens coletados pelo agente).
 3. **Reuniões:** registro manual pelo implantador (proposto) ou o back obtém de outra fonte?
-4. **Setores e despachos** do modelo do formulário ainda não são editáveis no front (aguardam o schema final no back).
+4. **Idioma dos nomes:** o contrato usa nomes em inglês nas rotas e modelos do dashboard (`clients`, `processes`), enquanto o back usa português (`dominios`, `processos`, `formulario`). O `FormularioImplantacao` já segue o português do back. Decidir se o resto também será renomeado (o front ajusta em `src/types/schemas.ts` e `endpoints.ts`).
+5. **Setores e despachos** do modelo do formulário ainda não são editáveis no front (aguardam o schema final no back).
