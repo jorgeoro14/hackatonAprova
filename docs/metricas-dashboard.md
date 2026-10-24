@@ -41,11 +41,32 @@ PostgreSQL no Supabase. O acesso é por `node-postgres` (`src/db/banco.ts`); nos
 
 O status de um processo deve mudar por `mudarStatusProcesso` (`src/dashboard/repositorio.ts`), que mantém os carimbos e conta as idas e vindas.
 
+Os itens de `campos_processo` saem do `FormularioImplantacao` por `formularioParaCampos` (`src/dashboard/campos.ts`) e são gravados por `gravarCamposProcesso`, que substitui os itens do processo a cada nova revisão do formulário.
+
+| Bloco do formulário | Categoria |
+|---|---|
+| `processo.documentos[]` | `documento` |
+| `processo.taxas[]` | `taxa` |
+| `processo.fluxo.etapas[]` | `etapa` |
+| `prazoDias` / `prazoTotalDias` | `prazo` |
+| `processo.setores[]` | `setor` |
+| `processo.despachos[]` (e transição sem despacho) | `despacho` |
+| `processo.formulario.secoes[].campos[]` | `campo_formulario` |
+| `processo.baseLegal[]` / `legislacaoLocal[]` | `base_legal` |
+| `resumo`, `documentoFinal` e o restante | `outro` |
+
+- `chave` = caminho no processo, o mesmo das `pendencias` (ex.: `taxas.0`).
+- `status`: `pending` se uma pendência cai no item (no próprio caminho, num item abaixo dela, ou num caminho abaixo do item e da mesma categoria). Senão, `filled` com o formulário `confirmado` e `to_validate` antes disso. Pendência sem item correspondente (ex.: etapa sem prazo) vira um item pendente com `valor: ""`.
+- `origem`: tudo o que está no formulário passou pelo agente (modelo, servidor ou legislação), então é `agente`.
+
 ## Rotas implementadas (`/api/v1`, JWT)
 
 `POST /auth/login`, `GET /auth/me`, `POST /auth/logout`, `GET /metrics/summary`, `GET /metrics/timeseries`,
 `GET|POST /clients/:id/meetings`, `GET /clients`, `GET /clients/:id`, `GET /clients/:id/processes`, `GET /processes/:id`,
-`GET /clients/:id/conversations`, `GET /conversations/:id`, `GET /implementers`, `GET /implementers/:id`.
+`GET /clients/:id/conversations`, `GET /conversations/:id`, `GET /implementers`, `GET /implementers/:id`,
+`POST /processes/:id/status`.
+
+**`POST /processes/:id/status`** `{ "status": "sent_to_dev" | "validated" }` → `Process`. É a única escrita do painel, que no resto é só leitura (o formulário não é editado). Fecha o ciclo da métrica de tempo de fluxo: `confirmed → sent_to_dev → validated` (ou direto `confirmed → validated`). Repetir o status atual não muda nada. De qualquer outro status → `409 INVALID_TRANSITION` com `details: { from, allowedFrom }`. Escopo igual ao de `GET /processes/:id`.
 
 Escopo: o implantador só recebe os próprios clientes. Se pedir outro `implementerId`, recebe `403`; se pedir um cliente, processo ou conversa de outro implantador, recebe `404`. `/implementers` responde só para a head.
 
@@ -57,18 +78,20 @@ As premissas do modelo manual ficam em `src/dashboard/parametros.ts`.
 **Reuniões** (`meetings`)
 - `value` = reuniões registradas no período.
 - `baseline` = secretarias atendidas no período × 3. Uma secretaria conta como atendida se teve algum processo entre o 1º contato e a regra completa durante o período. O 3 representa levantamento, validação do form clonado e ajustes.
-- `deltaPct` = (value − baseline) / baseline × 100. Vem `null` quando o baseline é 0.
+- `deltaPct` = (value − baseline) / baseline × 100. Vem `0` quando o baseline é 0.
 
 **Horas economizadas** (`hoursSaved.valueMinutes`)
 - Soma, para cada item de regra coletado pelo agente no período (origem `agente`, status diferente de `pending`), dos minutos que o implantador gastaria naquela categoria: documento 10, prazo 10, taxa 20, etapa 30, setor 15, despacho 20, campo de formulário 5, base legal 15, outro 10.
 
 **Tempo de criação do fluxo** (`flowCreation`)
-- `avgMinutes` = média de `validado_em − primeiro_contato_em` dos processos validados no período. Vem `null` se nenhum processo foi validado.
+- `avgMinutes` = média de `validado_em − primeiro_contato_em` dos processos validados no período.
+- `samples` = quantos processos foram validados no período. Com `0`, `avgMinutes` e `deltaPct` vêm `0`.
 - `baselineMinutes` = 10 dias (14400 min).
+- O processo chega a `validated` por `POST /processes/:id/status`.
 
 **Processos**: `total`, `complete` (status `confirmed`, `sent_to_dev` ou `validated`) e `validated` mostram a situação atual, sem filtro de período.
 
-**Idas e vindas**: conta cada vez que o processo volta para `collecting` depois de ter sido apresentado ou confirmado. `backAndForthsAvg` é a média entre os processos completos.
+**Idas e vindas**: conta cada vez que o processo volta para `collecting` depois de ter sido apresentado ou confirmado. `backAndForthsAvg` é a média entre os processos completos (`processes.complete`); sem nenhum, `0`.
 
 **Status do cliente** (calculado, não fica salvo)
 - `completed`: todos os processos validados.
@@ -79,13 +102,26 @@ As premissas do modelo manual ficam em `src/dashboard/parametros.ts`.
 **Séries** (`/metrics/timeseries`)
 - A semana começa na segunda-feira (UTC).
 - `meetings` e `hoursSaved` somam o que caiu no balde.
-- `flowCreation` é a média do balde, com `value: null` quando não houve validação.
+- `flowCreation` é a média do balde e traz `samples` (validações no balde); sem validação, `value: 0, samples: 0`.
 - `processesComplete` é acumulado (burn-up).
 - Período padrão: os últimos 90 dias. `to` só com data inclui o dia inteiro.
 
-## Divergências / avisos ao front
+## Sem dado (nunca `null`)
 
-- `flowCreation.avgMinutes`, `flowCreation.deltaPct`, `meetings.deltaPct`, `backAndForthsAvg`, `Client.flowCreationMinutes` e `points[].value` (só em `flowCreation`) podem vir `null`. Os schemas zod do front precisam aceitar `nullable()`.
+Nenhuma métrica numérica de `/metrics`, `/clients` e `/implementers` vem `null`. Sem amostra, o valor é `0`, e a resposta traz junto o que diz que não há amostra, para o front mostrar "—" em vez de um 0 falso:
+
+| Métrica | Sem dado quando |
+|---|---|
+| `meetings.deltaPct` | `meetings.baseline === 0` |
+| `flowCreation.avgMinutes` / `deltaPct` | `flowCreation.samples === 0` |
+| `backAndForthsAvg` | `processes.complete === 0` |
+| `points[].value` de `flowCreation` | `points[].samples === 0` |
+| `Client.flowCreationMinutes` | `Client.flowCreationSamples === 0` |
+| `Implementer.flowCreationAvgMinutes` | `Implementer.flowCreationSamples === 0` |
+
+No front, `comAmostra(valor, samples)` (`frontend/src/features/dashboard/overview/metrics.ts`) faz essa conversão para exibir.
+
+## Avisos ao front
 - `Conversation.processesTouched` traz os **nomes** dos processos.
 - `GET /clients/:id/meetings` devolve `Meeting = { id, clientId, date, durationMinutes, notes, createdBy, createdAt }`.
 - `/implementers/:id` devolve o resumo + `clients: Client[]`.

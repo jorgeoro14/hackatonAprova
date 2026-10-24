@@ -4,6 +4,7 @@ import { useScope, useFilters } from '@/features/dashboard/filters'
 import { KpiCard } from '@/features/dashboard/overview/KpiCard'
 import { Sparkline } from '@/features/dashboard/overview/Sparkline'
 import { TrendChart } from '@/features/dashboard/overview/TrendChart'
+import { comAmostra, pontosDoGrafico } from '@/features/dashboard/overview/metrics'
 import { useMetricsSummary, useTimeseries } from '@/lib/api/hooks'
 import { useAuthStore } from '@/lib/api/authStore'
 import { formatDuration, formatHours, formatNumber, formatPercent } from '@/lib/utils/format'
@@ -41,7 +42,7 @@ export function OverviewPage() {
               title="Reuniões realizadas"
               loading={loading}
               value={s && formatNumber(s.meetings.value)}
-              deltaPct={s?.meetings.deltaPct}
+              deltaPct={s && s.meetings.baseline > 0 ? s.meetings.deltaPct : null}
               goodWhen="down"
               caption={s && `Processo manual: ${formatNumber(s.meetings.baseline)} reuniões`}
               chart={meetingsSeries.data && <Sparkline id="m" data={meetingsSeries.data.points} />}
@@ -56,11 +57,11 @@ export function OverviewPage() {
             <KpiCard
               title="Tempo de criação do fluxo"
               loading={loading}
-              value={s && formatDuration(s.flowCreation.avgMinutes)}
-              deltaPct={s?.flowCreation.deltaPct}
+              value={s && formatDuration(comAmostra(s.flowCreation.avgMinutes, s.flowCreation.samples))}
+              deltaPct={s && s.flowCreation.samples > 0 ? s.flowCreation.deltaPct : null}
               goodWhen="down"
               caption={s && `Média por processo · manual: ${formatDuration(s.flowCreation.baselineMinutes)}`}
-              chart={flowSeries.data && <Sparkline id="f" data={flowSeries.data.points} />}
+              chart={flowSeries.data && <Sparkline id="f" data={pontosDoGrafico(flowSeries.data.points)} />}
             />
           </section>
 
@@ -78,7 +79,7 @@ export function OverviewPage() {
             </Card>
             <Card>
               <p className="text-sm text-muted">Idas e vindas por processo</p>
-              <p className="tabular mt-1 font-title text-2xl font-semibold">{s && s.backAndForthsAvg !== null ? s.backAndForthsAvg.toLocaleString('pt-BR') : '—'}</p>
+              <p className="tabular mt-1 font-title text-2xl font-semibold">{s && s.processes.complete > 0 ? s.backAndForthsAvg.toLocaleString('pt-BR') : '—'}</p>
               <p className="mt-2 text-xs text-muted">Média até a regra ficar completa</p>
             </Card>
           </section>

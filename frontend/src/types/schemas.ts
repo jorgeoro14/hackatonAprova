@@ -169,8 +169,9 @@ export const clientSchema = z.object({
   secretariatsDone: z.number(),
   meetingsCount: z.number(),
   hoursSavedMinutes: z.number(),
-  /** null enquanto nenhum fluxo foi validado */
-  flowCreationMinutes: z.number().nullable(),
+  /** 0 enquanto nenhum fluxo foi validado: olhar flowCreationSamples */
+  flowCreationMinutes: z.number(),
+  flowCreationSamples: z.number(),
 })
 export type Client = z.infer<typeof clientSchema>
 
@@ -252,8 +253,11 @@ export const meetingSchema = z.object({
 })
 export type Meeting = z.infer<typeof meetingSchema>
 
-/** deltaPct é null sem baseline; avgMinutes/backAndForthsAvg são null sem amostras (o front mostra "—"). */
-const deltaMetric = z.object({ value: z.number(), baseline: z.number(), deltaPct: z.number().nullable() })
+/**
+ * Sem dado nunca vem null (docs/metricas-dashboard.md): o valor vem 0 junto com o que diz que não há amostra.
+ * meetings: baseline 0 → sem delta · flowCreation: samples 0 → "—" · backAndForthsAvg: processes.complete 0 → "—".
+ */
+const deltaMetric = z.object({ value: z.number(), baseline: z.number(), deltaPct: z.number() })
 
 export const metricsSummarySchema = z.object({
   period: z.object({ from: z.string(), to: z.string() }),
@@ -261,9 +265,9 @@ export const metricsSummarySchema = z.object({
   meetings: deltaMetric,
   hoursSaved: z.object({ valueMinutes: z.number() }),
   /** Sucesso = diminui. */
-  flowCreation: z.object({ avgMinutes: z.number().nullable(), baselineMinutes: z.number(), deltaPct: z.number().nullable() }),
+  flowCreation: z.object({ avgMinutes: z.number(), baselineMinutes: z.number(), deltaPct: z.number(), samples: z.number() }),
   processes: z.object({ total: z.number(), complete: z.number(), validated: z.number() }),
-  backAndForthsAvg: z.number().nullable(),
+  backAndForthsAvg: z.number(),
 })
 export type MetricsSummary = z.infer<typeof metricsSummarySchema>
 
@@ -272,8 +276,8 @@ export type MetricKey = z.infer<typeof metricKeySchema>
 
 export const timeseriesSchema = z.object({
   metric: metricKeySchema,
-  /** flowCreation: null nos baldes sem fluxo validado */
-  points: z.array(z.object({ date: z.string(), value: z.number().nullable() })),
+  /** flowCreation: samples = fluxos validados no balde (0 → value 0 é "sem dado") */
+  points: z.array(z.object({ date: z.string(), value: z.number(), samples: z.number().optional() })),
 })
 export type Timeseries = z.infer<typeof timeseriesSchema>
 
@@ -285,7 +289,9 @@ export const implementerSchema = z.object({
   processesComplete: z.number(),
   meetingsCount: z.number(),
   hoursSavedMinutes: z.number(),
-  flowCreationAvgMinutes: z.number().nullable(),
+  /** 0 enquanto nenhum fluxo foi validado: olhar flowCreationSamples */
+  flowCreationAvgMinutes: z.number(),
+  flowCreationSamples: z.number(),
   clientsAtRisk: z.number(),
 })
 export type Implementer = z.infer<typeof implementerSchema>

@@ -140,7 +140,9 @@ for (const seed of clientSeeds) {
     secretariatsDone: secs.filter((s) => s.total > 0 && s.done === s.total).length,
     meetingsCount: seed.meetings,
     hoursSavedMinutes: complete * 42 + ps.filter((p) => p.status === 'collecting').length * 12,
-    flowCreationMinutes: Math.round(1800 + (1 - seed.progress) * 2400),
+    // como no back: 0 com 0 amostras enquanto nenhum processo foi validado
+    flowCreationSamples: ps.filter((p) => p.status === 'validated').length,
+    flowCreationMinutes: ps.some((p) => p.status === 'validated') ? Math.round(1800 + (1 - seed.progress) * 2400) : 0,
   })
 }
 

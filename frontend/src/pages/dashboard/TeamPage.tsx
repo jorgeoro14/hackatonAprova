@@ -6,12 +6,14 @@ import { Badge, Card, CardHeader, EmptyState, ErrorState, ProgressBar, Skeleton,
 import { ImplementerChart } from '@/features/dashboard/team/ImplementerChart'
 import { useClients, useImplementers } from '@/lib/api/hooks'
 import { formatDuration, formatHours, formatNumber } from '@/lib/utils/format'
+import { comAmostra } from '@/features/dashboard/overview/metrics'
 import { cn } from '@/lib/utils/cn'
 import type { Implementer } from '@/types/schemas'
 
 type SortKey = 'name' | 'clientsCount' | 'progress' | 'meetingsCount' | 'hoursSavedMinutes' | 'flowCreationAvgMinutes'
 const progress = (i: Implementer) => (i.processesTotal ? i.processesComplete / i.processesTotal : 0)
-const sortValue = (i: Implementer, k: SortKey) => (k === 'progress' ? progress(i) : k === 'name' ? i.name : i[k])
+const sortValue = (i: Implementer, k: SortKey) =>
+  k === 'progress' ? progress(i) : k === 'name' ? i.name : k === 'flowCreationAvgMinutes' ? comAmostra(i[k], i.flowCreationSamples) : i[k]
 
 function SortTH({ label, k, sort, onSort, right }: { label: string; k: SortKey; sort: { key: SortKey; dir: 1 | -1 }; onSort: (k: SortKey) => void; right?: boolean }) {
   const active = sort.key === k
@@ -86,7 +88,7 @@ export function TeamPage() {
                   </TD>
                   <TD className="tabular text-right">{i.meetingsCount}</TD>
                   <TD className="tabular text-right">{formatHours(i.hoursSavedMinutes)}</TD>
-                  <TD className="tabular text-right">{formatDuration(i.flowCreationAvgMinutes)}</TD>
+                  <TD className="tabular text-right">{formatDuration(comAmostra(i.flowCreationAvgMinutes, i.flowCreationSamples))}</TD>
                   <TD>{i.clientsAtRisk > 0 ? <Badge tone="danger">{i.clientsAtRisk} em risco</Badge> : <Badge tone="success">Em dia</Badge>}</TD>
                 </TR>
               ))}
