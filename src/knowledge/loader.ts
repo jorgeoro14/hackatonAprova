@@ -1,7 +1,7 @@
 import { readdir, readFile } from "node:fs/promises";
 import { join, relative } from "node:path";
 import matter from "gray-matter";
-import type { z } from "zod";
+import { z } from "zod";
 import {
   Dominio,
   LegislacaoFrontmatter,
@@ -23,6 +23,8 @@ export interface DocumentoLegislacao {
 
 export interface BaseDominio {
   dominio: Dominio;
+  /** guia.md: liga os tipos de processo do domínio às normas e ao que perguntar ao servidor */
+  guia?: { titulo: string; conteudo: string; arquivo: string };
   legislacao: DocumentoLegislacao[];
   processos: ProcessoModelo[];
 }
@@ -91,6 +93,7 @@ function checarBaseLegal(base: BaseDominio, erros: string[]) {
       ...p.formulario.secoes.flatMap((s) => s.campos.flatMap((c) => c.baseLegal ?? [])),
       ...p.documentos.flatMap((d) => d.baseLegal ?? []),
       ...p.taxas.flatMap((t) => t.baseLegal),
+      ...p.despachos.flatMap((d) => d.baseLegal ?? []),
       ...(p.documentoFinal?.baseLegal ?? []),
     ];
     for (const ref of new Set(refs)) {
@@ -98,6 +101,25 @@ function checarBaseLegal(base: BaseDominio, erros: string[]) {
     }
     if (p.dominio !== base.dominio.id) {
       erros.push(`processo "${p.id}": dominio "${p.dominio}" difere da pasta "${base.dominio.id}"`);
+    }
+  }
+}
+
+const GuiaFrontmatter = z.object({ titulo: z.string().min(1) });
+
+/** Formato de id de norma citado entre crases nos guias, ex.: `lei-6766-1979`, `cf-1988-politica-urbana`. */
+const REF_NORMA = /`((?:cf|lei|lc|decreto|resolucao|portaria|instrucao|deliberacao)-[a-z0-9-]+)`/g;
+
+/** Toda norma citada num guia precisa existir em algum domínio; toda base citada (`id`) precisa existir. */
+function checarReferenciasDosGuias(dominios: Map<string, BaseDominio>, erros: string[]) {
+  const normas = new Set([...dominios.values()].flatMap((d) => d.legislacao.map((l) => l.meta.id)));
+  for (const { guia } of dominios.values()) {
+    if (!guia) continue;
+    for (const [, ref] of guia.conteudo.matchAll(REF_NORMA)) {
+      if (!normas.has(ref!)) erros.push(`${guia.arquivo}: norma "${ref}" não existe na base`);
+    }
+    for (const [, ref] of guia.conteudo.matchAll(/base `([a-z0-9-]+)`/g)) {
+      if (!dominios.has(ref!)) erros.push(`${guia.arquivo}: base "${ref}" não existe`);
     }
   }
 }
@@ -136,12 +158,24 @@ export async function carregarBase(raiz: string): Promise<BaseConhecimento> {
       )
     ).filter((p): p is ProcessoModelo => p !== undefined);
 
-    const base: BaseDominio = { dominio, legislacao, processos };
+    const caminhoGuia = join(pasta, "guia.md");
+    const guia = (await listar(pasta, ".md")).includes(caminhoGuia)
+      ? await lerMarkdown(GuiaFrontmatter, caminhoGuia, raiz, erros)
+      : undefined;
+
+    const base: BaseDominio = {
+      dominio,
+      ...(guia ? { guia: { titulo: guia.meta.titulo, conteudo: guia.conteudo, arquivo: guia.arquivo } } : {}),
+      legislacao,
+      processos,
+    };
     checarDuplicados(legislacao.map((l) => l.meta.id), `${dominio.id}/legislacao`, erros);
     checarDuplicados(processos.map((p) => p.id), `${dominio.id}/processos`, erros);
     checarBaseLegal(base, erros);
     dominios.set(dominio.id, base);
   }
+
+  checarReferenciasDosGuias(dominios, erros);
 
   if (erros.length > 0) throw new KnowledgeError(erros);
   return { sistema, dominios };

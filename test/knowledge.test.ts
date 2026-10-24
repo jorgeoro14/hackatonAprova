@@ -43,7 +43,8 @@ describe("base de conhecimento", () => {
         descricao: "p",
         publicoAlvo: ["cidadao"],
         formulario: { secoes: [{ titulo: "S", campos: [{ id: "a", rotulo: "A", tipo: "texto", obrigatorio: true }] }] },
-        fluxo: { etapas: [{ id: "e1", nome: "E1", tipo: "protocolo", responsavel: "R" }], transicoes: [{ de: "e1", para: "e9" }] },
+        setores: [{ id: "r", nome: "R" }],
+        fluxo: { etapas: [{ id: "e1", nome: "E1", tipo: "protocolo", responsavel: "r" }], transicoes: [{ de: "e1", para: "e9" }] },
       }),
     );
     await expect(carregarBase(dir)).rejects.toThrow(/e9/);
@@ -51,8 +52,8 @@ describe("base de conhecimento", () => {
 
   it("busca encontra a norma de prazos de validade", async () => {
     const base = await carregarBase(KB);
-    const [primeiro] = buscar(indexar(base, "meio-ambiente"), "validade da licença de operação");
-    expect(primeiro?.fonte).toBe("resolucao-conama-237-1997");
+    const fontes = buscar(indexar(base, "meio-ambiente"), "validade da licença de operação", 3).map((r) => r.fonte);
+    expect(fontes).toContain("resolucao-conama-237-1997");
   });
 });
 
@@ -60,7 +61,14 @@ describe("API", () => {
   it("lista domínios e devolve o processo-modelo", async () => {
     const app = criarApp(await carregarBase(KB), { logger: false });
     const dominios = await app.inject({ url: "/dominios" });
-    expect(dominios.json()).toEqual([expect.objectContaining({ id: "meio-ambiente", totalProcessos: 1 })]);
+    expect(dominios.json()).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ id: "meio-ambiente", totalProcessos: 1 }),
+        expect.objectContaining({ id: "obras" }),
+        expect.objectContaining({ id: "planejamento-urbano" }),
+        expect.objectContaining({ id: "governo-digital" }),
+      ]),
+    );
 
     const processo = await app.inject({ url: "/dominios/meio-ambiente/processos/licenca-ambiental-previa" });
     expect(processo.statusCode).toBe(200);

@@ -1,0 +1,112 @@
+[
+  {
+    "id": "lei-13874-2019",
+    "titulo": "Declaração de Direitos de Liberdade Econômica",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "13.874",
+    "ano": 2019,
+    "tags": ["aprovacao-tacita", "baixo-risco", "atos-de-liberacao", "prazos"],
+    "leis": "federal/leis-ordinarias/2019/lei-13874-2019-09-20.md"
+  },
+  {
+    "id": "decreto-10178-2019",
+    "titulo": "Classificação de risco das atividades e aprovação tácita",
+    "esfera": "federal",
+    "tipo": "decreto",
+    "numero": "10.178",
+    "ano": 2019,
+    "tags": ["aprovacao-tacita", "classificacao-de-risco", "prazos"],
+    "leis": "federal/decretos/2019/dec-10178-2019-12-18.md"
+  },
+  {
+    "id": "lei-13425-2017",
+    "titulo": "Prevenção e combate a incêndio em edificações e áreas de reunião de público",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "13.425",
+    "ano": 2017,
+    "tags": ["incendio", "bombeiros", "alvara", "reuniao-de-publico"],
+    "leis": "federal/leis-ordinarias/2017/lei-13425-2017-03-30.md"
+  },
+  {
+    "id": "lei-10098-2000",
+    "titulo": "Acessibilidade das pessoas com deficiência ou mobilidade reduzida",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "10.098",
+    "ano": 2000,
+    "tags": ["acessibilidade", "edificacoes", "vias-publicas"],
+    "leis": "federal/leis-ordinarias/2000/lei-10098-2000-12-19.md"
+  },
+  {
+    "id": "lei-13146-2015",
+    "titulo": "Lei Brasileira de Inclusão da Pessoa com Deficiência (Estatuto da Pessoa com Deficiência)",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "13.146",
+    "ano": 2015,
+    "tags": ["acessibilidade", "alvara", "habite-se", "aprovacao-de-projeto"],
+    "leis": "federal/leis-ordinarias/2015/lei-13146-2015-07-06.md"
+  },
+  {
+    "id": "decreto-5296-2004",
+    "titulo": "Regulamento das normas de acessibilidade",
+    "esfera": "federal",
+    "tipo": "decreto",
+    "numero": "5.296",
+    "ano": 2004,
+    "tags": ["acessibilidade", "aprovacao-de-projeto", "habite-se", "alvara"],
+    "leis": "federal/decretos/2004/dec-5296-2004-12-02.md"
+  },
+  {
+    "id": "lei-6496-1977",
+    "titulo": "Anotação de Responsabilidade Técnica (ART) em obras e serviços de engenharia",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "6.496",
+    "ano": 1977,
+    "tags": ["art", "responsavel-tecnico", "engenharia"],
+    "leis": "federal/leis-ordinarias/1977/lei-6496-1977-12-07.md"
+  },
+  {
+    "id": "lei-12378-2010",
+    "titulo": "Exercício da Arquitetura e Urbanismo, CAU e Registro de Responsabilidade Técnica (RRT)",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "12.378",
+    "ano": 2010,
+    "tags": ["rrt", "responsavel-tecnico", "arquitetura"],
+    "leis": "federal/leis-ordinarias/2010/lei-12378-2010-12-31.md"
+  },
+  {
+    "id": "lei-5194-1966",
+    "titulo": "Exercício das profissões de Engenheiro e Engenheiro-Agrônomo",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "5.194",
+    "ano": 1966,
+    "tags": ["responsavel-tecnico", "engenharia", "crea", "placa-de-obra"],
+    "leis": "federal/leis-ordinarias/1966/lei-5194-1966-12-24.md"
+  },
+  {
+    "id": "lei-4591-1964",
+    "titulo": "Condomínio em edificações e incorporações imobiliárias",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "4.591",
+    "ano": 1964,
+    "tags": ["incorporacao", "habite-se", "condominio", "aprovacao-de-projeto"],
+    "leis": "federal/leis-ordinarias/1964/lei-4591-1964-12-16.md"
+  },
+  {
+    "id": "lei-11888-2008",
+    "titulo": "Assistência técnica pública e gratuita para habitação de interesse social (ATHIS)",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "11.888",
+    "ano": 2008,
+    "tags": ["athis", "habitacao-de-interesse-social", "assistencia-tecnica"],
+    "leis": "federal/leis-ordinarias/2008/lei-11888-2008-12-24.md"
+  }
+]

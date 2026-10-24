@@ -1,0 +1,12 @@
+{
+  "id": "obras",
+  "nome": "Obras e Edificações",
+  "descricao": "Licenciamento de obras e edificações: aprovação de projeto, alvará de construção, reforma e demolição, alvará autodeclaratório, habite-se, responsabilidade técnica (ART/RRT), acessibilidade e segurança contra incêndio.",
+  "setoresTipicos": [
+    "Protocolo",
+    "Secretaria Municipal de Obras",
+    "Setor de Aprovação de Projetos",
+    "Fiscalização de Obras",
+    "Corpo de Bombeiros (manifestação externa)"
+  ]
+}

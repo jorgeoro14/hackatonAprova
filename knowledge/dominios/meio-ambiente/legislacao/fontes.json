@@ -1,0 +1,136 @@
+[
+  {
+    "id": "cf-1988-meio-ambiente",
+    "titulo": "Do Meio Ambiente (art. 225)",
+    "esfera": "federal",
+    "tipo": "constituicao",
+    "numero": "art. 225",
+    "ano": 1988,
+    "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+    "tags": ["constituicao", "eia", "licenciamento"],
+    "leis": "constituicao.md",
+    "trechos": [{ "de": "### CAPÍTULO VI — DO MEIO AMBIENTE", "ate": "### CAPÍTULO VII" }]
+  },
+  {
+    "id": "lei-6938-1981",
+    "titulo": "Política Nacional do Meio Ambiente",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "6.938",
+    "ano": 1981,
+    "tags": ["pnma", "sisnama", "licenciamento", "publicidade"],
+    "leis": "federal/leis-ordinarias/1981/lei-6938-1981-08-31.md"
+  },
+  {
+    "id": "lc-140-2011",
+    "titulo": "Cooperação entre os entes federativos em matéria ambiental",
+    "esfera": "federal",
+    "tipo": "lei-complementar",
+    "numero": "140",
+    "ano": 2011,
+    "tags": ["competencia", "municipio", "impacto-local", "prazos", "renovacao"],
+    "planalto": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp140.htm"
+  },
+  {
+    "id": "resolucao-conama-237-1997",
+    "titulo": "Procedimentos e critérios do licenciamento ambiental",
+    "esfera": "federal",
+    "tipo": "resolucao",
+    "orgao": "CONAMA",
+    "numero": "237",
+    "ano": 1997,
+    "url": "https://conama.mma.gov.br/",
+    "tags": ["licenciamento", "lp", "li", "lo", "prazos", "validade"]
+  },
+  {
+    "id": "resolucao-conama-001-1986",
+    "titulo": "Critérios e diretrizes para a avaliação de impacto ambiental (EIA/RIMA)",
+    "esfera": "federal",
+    "tipo": "resolucao",
+    "orgao": "CONAMA",
+    "numero": "1",
+    "ano": 1986,
+    "url": "https://conama.mma.gov.br/",
+    "tags": ["eia", "rima", "impacto-ambiental", "audiencia-publica"]
+  },
+  {
+    "id": "lei-12651-2012",
+    "titulo": "Código Florestal (proteção da vegetação nativa)",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "12.651",
+    "ano": 2012,
+    "tags": ["app", "reserva-legal", "car", "supressao-vegetacao", "area-urbana"],
+    "leis": "federal/leis-ordinarias/2012/lei-12651-2012-05-25.md"
+  },
+  {
+    "id": "lei-9605-1998",
+    "titulo": "Lei de Crimes Ambientais (sanções penais e administrativas)",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "9.605",
+    "ano": 1998,
+    "tags": ["infracao", "fiscalizacao", "auto-de-infracao", "sancoes"],
+    "leis": "federal/leis-ordinarias/1998/lei-9605-1998-02-12.md"
+  },
+  {
+    "id": "decreto-6514-2008",
+    "titulo": "Infrações e sanções administrativas ao meio ambiente e processo administrativo federal de apuração",
+    "esfera": "federal",
+    "tipo": "decreto",
+    "numero": "6.514",
+    "ano": 2008,
+    "tags": ["infracao", "auto-de-infracao", "defesa", "recurso", "prazos", "fiscalizacao"],
+    "leis": "federal/decretos/2008/dec-6514-2008-07-22.md"
+  },
+  {
+    "id": "lei-9433-1997",
+    "titulo": "Política Nacional de Recursos Hídricos",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "9.433",
+    "ano": 1997,
+    "tags": ["outorga", "recursos-hidricos", "agua"],
+    "leis": "federal/leis-ordinarias/1997/lei-9433-1997-01-08.md"
+  },
+  {
+    "id": "lei-12305-2010",
+    "titulo": "Política Nacional de Resíduos Sólidos",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "12.305",
+    "ano": 2010,
+    "tags": ["residuos", "pgrs", "licenciamento"],
+    "leis": "federal/leis-ordinarias/2010/lei-12305-2010-08-02.md"
+  },
+  {
+    "id": "lei-9985-2000",
+    "titulo": "Sistema Nacional de Unidades de Conservação (SNUC)",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "9.985",
+    "ano": 2000,
+    "tags": ["unidade-de-conservacao", "compensacao-ambiental", "zona-de-amortecimento"],
+    "leis": "federal/leis-ordinarias/2000/lei-9985-2000-07-18.md"
+  },
+  {
+    "id": "lei-11428-2006",
+    "titulo": "Lei da Mata Atlântica",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "11.428",
+    "ano": 2006,
+    "tags": ["mata-atlantica", "supressao-vegetacao", "area-urbana"],
+    "leis": "federal/leis-ordinarias/2006/lei-11428-2006-12-22.md"
+  },
+  {
+    "id": "lei-10650-2003",
+    "titulo": "Acesso público aos dados e informações ambientais do Sisnama",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "10.650",
+    "ano": 2003,
+    "tags": ["publicidade", "transparencia", "licenciamento"],
+    "planalto": "https://www.planalto.gov.br/ccivil_03/leis/2003/l10.650.htm"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "lei-9784-1999",
+    "titulo": "Processo administrativo no âmbito da Administração Pública Federal",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "9.784",
+    "ano": 1999,
+    "tags": ["processo-administrativo", "prazos", "intimacao", "recurso", "decisao", "motivacao"],
+    "leis": "federal/leis-ordinarias/1999/lei-9784-1999-01-29.md"
+  },
+  {
+    "id": "lei-14129-2021",
+    "titulo": "Lei do Governo Digital",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "14.129",
+    "ano": 2021,
+    "tags": ["governo-digital", "servicos-digitais", "processo-eletronico", "interoperabilidade"],
+    "leis": "federal/leis-ordinarias/2021/lei-14129-2021-03-29.md"
+  },
+  {
+    "id": "lei-14063-2020",
+    "titulo": "Uso de assinaturas eletrônicas em interações com entes públicos",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "14.063",
+    "ano": 2020,
+    "tags": ["assinatura-eletronica", "icp-brasil", "assinatura-avancada", "assinatura-qualificada"],
+    "leis": "federal/leis-ordinarias/2020/lei-14063-2020-09-23.md"
+  },
+  {
+    "id": "lei-13709-2018",
+    "titulo": "Lei Geral de Proteção de Dados Pessoais (LGPD)",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "13.709",
+    "ano": 2018,
+    "tags": ["lgpd", "dados-pessoais", "poder-publico", "transparencia"],
+    "leis": "federal/leis-ordinarias/2018/lei-13709-2018-08-14.md"
+  },
+  {
+    "id": "lei-12527-2011",
+    "titulo": "Lei de Acesso à Informação (LAI)",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "12.527",
+    "ano": 2011,
+    "tags": ["lai", "transparencia", "pedido-de-informacao", "prazos", "sigilo"],
+    "leis": "federal/leis-ordinarias/2011/lei-12527-2011-11-18.md"
+  },
+  {
+    "id": "lei-13460-2017",
+    "titulo": "Participação, proteção e defesa dos direitos do usuário dos serviços públicos",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "13.460",
+    "ano": 2017,
+    "tags": ["usuario", "carta-de-servicos", "ouvidoria", "manifestacao", "prazos"],
+    "leis": "federal/leis-ordinarias/2017/lei-13460-2017-06-26.md"
+  },
+  {
+    "id": "lei-13726-2018",
+    "titulo": "Racionalização de atos e procedimentos administrativos (desburocratização)",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "13.726",
+    "ano": 2018,
+    "tags": ["desburocratizacao", "autenticacao", "reconhecimento-de-firma", "documentos"],
+    "leis": "federal/leis-ordinarias/2018/lei-13726-2018-10-08.md"
+  },
+  {
+    "id": "lei-11598-2007",
+    "titulo": "Rede Nacional para a Simplificação do Registro e da Legalização de Empresas e Negócios (Redesim)",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "11.598",
+    "ano": 2007,
+    "tags": ["redesim", "alvara-de-funcionamento", "licenciamento", "baixo-risco"],
+    "leis": "federal/leis-ordinarias/2007/lei-11598-2007-12-03.md"
+  }
+]

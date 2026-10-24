@@ -1,0 +1,7 @@
+{
+  "id": "governo-digital",
+  "nome": "Governo Digital e Processo Administrativo",
+  "descricao": "Normas transversais, válidas para qualquer processo digitalizado na Aprova: processo administrativo (prazos, intimações, recursos), governo digital, assinaturas eletrônicas, proteção de dados pessoais, acesso à informação, direitos do usuário de serviço público, desburocratização e simplificação do registro e licenciamento de empresas.",
+  "transversal": true,
+  "setoresTipicos": ["Protocolo", "Ouvidoria", "Procuradoria do Município", "Controladoria", "Encarregado de dados pessoais (DPO)"]
+}
