@@ -10,8 +10,11 @@ try {
 const Env = z.object({
   PORT: z.coerce.number().int().default(3333),
   KNOWLEDGE_DIR: z.string().default("knowledge"),
-  ANTHROPIC_API_KEY: z.string().optional(),
-  ANTHROPIC_MODEL: z.string().default("claude-opus-5-5"),
+  /** serviço do agente Python (agents/app/server.py) */
+  AGENT_URL: z.string().url().default("http://localhost:8000"),
+  AGENT_TIMEOUT_MS: z.coerce.number().int().positive().default(60_000),
+  /** pasta dos anexos enviados no chat */
+  UPLOAD_DIR: z.string().default("uploads"),
   /** connection string do Postgres (Supabase → Connect → Session pooler) */
   DATABASE_URL: z.string().url().optional(),
   // trocar em produção; o padrão só serve para desenvolvimento local
@@ -28,5 +31,6 @@ const parsed = Env.parse(process.env);
 export const env = {
   ...parsed,
   KNOWLEDGE_DIR: resolve(parsed.KNOWLEDGE_DIR),
+  UPLOAD_DIR: resolve(parsed.UPLOAD_DIR),
   CORS_ORIGINS: parsed.CORS_ORIGINS.split(",").map((s) => s.trim()).filter(Boolean),
 };

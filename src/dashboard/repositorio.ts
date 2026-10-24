@@ -343,7 +343,7 @@ export async function detalheConversa(db: Banco, usuario: Usuario, id: string) {
       createdAt: texto(m.criada_em),
       attachments: (dados.attachments as unknown[]) ?? [],
       ...(dados.quickReplies ? { quickReplies: dados.quickReplies } : {}),
-      ...(dados.form ? { form: dados.form } : {}),
+      ...(dados.formularioId ? { formularioId: dados.formularioId } : {}),
     };
   });
   return { ...paraConversa(r), messages };

@@ -133,7 +133,7 @@ O back grava (sobrescrevendo o preenchido pelo agente), muda `status` para `conf
 `POST /chat/sessions/:sessionId/attachments` — `multipart/form-data`, campo `file`.
 ```json
 // res 201
-Attachment = { "id": "a1", "name": "lei-alvara.pdf", "mimeType": "application/pdf", "sizeBytes": 482113, "url": "/files/a1" }
+Attachment = { "id": "a1", "name": "lei-alvara.pdf", "mimeType": "application/pdf", "sizeBytes": 482113, "url": "/api/v1/files/a1" }
 ```
 Limites propostos: **10 MB por arquivo**, **máx. 5 por mensagem**. Tipos aceitos: `pdf`, `png`, `jpg/jpeg`, `webp`, `xlsx`, `xls`, `csv`, `docx`, `txt`. Erros `413 FILE_TOO_LARGE`, `415 UNSUPPORTED_TYPE`. O agente deve conseguir ler o conteúdo (OCR para imagens/PDF escaneado, se possível). `GET /files/:id` serve o arquivo (mesma auth do contexto: session token ou JWT com permissão).
 
@@ -234,20 +234,20 @@ O back precisa saber quantas reuniões aconteceram. Sugestão: o implantador reg
 Dashboard pode usar polling (30s). SSE/WebSocket só se sobrar tempo.
 
 ## 8. Variáveis e execução
-- O back sobe em `http://localhost:3333`. As rotas do dashboard (auth, métricas, clientes, processos, conversas, reuniões, implantadores) já estão em `/api/v1`; as do chat público (seção 4) **ainda não existem** — o back tem só `/implantacoes` (sem prefixo), que precisa ser adaptado a este contrato. Front: `VITE_API_URL=http://localhost:3333/api/v1` e `VITE_USE_MOCKS=false`.
+- O back sobe em `http://localhost:3333`. As rotas do dashboard (auth, métricas, clientes, processos, conversas, reuniões, implantadores) já estão em `/api/v1`; as do chat público (seção 4), o catálogo e os anexos também estão em `/api/v1` (`src/chat/rotas.ts`). O chat chama o agente Python por HTTP (`AGENT_URL`, `POST /turn`); sem o serviço no ar, `POST .../messages` devolve `502 AGENT_UNAVAILABLE` (ou `504 AGENT_TIMEOUT`) e só a mensagem do usuário fica gravada. Ordem de subida: banco → agente → back → front. Front: `VITE_API_URL=http://localhost:3333/api/v1` e `VITE_USE_MOCKS=false`.
 - Seed mínimo para demo: 1 head, 2–3 implantadores, 4+ prefeituras, ~100 processos por prefeitura em estados variados, conversas com mensagens e formulários.
 - Usuários de teste (combinar): `head / ...`, `maria.silva / ...`.
 
 ## 9. O que o back precisa implementar (checklist)
 - [ ] Login/JWT com papéis `implementer` e `head`, e filtro de escopo em todas as rotas do dashboard
-- [ ] `identify` / `register` / catálogo / sessões de chat com `sessionToken`
-- [ ] Endpoint de mensagem integrando o agente (resposta `Message` com `kind`)
-- [ ] Agente preenchendo o formulário do processo e emitindo `form` + endpoint `submit` com validação
-- [ ] Upload de anexos com limites e leitura pelo agente
+- [x] `identify` / `register` / catálogo / sessões de chat com `sessionToken` (um dispositivo por vez: novo `identify` invalida o token anterior)
+- [x] Endpoint de mensagem integrando o agente (resposta `Message` com `kind`)
+- [x] Agente preenchendo o formulário do processo e emitindo `form` + endpoint `submit` com validação (o agente em si é a trilha A)
+- [x] Upload de anexos com limites; o agente recebe o texto de `.txt`/`.csv` e o nome dos demais
 - [ ] Cálculo de métricas (reuniões vs baseline, horas economizadas, tempo de criação do fluxo, % de processos completos)
 - [ ] Registro de reuniões
 - [ ] Endpoints de clientes, processos, conversas, implantadores
-- [ ] Seed de dados para demo, CORS, rate limit nos endpoints públicos
+- [x] Seed de dados para demo, CORS, rate limit nos endpoints públicos (30/min por IP, `429 RATE_LIMITED`)
 
 ## 10. Pontos a decidir entre front e back
 1. **Resposta do agente demora?** Se passar de ~60s, usar polling (`?after=`) em vez de bloquear a requisição.

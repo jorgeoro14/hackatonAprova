@@ -1,6 +1,7 @@
 import type { FastifyInstance, FastifyRequest } from "fastify";
 import { z } from "zod";
 import type { Banco } from "../db/banco.js";
+import { tratarErros } from "../api/erros.js";
 import { conferirSenha, emitirToken, verificarToken, type Usuario } from "./auth.js";
 import { METRICAS_SERIE, resumoMetricas, serieMetrica, type Periodo } from "./metricas.js";
 import {
@@ -77,17 +78,7 @@ export async function rotasDashboard(app: FastifyInstance, opcoes: OpcoesDashboa
   const { db, segredoJwt, validadeTokenMinutos = 8 * 60 } = opcoes;
   const agora = opcoes.agora ?? (() => new Date());
 
-  app.setErrorHandler((erro, _req, reply) => {
-    if (erro instanceof ErroApi) {
-      return reply.code(erro.status).send({ error: { code: erro.code, message: erro.message, details: erro.details } });
-    }
-    const status = (erro as { statusCode?: number }).statusCode;
-    if (status && status < 500) {
-      return reply.code(status).send({ error: { code: "BAD_REQUEST", message: (erro as Error).message, details: {} } });
-    }
-    app.log.error(erro);
-    return reply.code(500).send({ error: { code: "INTERNAL_ERROR", message: "Erro interno", details: {} } });
-  });
+  tratarErros(app);
 
   async function usuario(req: FastifyRequest): Promise<Usuario> {
     const [tipo, token] = (req.headers.authorization ?? "").split(" ");

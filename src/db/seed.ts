@@ -2,6 +2,9 @@ import { createHash } from "node:crypto";
 import { hashSenha } from "../dashboard/auth.js";
 import { STATUS_COMPLETOS, type CategoriaCampo } from "../dashboard/parametros.js";
 import type { StatusProcesso } from "../dashboard/repositorio.js";
+import { novoFormulario } from "../implantacao/formulario.js";
+import type { BaseConhecimento } from "../knowledge/loader.js";
+import type { ProcessoModelo } from "../knowledge/schemas.js";
 import { inserirEmLote, type Banco, type Linha } from "./banco.js";
 
 /**
@@ -126,6 +129,12 @@ export function idDemo(chave: string): string {
   return `${h.slice(0, 8)}-${h.slice(8, 12)}-5${h.slice(13, 16)}-${variante}${h.slice(17, 20)}-${h.slice(20, 32)}`;
 }
 
+/** Processo-modelo usado nos formulários da demo: o primeiro de obras (ou do primeiro domínio que tiver processos). */
+export function modeloDeDemo(base: BaseConhecimento): ProcessoModelo | undefined {
+  const comProcessos = [...base.dominios.values()].filter((d) => d.processos.length);
+  return (comProcessos.find((d) => d.dominio.id === "obras") ?? comProcessos[0])?.processos[0];
+}
+
 export async function bancoVazio(db: Banco): Promise<boolean> {
   return (await db.consultar("SELECT 1 FROM usuarios LIMIT 1")).length === 0;
 }
@@ -139,6 +148,7 @@ interface Tabelas {
   contatos: Linha[];
   conversas: Linha[];
   mensagens: Linha[];
+  formularios: Linha[];
   conversa_processos: Linha[];
   reunioes: Linha[];
 }
@@ -161,6 +171,10 @@ const COLUNAS: { [T in keyof Tabelas]: Record<string, string> } = {
     id: "uuid", conversa_id: "uuid", papel: "public.papel_mensagem", tipo: "public.tipo_mensagem", texto: "text", dados: "jsonb",
     criada_em: "timestamptz",
   },
+  formularios: {
+    id: "uuid", conversa_id: "uuid", processo_id: "uuid", dominio: "text", status: "public.status_formulario", dados: "jsonb",
+    revisao: "integer", confirmado_em: "timestamptz", criado_em: "timestamptz", atualizado_em: "timestamptz",
+  },
   campos_processo: {
     id: "uuid", processo_id: "uuid", chave: "text", rotulo: "text", categoria: "public.categoria_campo", valor: "text",
     status: "public.status_campo", origem: "public.origem_campo", coletado_em: "timestamptz", mensagem_origem_id: "uuid",
@@ -173,13 +187,13 @@ const COLUNAS: { [T in keyof Tabelas]: Record<string, string> } = {
 };
 
 /** Gera todas as linhas da demo em memória. Datas relativas a `agora`. */
-export function gerarDemo({ senha, agora = new Date(), semente = 42 }: { senha: string; agora?: Date; semente?: number }): Tabelas {
+export function gerarDemo({ senha, agora = new Date(), semente = 42, modelo }: { senha: string; agora?: Date; semente?: number; modelo?: ProcessoModelo }): Tabelas {
   const r = gerador(semente);
   const fim = agora.getTime();
   const iso = (t: number) => new Date(Math.min(t, fim - MIN)).toISOString();
   const t: Tabelas = {
     usuarios: [], clientes: [], secretarias: [], processos: [], campos_processo: [],
-    contatos: [], conversas: [], mensagens: [], conversa_processos: [], reunioes: [],
+    contatos: [], conversas: [], mensagens: [], formularios: [], conversa_processos: [], reunioes: [],
   };
 
   const hash = hashSenha(senha);
@@ -241,7 +255,7 @@ export function gerarDemo({ senha, agora = new Date(), semente = 42 }: { senha: 
           const quando = coletado ? contato! + r.entre(0, 1) * ((concluido ?? ultimo) - contato!) : undefined;
           return {
             id: idDemo(`${chave}-${campo.chave}`), processo_id: id, chave: campo.chave, rotulo: campo.rotulo,
-            categoria: campo.categoria, valor: coletado ? campo.valor(nome) : null,
+            categoria: campo.categoria, valor: coletado ? campo.valor(nome) : "",
             status: !coletado ? "pending" : aValidar ? "to_validate" : "filled",
             origem: r.rand() < 0.9 ? "agente" : "implantador",
             coletado_em: quando === undefined ? null : iso(quando),
@@ -280,17 +294,24 @@ export function gerarDemo({ senha, agora = new Date(), semente = 42 }: { senha: 
           ["m5", "agent", "text", "Anotado. Quais documentos o requerente precisa anexar?", null],
           ["m6", "user", "text", "Requerimento, documento de identidade e comprovante de propriedade.", null],
         ];
-        if (status === "waiting_confirmation") {
-          msgs.push(["m7", "agent", "form", `Montei o formulário do **${exemplo.nome}**. Confira e corrija o que precisar.`, {
-            form: {
-              id: idDemo(`${convChave}-f1`), processName: exemplo.nome, secretariat: nomeSecretaria, status: "awaiting_confirmation",
-              fields: CAMPOS.slice(0, 4).map((f) => ({
-                key: f.chave, label: f.rotulo, type: f.chave === "documentos_exigidos" ? "textarea" : "text", value: f.valor(exemplo.nome), required: true,
-              })),
-            },
-          }]);
-        } else if (status === "closed") {
-          msgs.push(["m7", "agent", "text", "Pronto! As regras foram confirmadas e enviadas ao time de implantação. Obrigado!", null]);
+        // com o processo-modelo, a demo ganha formulários reais (FormularioImplantacao) ligados ao processo
+        const emitido = modelo && (status === "waiting_confirmation" || status === "closed");
+        if (emitido) {
+          const formId = idDemo(`${convChave}-f1`);
+          const confirmado = status === "closed";
+          const f = novoFormulario(formId, modelo, { municipio: c.nome, uf: c.uf, orgao: nomeSecretaria, responsavel: { nome: nomeContato } }, new Date(t0));
+          f.processo.nome = exemplo.nome;
+          t.formularios.push({
+            id: formId, conversa_id: convId, processo_id: exemplo.id, dominio: modelo.dominio, status: confirmado ? "confirmado" : "em_revisao",
+            dados: { ...f, status: confirmado ? "confirmado" : "em_revisao" }, revisao: 1 + (confirmado ? 1 : 0),
+            confirmado_em: confirmado ? iso(t0 + 3 * MIN * 10) : null, criado_em: iso(t0), atualizado_em: iso(t0 + 30 * MIN),
+          });
+          msgs.push(["m7", "agent", "form", `Montei o formulário do **${exemplo.nome}**. Confira e corrija o que precisar.`, { formularioId: formId }]);
+        }
+        if (status === "closed") {
+          msgs.push([emitido ? "m8" : "m7", "agent", "text", "Pronto! As regras foram confirmadas e enviadas ao time de implantação. Obrigado!", null]);
+        } else if (status === "waiting_confirmation" && !emitido) {
+          msgs.push(["m7", "agent", "text", `Montei o formulário do **${exemplo.nome}**. Confira e corrija o que precisar.`, null]);
         }
 
         const mensagens = msgs.map(([mid, papel, tipo, texto, dados]) => ({
@@ -326,12 +347,12 @@ export function gerarDemo({ senha, agora = new Date(), semente = 42 }: { senha: 
 }
 
 /** Apaga tudo e recria os dados de demo numa transação. Devolve quantas linhas foram inseridas por tabela. */
-export async function semearDemo(db: Banco, opcoes: { senha: string; agora?: Date; semente?: number }) {
+export async function semearDemo(db: Banco, opcoes: { senha: string; agora?: Date; semente?: number; modelo?: ProcessoModelo }) {
   const t = gerarDemo(opcoes);
   await db.transacao(async (tx) => {
     // CASCADE: o que pendura nos clientes de demo (ex.: agentes) vai junto
     await tx.executar(
-      "TRUNCATE usuarios, clientes, secretarias, processos, campos_processo, contatos, conversas, conversa_processos, mensagens, reunioes CASCADE",
+      "TRUNCATE usuarios, clientes, secretarias, processos, campos_processo, contatos, conversas, conversa_processos, mensagens, formularios, reunioes CASCADE",
     );
     for (const tabela of Object.keys(COLUNAS) as (keyof Tabelas)[]) {
       await inserirEmLote(tx, tabela, COLUNAS[tabela], t[tabela]);
