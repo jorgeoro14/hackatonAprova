@@ -2,6 +2,8 @@
 
 Backend (Node + TypeScript, ESM) do agente que coleta requisitos de implantação da Aprova via chat e preenche o `FormularioImplantacao`. Só backend.
 
+O agente de IA é um serviço Python separado (`agents/`, branch `feat/municipal-rag`); o back o chama por HTTP (`AGENT_URL`) em `src/agente/cliente.ts`. Chat público em `src/chat/`, ponte formulário → dashboard em `src/formularios/`.
+
 ## Comandos
 
 - `npm run kb:validate` — valida a base de conhecimento (rode após editar `knowledge/`).

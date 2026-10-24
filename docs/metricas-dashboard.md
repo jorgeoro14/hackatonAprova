@@ -89,4 +89,4 @@ As premissas do modelo manual ficam em `src/dashboard/parametros.ts`.
 - `Conversation.processesTouched` traz os **nomes** dos processos.
 - `GET /clients/:id/meetings` devolve `Meeting = { id, clientId, date, durationMinutes, notes, createdBy, createdAt }`.
 - `/implementers/:id` devolve o resumo + `clients: Client[]`.
-- Ainda não implementado: as rotas públicas do chat (`/chat/identify`, `/register`, sessões, `forms/:id/submit`, anexos) e o catálogo. O chat atual continua em `/implantacoes` (memória). As tabelas para esse chat já existem no banco.
+- O chat público (`/chat/*`), o catálogo e os anexos estão em `src/chat/rotas.ts`; o chat grava conversas, formulários e campos no banco (ponte em `src/formularios/repositorio.ts`), e é isso que alimenta estas métricas.
