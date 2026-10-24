@@ -329,7 +329,12 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
 
     return exclusivo(conversaId, async () => {
       const anexos = await anexosDaMensagem(conversaId, corpo.attachmentIds);
-      const userMessage = await gravarMensagem(db, conversaId, "user", "text", texto, anexos.length ? { attachments: anexos.map((a) => paraAnexo(a, prefixo)) } : null);
+      // reenvio depois de falha do agente: a última mensagem ainda é a do usuário, com o mesmo texto; não duplica
+      const ultima = (await db.consultar("SELECT * FROM mensagens WHERE conversa_id = $1 ORDER BY criada_em DESC, id DESC LIMIT 1", [conversaId]))[0];
+      const repetida = ultima && ultima.papel === "user" && ultima.texto === texto && !((ultima.dados as { attachments?: unknown[] } | null)?.attachments?.length) && anexos.length === 0;
+      const userMessage = repetida
+        ? paraMensagem(ultima)
+        : await gravarMensagem(db, conversaId, "user", "text", texto, anexos.length ? { attachments: anexos.map((a) => paraAnexo(a, prefixo)) } : null);
 
       const historico = (await db.consultar("SELECT papel, tipo, texto FROM mensagens WHERE conversa_id = $1 AND papel <> 'system' ORDER BY criada_em, id", [conversaId]))
         .filter((m) => m.texto)
@@ -361,7 +366,8 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
       const agentMessage = await db.transacao(async (tx) => {
         const t = agora();
         const pronto = r.pronto_para_revisao && r.form !== null;
-        const form = r.form && { ...r.form, pendencias: r.pendencias.length ? r.pendencias : r.form.pendencias, atualizadoEm: t.toISOString() };
+        // o agente nunca confirma: o status é do back (rascunho enquanto coleta, em_revisao quando pronto)
+        const form = r.form && { ...r.form, status: pronto ? ("em_revisao" as const) : ("rascunho" as const), pendencias: r.pendencias.length ? r.pendencias : r.form.pendencias, atualizadoEm: t.toISOString() };
         const linha = form ? await salvarRevisao(tx, conversaId, form, pronto ? "em_revisao" : "rascunho") : undefined;
         const msg = await gravarMensagem(tx, conversaId, "agent", pronto ? "form" : "text", r.assistant_reply, pronto ? { formularioId: linha!.id } : null);
         if (form && linha) {
