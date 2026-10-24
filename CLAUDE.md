@@ -5,7 +5,13 @@ Backend (Node + TypeScript, ESM) do agente que coleta requisitos de implantaçã
 ## Comandos
 
 - `npm run kb:validate` — valida a base de conhecimento (rode após editar `knowledge/`).
+- `npm run kb:importar-leis [-- <dominio>]` — (re)importa o texto das normas de `legislacao/fontes.json`; preserva a seção "Relevância para a implantação", que é escrita à mão.
 - `npm run typecheck` / `npm test` / `npm run dev`.
+- `npm run db:migrate` — aplica `supabase/migrations/*.sql` no Postgres de `DATABASE_URL` (Supabase). Mudança de esquema = migration nova, nunca editar uma já aplicada.
+- `npm run db:seed` — apaga e recria os dados de demo do dashboard (TRUNCATE CASCADE; não usar em banco com dados reais).
+- Testes usam PGlite (Postgres embutido) via `test/apoio/pglite.ts`; não precisam de Supabase.
+
+Dashboard (`/api/v1`): rotas em `src/dashboard/rotas.ts`, fórmulas em `src/dashboard/metricas.ts`, premissas em `src/dashboard/parametros.ts` — documentadas em `docs/metricas-dashboard.md` (mantenha em sincronia).
 
 ## Arquitetura
 

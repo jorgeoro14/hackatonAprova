@@ -1,0 +1,25 @@
+{
+  "id": "planejamento-urbano",
+  "nome": "Planejamento Urbano",
+  "descricao": "Política urbana e uso do solo: plano diretor e instrumentos do Estatuto da Cidade, parcelamento do solo (loteamento e desmembramento), regularização fundiária urbana (Reurb), estudo de impacto de vizinhança, certidões de uso do solo e consulta prévia.",
+  "maturidade": "pronta",
+  "processosCobertos": [
+    "Consulta prévia de viabilidade",
+    "Certidão de uso do solo",
+    "Certidão de numeração predial",
+    "Fixação de diretrizes para loteamento",
+    "Aprovação de loteamento",
+    "Aprovação de desmembramento e remembramento",
+    "Alteração de loteamento",
+    "Estudo de Impacto de Vizinhança (EIV)",
+    "Regularização Fundiária Urbana (Reurb)",
+    "Notificação de intenção de alienação (preempção)"
+  ],
+  "setoresTipicos": [
+    "Protocolo",
+    "Secretaria Municipal de Planejamento Urbano",
+    "Secretaria Municipal de Habitação",
+    "Procuradoria do Município",
+    "Conselho Municipal da Cidade"
+  ]
+}

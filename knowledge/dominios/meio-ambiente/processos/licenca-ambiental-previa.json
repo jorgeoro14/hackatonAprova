@@ -6,6 +6,12 @@
   "descricao": "Atesta a viabilidade ambiental de um empreendimento na fase de planejamento, aprovando localização e concepção e definindo condicionantes para as próximas fases.",
   "publicoAlvo": ["cidadao", "empresa"],
   "baseLegal": ["lei-6938-1981", "resolucao-conama-237-1997", "lc-140-2011"],
+  "resumo": {
+    "apresentacao": "Solicite a Licença Ambiental Prévia para atestar a viabilidade ambiental do seu empreendimento antes de projetá-lo e instalá-lo. A licença aprova a localização e a concepção e define as condicionantes para as próximas fases.",
+    "quemPodeSolicitar": "Pessoa física ou jurídica responsável pelo empreendimento, ou seu representante legal.",
+    "abertura": ["externo"],
+    "camposDestaque": ["requerente_nome", "atividade_tipologia", "empreendimento_endereco"]
+  },
   "formulario": {
     "secoes": [
       {
@@ -66,23 +72,33 @@
     {
       "nome": "Taxa de licenciamento ambiental",
       "baseCalculo": "Definida pela lei municipal, geralmente por porte e potencial poluidor.",
+      "etapa": "pagamento",
       "baseLegal": []
     }
   ],
+  "setores": [
+    { "id": "requerente", "nome": "Requerente", "tipo": "requerente" },
+    { "id": "sistema", "nome": "Confirmação automática", "tipo": "automatico" },
+    { "id": "smma", "nome": "Secretaria Municipal de Meio Ambiente" },
+    { "id": "fiscalizacao_ambiental", "nome": "Fiscalização Ambiental" },
+    { "id": "gabinete_smma", "nome": "Gabinete do(a) Secretário(a) de Meio Ambiente" }
+  ],
   "fluxo": {
     "etapas": [
-      { "id": "protocolo", "nome": "Protocolo do requerimento", "tipo": "protocolo", "responsavel": "Requerente" },
-      { "id": "triagem", "nome": "Conferência documental", "tipo": "triagem", "responsavel": "Secretaria Municipal de Meio Ambiente", "prazoDias": 10 },
-      { "id": "exigencia", "nome": "Exigência ao requerente", "tipo": "exigencia", "responsavel": "Requerente", "prazoDias": 30 },
-      { "id": "analise", "nome": "Análise técnica", "tipo": "analise", "responsavel": "Secretaria Municipal de Meio Ambiente" },
-      { "id": "vistoria", "nome": "Vistoria técnica", "tipo": "vistoria", "responsavel": "Fiscalização Ambiental" },
-      { "id": "parecer", "nome": "Parecer técnico conclusivo", "tipo": "parecer", "responsavel": "Secretaria Municipal de Meio Ambiente" },
-      { "id": "decisao", "nome": "Decisão (deferimento/indeferimento)", "tipo": "decisao", "responsavel": "Secretário(a) de Meio Ambiente" },
-      { "id": "emissao", "nome": "Emissão e assinatura da LAP", "tipo": "emissao", "responsavel": "Secretário(a) de Meio Ambiente" },
-      { "id": "arquivamento", "nome": "Arquivamento", "tipo": "arquivamento", "responsavel": "Secretaria Municipal de Meio Ambiente" }
+      { "id": "protocolo", "nome": "Protocolo do requerimento", "tipo": "protocolo", "responsavel": "requerente" },
+      { "id": "pagamento", "nome": "Pagamento da taxa", "tipo": "pagamento", "responsavel": "sistema" },
+      { "id": "triagem", "nome": "Conferência documental", "tipo": "triagem", "responsavel": "smma", "prazoDias": 10 },
+      { "id": "exigencia", "nome": "Exigência ao requerente", "tipo": "exigencia", "responsavel": "requerente", "prazoDias": 30, "suspendePrazoTotal": true },
+      { "id": "analise", "nome": "Análise técnica", "tipo": "analise", "responsavel": "smma" },
+      { "id": "vistoria", "nome": "Vistoria técnica", "tipo": "vistoria", "responsavel": "fiscalizacao_ambiental" },
+      { "id": "parecer", "nome": "Parecer técnico conclusivo", "tipo": "parecer", "responsavel": "smma" },
+      { "id": "decisao", "nome": "Decisão (deferimento/indeferimento)", "tipo": "decisao", "responsavel": "gabinete_smma" },
+      { "id": "emissao", "nome": "Emissão e assinatura da LAP", "tipo": "emissao", "responsavel": "gabinete_smma" },
+      { "id": "arquivamento", "nome": "Arquivamento", "tipo": "arquivamento", "responsavel": "smma" }
     ],
     "transicoes": [
-      { "de": "protocolo", "para": "triagem" },
+      { "de": "protocolo", "para": "pagamento" },
+      { "de": "pagamento", "para": "triagem", "condicao": "Pagamento confirmado" },
       { "de": "triagem", "para": "analise", "condicao": "Documentação completa" },
       { "de": "triagem", "para": "exigencia", "condicao": "Documentação incompleta" },
       { "de": "exigencia", "para": "triagem", "condicao": "Requerente respondeu" },
@@ -97,8 +113,92 @@
     ],
     "prazoTotalDias": 180
   },
+  "despachos": [
+    {
+      "id": "encaminhar_analise",
+      "nome": "Documentação conferida — encaminhar para análise técnica",
+      "tipo": "encaminhamento",
+      "etapa": "triagem",
+      "levaPara": "analise",
+      "texto": "Documentação do processo {{numero_processo}} conferida e completa. Encaminha-se para análise técnica.",
+      "visivelRequerente": true
+    },
+    {
+      "id": "exigencia_documental",
+      "nome": "Exigência de documentação",
+      "tipo": "exigencia",
+      "etapa": "triagem",
+      "levaPara": "exigencia",
+      "texto": "Prezado(a) {{requerente_nome}}, para dar continuidade ao processo {{numero_processo}} é necessário apresentar os documentos/ajustes listados abaixo.",
+      "visivelRequerente": true,
+      "prazoRespostaDias": 30
+    },
+    {
+      "id": "exigencia_tecnica",
+      "nome": "Exigência de complementação técnica",
+      "tipo": "exigencia",
+      "etapa": "analise",
+      "levaPara": "exigencia",
+      "texto": "Prezado(a) {{requerente_nome}}, a análise técnica do processo {{numero_processo}} identificou a necessidade das complementações listadas abaixo.",
+      "visivelRequerente": true,
+      "prazoRespostaDias": 30
+    },
+    {
+      "id": "solicitar_vistoria",
+      "nome": "Solicitar vistoria técnica",
+      "tipo": "encaminhamento",
+      "etapa": "analise",
+      "levaPara": "vistoria",
+      "texto": "Solicita-se vistoria técnica no local do empreendimento ({{empreendimento_endereco}}) para subsidiar a análise.",
+      "visivelRequerente": false
+    },
+    {
+      "id": "relatorio_vistoria",
+      "nome": "Relatório de vistoria",
+      "tipo": "parecer",
+      "etapa": "vistoria",
+      "levaPara": "parecer",
+      "visivelRequerente": false,
+      "exigeAssinatura": true,
+      "assinante": "Fiscal ambiental"
+    },
+    {
+      "id": "parecer_tecnico",
+      "nome": "Parecer técnico conclusivo",
+      "tipo": "parecer",
+      "etapa": "parecer",
+      "levaPara": "decisao",
+      "visivelRequerente": false,
+      "exigeAssinatura": true,
+      "assinante": "Analista ambiental"
+    },
+    {
+      "id": "deferimento",
+      "nome": "Deferimento",
+      "tipo": "deferimento",
+      "etapa": "decisao",
+      "levaPara": "emissao",
+      "texto": "Com base no parecer técnico, DEFIRO o pedido de Licença Ambiental Prévia do processo {{numero_processo}}, requerido por {{requerente_nome}}.",
+      "visivelRequerente": true,
+      "exigeAssinatura": true,
+      "assinante": "Secretário(a) de Meio Ambiente"
+    },
+    {
+      "id": "indeferimento",
+      "nome": "Indeferimento",
+      "tipo": "indeferimento",
+      "etapa": "decisao",
+      "levaPara": "arquivamento",
+      "texto": "Com base no parecer técnico, INDEFIRO o pedido de Licença Ambiental Prévia do processo {{numero_processo}}, pelos motivos expostos abaixo.",
+      "visivelRequerente": true,
+      "exigeAssinatura": true,
+      "assinante": "Secretário(a) de Meio Ambiente"
+    }
+  ],
   "documentoFinal": {
     "nome": "Licença Ambiental Prévia",
+    "numeracao": "LAP {{sequencial}}/{{ano}}",
+    "etapa": "emissao",
     "validadeMaximaMeses": 60,
     "assinante": "Secretário(a) de Meio Ambiente",
     "baseLegal": ["resolucao-conama-237-1997"]
