@@ -1,0 +1,424 @@
+{
+  "id": "habite-se",
+  "nome": "Habite-se",
+  "dominio": "obras",
+  "exemplo": false,
+  "origem": {
+    "fonte": "ambiente-modelo",
+    "idExterno": "6764623d3671100008547843",
+    "url": "https://modelo.aprova.com.br/processo/criar/6764623d3671100008547843",
+    "importadoEm": "2026-10-24T00:00:00.000Z"
+  },
+  "descricao": "Certidão que atesta que um imóvel está apto para ser habitado, após a conclusão das obras e a verificação de que foram cumpridas todas as exigências legais.",
+  "publicoAlvo": ["cidadao", "empresa"],
+  "baseLegal": ["lei-4591-1964"],
+  "resumo": {
+    "apresentacao": "Certidão que atesta que um imóvel está apto para ser habitado, após a conclusão das obras e a verificação de que foram cumpridas todas as exigências legais.",
+    "quemPodeSolicitar": "Proprietário do imóvel, responsável técnico ou procurador (com procuração).",
+    "abertura": ["externo"],
+    "camposDestaque": ["inscricao_imobiliaria", "quest_tipo_habitese", "user"]
+  },
+  "formulario": {
+    "secoes": [
+      {
+        "titulo": "Declaração de veracidade",
+        "ajuda": "Remetente e destinatário são campos de sistema (remetente é o usuário logado; o destinatário é escolhido na abertura). O requerente só marca a declaração, feita sob as penas do art. 299 do Código Penal.",
+        "campos": [
+          { "id": "declaracao_veracidade", "rotulo": "Declaração de veracidade das informações e da autenticidade dos documentos anexados", "tipo": "multipla_escolha", "obrigatorio": true, "opcoes": ["Declaro"] }
+        ]
+      },
+      {
+        "titulo": "Dados do Alvará",
+        "ajuda": "Escolher o formato de aprovação do Alvará e informar os dados. Para processos aprovados pela Aprova o número vai completo, com traços e letras em caixa alta (ex.: 100-21-AAA-AAA).",
+        "campos": [
+          { "id": "tipo_alvara", "rotulo": "Selecione a modalidade do Alvará", "tipo": "selecao", "obrigatorio": true, "opcoes": ["Aprovado no modo físico", "Aprovado pela Aprova"] },
+          { "id": "processo_fisico", "rotulo": "Número do processo do Alvará", "tipo": "texto", "obrigatorio": true, "visivelSe": "tipo_alvara = Aprovado no modo físico", "ajuda": "O número deve ser completo, com traços e siglas se possuir." },
+          { "id": "docalvara_fisico", "rotulo": "Cópia do Alvará emitido", "tipo": "anexo", "obrigatorio": true, "visivelSe": "tipo_alvara = Aprovado no modo físico" },
+          { "id": "docprojeto_fisico", "rotulo": "Cópia do Projeto Aprovado", "tipo": "anexo", "obrigatorio": true, "visivelSe": "tipo_alvara = Aprovado no modo físico" },
+          { "id": "processo_ad", "rotulo": "Número do processo do Alvará", "tipo": "processo", "obrigatorio": true, "visivelSe": "tipo_alvara = Aprovado pela Aprova", "ajuda": "Busca um processo de Alvará de Construção já existente na Aprova e traz dele os dados (responsáveis, imóvel, áreas licenciadas)." },
+          { "id": "deferimento_alvara", "rotulo": "Data de emissão do Alvará", "tipo": "data", "obrigatorio": true, "visivelSe": "tipo_alvara preenchido" }
+        ]
+      },
+      {
+        "titulo": "Dados do Requerente",
+        "ajuda": "Se o requerente for o usuário logado, os dados são preenchidos pelo cadastro dele.",
+        "campos": [
+          { "id": "requerente", "rotulo": "Requerente do processo é:", "tipo": "selecao", "obrigatorio": true, "opcoes": ["Usuário logado no sistema", "Outro"] },
+          { "id": "user", "rotulo": "Nome", "tipo": "texto", "obrigatorio": true, "ajuda": "Somente leitura quando o requerente é o usuário logado." },
+          { "id": "cpfcnpj_requerente", "rotulo": "CPF/CNPJ", "tipo": "cpf_cnpj", "obrigatorio": true },
+          { "id": "email_requerente", "rotulo": "E-mail para Notificação", "tipo": "email", "obrigatorio": true },
+          { "id": "telefone_requerente", "rotulo": "Telefone", "tipo": "telefone", "obrigatorio": true },
+          { "id": "documento_requerente", "rotulo": "Documentos (Carteira de Identidade e CPF, se pessoa física, OU CNPJ e contrato social, se pessoa jurídica)", "tipo": "anexo", "obrigatorio": true },
+          { "id": "vinculo_requerente", "rotulo": "Tipo de vínculo do requerente:", "tipo": "selecao", "obrigatorio": true, "opcoes": ["Proprietário do imóvel", "Responsável Técnico", "Procurador"] },
+          { "id": "doc_procurador", "rotulo": "Procuração", "tipo": "anexo", "obrigatorio": true, "visivelSe": "vinculo_requerente = Procurador" }
+        ]
+      },
+      {
+        "titulo": "Responsável(is) pelo imóvel",
+        "ajuda": "Alvará aprovado pela Aprova: importado automaticamente. Alvará físico com requerente proprietário: o primeiro responsável é preenchido com os dados do requerente. Adicionar mais pelo botão 'Adicionar Responsável pelo imóvel'. Editável só quando o Alvará é 'Aprovado no modo físico'.",
+        "campos": [
+          {
+            "id": "proprietario",
+            "rotulo": "Responsável pelo imóvel",
+            "tipo": "lista",
+            "obrigatorio": true,
+            "campos": [
+              { "id": "tipo_vinculo_proprietario", "rotulo": "Tipo de vínculo", "tipo": "selecao", "obrigatorio": true, "opcoes": ["Proprietário", "Possuidor", "Condomínio", "Espólio", "Massa Falida"] },
+              { "id": "nome_proprietario", "rotulo": "Nome/ Razão Social", "tipo": "texto", "obrigatorio": true },
+              { "id": "cpfcnpj_proprietario", "rotulo": "CPF/CNPJ", "tipo": "cpf_cnpj", "obrigatorio": true },
+              { "id": "email_proprietario", "rotulo": "E-mail", "tipo": "email", "obrigatorio": true },
+              { "id": "documento_proprietario", "rotulo": "Documentos pessoais (Carteira de Identidade e CPF)", "tipo": "anexo", "obrigatorio": false, "obrigatorioSe": "CPF com 11 dígitos (pessoa física)" },
+              { "id": "contratosocial_pessoajuridica", "rotulo": "Contrato Social da Pessoa Jurídica", "tipo": "anexo", "obrigatorio": false, "obrigatorioSe": "CPF/CNPJ com mais de 11 dígitos (pessoa jurídica)" }
+            ]
+          }
+        ]
+      },
+      {
+        "titulo": "Responsável técnico",
+        "ajuda": "Alvará aprovado pela Aprova: importado automaticamente. Anexar documentos legíveis. É necessário ao menos um responsável pelo projeto e um pela execução.",
+        "campos": [
+          {
+            "id": "responsavel_tecnico",
+            "rotulo": "Responsável técnico",
+            "tipo": "lista",
+            "obrigatorio": true,
+            "campos": [
+              { "id": "responsavel_tecnico_vinculo", "rotulo": "Responsabilidade", "tipo": "multipla_escolha", "obrigatorio": true, "opcoes": ["Projeto", "Execução"] },
+              { "id": "nome_responsavel_tecnico", "rotulo": "Nome/ Razão Social", "tipo": "texto", "obrigatorio": true },
+              { "id": "cpfcnpj_responsavel_tecnico", "rotulo": "CPF/CNPJ", "tipo": "cpf_cnpj", "obrigatorio": true },
+              { "id": "email_responsavel_tecnico", "rotulo": "E-mail", "tipo": "email", "obrigatorio": true },
+              { "id": "numero_art", "rotulo": "Número da ART/ RRT", "tipo": "texto", "obrigatorio": false, "ajuda": "Ex: 123, 456. Caso necessário separe com vírgula." },
+              { "id": "documento_art", "rotulo": "ART/RRT", "tipo": "anexo", "obrigatorio": true, "baseLegal": ["lei-6496-1977", "lei-12378-2010"] }
+            ]
+          }
+        ],
+        "avisos": ["Para prosseguir, adicione um Responsável Técnico pelo Projeto.", "Para prosseguir, adicione um Responsável Técnico pela Execução."]
+      },
+      {
+        "titulo": "Dados do imóvel",
+        "ajuda": "Alvará aprovado pela Aprova: importado automaticamente. A inscrição imobiliária identifica o lote no Cadastro Imobiliário da Prefeitura e consta no boleto do IPTU. A matrícula do imóvel deve ter no máximo 30 dias.",
+        "campos": [
+          { "id": "inscricao_imobiliaria", "rotulo": "Inscrição imobiliária", "tipo": "texto", "obrigatorio": true, "ajuda": "Formato 000000-0." },
+          { "id": "endereco_cep", "rotulo": "CEP", "tipo": "cep", "obrigatorio": true, "ajuda": "A Aprova consulta o CEP e libera os campos de endereço abaixo." },
+          { "id": "logradouro_imovel", "rotulo": "Logradouro", "tipo": "texto", "obrigatorio": true, "ajuda": "Máximo de 50 caracteres; o restante vai em Complemento." },
+          { "id": "numero_imovel", "rotulo": "Número predial", "tipo": "texto", "obrigatorio": true, "ajuda": "Ex: S/N. Máximo de 10 caracteres." },
+          { "id": "tipo_logradouro", "rotulo": "Tipo de logradouro", "tipo": "selecao", "obrigatorio": true, "opcoes": ["Avenida", "Rua", "Outros"] },
+          { "id": "bairro_imovel", "rotulo": "Bairro", "tipo": "texto", "obrigatorio": true },
+          { "id": "complemento_imovel", "rotulo": "Complemento do imóvel", "tipo": "texto", "obrigatorio": false, "ajuda": "Ex: Esquina com Rua São Paulo." },
+          { "id": "lote", "rotulo": "Lote", "tipo": "texto", "obrigatorio": true },
+          { "id": "quadra", "rotulo": "Quadra", "tipo": "texto", "obrigatorio": true },
+          { "id": "cidade_obra", "rotulo": "Município", "tipo": "texto", "obrigatorio": true, "ajuda": "No ambiente modelo só aceita Cascavel." },
+          { "id": "uf_obra", "rotulo": "Estado", "tipo": "texto", "obrigatorio": true, "ajuda": "No ambiente modelo só aceita PR." },
+          { "id": "quest_logradouroadicional", "rotulo": "O lote possui mais de uma frente?", "tipo": "sim_nao", "obrigatorio": true },
+          {
+            "id": "endereco_complementar",
+            "rotulo": "Logradouro",
+            "tipo": "lista",
+            "obrigatorio": false,
+            "obrigatorioSe": "quest_logradouroadicional = Sim",
+            "visivelSe": "quest_logradouroadicional = Sim",
+            "campos": [{ "id": "logradouro_complementar", "rotulo": "Logradouro Secundário do Imóvel", "tipo": "texto", "obrigatorio": true }]
+          },
+          {
+            "id": "zoneamento_repeat",
+            "rotulo": "Zoneamentos",
+            "tipo": "lista",
+            "obrigatorio": false,
+            "campos": [
+              {
+                "id": "zoneamento",
+                "rotulo": "Zoneamento",
+                "tipo": "selecao",
+                "obrigatorio": false,
+                "ajuda": "Lista de zoneamentos do município do ambiente modelo (Cascavel/PR); trocar em outra implantação.",
+                "opcoes": ["ACB", "APP", "BCB", "CCB", "DPS", "EPS", "PARQUE CABO BRANCO", "SAA", "SDTRL", "SPP", "SRE", "STE", "ZA1", "ZA2", "ZA3", "ZA4", "ZA5", "ZA6", "ZA7", "ZB", "ZC", "ZCS1", "ZCS2", "ZCT", "ZEP2", "ZEP3", "ZEP4", "ZER", "ZGE", "ZI1", "ZI2", "ZI3", "ZIS", "ZEP", "ZR1", "ZR2", "ZR3", "ZT1", "ZT2", "ZT3", "ZT4", "POLO TURISTICO", "CORREDOR ECOLÓGICO - CE", "SETOR DE ANIMAÇÃO TURÍSTICA - SAT", "COMERCIO E SERVIÇOS - CS", "SETOR DE EVENTOS I - SE I", "SETOR DE EVENTOS II - SE II", "SETOR HOTELEIRO I - SH I", "SETOR HOTELEIRO II - SH II", "SETOR HOTELEIRO III - SH III"]
+              }
+            ]
+          },
+          { "id": "doc_registroimovel", "rotulo": "Matrícula do imóvel atualizada", "tipo": "anexo", "obrigatorio": true, "ajuda": "A matrícula deve ter no máximo 30 dias." }
+        ],
+        "avisos": ["O CEP não foi encontrado, insira um CEP válido.", "Reveja o CEP informado: no ambiente modelo só é aceito CEP do município de Cascavel."]
+      },
+      {
+        "titulo": "Localização do terreno",
+        "ajuda": "Buscar pelo endereço ou CEP e selecionar no mapa a localização do imóvel.",
+        "campos": [{ "id": "mapa", "rotulo": "Indique a localização do imóvel", "tipo": "coordenadas", "obrigatorio": true }]
+      },
+      {
+        "titulo": "Quadro de áreas licenciadas no Alvará",
+        "ajuda": "Alvará aprovado pela Aprova: importado automaticamente. Área complementar: quadra esportiva ou poliesportiva; piscina; garagem e estacionamento térreos fora da projeção do corpo principal; em posto de gasolina, a área coberta sobre as bombas, a de lavagem de veículos fora do corpo principal e a de circulação de veículos. Área existente aprovada: área já licenciada com Alvará e/ou Habite-se e/ou averbada na matrícula; se não regularizada, usar 'Área a regularizar'. Área a demolir deve estar relacionada à área existente regularizada. O quadro de áreas detalhado em PDF (todas as edificações, áreas informadas e cálculo dos índices urbanísticos, discriminando as áreas computáveis por índice) é citado na ajuda, mas o ambiente modelo não tem campo de anexo para ele nesta seção.",
+        "campos": [
+          { "id": "area_terreno_real", "rotulo": "Área real do terreno", "tipo": "numero", "obrigatorio": true },
+          {
+            "id": "quadro_areas",
+            "rotulo": "Quadro de áreas por tipo de uso",
+            "tipo": "lista",
+            "obrigatorio": true,
+            "ajuda": "Uma linha por edificação. Os campos de área aparecem conforme 'Tipo da solicitação' e 'Está área é complementar?'.",
+            "campos": [
+              { "id": "tipo_uso", "rotulo": "Tipo de uso", "tipo": "selecao", "obrigatorio": true, "opcoes": ["Residencial unifamiliar", "Residencial multifamiliar", "Comercial salas e lojas", "Edifício de garagens", "Galpão industrial", "Casa popular", "Conjunto habitacional popular"] },
+              { "id": "unidade", "rotulo": "Identificação da edificação", "tipo": "texto", "obrigatorio": true, "ajuda": "Ex: Unidade 01." },
+              { "id": "quantidade", "rotulo": "Quantidade de unidades do tipo", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "tipo_uso é Residencial multifamiliar ou Conjunto habitacional popular", "visivelSe": "tipo_uso é Residencial multifamiliar ou Conjunto habitacional popular" },
+              { "id": "area_complementar", "rotulo": "Está área é complementar?", "tipo": "sim_nao", "obrigatorio": true },
+              { "id": "tipo_uso_complementar", "rotulo": "Tipo de uso complementar", "tipo": "selecao", "obrigatorio": false, "visivelSe": "area_complementar = Sim", "opcoes": ["Quadra esportiva e poliesportiva", "Estacionamento térreo", "Piscina", "Área complementar de posto de gasolina"] },
+              { "id": "modalidade_aprovacao", "rotulo": "Tipo da solicitação para esta edificação", "tipo": "multipla_escolha", "obrigatorio": true, "opcoes": ["Construção nova", "Ampliação", "Regularização", "Reforma", "Demolição"] },
+              { "id": "material_construtivo", "rotulo": "Material", "tipo": "selecao", "obrigatorio": true, "opcoes": ["Alvenaria", "Madeira", "Mista"] },
+              { "id": "area_existente", "rotulo": "Área existente aprovada (Com Alvará e Habite-se)", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e sem 'Construção nova'" },
+              { "id": "area_construir", "rotulo": "Área de acréscimo (construir)", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e modalidade inclui Construção nova" },
+              { "id": "area_ampliar", "rotulo": "Área de acréscimo (ampliar)", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e modalidade inclui Ampliação" },
+              { "id": "area_regularizar", "rotulo": "Área a regularizar", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e modalidade inclui Regularização" },
+              { "id": "area_reformar", "rotulo": "Área a reformar", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e modalidade inclui Reforma" },
+              { "id": "area_demolir", "rotulo": "Área a demolir", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e modalidade inclui Demolição" },
+              { "id": "area_total", "rotulo": "Área final da edificação", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e modalidade escolhida" },
+              { "id": "existente_comp_coberta", "rotulo": "Área complementar existente coberta Aprovada", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e sem 'Construção nova'" },
+              { "id": "existente_comp_descoberta", "rotulo": "Área complementar existente descoberta Aprovada", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e sem 'Construção nova'" },
+              { "id": "construir_comp_coberta", "rotulo": "Área complementar a construir coberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Construção nova" },
+              { "id": "construir_comp_descoberta", "rotulo": "Área complementar a construir descoberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Construção nova" },
+              { "id": "ampliar_comp_coberta", "rotulo": "Área complementar a ampliar coberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Ampliação" },
+              { "id": "ampliar_comp_descoberta", "rotulo": "Área complementar a ampliar descoberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Ampliação" },
+              { "id": "regularizar_comp_coberta", "rotulo": "Área complementar a regularizar coberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Regularização" },
+              { "id": "regularizar_comp_descoberta", "rotulo": "Área complementar a regularizar descoberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Regularização" },
+              { "id": "reformar_comp_coberta", "rotulo": "Área complementar a reformar coberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Reforma" },
+              { "id": "reformar_comp_descoberta", "rotulo": "Área complementar a reformar descoberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Reforma" },
+              { "id": "demolir_comp_coberta", "rotulo": "Área complementar a demolir coberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Demolição" },
+              { "id": "demolir_comp_descoberta", "rotulo": "Área complementar a demolir descoberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Demolição" },
+              { "id": "total_comp_coberta", "rotulo": "Área complementar final coberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade escolhida" },
+              { "id": "total_comp_descoberta", "rotulo": "Área complementar final descoberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade escolhida" },
+              { "id": "total_total", "rotulo": "Área complementar final total", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade escolhida" }
+            ]
+          }
+        ],
+        "avisos": [
+          "Ao selecionar 'Construção nova', não deve ser selecionado outro tipo de pedido, em nenhuma edificação.",
+          "Não é possível solicitar 'Demolição' individualmente.",
+          "Área a reformar não pode ser maior que a Área existente aprovada.",
+          "Área a demolir não pode ser maior que Área existente aprovada - Área a reformar.",
+          "Em áreas complementares: a reformar não pode exceder a existente (coberta e descoberta) e a demolir não pode exceder existente - a reformar."
+        ]
+      },
+      {
+        "titulo": "Quadro de áreas totais licenciadas no Alvará",
+        "ajuda": "Resumo das áreas totais licenciadas no Alvará, considerando as áreas complementares. Alvará aprovado pela Aprova: importado.",
+        "campos": [
+          { "id": "totalarea_existente", "rotulo": "Total de área existente (aprovada com Alvará e Habite-se)", "tipo": "numero", "obrigatorio": true },
+          { "id": "totalarea_construir", "rotulo": "Total de área à construir", "tipo": "numero", "obrigatorio": true },
+          { "id": "totalarea_ampliar", "rotulo": "Total de área à ampliar", "tipo": "numero", "obrigatorio": true },
+          { "id": "totalarea_regularizar", "rotulo": "Total de área à regularizar", "tipo": "numero", "obrigatorio": true },
+          { "id": "totalarea_reformar", "rotulo": "Total de área à reformar", "tipo": "numero", "obrigatorio": true },
+          { "id": "totalarea_demolir", "rotulo": "Total de área à demolir", "tipo": "numero", "obrigatorio": true },
+          { "id": "area_total_const", "rotulo": "Total de área das edificações", "tipo": "numero", "obrigatorio": true },
+          { "id": "total_unidades", "rotulo": "Total de unidades", "tipo": "numero", "obrigatorio": true },
+          { "id": "total_pavimentos", "rotulo": "Total de pavimentos", "tipo": "numero", "obrigatorio": true }
+        ]
+      },
+      {
+        "titulo": "Dados desta solicitação",
+        "ajuda": "Se o Alvará já tem Habite-se parcial emitido, informar o protocolo do último. Ao informar o número, as áreas remanescentes a certificar são exibidas.",
+        "campos": [
+          { "id": "quest_tipo_habitese", "rotulo": "Tipo de Habite-se", "tipo": "selecao", "obrigatorio": true, "opcoes": ["Total", "Parcial"] },
+          { "id": "quest_habitese_parcial", "rotulo": "O Alvará já possui Habite-se parcial emitido anteriormente?", "tipo": "sim_nao", "obrigatorio": false, "obrigatorioSe": "quest_tipo_habitese = Parcial", "visivelSe": "quest_tipo_habitese = Parcial" },
+          { "id": "quest_habitese_parcialtipoaprovacao", "rotulo": "Modo do Habite-se parcial emitido anteriormente", "tipo": "selecao", "obrigatorio": false, "obrigatorioSe": "já possui Habite-se parcial = Sim", "opcoes": ["Aprovado no modo físico", "Aprovado pela Aprova"] },
+          { "id": "ultimo_habiteseparcial", "rotulo": "Habite-se parcial já emitido", "tipo": "processo", "obrigatorio": false, "obrigatorioSe": "parcial anterior = Aprovado pela Aprova", "ajuda": "Busca o processo do último Habite-se na Aprova." },
+          { "id": "habiteseparcial_fisico", "rotulo": "Habite-se parcial já emitido", "tipo": "texto", "obrigatorio": false, "obrigatorioSe": "parcial anterior = Aprovado no modo físico" },
+          { "id": "area_hab_fisico", "rotulo": "Área da Carta de Habite-se emitida de forma física", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "parcial anterior = Aprovado no modo físico" }
+        ]
+      },
+      {
+        "titulo": "Quadro de áreas objeto deste pedido",
+        "ajuda": "Habite-se Total: áreas preenchidas pelo total licenciado no Alvará. Habite-se Parcial: informar só as metragens a certificar neste pedido.",
+        "campos": [
+          {
+            "id": "quadro_areas_hbt",
+            "rotulo": "Quadro de áreas - objeto deste pedido",
+            "tipo": "lista",
+            "obrigatorio": true,
+            "ajuda": "Mesma estrutura e regras do quadro da seção 'Quadro de áreas licenciadas no Alvará', com ids terminados em _hbt. Rótulos das áreas no passado: 'Área Acrescentada (Construída)', 'Área Acrescentada (Ampliada)', 'Área Regularizada', 'Área Reformada', 'Área Demolida', 'Área Final da Edificação', e as variantes complementares coberta/descoberta.",
+            "campos": [
+              { "id": "tipo_uso_hbt", "rotulo": "Tipo de uso", "tipo": "selecao", "obrigatorio": true, "opcoes": ["Residencial unifamiliar", "Residencial multifamiliar", "Comercial salas e lojas", "Edifício de garagens", "Galpão industrial", "Casa popular", "Conjunto habitacional popular"] },
+              { "id": "unidade_hbt", "rotulo": "Identificação da Edificação", "tipo": "texto", "obrigatorio": true },
+              { "id": "quantidade_hbt", "rotulo": "Quantidade de unidades do tipo", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "tipo_uso_hbt é Residencial multifamiliar ou Conjunto habitacional popular" },
+              { "id": "area_complementar_hbt", "rotulo": "Está Área é Complementar?", "tipo": "sim_nao", "obrigatorio": true },
+              { "id": "tipo_uso_complementar_hbt", "rotulo": "Tipo de Uso Complementar", "tipo": "selecao", "obrigatorio": false, "obrigatorioSe": "area_complementar_hbt = Sim", "opcoes": ["Quadra esportiva e poliesportiva", "Estacionamento térreo", "Piscina", "Área complementar de posto de gasolina"] },
+              { "id": "modalidade_aprovacao_hbt", "rotulo": "Tipo da solicitação para esta edificação", "tipo": "multipla_escolha", "obrigatorio": true, "opcoes": ["Construção nova", "Ampliação", "Regularização", "Reforma", "Demolição"] },
+              { "id": "material_construtivo_hbt", "rotulo": "Material", "tipo": "selecao", "obrigatorio": true, "opcoes": ["Alvenaria", "Madeira", "Mista"] },
+              { "id": "area_existente_hbt", "rotulo": "Área Existente Aprovada Anteriormente (Com Alvará e Habite-se)", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e sem 'Construção nova'" },
+              { "id": "area_construir_hbt", "rotulo": "Área Acrescentada (Construída)", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e modalidade inclui Construção nova" },
+              { "id": "area_ampliar_hbt", "rotulo": "Área Acrescentada (Ampliada)", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e modalidade inclui Ampliação" },
+              { "id": "area_regularizar_hbt", "rotulo": "Área Regularizada", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e modalidade inclui Regularização" },
+              { "id": "area_reformar_hbt", "rotulo": "Área Reformada", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e modalidade inclui Reforma" },
+              { "id": "area_demolir_hbt", "rotulo": "Área Demolida", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e modalidade inclui Demolição" },
+              { "id": "area_total_hbt", "rotulo": "Área Final da Edificação", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área não complementar e modalidade escolhida" },
+              { "id": "existente_comp_coberta_hbt", "rotulo": "Área Complementar Existente Coberta Aprovada", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e sem 'Construção nova'" },
+              { "id": "existente_comp_descoberta_hbt", "rotulo": "Área Complementar Existente Descoberta Aprovada", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e sem 'Construção nova'" },
+              { "id": "construir_comp_coberta_hbt", "rotulo": "Área Complementar a Construir Coberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Construção nova" },
+              { "id": "construir_comp_descoberta_hbt", "rotulo": "Área Complementar a Construir Descoberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Construção nova" },
+              { "id": "ampliar_comp_coberta_hbt", "rotulo": "Área Complementar a Ampliar Coberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Ampliação" },
+              { "id": "ampliar_comp_descoberta_hbt", "rotulo": "Área Complementar a Ampliar Descoberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Ampliação" },
+              { "id": "regularizar_comp_coberta_hbt", "rotulo": "Área Complementar a Regularizar Coberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Regularização" },
+              { "id": "regularizar_comp_descoberta_hbt", "rotulo": "Área Complementar a Regularizar Descoberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Regularização" },
+              { "id": "reformar_comp_coberta_hbt", "rotulo": "Área Complementar a Reformar Coberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Reforma" },
+              { "id": "reformar_comp_descoberta_hbt", "rotulo": "Área Complementar a Reformar Descoberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Reforma" },
+              { "id": "demolir_comp_coberta_hbt", "rotulo": "Área Complementar a Demolir Coberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Demolição" },
+              { "id": "demolir_comp_descoberta_hbt", "rotulo": "Área Complementar a Demolir Descoberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade inclui Demolição" },
+              { "id": "total_coberta_hbt", "rotulo": "Área Complementar Final Coberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade escolhida" },
+              { "id": "total_descoberta_hbt", "rotulo": "Área Complementar Final Descoberta", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade escolhida" },
+              { "id": "total_total_hbt", "rotulo": "Área Complementar Final Total", "tipo": "numero", "obrigatorio": false, "obrigatorioSe": "área complementar e modalidade escolhida" }
+            ]
+          }
+        ]
+      },
+      {
+        "titulo": "Quadro de áreas totais objeto deste Pedido",
+        "ajuda": "Resumo das áreas totais que serão certificadas neste pedido.",
+        "campos": [
+          { "id": "totalarea_construir_hbt", "rotulo": "Total de área à construir", "tipo": "numero", "obrigatorio": true },
+          { "id": "totalarea_ampliar_hbt", "rotulo": "Total de área à ampliar", "tipo": "numero", "obrigatorio": true },
+          { "id": "totalarea_regularizar_hbt", "rotulo": "Total de área à regularizar", "tipo": "numero", "obrigatorio": true },
+          { "id": "totalarea_reforma_hbt", "rotulo": "Total de área à reformar", "tipo": "numero", "obrigatorio": true },
+          { "id": "totalarea_demolir_hbt", "rotulo": "Total de área à demolir", "tipo": "numero", "obrigatorio": true },
+          { "id": "totalarea_total_const_hbt", "rotulo": "Total de área das edificações", "tipo": "numero", "obrigatorio": true }
+        ]
+      },
+      {
+        "titulo": "Quadro de áreas totais remanescentes",
+        "ajuda": "Habite-se Total: remanescentes iguais a '0,00' (tudo que foi licenciado foi certificado). Habite-se Parcial: o quadro mostra o que falta certificar nas próximas solicitações.",
+        "campos": [
+          { "id": "totalarea_construir_rem", "rotulo": "Total de área construída remanescente", "tipo": "numero", "obrigatorio": true },
+          { "id": "totalarea_ampliar_rem", "rotulo": "Total de área ampliada", "tipo": "numero", "obrigatorio": true },
+          { "id": "totalarea_regularizar_rem", "rotulo": "Total de área à regularizar", "tipo": "numero", "obrigatorio": true },
+          { "id": "area_reforma_rem", "rotulo": "Total de área reformada", "tipo": "numero", "obrigatorio": true },
+          { "id": "area_demolir_rem", "rotulo": "Total de área demolida", "tipo": "numero", "obrigatorio": true }
+        ]
+      },
+      {
+        "titulo": "Relatório fotográfico da obra concluída",
+        "ajuda": "Fotos enviadas pelo botão 'Fazer Upload', quantas vezes for preciso. Mínimo de uma foto por fachada de cada edificação, com todas as fachadas visíveis por inteiro. As fotos de inserção no terreno devem mostrar os afastamentos de todas as fachadas até os limites do terreno ou outra edificação. Mínimo de uma foto de cada ambiente interno.",
+        "campos": [
+          { "id": "fotografia_testada_frontal", "rotulo": "Fotografia da(s) testada(s) frontal(is)", "tipo": "anexo", "obrigatorio": true, "ajuda": "Testada frontal do lote com o muro e a calçada por inteiro." },
+          { "id": "fotografia_fachada", "rotulo": "Fotografia da(s) fachada(s)", "tipo": "anexo", "obrigatorio": true },
+          { "id": "fotografia_afastamento", "rotulo": "Fotografia do(s) afastamento(s)", "tipo": "anexo", "obrigatorio": true },
+          { "id": "fotografia_ambiente", "rotulo": "Fotografia do(s) ambiente(s)", "tipo": "anexo", "obrigatorio": true }
+        ]
+      },
+      {
+        "titulo": "Documentos obrigatórios",
+        "ajuda": "Para prosseguir, anexar os documentos solicitados.",
+        "campos": [
+          { "id": "iss", "rotulo": "Quitação de ISS da obra", "tipo": "anexo", "obrigatorio": true },
+          { "id": "comp_urb", "rotulo": "Compensação urbanística", "tipo": "anexo", "obrigatorio": true }
+        ]
+      },
+      {
+        "titulo": "Documentos Complementares",
+        "ajuda": "Se necessário, 'Adicionar Documentos Complementares' com o anexo e a descrição.",
+        "campos": [
+          {
+            "id": "docextra",
+            "rotulo": "Documentos Complementares",
+            "tipo": "lista",
+            "obrigatorio": false,
+            "campos": [
+              { "id": "titulodoc", "rotulo": "Descrição do Documento", "tipo": "texto", "obrigatorio": true, "ajuda": "Ex: Contrato." },
+              { "id": "anexdocextra", "rotulo": "Documento Complementar", "tipo": "anexo", "obrigatorio": true }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "cartoes": [
+    {
+      "id": "parecer_fiscalizacao_card",
+      "nome": "Parecer da Fiscalização",
+      "campos": [
+        { "id": "data_vistoria", "rotulo": "Data da Vistoria realizada", "tipo": "data", "obrigatorio": false },
+        { "id": "parecer_vistoria", "rotulo": "Parecer da Vistoria", "tipo": "texto_longo", "obrigatorio": false },
+        { "id": "anexo_fiscalizacao", "rotulo": "Anexos", "tipo": "anexo", "obrigatorio": false }
+      ]
+    },
+    {
+      "id": "status_fiscalizacao_card",
+      "nome": "Status da fiscalização (mapa em Estatísticas)",
+      "campos": [{ "id": "fiscal", "rotulo": "Status da obra", "tipo": "selecao", "obrigatorio": true, "opcoes": ["Autuado", "Em Conformidade"] }]
+    },
+    {
+      "id": "complementares_card",
+      "nome": "Pareceres complementares",
+      "campos": [
+        { "id": "parecer_compl", "rotulo": "Parecer complementar de outro órgão da administração", "tipo": "texto_longo", "obrigatorio": false },
+        { "id": "anexo_parecer_compl", "rotulo": "Anexos", "tipo": "anexo", "obrigatorio": false, "ajuda": "Somente PDF." }
+      ]
+    },
+    {
+      "id": "observacao_card",
+      "nome": "Observações",
+      "campos": [
+        { "id": "obs_pref", "rotulo": "Observações", "tipo": "texto_longo", "obrigatorio": false },
+        { "id": "anexo_obs", "rotulo": "Anexo", "tipo": "anexo", "obrigatorio": false }
+      ]
+    },
+    {
+      "id": "taxas_processo_card",
+      "nome": "Taxa de Aprovação",
+      "campos": [
+        { "id": "observacoes_taxas", "rotulo": "Observações gerais", "tipo": "texto_longo", "obrigatorio": false, "ajuda": "O boleto é gerado pela Aprova neste cartão. Aviso ao requerente: pague o boleto, anexe o comprovante e selecione 'Enviar para Análise' para o processo seguir." }
+      ]
+    }
+  ],
+  "documentos": [
+    { "id": "doc_identificacao_requerente", "nome": "Documentos do requerente (Carteira de Identidade e CPF, se pessoa física, ou CNPJ e contrato social, se pessoa jurídica)", "obrigatorio": true },
+    { "id": "doc_procuracao", "nome": "Procuração", "obrigatorio": false, "descricao": "Obrigatória quando o requerente é procurador." },
+    { "id": "doc_responsavel_imovel", "nome": "Documentos pessoais ou contrato social de cada responsável pelo imóvel", "obrigatorio": true, "descricao": "Pessoa física: Carteira de Identidade e CPF. Pessoa jurídica: contrato social." },
+    { "id": "doc_alvara_fisico", "nome": "Cópia do Alvará emitido", "obrigatorio": false, "descricao": "Só quando o Alvará foi aprovado no modo físico." },
+    { "id": "doc_projeto_fisico", "nome": "Cópia do Projeto Aprovado", "obrigatorio": false, "descricao": "Só quando o Alvará foi aprovado no modo físico." },
+    { "id": "doc_art_rrt", "nome": "ART/RRT do responsável técnico pelo projeto e pela execução", "obrigatorio": true, "baseLegal": ["lei-6496-1977", "lei-12378-2010"] },
+    { "id": "doc_matricula", "nome": "Matrícula do imóvel atualizada (máximo de 30 dias)", "obrigatorio": true },
+    { "id": "doc_fotos_obra", "nome": "Relatório fotográfico da obra concluída (testada frontal, fachadas, afastamentos e ambientes internos)", "obrigatorio": true },
+    { "id": "doc_iss", "nome": "Quitação de ISS da obra", "obrigatorio": true },
+    { "id": "doc_compensacao_urbanistica", "nome": "Compensação urbanística", "obrigatorio": true },
+    { "id": "doc_quadro_areas_detalhado", "nome": "Quadro de áreas detalhado em PDF", "obrigatorio": false, "descricao": "Citado na ajuda do formulário (todas as edificações, áreas informadas e cálculo dos índices urbanísticos). TODO: confirmar com a prefeitura se é exigido; o formulário do ambiente modelo não tem campo para anexá-lo." }
+  ],
+  "taxas": [
+    {
+      "nome": "Taxa de Aprovação",
+      "baseCalculo": "TODO: definir com a prefeitura (valor e base de cálculo não aparecem no Estúdio).",
+      "baseLegal": []
+    }
+  ],
+  "setores": [
+    { "id": "requerente", "nome": "Requerente", "tipo": "requerente" },
+    { "id": "planejamento_modeload", "nome": "Planejamento (recebe o processo na abertura)", "tipo": "interno" }
+  ],
+  "fluxo": {
+    "etapas": [
+      { "id": "recebimento_analise", "nome": "Recebimento e análise", "tipo": "analise", "responsavel": "planejamento_modeload" }
+    ],
+    "transicoes": []
+  },
+  "despachos": [
+    {
+      "id": "despacho_padrao",
+      "nome": "Despacho Padrão (texto livre obrigatório e anexo opcional; só usuários internos)",
+      "tipo": "outro",
+      "etapa": "recebimento_analise",
+      "visivelRequerente": true
+    }
+  ],
+  "documentoFinal": {
+    "nome": "Habite-se",
+    "etapa": "recebimento_analise"
+  },
+  "observacoes": [
+    "Fonte: Estúdio e tela 'Criar processo' do ambiente modelo, lidos em 2026-10-24 sem alterar nada. Sigla do processo: HAB; tipo de conta: externo; abertura pelo Portal.",
+    "TODO: o Habite-se do ambiente modelo NÃO tem etapas configuradas ('Este processo ainda não tem etapas configuradas'). O fluxo acima é um mínimo: uma etapa de recebimento e análise, no setor receptor inicial configurado (id planejamento_modeload). O nome do setor é presumido a partir do id (a lista de setores do ambiente retorna 403 para o usuário de teste). Fluxo real, prazos e transições dependem da prefeitura.",
+    "O processo vai, ao ser aberto, para o setor planejamento_modeload (receptor inicial predefinido). O servidor pode encaminhar para mais de um setor ao mesmo tempo e devolver ao último setor.",
+    "Despachos: o ambiente liga ao processo dois modelos de despacho (ids 664ac1fd… 'Despacho Padrão' e 40018b8c…). TODO: só o primeiro foi lido; o segundo não. A visibilidade ao requerente do 'Despacho Padrão' veio como 'DEFAULT' (não confirmada).",
+    "Botão de aprovação do servidor: 'Deferir'. Abas do processo: Despachos, Documento completo, Resumo, Histórico. Ações processuais com acesso completo: Encerrar, Desarquivar, Assinaturas, Trocar responsável, Enviar para, Criar despacho, Iniciar análise, Bloquear edição, Enviar ao responsável, Adicionar prazo, Editar cartões (resumo, internos e taxas), Ações em documentos oficiais, Tags, Mensagens internas e externas. Acesso restrito: só mensagens internas e externas.",
+    "Documento final: modelo 'Habite-se' (template habite_se.html), oficial, com prazo de validade, numeração 'habite_se'. TODO: texto-base, padrão de numeração, prazo de validade e assinante não foram extraídos.",
+    "Cartões do servidor (aba Resumo): Parecer da Fiscalização, Status da fiscalização (alimenta o mapa em Estatísticas), Pareceres complementares, Observações e Taxa de Aprovação (boleto).",
+    "Formulário configurado para Cascavel/PR no ambiente modelo: a validação de CEP só aceita esse município e a lista de zoneamentos é a de lá. Trocar em outra implantação.",
+    "Alvará aprovado pela Aprova: responsáveis pelo imóvel, responsáveis técnicos, imóvel e quadro de áreas licenciadas são importados do processo do Alvará; só no modo físico o requerente digita.",
+    "Campos de área são digitados livremente (texto com máscara numérica no original); aqui estão como 'numero'.",
+    "Lei 4.591/1964 (art. 44): após o habite-se o incorporador averba a construção na matrícula. Em edificação multifamiliar, o formulário já pede quantidade de unidades e total de unidades."
+  ]
+}

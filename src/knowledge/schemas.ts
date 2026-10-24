@@ -56,20 +56,56 @@ export const TipoCampo = z.enum([
   "sim_nao",
   "anexo",
   "coordenadas",
+  /** grupo repetível (ex.: responsáveis); as colunas ficam em `campos` */
+  "lista",
+  /** número de outro processo já existente na Aprova (ex.: o alvará do habite-se) */
+  "processo",
 ]);
 
-export const Campo = z.object({
-  id: campoId,
-  rotulo: z.string().min(1),
-  tipo: TipoCampo,
-  obrigatorio: z.boolean(),
-  opcoes: z.array(z.string()).optional(),
-  ajuda: z.string().optional(),
-  baseLegal: z.array(kebabId).optional(),
-});
+export type Campo = {
+  id: string;
+  rotulo: string;
+  tipo: z.infer<typeof TipoCampo>;
+  obrigatorio: boolean;
+  /** condição, em texto, para o campo ser obrigatório (quando `obrigatorio` é false) */
+  obrigatorioSe?: string;
+  /** condição, em texto, para o campo aparecer */
+  visivelSe?: string;
+  opcoes?: string[];
+  ajuda?: string;
+  /** colunas de cada linha, quando tipo = "lista" */
+  campos?: Campo[];
+  baseLegal?: string[];
+};
+
+export const Campo: z.ZodType<Campo> = z.lazy(() =>
+  z.object({
+    id: campoId,
+    rotulo: z.string().min(1),
+    tipo: TipoCampo,
+    obrigatorio: z.boolean(),
+    obrigatorioSe: z.string().optional(),
+    visivelSe: z.string().optional(),
+    opcoes: z.array(z.string()).optional(),
+    ajuda: z.string().optional(),
+    campos: z.array(Campo).optional(),
+    baseLegal: z.array(kebabId).optional(),
+  }),
+);
 
 export const Secao = z.object({
   titulo: z.string().min(1),
+  /** orientação mostrada ao requerente ao lado da seção */
+  ajuda: z.string().optional(),
+  campos: z.array(Campo).min(1),
+  /** mensagens de validação da seção (ex.: "Demolição não pode ser solicitada sozinha") */
+  avisos: z.array(z.string()).default([]),
+});
+
+/** Cartão da aba Resumo que o servidor preenche durante a tramitação (parecer, status, observações, taxa). */
+export const Cartao = z.object({
+  id: campoId,
+  nome: z.string().min(1),
   campos: z.array(Campo).min(1),
 });
 
@@ -228,12 +264,15 @@ export const ProcessoModelo = z
     baseLegal: z.array(kebabId).default([]),
     resumo: Resumo.optional(),
     formulario: z.object({ secoes: z.array(Secao).min(1) }),
+    cartoes: z.array(Cartao).default([]),
     documentos: z.array(DocumentoExigido).default([]),
     taxas: z.array(Taxa).default([]),
     setores: z.array(Setor).min(1),
     fluxo: Fluxo,
     despachos: z.array(ModeloDespacho).default([]),
     documentoFinal: DocumentoFinal.optional(),
+    /** o que não foi configurado ou confirmado na origem, e fatos úteis que não cabem nos outros blocos; `TODO:` = pendente */
+    observacoes: z.array(z.string()).default([]),
   })
   .superRefine((p, ctx) => {
     const campos = new Set(p.formulario.secoes.flatMap((s) => s.campos.map((c) => c.id)));
