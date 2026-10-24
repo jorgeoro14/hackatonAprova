@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/inter';
+
+/*
+ * Tokens de tema (paleta extraída de aprova.com.br e zenith.aprova.com.br).
+ * O tema é definido por [data-theme] em qualquer container — assim o chat
+ * pode ser sempre claro enquanto o dashboard alterna entre escuro/claro.
+ */
+:root,
+[data-theme='light'] {
+  --bg: #fdfdfd;
+  --surface: #ffffff;
+  --soft: #e6f9fa;
+  --line: #d9d9d9;
+  --ink: #222222;
+  --muted: #5e6466;
+  --petrol: #0b4d55;
+  --cyan: #00dae7;
+  --on-cyan: #020a0f;
+  --success: #166534;
+  --warning: #92400e;
+  --danger: #b91c1c;
+  --on-danger: #ffffff;
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --bg: #0b1416;
+  --surface: #111d20;
+  --soft: #0f2a2e;
+  --line: #26363a;
+  --ink: #fdfdfd;
+  --muted: #9aa8ab;
+  --petrol: #8fe6ec;
+  --cyan: #00dae7;
+  --on-cyan: #020a0f;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --on-danger: #1a0505;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-soft: var(--soft);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-petrol: var(--petrol);
+  --color-cyan: var(--cyan);
+  --color-on-cyan: var(--on-cyan);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-on-danger: var(--on-danger);
+  --font-sans: 'Inter Variable', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --font-title: 'Geist Variable', 'Inter Variable', 'Helvetica Neue', Arial, sans-serif;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-title);
+  letter-spacing: -0.01em;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Logo: mostra a variante certa conforme o tema do container mais próximo */
+.logo-on-dark { display: none; }
+[data-theme='dark'] .logo-on-dark { display: block; }
+[data-theme='dark'] .logo-on-light { display: none; }
