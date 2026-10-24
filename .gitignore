@@ -28,3 +28,4 @@ agents/.local/
 agents/tests/rag/analysis/*
 !agents/tests/rag/analysis/README.md
 .langgraph_api/
+uploads/
