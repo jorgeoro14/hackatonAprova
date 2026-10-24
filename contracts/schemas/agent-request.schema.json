@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "agent-request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "session_id",
+    "form",
+    "messages"
+  ],
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "form": {
+      "$ref": "form.schema.json"
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "$ref": "message.schema.json"
+      }
+    }
+  }
+}

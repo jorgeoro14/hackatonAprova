@@ -1,0 +1,293 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Aprova Process Discovery API",
+    "version": "0.1.0",
+    "description": "Design contract for the hackathon MVP. No application endpoints are implemented by this scaffold. Authentication and deployment remain team decisions."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000/api/v1"
+    }
+  ],
+  "paths": {
+    "/sessions": {
+      "post": {
+        "operationId": "createSession",
+        "summary": "Start one process discovery session",
+        "description": "Create revision 0 with the supplied municipality and process name, an assistant greeting, a draft form, and missing fields.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./schemas/create-session.schema.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created session",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/session.schema.json"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or incomplete form",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sessions/{session_id}": {
+      "parameters": [
+        {
+          "name": "session_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "getSession",
+        "summary": "Retrieve the session and its optional confirmed snapshot",
+        "responses": {
+          "200": {
+            "description": "Current session",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/session.schema.json"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Session not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or incomplete form",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sessions/{session_id}/messages": {
+      "parameters": [
+        {
+          "name": "session_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "submitMessage",
+        "summary": "Submit an employee message and receive one agent reply",
+        "description": "Synchronous, non-streaming. Deduplicate client_message_id before checking expected_revision; matching retries return the original response. Commit both messages, validated form, computed status, and incremented revision atomically. Reject confirmed sessions. A timeout must leave the session unchanged.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./schemas/message-request.schema.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Session after the completed exchange, or original deduplicated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/session.schema.json"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Session not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Stale revision, concurrent message, confirmed session, or conflicting client_message_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or incomplete form",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Agent unavailable, timed out, or produced invalid structured output; retry the same ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sessions/{session_id}/confirm": {
+      "parameters": [
+        {
+          "name": "session_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "confirmSession",
+        "summary": "Explicitly confirm a reviewed form revision",
+        "description": "Require ready_for_review, no missing required values, and matching expected_revision. Increment revision and freeze a snapshot of the reviewed form. Confirmed sessions are immutable. A repeated confirmation receives 409; retrieve the session to inspect its confirmation.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./schemas/confirm-request.schema.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Confirmed session with immutable snapshot",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/session.schema.json"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Session not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Stale revision or already confirmed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or incomplete form",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+[project]
+name = "aprova-process-agent"
+version = "0.1.0"
+description = "Intent-driven municipal process change interview"
+requires-python = ">=3.11"
+dependencies = [
+  "langchain>=1.0,<2",
+  "langchain-core>=1.0,<2",
+  "langchain-openai>=1.0,<2",
+  "langsmith>=0.3,<1",
+  "jsonschema[format]>=4.23,<5",
+  "referencing>=0.36,<1",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".."]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100

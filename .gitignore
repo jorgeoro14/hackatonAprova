@@ -1,8 +1,24 @@
-node_modules/
-dist/
-coverage/
 .env
 .env.*
 !.env.example
+node_modules/
+.next/
+dist/
+build/
+coverage/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 *.log
 .DS_Store
+Thumbs.db
+# Local skill installations and their archives are not project source.
+.agents/
+.claude/
+.codex/
+skills-lock.json
+*.skill
