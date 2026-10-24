@@ -4,6 +4,7 @@ import {
   catalogMunicipalitySchema,
   catalogSecretariatSchema,
   clientDetailSchema,
+  formularioLeituraSchema,
   formularioSchema,
   submitFormularioResponseSchema,
   type FormularioEdits,
@@ -124,7 +125,12 @@ export const clientsApi = {
     request(`/clients/${id}/meetings`, meetingSchema, { method: 'POST', body }),
 }
 
-export const processesApi = { get: (id: string) => request(`/processes/${id}`, processDetailSchema) }
+export const processesApi = {
+  get: (id: string) => request(`/processes/${id}`, processDetailSchema),
+  /** Último formulário do processo (404 enquanto o agente ainda não emitiu nenhum). */
+  form: (id: string) => request(`/processes/${id}/form`, formularioLeituraSchema),
+}
+export const formsApi = { get: (id: string) => request(`/forms/${id}`, formularioLeituraSchema) }
 export const conversationsApi = { get: (id: string) => request(`/conversations/${id}`, conversationDetailSchema) }
 
 export const implementersApi = {

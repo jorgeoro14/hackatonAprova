@@ -127,6 +127,14 @@ export type Formulario = z.infer<typeof formularioSchema>
 /** O que a prefeitura devolve ao confirmar: órgão + processo já revisados. */
 export type FormularioEdits = Pick<Formulario, 'orgao' | 'processo'>
 
+/** Painel do administrador: formulário só para leitura (último do processo ou aberto pela mensagem da conversa). */
+export const formularioLeituraSchema = z.object({
+  formulario: formularioSchema,
+  revision: z.number(),
+  confirmedAt: z.string().nullable(),
+})
+export type FormularioLeitura = z.infer<typeof formularioLeituraSchema>
+
 export const messageSchema = z.object({
   id: z.string(),
   role: z.enum(['user', 'agent', 'system']),

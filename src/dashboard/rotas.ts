@@ -10,10 +10,12 @@ import {
   buscarUsuarioPorUsername,
   clientesNoEscopo,
   detalheCliente,
+  detalheFormulario,
   detalheConversa,
   detalheProcesso,
   ErroApi,
   exigirCliente,
+  formularioDoProcesso,
   listarImplantadores,
   listarReunioes,
   paginaClientes,
@@ -190,6 +192,10 @@ export async function rotasDashboard(app: FastifyInstance, opcoes: OpcoesDashboa
   });
 
   app.get<{ Params: { id: string } }>("/processes/:id", async (req) => detalheProcesso(db, await usuario(req), req.params.id));
+
+  app.get<{ Params: { id: string } }>("/processes/:id/form", async (req) => formularioDoProcesso(db, await usuario(req), req.params.id));
+
+  app.get<{ Params: { id: string } }>("/forms/:id", async (req) => detalheFormulario(db, await usuario(req), req.params.id));
 
   // única escrita sobre processos: fecha o ciclo confirmado → dev → validado (o formulário não é editado)
   app.post<{ Params: { id: string } }>("/processes/:id/status", async (req) => {

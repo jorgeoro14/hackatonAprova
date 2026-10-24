@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, MessageSquare } from 'lucide-react'
 import { Badge, Card, ErrorState, ProgressBar, Skeleton, Tabs, type Tone } from '@/components/ui'
+import { FormularioDoProcesso } from '@/features/dashboard/formulario/FormularioLeitura'
 import { ProcessStatusBadge } from '@/features/dashboard/labels'
 import { ApiError } from '@/lib/api/client'
 import { useProcess } from '@/lib/api/hooks'
@@ -55,7 +56,7 @@ export function ProcessDetailPage() {
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
               <h1 className="text-2xl font-semibold">{p.name}</h1>
-              <p className="mt-1 text-sm text-muted">{p.secretariat} · atualizado em {formatDate(p.updatedAt)} · {p.backAndForths} idas e vindas</p>
+              <p className="mt-1 text-sm text-muted">{p.secretariat || '—'} · atualizado em {formatDate(p.updatedAt)} · {p.backAndForths} idas e vindas</p>
             </div>
             <ProcessStatusBadge status={p.status} />
           </div>
@@ -67,6 +68,8 @@ export function ProcessDetailPage() {
             </div>
             <p className="tabular font-title text-2xl font-semibold">{p.completeness}%</p>
           </Card>
+
+          <FormularioDoProcesso processId={p.id} />
 
           <Tabs tabs={tabs} value={filter} onChange={setFilter} />
 

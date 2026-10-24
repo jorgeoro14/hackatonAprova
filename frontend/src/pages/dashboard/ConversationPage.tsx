@@ -34,7 +34,7 @@ export function ConversationPage() {
             <div>
               <h1 className="text-2xl font-semibold">{c.contactName}</h1>
               <p className="mt-1 text-sm text-muted">
-                {formatPhone(c.contactPhone)} · {c.secretariat} · iniciada em {formatDateTime(c.startedAt)}
+                {formatPhone(c.contactPhone)} · {c.secretariat || '—'} · iniciada em {formatDateTime(c.startedAt)}
               </p>
             </div>
             <Badge tone={conversationStatusInfo[c.status].tone}>{conversationStatusInfo[c.status].label}</Badge>
@@ -50,7 +50,7 @@ export function ConversationPage() {
           <Card className="bg-bg">
             <div className="mx-auto flex max-w-2xl flex-col gap-3">
               {c.messages.map((m) => (
-                <MessageBubble key={m.id} message={m} showQuickReplies={false} onQuickReply={() => undefined} />
+                <MessageBubble key={m.id} message={m} showQuickReplies={false} onQuickReply={() => undefined} readOnlyForm />
               ))}
             </div>
           </Card>
