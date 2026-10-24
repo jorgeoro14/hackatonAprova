@@ -1,0 +1,106 @@
+{
+  "id": "licenca-ambiental-previa",
+  "nome": "Licença Ambiental Prévia (LAP)",
+  "dominio": "meio-ambiente",
+  "exemplo": true,
+  "descricao": "Atesta a viabilidade ambiental de um empreendimento na fase de planejamento, aprovando localização e concepção e definindo condicionantes para as próximas fases.",
+  "publicoAlvo": ["cidadao", "empresa"],
+  "baseLegal": ["lei-6938-1981", "resolucao-conama-237-1997", "lc-140-2011"],
+  "formulario": {
+    "secoes": [
+      {
+        "titulo": "Requerente",
+        "campos": [
+          { "id": "requerente_nome", "rotulo": "Nome / Razão social", "tipo": "texto", "obrigatorio": true },
+          { "id": "requerente_documento", "rotulo": "CPF / CNPJ", "tipo": "cpf_cnpj", "obrigatorio": true },
+          { "id": "requerente_email", "rotulo": "E-mail", "tipo": "email", "obrigatorio": true },
+          { "id": "requerente_telefone", "rotulo": "Telefone", "tipo": "telefone", "obrigatorio": false }
+        ]
+      },
+      {
+        "titulo": "Empreendimento",
+        "campos": [
+          { "id": "empreendimento_endereco", "rotulo": "Endereço do empreendimento", "tipo": "endereco", "obrigatorio": true },
+          { "id": "empreendimento_coordenadas", "rotulo": "Coordenadas geográficas", "tipo": "coordenadas", "obrigatorio": true },
+          {
+            "id": "atividade_tipologia",
+            "rotulo": "Atividade (tipologia de impacto local)",
+            "tipo": "selecao",
+            "obrigatorio": true,
+            "opcoes": [],
+            "ajuda": "Lista definida pela deliberação do Conselho Estadual de Meio Ambiente (LC 140/2011, art. 9º, XIV).",
+            "baseLegal": ["lc-140-2011"]
+          },
+          { "id": "atividade_descricao", "rotulo": "Descrição da atividade", "tipo": "texto_longo", "obrigatorio": true },
+          { "id": "area_total_m2", "rotulo": "Área total (m²)", "tipo": "numero", "obrigatorio": true },
+          {
+            "id": "porte",
+            "rotulo": "Porte",
+            "tipo": "selecao",
+            "obrigatorio": true,
+            "opcoes": ["Pequeno", "Médio", "Grande"]
+          }
+        ]
+      }
+    ]
+  },
+  "documentos": [
+    { "id": "doc_identificacao", "nome": "Documento de identificação do requerente / contrato social", "obrigatorio": true },
+    { "id": "doc_titularidade", "nome": "Matrícula ou comprovante de posse do imóvel", "obrigatorio": true },
+    {
+      "id": "doc_certidao_uso_solo",
+      "nome": "Certidão de conformidade com o uso e ocupação do solo",
+      "obrigatorio": true,
+      "baseLegal": ["resolucao-conama-237-1997"]
+    },
+    { "id": "doc_estudo_ambiental", "nome": "Estudo ambiental exigido para a atividade (ex.: RAP, EIA/RIMA)", "obrigatorio": true },
+    { "id": "doc_art_rrt", "nome": "ART/RRT do responsável técnico pelo estudo", "obrigatorio": true },
+    {
+      "id": "doc_publicacao",
+      "nome": "Comprovante de publicação do requerimento",
+      "obrigatorio": true,
+      "baseLegal": ["lei-6938-1981"]
+    }
+  ],
+  "taxas": [
+    {
+      "nome": "Taxa de licenciamento ambiental",
+      "baseCalculo": "Definida pela lei municipal, geralmente por porte e potencial poluidor.",
+      "baseLegal": []
+    }
+  ],
+  "fluxo": {
+    "etapas": [
+      { "id": "protocolo", "nome": "Protocolo do requerimento", "tipo": "protocolo", "responsavel": "Requerente" },
+      { "id": "triagem", "nome": "Conferência documental", "tipo": "triagem", "responsavel": "Secretaria Municipal de Meio Ambiente", "prazoDias": 10 },
+      { "id": "exigencia", "nome": "Exigência ao requerente", "tipo": "exigencia", "responsavel": "Requerente", "prazoDias": 30 },
+      { "id": "analise", "nome": "Análise técnica", "tipo": "analise", "responsavel": "Secretaria Municipal de Meio Ambiente" },
+      { "id": "vistoria", "nome": "Vistoria técnica", "tipo": "vistoria", "responsavel": "Fiscalização Ambiental" },
+      { "id": "parecer", "nome": "Parecer técnico conclusivo", "tipo": "parecer", "responsavel": "Secretaria Municipal de Meio Ambiente" },
+      { "id": "decisao", "nome": "Decisão (deferimento/indeferimento)", "tipo": "decisao", "responsavel": "Secretário(a) de Meio Ambiente" },
+      { "id": "emissao", "nome": "Emissão e assinatura da LAP", "tipo": "emissao", "responsavel": "Secretário(a) de Meio Ambiente" },
+      { "id": "arquivamento", "nome": "Arquivamento", "tipo": "arquivamento", "responsavel": "Secretaria Municipal de Meio Ambiente" }
+    ],
+    "transicoes": [
+      { "de": "protocolo", "para": "triagem" },
+      { "de": "triagem", "para": "analise", "condicao": "Documentação completa" },
+      { "de": "triagem", "para": "exigencia", "condicao": "Documentação incompleta" },
+      { "de": "exigencia", "para": "triagem", "condicao": "Requerente respondeu" },
+      { "de": "analise", "para": "vistoria", "condicao": "Vistoria necessária" },
+      { "de": "analise", "para": "exigencia", "condicao": "Necessária complementação" },
+      { "de": "analise", "para": "parecer", "condicao": "Sem necessidade de vistoria" },
+      { "de": "vistoria", "para": "parecer" },
+      { "de": "parecer", "para": "decisao" },
+      { "de": "decisao", "para": "emissao", "condicao": "Deferido" },
+      { "de": "decisao", "para": "arquivamento", "condicao": "Indeferido" },
+      { "de": "emissao", "para": "arquivamento" }
+    ],
+    "prazoTotalDias": 180
+  },
+  "documentoFinal": {
+    "nome": "Licença Ambiental Prévia",
+    "validadeMaximaMeses": 60,
+    "assinante": "Secretário(a) de Meio Ambiente",
+    "baseLegal": ["resolucao-conama-237-1997"]
+  }
+}
