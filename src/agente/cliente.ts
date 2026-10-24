@@ -1,8 +1,9 @@
 import { z } from "zod";
-import { FormularioImplantacao, Pendencia } from "../implantacao/formulario.js";
+import { FormularioImplantacao, Orgao, Pendencia } from "../implantacao/formulario.js";
 
 /** Papéis do agente (employee/assistant) ↔ banco (user/agent): quem converte é o back. */
 export interface MensagemAgente {
+  id?: string;
   role: "employee" | "assistant";
   content: string;
 }
@@ -15,15 +16,19 @@ export interface AnexoAgente {
   text?: string;
 }
 
-export interface PedidoAgente {
-  session_id: string;
-  dominio: string;
-  municipio: string;
-  /** formulário atual da conversa; null até o agente identificar o processo */
-  form: FormularioImplantacao | null;
-  messages: MensagemAgente[];
-  attachments?: AnexoAgente[];
-}
+/** Canonical Node → Python request; scope fields are populated after session authentication. */
+export const PedidoAgenteSchema = z.object({
+  session_id: z.uuid(),
+  dominio: z.string().min(1),
+  municipio: z.string().min(1),
+  municipio_id: z.uuid().optional(),
+  agent_id: z.uuid().optional(),
+  orgao: Orgao.optional(),
+  form: FormularioImplantacao.nullable(),
+  messages: z.array(z.object({ id: z.uuid().optional(), role: z.enum(["employee", "assistant"]), content: z.string() })).min(1),
+  attachments: z.array(z.object({ id: z.string(), name: z.string(), mime_type: z.string(), text: z.string().optional() })).optional(),
+});
+export type PedidoAgente = z.infer<typeof PedidoAgenteSchema>;
 
 export const ResultadoAgente = z.object({
   assistant_reply: z.string().min(1),

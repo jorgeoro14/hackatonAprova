@@ -55,3 +55,9 @@ def turn_schema() -> dict:
             ),
         },
     }
+
+
+def model_turn_schema(contract: str = "provisional") -> dict:
+    if contract == "implantation":
+        return deepcopy(SCHEMAS["implantation-turn-result.schema.json"])
+    return turn_schema()

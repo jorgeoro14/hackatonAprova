@@ -1,8 +1,12 @@
 # Implantation form interview instructions
 
-Use the team's FormularioImplantacao as the target for the interview. Its source
-is [setup/base-conhecimento at acd2de595365622a87f93765b008a1923140dcde](https://github.com/jorgeoro14/hackatonAprova/tree/acd2de595365622a87f93765b008a1923140dcde),
-reviewed on 2026-10-24.
+Use the user-supplied [implantation questionnaire on main](https://github.com/jorgeoro14/hackatonAprova/blob/main/docs/modelo-formulario-implantacao.md)
+as the interview target. Verified on 2026-10-24: its latest file commit is
+`acd2de595365622a87f93765b008a1923140dcde`, and its content matches the local
+`docs/modelo-formulario-implantacao.md` after LF/CRLF normalization. Its normalized
+SHA-256 is `bb991250c75a6cbfbdf9994a7b0a56e909d409a79d6756b03f53fe1465c10b7e`.
+The provenance descriptor is `agents/knowledge/aprova/implantation-questionnaire.json`.
+Both Python workflows load this verified local reference and this English guide.
 
 Source files:
 
@@ -11,10 +15,14 @@ Source files:
 - [ProcessoModelo schemas](https://github.com/jorgeoro14/hackatonAprova/blob/acd2de595365622a87f93765b008a1923140dcde/src/knowledge/schemas.ts).
 - [Interview sequence](https://github.com/jorgeoro14/hackatonAprova/blob/acd2de595365622a87f93765b008a1923140dcde/knowledge/sistema/03-roteiro-de-implantacao.md).
 
-This is a team-defined model, not evidence of vendor certification. Exact source
+This is the project's authoritative implantation questionnaire. It defines what
+the implementer must learn; it does not supply a filled municipal process model,
+employee answers or a vendor-certified API configuration. Exact source
 paths and enum values retain their spelling for compatibility. Conversation,
 new code and documentation stay English. This is instructional guidance, not a
-parallel validation schema.
+parallel validation schema. The reference is already available: do not ask the
+representative to supply the questionnaire again. A missing municipal process
+baseline is a separate dependency.
 
 ## Model-first interview
 
@@ -28,8 +36,10 @@ ask for the responsible role.
 Select a domain and retrieved ProcessoModelo, then propose each block for
 acceptance or change. Do not interview from scratch when a real model is
 available. An exemplo: true model's deadlines, fees and validity are proposals,
-not local policy. The branch's loader is not integrated in the Python adapter;
-search_processes still uses its explicitly injected catalog. Never claim to
+not local policy. The legacy HTTP adapter's search_processes still uses its
+explicitly injected catalog. The separate requirements graph can normalize the
+team process model's applicant-field block, with example models disabled by default.
+Neither path establishes that an actual municipal Aprova baseline was retrieved. Never claim to
 have retrieved a model or legal source that was not actually supplied.
 
 Ask one question or one short block at a time, in this order: organization,
@@ -112,9 +122,20 @@ rascunho -> em_revisao -> confirmado require backend/UI support. Backend owns
 IDs, timestamps, status and confirmation; chat cannot change them. Recheck
 pending issues after corrections and request review of the current revision.
 
-## Current Python output boundary
+## Current Python output boundaries
 
-contracts/schemas/form.schema.json still defines a smaller provisional form.
+The LangGraph requirements workflow has an internal field-change specification
+for applicant fields and conditions (section 2). It loads all questionnaire sections
+to interpret requests, but unsupported sections remain explicit conflicts or
+questions with target paths; they are not silently coerced into applicant fields.
+Its exports record `output_scope: applicant_form_changes`, the questionnaire's
+source/hash and `implementation_questionnaire_completed: false`, including after
+field-change approval. Documents, fees, sectors, complete workflow, dispatches,
+final-document content and block confirmations require further typed output and
+consumer integration. Approval of this scoped specification does not confirm the
+whole implantation questionnaire.
+
+For the legacy HTTP adapter, contracts/schemas/form.schema.json still defines a smaller provisional form.
 It has not been replaced by FormularioImplantacao. Return only allowed fields:
 objective summarizes purpose; inputs can summarize supported documents; steps
 can summarize descriptions and responsible roles; expected_output summarizes

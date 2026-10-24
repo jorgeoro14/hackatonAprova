@@ -18,6 +18,9 @@ class FormField(StrictModel):
     required: StrictBool
     options: list[NonBlank] = Field(default_factory=list)
     help_text: str | None = None
+    required_when: str | None = None
+    visible_when: str | None = None
+    children: list["FormField"] = Field(default_factory=list)
 
 
 class Template(StrictModel):
@@ -58,6 +61,9 @@ class LegalEvidence(StrictModel):
     effective_status: Literal["confirmed", "unverified", "revoked"]
     applicability: Literal["confirmed", "conditional", "unverified"]
     verified_at: NonBlank
+    knowledge_base_id: NonBlank | None = None
+    norm_id: NonBlank | None = None
+    retrieval_url: HttpUrl | None = None
 
 
 class Citation(StrictModel):
@@ -138,11 +144,41 @@ class Withdrawal(StrictModel):
     statement: Statement
 
 
+class RequirementNote(StrictModel):
+    """Captured questionnaire requirements awaiting typed form mapping and review."""
+
+    target_path: Annotated[
+        NonBlank,
+        StringConstraints(
+            pattern=r"^(orgao|legislacaoLocal|resumo|formulario|documentos|taxas|setores|fluxo|despachos|documentoFinal)(\.[A-Za-z0-9_]+)*$"
+        ),
+    ]
+    requirement: NonBlank
+    origin: Literal["municipality_request", "legal_requirement", "operational_suggestion"]
+    legal_basis: list[Citation] = Field(default_factory=list)
+    statements: list[Statement] = Field(default_factory=list)
+    mapping_status: Literal["pending"] = "pending"
+    requires_human_review: Literal[True] = True
+
+    @model_validator(mode="after")
+    def required_provenance(self):
+        if self.origin == "legal_requirement" and not self.legal_basis:
+            raise ValueError("A legal requirement note needs an article citation")
+        if self.origin == "municipality_request" and not self.statements:
+            raise ValueError("A municipality requirement note needs a recorded quote")
+        return self
+
+
+class CapturedRequirement(RequirementNote):
+    requirement_id: NonBlank
+
+
 class AnalysisProposal(StrictModel):
     suggested_changes: list[Change] = Field(default_factory=list)
     next_questions: list[Question] = Field(default_factory=list)
     conflicts: list[Issue] = Field(default_factory=list)
     withdrawals: list[Withdrawal] = Field(default_factory=list)
+    requirement_notes: list[RequirementNote] = Field(default_factory=list)
 
 
 class ProposedChange(Change):
@@ -158,10 +194,28 @@ class Analysis(StrictModel):
     next_questions: list[Question]
     tracked_changes: list[ProposedChange] = Field(default_factory=list)
     withdrawn_change_ids: list[NonBlank] = Field(default_factory=list)
+    requirement_notes: list[CapturedRequirement] = Field(default_factory=list)
+
+
+class QuestionnaireReference(StrictModel):
+    resource_kind: Literal["implementation_questionnaire"] = "implementation_questionnaire"
+    source_url: HttpUrl
+    pinned_source_url: HttpUrl
+    source_commit: NonBlank
+    repository_path: NonBlank
+    content_sha256: Annotated[str, StringConstraints(pattern=r"^[a-f0-9]{64}$")]
+    hash_normalization: Literal["UTF-8 with LF newlines"]
+    verified_at: NonBlank
+    authority: NonBlank
+    is_municipal_process_baseline: Literal[False] = False
+    contains_municipal_answers: Literal[False] = False
 
 
 class Specification(StrictModel):
     schema_version: Literal[1] = 1
+    output_scope: Literal["applicant_form_changes"] = "applicant_form_changes"
+    questionnaire_reference: QuestionnaireReference | None = None
+    implementation_questionnaire_completed: Literal[False] = False
     scope: CorpusScope
     process_name: NonBlank | None
     mode: Literal["use_existing", "adapt_existing", "create_new"] | None
@@ -174,6 +228,8 @@ class Specification(StrictModel):
     legal_references: list[LegalEvidence]
     pending_questions: list[Question]
     blockers: list[Issue]
+    knowledge_context: dict = Field(default_factory=dict)
+    requirement_notes: list[CapturedRequirement] = Field(default_factory=list)
     # Preview is declarative. No builder or API configuration is executed.
     resulting_fields: list[FormField]
     conditions: dict[str, list[Condition]]

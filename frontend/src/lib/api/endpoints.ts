@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { ImplementerApprovalHistory } from '../../../../contracts/implantation-evidence'
 import {
   attachmentSchema,
   catalogMunicipalitySchema,
@@ -130,7 +131,13 @@ export const processesApi = {
   /** Último formulário do processo (404 enquanto o agente ainda não emitiu nenhum). */
   form: (id: string) => request(`/processes/${id}/form`, formularioLeituraSchema),
 }
-export const formsApi = { get: (id: string) => request(`/forms/${id}`, formularioLeituraSchema) }
+export const formsApi = {
+  get: (id: string) => request(`/forms/${id}`, formularioLeituraSchema),
+  approvals: (id: string) => request(`/forms/${id}/approval`, ImplementerApprovalHistory),
+  approve: (id: string, revision: number, text: string) => request(`/forms/${id}/approval`, ImplementerApprovalHistory, {
+    method: 'POST', body: { revision, text, approve: true },
+  }),
+}
 export const conversationsApi = { get: (id: string) => request(`/conversations/${id}`, conversationDetailSchema) }
 
 export const implementersApi = {

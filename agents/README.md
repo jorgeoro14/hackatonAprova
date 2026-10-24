@@ -1,8 +1,15 @@
 # Agents ownership
 
-For the new checkpointed LangGraph requirements workflow and Studio demo, see
-[requirements.md](docs/requirements.md). It exports a separate internal change
-specification and does not replace the existing HTTP adapter described below.
+For the integrated frontend, run `python -m agents.app.server` through the
+[local startup guide](../docs/manual-agent-test.md). The HTTP entry point uses
+the full backend `FormularioImplantacao`, scoped knowledge API and Portuguese
+replies. [Habite-se demo instructions](../docs/habite-se-demo.md) cover the real
+reference template, editable preview, JSON evidence and revision-bound human approval.
+Older provisional CLI and Studio instructions below are separate entry points.
+
+The backend-facing agent uses [stateless turns and runtime context](docs/stateless-turn.md).
+The checkpointed [requirements Studio demo](docs/requirements.md) is a separate
+developer experiment; its persistence/review flow is not the backend turn path.
 
 Implement the request/result contract under ../contracts/schemas/. Gather one process per session. Ask focused follow-up questions, preserve known facts, and distinguish unknown information from employee-confirmed facts.
 
@@ -74,10 +81,10 @@ Refresh the schema snapshot with `uv run --project agents python -m agents.scrip
 
 ## Run one real turn
 
-Set server-side `MODEL_PROVIDER=openai`, `MODEL_NAME` to the chosen tool-capable model, and `MODEL_API_KEY` to its key in the launching process. The CLI reads process environment variables; it does not load `.env` files automatically.
+The selected model is OpenAI `gpt-6-luna`. Set server-side `MODEL_PROVIDER=openai`, `MODEL_NAME=gpt-6-luna` and `OPENAI_API_KEY` in the launching process. `MODEL_API_KEY` remains an optional legacy override. The CLI reads process environment variables; use `uv run --env-file .env` to load the local root file. The shared provider configures Luna's existing Chat Completions tool flow with `reasoning_effort=none`.
 
 ```powershell
-uv run --project agents python -m agents contracts/examples/agent-request.json
+uv run --env-file .env --project agents python -m agents contracts/examples/agent-request.json
 ```
 
 The command prints only a validated agent-result JSON to stdout, or a sanitized failure message to stderr and a nonzero exit code. It makes real provider calls and requires network access. The example request is synthetic. Do not pass credentials in request JSON.
@@ -101,3 +108,13 @@ Baseline values are proposals, not municipal answers. The representative must ac
 Optional LangSmith variables: `LANGSMITH_API_KEY`, `LANGSMITH_TRACING=true`, and `LANGSMITH_PROJECT=aprova-process-agent`. Tracing is disabled in the shared example by default. Enable it deliberately with synthetic conversations; it can capture prompts and outputs.
 
 Offline tests run the actual LangChain tool loop using a scripted test model. They verify contract boundaries, lookup, update preservation, error behavior and isolation. They do not establish model extraction accuracy, intent accuracy or prompt-injection resistance. Live evaluation of ambiguous changes, baseline acceptance, corrections and follow-up quality remains necessary once provider access and official artifacts are available. The backend, UI and confirmed JSON export are not implemented by this agent module.
+
+## Remote knowledge API
+
+The stateless turn agent can use the implemented Node knowledge read endpoints with
+server-owned agent scope and bearer authentication. See [setup and limitations](docs/knowledge-api.md).
+Set `KNOWLEDGE_API_BASE_URL`, `KNOWLEDGE_API_TOKEN` and `KNOWLEDGE_AGENT_ID` together
+in the ignored root `.env`, and inject authorized scope/dependencies through `TurnContext`.
+The CLI accepts `--scope` and `--domain`. Additional questionnaire requirements
+have source-backed comparison notes awaiting full form mapping. No form-save HTTP
+endpoint is implemented or called.

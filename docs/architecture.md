@@ -20,6 +20,19 @@ Reads the conversation and current form, extracts supported facts, asks focused 
 
 The agent does not write the session store, confirm forms, or configure municipal systems. The backend decides whether the proposed result is valid and complete.
 
+The Python turn uses `create_agent` without a checkpointer. Frozen runtime context
+carries authorized scope/domain, current form and retrieval dependencies. State is
+the disposable message/tool loop, evidence and call counters. Agent-owned revisions,
+durable history, status and approval interrupts are outside this path. A dynamic
+prompt reads runtime; middleware alone trims history and bounds model calls and
+correction attempts. Backend sends full history and owns the atomic transaction.
+See [the adapter guide](../agents/docs/stateless-turn.md).
+
+Raw-dictionary `ToolStrategy` does not strictly validate JSON Schema in the installed
+LangChain version. Keep canonical Python validation with bounded correction feedback
+and backend Zod validation. The optional `ready_for_review` hint is advisory only.
+The checkpointed Studio experiment is not a backend `/turn` implementation.
+
 ## Contract conventions
 
 Use UTF-8 JSON, ISO 8601 UTC timestamps, UUID identifiers, snake_case fields, and API path /api/v1. All form properties appear in responses; unknown scalar values are null and unknown collections are empty. Nullable draft fields are deliberate. Required-for-review fields are listed in the schema's x-required-for-review extension.

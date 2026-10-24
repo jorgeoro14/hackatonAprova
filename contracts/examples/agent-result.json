@@ -1,4 +1,5 @@
 {
+  "ready_for_review": true,
   "assistant_reply": "I captured the permit process. Please review the draft. You can also add any business rules, exceptions, or system integration needs before confirming.",
   "form": {
     "municipality": "Example City",

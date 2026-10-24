@@ -91,12 +91,23 @@ reference, what was adapted, and which retrieval features remain unimplemented.
 Phase runners use the same ingestion/retrieval/graph code as the application;
 scoring and reports are shared rather than copied into each runner.
 
-The root `langgraph.json` now registers a separate synthetic requirements graph
-for local Studio inspection. `app/requirements/` contains its schemas, comparison,
-retrieval adapters, graph, prompts and exports. The live graph has a separate
-configuration and requires server-side settings. This development surface does
+The root `langgraph.json` registers the live requirements graph using OpenAI GPT-6
+Luna and the local root `.env`; `langgraph.demo.json` keeps the explicit synthetic
+Studio demo. `app/requirements/` contains its schemas, comparison,
+retrieval adapters, graph, prompts and exports. Provider keys remain server-side.
+This development surface does
 not replace the current backend adapter or its shared request/result contract;
 see [requirements.md](requirements.md) for the remaining integration boundary.
+
+`app/knowledge/api.py` owns the read-only Node knowledge HTTP client;
+`app/agent/context.py` defines frozen per-request dependencies and form snapshots;
+`app/agent/middleware.py` handles model prompts, history trimming and schema correction.
+The stateless backend-facing tools read `ToolRuntime.context`. The checkpointed
+requirements graph is a separate legacy demo, never the backend turn entry point.
+`app/requirements/remote.py` prepares scoped baselines, guides and article evidence
+for graph retrieval. `app/requirements/config.py` shares trusted scope/environment
+configuration between Studio and the CLI. Neither tokens nor API origins are model
+arguments. See [knowledge-api.md](knowledge-api.md) for routes and setup.
 
 ## Commands and deployment
 
@@ -107,6 +118,10 @@ the snapshot refresh command is `python -m agents.scripts.extract_aprova_docs`.
 Maintenance modules also accept `--help` without credentials.
 
 Asset paths are resolved from `app/paths.py`, not the shell's working directory.
+`app/knowledge/implantation.py` shares the verified questionnaire reference between
+the legacy interview and the requirements graph. Include the root
+`docs/modelo-formulario-implantacao.md`, `src/knowledge/schemas.ts` and the reference
+descriptor when deploying these repository-scoped agents.
 Deploy the repository's `contracts/schemas/` together with `agents/app/`,
 `agents/docs/`, `agents/knowledge/`, and the required entry points. The package
 remains repository-scoped rather than an independently installable wheel.

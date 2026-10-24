@@ -19,6 +19,8 @@ def export_specification(specification: dict, destination: Path) -> tuple[Path, 
         f"Municipality: {spec.scope.municipality_name} ({spec.scope.municipality_id})",
         f"Process: {spec.process_name or 'Pending identification'}",
         f"Revision: {spec.revision}; status: {spec.status}; data kind: {spec.data_kind}",
+        f"Output scope: {spec.output_scope}",
+        "Full implantation questionnaire completed: false",
         "Application status: not applied",
         f"Export SHA-256: {digest(spec.model_dump(mode='json'))}",
         "",
@@ -27,9 +29,17 @@ def export_specification(specification: dict, destination: Path) -> tuple[Path, 
             "Vendor mapping, local legal application and human decisions must be reviewed."
         ),
         "",
-        "## Changes",
-        "",
     ]
+    if spec.questionnaire_reference:
+        reference = spec.questionnaire_reference
+        lines += [
+            "## Implantation questionnaire reference",
+            "",
+            f"Questionnaire: [project source]({reference.pinned_source_url})",
+            f"Questionnaire SHA-256 (LF): {reference.content_sha256}",
+            "",
+        ]
+    lines += ["## Changes", ""]
     lines.extend(
         f"- `{c.change_id}`: {c.action} `{c.field_id}`; origin: {c.origin}; "
         f"legal validation: {c.legal_validation}. {c.rationale}"
@@ -37,6 +47,25 @@ def export_specification(specification: dict, destination: Path) -> tuple[Path, 
     )
     if not spec.changes:
         lines.append("No changes recorded.")
+    lines += ["", "## Captured questionnaire requirements", ""]
+    lines.extend(
+        f"- `{n.requirement_id}` at `{n.target_path}`: {n.requirement}; "
+        f"origin: {n.origin}; mapping: {n.mapping_status}; human review required."
+        for n in spec.requirement_notes
+    )
+    if not spec.requirement_notes:
+        lines.append("No additional questionnaire requirements recorded.")
+    if spec.knowledge_context:
+        lines += [
+            "",
+            "## Knowledge API context",
+            "",
+            f"Agent: {spec.knowledge_context.get('agent_id', 'Unknown')}",
+            f"Retrieved: {spec.knowledge_context.get('retrieved_at', 'Unknown')}",
+            "The JSON export retains the full selected reference baseline and assigned guidance.",
+            "The knowledge response does not verify municipal legal application.",
+            "No implemented HTTP endpoint can save this Python specification.",
+        ]
     lines += ["", "## Legal references", ""]
     lines.extend(
         f"- `{e.chunk_id}`: {e.document_id}, article {e.article}; "

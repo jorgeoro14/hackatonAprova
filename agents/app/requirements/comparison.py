@@ -4,6 +4,8 @@ import json
 from hashlib import sha256
 from pathlib import Path
 
+from ..contracts import INTENTS
+from ..knowledge.implantation import implementation_guide, load_implementation_reference
 from ..rag.schemas import CorpusScope
 from ..rag.structured import model_step
 from .retrieval import team_field_types, validate_capabilities
@@ -11,6 +13,7 @@ from .schemas import (
     Analysis,
     AnalysisProposal,
     Capabilities,
+    CapturedRequirement,
     FormField,
     Issue,
     LegalEvidence,
@@ -53,6 +56,7 @@ def analyze_requirements(
     answered: dict[str, str] | None = None,
     previous_analysis: dict | None = None,
     recorded_messages: dict[str, str] | None = None,
+    knowledge_context: dict | None = None,
 ) -> Analysis:
     """The model proposes; deterministic checks preserve provenance and missing facts."""
     validate_capabilities(capabilities)
@@ -64,9 +68,11 @@ def analyze_requirements(
     proposal = model_step(
         model,
         AnalysisProposal,
-        prompt,
+        prompt + "\nShared implantation questionnaire guide:\n" + implementation_guide(),
         {
             "template": template.model_dump(mode="json") if template else None,
+            "implementation_questionnaire": load_implementation_reference(),
+            "intent_registry": INTENTS,
             "legal_context": [e.model_dump(mode="json") for e in legal_context],
             "user_request": user_request,
             "municipality": scope.model_dump(),
@@ -76,6 +82,7 @@ def analyze_requirements(
             "answered_questions": answered or {},
             "previous_analysis": previous_analysis,
             "recorded_messages": recorded_messages or statements or {},
+            "knowledge_context": knowledge_context or {},
         },
     )
     return validate_analysis(
@@ -111,25 +118,27 @@ def validate_analysis(
     def conflict(key, description):
         conflicts.append(Issue(key=key, description=description))
 
+    def invalid_provenance(record, identity):
+        invalid = False
+        for citation in record.legal_basis:
+            source = sources.get(citation.chunk_id)
+            if source is None or not _contains(source.excerpt, citation.quote):
+                conflict(identity + ":citation", "Citation must quote an actually retrieved chunk.")
+                invalid = True
+            elif source.effective_status == "revoked":
+                conflict(identity + ":revoked", "A revoked source cannot support a requirement.")
+                invalid = True
+        for statement in record.statements:
+            if not _contains(statements.get(statement.message_id, ""), statement.quote):
+                conflict(identity + ":statement", "Municipal provenance needs a recorded quote.")
+                invalid = True
+        return invalid
+
     for change in proposal.suggested_changes:
         payload = change.model_dump(mode="json")
         identity = {k: v for k, v in payload.items() if k != "rationale"}
         change_id = "change_" + digest(identity)[:24]
-        invalid = False
-        for citation in change.legal_basis:
-            source = sources.get(citation.chunk_id)
-            if source is None or not _contains(source.excerpt, citation.quote):
-                conflict(
-                    change_id + ":citation", "Citation must quote an actually retrieved chunk."
-                )
-                invalid = True
-            elif source.effective_status == "revoked":
-                conflict(change_id + ":revoked", "A revoked source cannot support a requirement.")
-                invalid = True
-        for statement in change.statements:
-            if not _contains(statements.get(statement.message_id, ""), statement.quote):
-                conflict(change_id + ":statement", "Municipal provenance needs a recorded quote.")
-                invalid = True
+        invalid = invalid_provenance(change, change_id)
         if change.patch.field_type and change.patch.field_type not in known_types:
             conflict(change_id + ":type", "Field type is outside the canonical team schema.")
             invalid = True
@@ -237,8 +246,27 @@ def validate_analysis(
             questions.append(q)
             missing.append(Issue(key=q.key, description=q.text))
             seen.add(q.key)
-    cited = {c.chunk_id for change in changes for c in change.legal_basis}
     previous = Analysis.model_validate(previous_analysis) if previous_analysis else None
+    notes = {n.requirement_id: n for n in previous.requirement_notes} if previous else {}
+    for note in proposal.requirement_notes:
+        payload = note.model_dump(mode="json")
+        identifier = "requirement_" + digest(payload)[:24]
+        if not invalid_provenance(note, identifier):
+            notes[identifier] = CapturedRequirement(**payload, requirement_id=identifier)
+    for note in notes.values():
+        invalid_provenance(note, note.requirement_id)
+        missing.append(
+            Issue(
+                key="questionnaire_mapping:" + note.requirement_id,
+                description=f"Map and review captured requirement at {note.target_path}: {note.requirement}",
+            )
+        )
+    cited = {
+        c.chunk_id
+        for record in [*changes, *notes.values()]
+        for c in record.legal_basis
+        if c.chunk_id in sources
+    }
     tracked = (
         {c.change_id: c for c in (previous.tracked_changes or previous.suggested_changes)}
         if previous
@@ -271,6 +299,7 @@ def validate_analysis(
         next_questions=questions,
         tracked_changes=list(tracked.values()),
         withdrawn_change_ids=withdrawn,
+        requirement_notes=list(notes.values()),
     )
 
 

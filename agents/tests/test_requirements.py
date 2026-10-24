@@ -20,6 +20,7 @@ from agents.app.requirements.schemas import (
 )
 from agents.app.requirements.workflow import RequirementsAgent
 from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.types import Command
 from pydantic import ValidationError
 
 SCOPE = CorpusScope(municipality_id="4104808", municipality_name="Cascavel", corpus_id="test")
@@ -323,6 +324,45 @@ def review_for(runtime, thread="t", **updates):
     )
 
 
+@pytest.mark.parametrize("reply", ["Optional email", {"message": "Optional email"}])
+def test_studio_interview_accepts_text_or_object_and_preserves_role(reply):
+    runtime = agent(
+        FakeModel(
+            [
+                {"next_questions": [{"key": "contact", "text": "Which contact channel?"}]},
+                {"suggested_changes": [addition()]},
+            ]
+        )
+    )
+    start(runtime)
+    result = runtime._graph.invoke(Command(resume=reply), runtime._config("t"))
+    assert result["status"] == "pending_approval"
+    assert runtime.snapshot("t").next == ("review",)
+    assert result["messages"][-1].additional_kwargs["actor_role"] == "municipal_representative"
+    assert result["answers"] == {}
+    assert result["specification"]["application_status"] == "not_applied"
+
+
+@pytest.mark.parametrize("reply", [None, [], 42, " ", {"message": "Hi", "actor_role": "unknown"}])
+def test_studio_invalid_interview_reply_pauses_for_correction(reply):
+    runtime = agent(
+        FakeModel(
+            [
+                {"next_questions": [{"key": "contact", "text": "Which contact channel?"}]},
+                {"suggested_changes": [addition()]},
+            ]
+        )
+    )
+    initial = start(runtime)
+    interrupt_id = initial["__interrupt__"][0].id
+    result = runtime._graph.invoke(Command(resume={interrupt_id: reply}), runtime._config("t"))
+    assert result["__interrupt__"][0].value["error"]
+    assert runtime.snapshot("t").next == ("interview",)
+    assert result["revision"] == 1
+    corrected = runtime._graph.invoke(Command(resume="Optional email"), runtime._config("t"))
+    assert corrected["status"] == "pending_approval"
+
+
 def test_full_adaptive_interview_then_separate_review_and_export(tmp_path):
     model = FakeModel(
         [
@@ -346,11 +386,18 @@ def test_full_adaptive_interview_then_separate_review_and_export(tmp_path):
     runtime.review("t", review_for(runtime), reviewer_role="implementation_specialist")
     spec = runtime.snapshot("t").values["specification"]
     assert spec["status"] == "approved"
+    assert spec["output_scope"] == "applicant_form_changes"
+    assert spec["implementation_questionnaire_completed"] is False
+    assert (
+        spec["questionnaire_reference"]["content_sha256"]
+        == model.inputs[0]["implementation_questionnaire"]["metadata"]["content_sha256"]
+    )
     assert spec["application_status"] == "not_applied"
     assert spec["data_kind"] == "synthetic"
     json_file, report = export_specification(spec, tmp_path)
     assert json.loads(json_file.read_text())["resulting_fields"][-1]["required"] is False
     assert "not applied" in report.read_text()
+    assert "Full implantation questionnaire completed: false" in report.read_text()
 
 
 @pytest.mark.parametrize(

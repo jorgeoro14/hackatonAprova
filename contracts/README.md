@@ -18,4 +18,10 @@ Unknown form scalars are null; unknown collections are empty. Required-for-revie
 
 A form is a requirements artifact for human implementation staff. It is not an executable configuration or an official company form.
 
+Agent results may include `ready_for_review`, an advisory Boolean for the provisional
+candidate. Older consumers may omit/ignore it. The backend recomputes readiness;
+the hint never changes status, revisions or confirmation and does not certify
+whole-questionnaire or legal completeness. Trusted runtime scope and dependencies
+are injected by the backend adapter outside model messages and the HTTP form.
+
 Coordinate contract changes across all three roles. Update examples and checks together. Run node scripts/check-contracts.mjs. Runtime implementations must use an appropriate full schema validator; the lightweight repository checker only supports the schema keywords currently used here.

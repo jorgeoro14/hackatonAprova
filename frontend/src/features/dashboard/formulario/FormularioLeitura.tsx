@@ -6,6 +6,8 @@ import { ApiError } from '@/lib/api/client'
 import { useForm, useProcessForm } from '@/lib/api/hooks'
 import { formatDateTime } from '@/lib/utils/format'
 import type { Formulario, FormularioLeitura } from '@/types/schemas'
+import { SpecificationEvidence } from '@/features/chat/formulario/SpecificationEvidence'
+import { ImplementerApproval } from './ImplementerApproval'
 
 const statusInfo = {
   rascunho: { label: 'Rascunho', tone: 'neutral' },
@@ -33,6 +35,8 @@ function FormularioSomenteLeitura({ data }: { data: FormularioLeitura }) {
       <FormProvider value={ctx}>
         <FormularioEditor form={form as Formulario} />
       </FormProvider>
+      <SpecificationEvidence form={form} />
+      <ImplementerApproval formId={form.id} revision={revision} ready={form.status !== 'rascunho'} />
     </div>
   )
 }

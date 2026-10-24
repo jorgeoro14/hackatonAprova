@@ -15,10 +15,20 @@ async function collect(directory) {
 await collect(path.join(root, 'contracts'));
 
 function resolve(reference, source) {
-  assert(!reference.includes('#') && !reference.includes('://'), 'Only local whole-document references are supported');
-  const target = path.resolve(path.dirname(source), reference);
+  assert(!reference.includes('://'), 'Only local references are supported');
+  const [filename, fragment] = reference.split('#');
+  const target = filename ? path.resolve(path.dirname(source), filename) : source;
   assert(documents.has(target), 'Unresolved reference: ' + reference);
-  return [documents.get(target), target];
+  let schema = documents.get(target);
+  if (fragment) {
+    assert(fragment.startsWith('/'), 'Only JSON Pointer fragments are supported');
+    for (const segment of fragment.slice(1).split('/')) {
+      const key = decodeURIComponent(segment).replaceAll('~1', '/').replaceAll('~0', '~');
+      assert(schema && Object.hasOwn(schema, key), 'Unresolved pointer: ' + reference);
+      schema = schema[key];
+    }
+  }
+  return [schema, target];
 }
 function checkReferences(value, source) {
   if (!value || typeof value !== 'object') return;

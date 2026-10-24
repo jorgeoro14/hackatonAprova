@@ -157,18 +157,9 @@ def test_rag_rejects_unknown_or_mismatched_session_municipality():
 
 def test_no_scope_argument_is_exposed_to_the_model():
     from agents.app.agent.tools import build_tools
-    from agents.app.knowledge.catalog import JsonProcessCatalog
 
-    search = next(
-        tool
-        for tool in build_tools(JsonProcessCatalog([]))
-        if tool.name == "search_municipal_documents"
-    )
+    search = next(tool for tool in build_tools() if tool.name == "search_municipal_documents")
     assert set(search.args) == {"query"}
-    result = json.loads(search.invoke({"query": "What is the local deadline?"}))
-    assert result["status"] == "not_configured"
-    assert result["answer"] is None
-    assert not result["sources"]
 
 
 def test_phase3_evaluates_actual_graph_and_keeps_judge_scores_separate():

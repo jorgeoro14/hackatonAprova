@@ -1,6 +1,8 @@
 """Credential precedence and Luna's actual outgoing Chat Completions contract."""
 
+import asyncio
 import json
+import threading
 
 import httpx
 import pytest
@@ -94,3 +96,19 @@ def test_embedding_uses_standard_key_but_still_requires_explicit_embedding_model
     model, spec = providers.embeddings_from_environment()
     assert spec.model == "synthetic-embedding-model"
     assert model.openai_api_key.get_secret_value() == "synthetic-test-key"
+
+
+@pytest.mark.parametrize(
+    "factory,loader",
+    [
+        ("create_live_graph", "_live_graph"),
+        ("create_demo_graph", "_demo_graph"),
+    ],
+)
+def test_studio_factory_initialization_runs_outside_the_event_loop(monkeypatch, factory, loader):
+    from agents.app.requirements import server
+
+    event_thread = threading.get_ident()
+    monkeypatch.setattr(server, loader, threading.get_ident)
+    worker_thread = asyncio.run(getattr(server, factory)({}))
+    assert worker_thread != event_thread

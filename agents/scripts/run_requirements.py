@@ -7,7 +7,7 @@ from pathlib import Path
 
 from agents.app.paths import REPOSITORY_ROOT
 from agents.app.rag.providers import chat_from_environment
-from agents.app.rag.schemas import CorpusScope
+from agents.app.requirements.config import knowledge_from_environment, requirements_scope
 from agents.app.requirements.demo import DemoModel, demo_dependencies
 from agents.app.requirements.export import export_specification
 from agents.app.requirements.retrieval import CuratedLawSearch, load_team_models
@@ -72,16 +72,17 @@ def main():
     with SqliteSaver.from_conn_string(str(args.db)) as checkpointer:
         agent = RequirementsAgent(
             model=model,
-            scope=CorpusScope(
-                municipality_id="4104808",
-                municipality_name="Cascavel",
-                corpus_id="cascavel-legislation-20261024",
-            ),
+            scope=requirements_scope(),
             catalog=catalog,
             laws=CuratedLawSearch(args.index),
             capabilities=capabilities,
             checkpointer=checkpointer,
             reviewer_roles=frozenset({"implementation_specialist"}),
+            knowledge_source=None
+            if args.demo
+            else knowledge_from_environment(
+                requirements_scope(), allow_synthetic=args.allow_synthetic_models
+            ),
         )
         if args.start:
             agent.start(

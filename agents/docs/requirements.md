@@ -1,9 +1,26 @@
 # Requirements discovery graph
 
+This checkpointed workflow is a **legacy developer demo**, outside the backend
+turn path. The [stateless agent](stateless-turn.md) is the integration entry point;
+it shares this package's retrieval, normalization and comparison logic through tools.
+
 This P0 workflow turns a supplied municipal request and process input-form baseline
 into a validated, reviewable change specification. It uses LangGraph, Python and
 Pydantic, with read-only template and law retrieval. The existing
 `ProcessInterviewAgent` HTTP adapter and `contracts/` remain unchanged.
+
+The [user-supplied implantation questionnaire](https://github.com/jorgeoro14/hackatonAprova/blob/main/docs/modelo-formulario-implantacao.md)
+is now loaded directly from the verified local `docs/modelo-formulario-implantacao.md`,
+alongside the shared English guide and intent registry. It matches file commit
+`acd2de595365622a87f93765b008a1923140dcde`. Provenance and the normalized content
+hash live in `knowledge/aprova/implantation-questionnaire.json`; source drift fails
+explicitly instead of silently using stale instructions.
+
+The document defines the **whole implantation questionnaire**, including service
+summary, applicant form, documents, fees, sectors, workflow, dispatches and final
+document. It supplies the interview structure; actual municipal answers and a
+filled process input-form baseline remain separate. The agent does not ask for
+this already-loaded questionnaire again.
 
 ## Components and behavior
 
@@ -56,6 +73,14 @@ duplicate or certify the full `ProcessoModelo`/`FormularioImplantacao` envelope.
 
 ## Retrieval and current limitations
 
+The optional [remote knowledge adapter](knowledge-api.md) now loads assigned
+knowledge, domain guides, system documentation, full process baselines and law
+articles through the implemented Node read routes. Its server-owned authorization
+scope is refreshed on each retrieval. Additional questionnaire requirements are
+captured as provenance-checked `requirement_notes`, pending typed mapping/review.
+Exports retain the selected complete process object; no Python HTTP save route
+exists. Missing remote configuration leaves the local mode described below.
+
 `search_templates()` searches injected authorized baselines; synthetic models are
 excluded unless explicitly enabled. The current team environmental model is an
 example, not a retrieved live municipal Aprova form. Public Aprova API templates
@@ -79,10 +104,49 @@ The first release captures form fields and conditions. Documents, fees, dispatch
 signatures and complete workflow parameterization still need coordinated output
 contract/mapping work; they must not be disguised as supported field actions.
 No frontend/backend integration or Aprova mutation is implemented here.
+Exports explicitly state `output_scope: applicant_form_changes` and
+`implementation_questionnaire_completed: false`, and retain the questionnaire
+source/hash. Field-change approval cannot claim completion of all questionnaire
+blocks. Requirements for other blocks are questions/conflicts with target sections,
+not invented field actions or a claim of fully typed persistence.
 
-## Test in LangGraph Studio
+## Test in LangGraph Studio with GPT-6 Luna
 
-The default [root configuration](../../langgraph.json) registers graph `requirements`
+The default [root configuration](../../langgraph.json) uses **OpenAI `gpt-6-luna`**
+through the live graph factory and loads the ignored root `.env`. Set:
+
+```dotenv
+MODEL_PROVIDER=openai
+MODEL_NAME=gpt-6-luna
+OPENAI_API_KEY=your-local-key
+```
+
+`MODEL_API_KEY` remains an optional legacy override; there is no need to duplicate
+the secret. The shared provider uses Chat Completions with `reasoning_effort=none`
+for Luna so existing tool calls remain compatible with the
+[official model guidance](https://developers.openai.com/api/docs/models/gpt-6-luna).
+This selects the non-reasoning mode; reasoning with tools would require a separately
+evaluated Responses API migration. Other explicitly configured models retain their
+existing provider settings. Embedding model selection is independent and remains explicit.
+
+```powershell
+uv run --project agents --all-extras langgraph dev --config langgraph.json --no-browser
+```
+
+Open [Studio](https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024),
+select `requirements`, create a **new thread**, and run
+[studio-input.live.json](../examples/requirements/studio-input.live.json).
+This makes a live identification call, then asks for the missing real baseline.
+The marked synthetic baseline is not silently selected. Resume existing threads
+only with the same graph/dependency configuration used to create them.
+
+`langgraph.live.json` remains a compatible explicit live configuration.
+Graph factories initialize local catalogs/provider clients in a worker thread
+so Studio's event loop remains nonblocking. API credentials stay on the server.
+
+## Synthetic Studio demo
+
+The explicit [demo configuration](../../langgraph.demo.json) registers graph `requirements`
 with a deterministic **synthetic** interview and no model calls. The graph uses the
 real collected law index and preserves its coverage blocker. Agent Server supplies
 checkpointing; the graph factory does not attach a second SQLite saver.
@@ -91,7 +155,7 @@ From the repository root:
 
 ```powershell
 uv sync --project agents --extra rag --extra requirements --extra studio
-uv run --project agents --extra rag --extra requirements --extra studio langgraph dev --config langgraph.json --no-browser
+uv run --project agents --extra rag --extra requirements --extra studio langgraph dev --config langgraph.demo.json --no-browser
 ```
 
 Open [Studio connected to localhost](https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024)
@@ -124,8 +188,8 @@ Example server resume payload for an interview:
 }
 ```
 
-To test a live model, set the existing `MODEL_PROVIDER=openai`, explicit `MODEL_NAME`
-and `MODEL_API_KEY` in the local root `.env` (never request/paste credentials in chat).
+To test a live model, set `MODEL_PROVIDER=openai`, `MODEL_NAME=gpt-6-luna`
+and the existing `OPENAI_API_KEY` in the local root `.env` (never paste credentials in chat).
 Optionally set `REQUIREMENTS_CAPABILITIES_PATH` to a verified profile;
 `REQUIREMENTS_ALLOW_SYNTHETIC=true` only enables the marked team examples.
 Use the separate [live configuration](../../langgraph.live.json):
@@ -133,6 +197,13 @@ Use the separate [live configuration](../../langgraph.live.json):
 ```powershell
 uv run --project agents --extra rag --extra requirements --extra studio langgraph dev --config langgraph.live.json --no-browser
 ```
+
+At an interview pause, Studio accepts a plain-text answer or an `InterviewReply`
+JSON object. Omitted actor roles inherit the preceding participant's recorded role,
+falling back to `implementer` when unknown. Use the JSON object to explicitly select
+a candidate template, change mode or mark question keys answered. Invalid reply
+payloads pause again for correction. Approval still requires the separate structured
+review decision and reviewer role.
 
 Stop the demo server before starting another server on port 2024. The dev server
 is a local debugging surface, not the production HTTP adapter or an authenticated
@@ -148,6 +219,8 @@ Configuration follows the official [local-server guide](https://docs.langchain.c
 
 This alternative uses SQLite under ignored `agents/.local/`, with strict checkpoint
 deserialization. It is independent of Studio's development storage.
+For a live CLI run, add `--env-file .env` to `uv run` to load the same server settings;
+the Python CLI itself does not read `.env` automatically.
 
 ```powershell
 uv run --project agents --extra requirements python -m agents.scripts.run_requirements --demo --thread demo-1 --start "We need a way to contact applicants."

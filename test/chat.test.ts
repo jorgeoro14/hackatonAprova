@@ -209,7 +209,7 @@ describe("chat: conversa, formulário e dashboard", () => {
     expect(p1!.idas_e_vindas).toBe(0);
   });
 
-  it("agente fora do ar: erro claro, só a mensagem do usuário fica gravada, e dá para tentar de novo", async () => {
+  it("agent failure preserves the conversation and draft atomically and permits retry", async () => {
     const s = await cadastrar(c);
     c.falhar(new ErroAgente("indisponivel", "Não foi possível falar com o agente"));
     const r = await enviar(c, s, "oi");
@@ -218,7 +218,7 @@ describe("chat: conversa, formulário e dashboard", () => {
     c.falhar(new ErroAgente("timeout", "demorou"));
     expect((await enviar(c, s, "oi de novo")).json().error.code).toBe("AGENT_TIMEOUT");
     const msgs = (await c.app.inject({ url: `/api/v1/chat/sessions/${s.sessionId}/messages`, headers: h(s.sessionToken) })).json();
-    expect(msgs.map((m: { role: string }) => m.role)).toEqual(["agent", "user", "user"]);
+    expect(msgs.map((m: { role: string }) => m.role)).toEqual(["agent"]);
     expect((await c.db.consultar("SELECT 1 FROM formularios WHERE conversa_id = $1", [s.sessionId])).length).toBe(0);
     c.falhar(undefined);
     // tentar de novo com o mesmo texto não duplica a mensagem do usuário

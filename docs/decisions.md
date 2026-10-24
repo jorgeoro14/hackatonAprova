@@ -86,10 +86,31 @@ For each new decision record date, owner, choice, reason, trade-off, and affecte
 - Trade-offs: preserve the phase organization rather than copying the reference's destructive database resets, PostgreSQL staging, company-specific filters, YAML dependency or implicit provider/judge calls. Semantic chunking, lexical/hybrid search, HyDE and reranking remain deferred and invalid options are rejected. Markdown splitting here is language-aware recursive splitting, not an implementation of all the course's header/semantic methods. Multi-writer indexing, corpus evaluation and live quality validation remain future work.
 # 2026-10-24 — Requirements graph and local review persistence
 
+Use the user-supplied `main/docs/modelo-formulario-implantacao.md` as the shared
+implantation questionnaire source. Its latest file commit remains
+`acd2de595365622a87f93765b008a1923140dcde`; the local content matches after newline
+normalization. Both agents load one provenance descriptor, the canonical local
+document, the existing English guide and the existing intent registry. Keep that
+questionnaire distinct from an actual municipality's process input-form baseline.
+The requirements export records source/hash, its applicant-field scope and an
+explicit false whole-questionnaire completion flag. This avoids claiming full
+implantation completion from the narrower field-change schema; shared HTTP
+contracts and consumer integration remain unchanged.
+
+The selected live model is OpenAI `gpt-6-luna`, as requested by the user. The
+shared provider accepts `OPENAI_API_KEY` with the existing `MODEL_API_KEY` override.
+Preserve the current Chat Completions/tool contract with `reasoning_effort=none`,
+as required for Luna function calls on that endpoint. This favors the current
+interactive flow; reasoning with tools would be a separately validated Responses
+API migration. No embedding model or other explicit model selection is changed.
+The default Studio configuration now loads the live factory and ignored root
+`.env`; `langgraph.demo.json` keeps the deterministic synthetic flow. Both
+factories initialize catalogs/provider clients outside the server event loop.
+
 Register separate synthetic/live local Studio graph factories through root
-`langgraph.json` and `langgraph.live.json`. The optional `studio` extra installs
+`langgraph.demo.json`, `langgraph.json` and the compatible `langgraph.live.json`. The optional `studio` extra installs
 `langgraph-cli[inmem]`; Agent Server owns checkpointing in that mode. The default
-configuration disables tracing and uses only a deterministic synthetic interview.
+demo configuration disables tracing and uses only a deterministic synthetic interview.
 The local development server is not the production authenticated agent endpoint.
 
 Use the existing LangGraph/Python/Pydantic stack for a separate requirements
@@ -110,3 +131,85 @@ article offsets and SQLite FTS5/BM25. JSONL is ready for later semantic indexing
 no embeddings are generated. Currentness and municipality applicability remain
 separate review gates, including the Council-hosted 2023 Organic Law consolidation.
 SQLite FTS5 uses the Python standard library and adds no service dependency.
+
+## 2026-10-24: scoped remote knowledge for requirements discovery
+
+- Owner: Agents; additive upstream consumer documentation in `contracts/knowledge-api.md`.
+- Evidence: inspected `src/app.ts`, `src/bases/rotas.ts`, `src/bases/repositorio.ts`,
+  `docs/bases-normas-agentes.md` and `docs/BACKEND_CONTRACT.md` at
+  `origin/main@8e611fcbccdbd3f4053327912c6811a6663af162`. Do not merge the newer
+  Node backend into this dirty working tree merely to add the Python consumer.
+- Choice: standard-library GET-only HTTP transport, Pydantic response validation
+  and a separate graph retrieval adapter. No framework or infrastructure dependency
+  is added. Studio and CLI share trusted environment configuration. Refresh assigned
+  bases through the authenticated knowledge entry point on every retrieval turn.
+- Scope: domain and norm membership are checked before requests; search result IDs
+  and layers are checked before context construction. Unavailable bases, arbitrary
+  IDs and model-selected agents/origins cannot broaden access. Previously cited
+  evidence is refetched only within current assignments. No fallback on remote
+  auth failures, credential-bearing redirects or mutation endpoints.
+- Choice: retain the complete selected process object alongside normalized fields.
+  Pass assigned guides, summaries and matched system guidance to comparison. Cite
+  only actual full-text article chunks; all remote legal currentness/application
+  remains unverified. Keep capability profiles independent from prose documentation.
+- Requirements: add internal, source-checked questionnaire notes for summary,
+  documents, fees, sectors, workflow, dispatches, final-document and agency/legal
+  requirements. Stable IDs and retention preserve notes across model omissions;
+  pending typed mapping/review blocks approval. This does not migrate the shared
+  provisional HTTP form or claim completion of `FormularioImplantacao`.
+- Trade-offs: bounded sequential reads favor predictable service usage over broad
+  ingestion. Large catalogs can exhaust the retrieval budget and require narrower
+  follow-up queries. No embeddings, new database, Python save endpoint, Node agent
+  invocation or unimplemented chat API is introduced. The host still owns authenticated
+  municipality/client binding, persisted-data access, overall deadlines and retention.
+- Validation: focused synthetic HTTP/graph tests verify route usage, auth, scope,
+  provenance, partial failures, notes and non-application. A live API URL, authorized
+  agent ID and bearer token are required for actual deployment validation.
+
+## 2026-10-24: backend-owned state and disposable Python turns
+
+- Choice: make `ProcessInterviewAgent` the backend-facing `create_agent` path,
+  without checkpointers, revision/status/history ownership, interrupts or reviewer
+  roles. The existing requirements graph remains an isolated developer demo; its
+  pure comparison, article and retrieval code is shared by tools.
+- Runtime: frozen `TurnContext` carries authenticated scope/domain, current-form
+  snapshot, attachments and injected catalog/RAG/API/capability dependencies.
+  Session/form/message IDs must match backend input. No Cascavel constant or
+  message-derived authorization is used by the stateless path.
+- Middleware: dynamic runtime prompt, trimming of only model-visible history and
+  a per-run model-call limit. Backend continues supplying full history; no persisted
+  summaries or independent agent conversation are created. Tools read injected
+  runtime and write only disposable evidence/comparison results.
+- Validation evidence: installed LangChain raw-dictionary `ToolStrategy` accepts
+  unknown fields; its JSON Schema parser returns tool arguments unchanged. Keep
+  canonical JSON Schema validation, add sanitized correction feedback within the
+  bounded loop, and preserve backend Zod validation. No duplicated form model.
+- Shared contract: additive optional `ready_for_review` advisory Boolean on agent
+  results, with updated example. Backend recomputes readiness and owns all status,
+  confirmation and atomic persistence. Complete nested-form/citation transfer and
+  the actual HTTP turn/save boundary remain unimplemented integration work.
+- Trade-offs: request-only trimming has no summary-model cost, but older free-text
+  details may leave model context. Durable facts belong in the backend form. The
+  checkpointed Studio demo remains for local comparison and must not be wired to
+  production turns. No framework, database or infrastructure dependency was added.
+- Verification: targeted stateless/interview/API/RAG checks cover runtime isolation,
+  actual dictionary-schema behavior, corrected output, unchanged inputs after
+  failures, retries without hidden state, scoped retrieval and non-application.
+
+## 2026-10-24 - Brazilian Portuguese product responses and local manual testing
+
+- All interview prompts require Brazilian Portuguese for user-facing replies, questions, new labels and pending-issue explanations, including after English messages. Technical keys, stable IDs, existing data and exact citations retain their original values. The deterministic demo questions use the same language.
+- The full-form transport schema is generated from the backend Zod input contract so backend-defaulted properties are optional on input. Backend validation and default application remain authoritative.
+- The local frontend guide is docs/manual-agent-test.md. The HTTP turn adapter uses Python's standard library, and the isolated local backend reuses the existing PGlite development dependency. No new framework or infrastructure dependency is introduced.
+- Trade-offs: language behavior is instructed through prompts, without a second translation model or alteration of historical messages. The local knowledge example remains synthetic and requires a temporary server-side token.
+- Validation: schemas regenerated from their canonical source. Automated and additional live tests were explicitly deferred to the user.
+
+## 2026-10-24 - Full-form frontend integration, evidence and implementer approval
+
+- The production-shaped local entry point is the stateless Python POST /turn adapter. Backend-authenticated municipality, agent assignment, organization and current draft are immutable runtime inputs; durable history and revisions stay in Postgres.
+- The shared full-form contract adds retrieved legal evidence, exact-quote requirement citations and server-computed field differences. Backend and frontend share the evidence schemas; Python JSON schemas are generated from Zod. Recursive Habite-se list fields retain root definitions during validation.
+- Habite-se retrieval discovers the exact obras/habite-se process within assigned scope before reasoning. The show_form tool emits the existing form-card response path; showing a reference preview preserves pending municipal confirmation and never calls submit.
+- Implementer approval uses authenticated dashboard endpoints, locks and checks the exact form revision, and stores an immutable snapshot, canonical JSON SHA-256, actor, text and timestamp. It remains separate from municipal confirmation and does not configure Aprova.
+- Local development reuses the existing PGlite dependency with an explicit persistent data directory. No new framework or infrastructure dependency was added. Knowledge credentials and skill files remain ignored.
+- Limits: one configured knowledge agent per Python service, unresolved legal applicability, and no automatic field-level merge of unsent editor changes. The stdlib HTTP adapter is for loopback development, not a hardened public deployment.
+- Validation: TypeScript checks, Python syntax parsing and shared-contract consistency checks only for the latest integration. Automated and new model-driven tests are deferred to the user; manual form-display and approval verification remain required.

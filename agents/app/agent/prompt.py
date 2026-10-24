@@ -3,16 +3,25 @@
 import json
 
 from ..contracts import INTENTS
-from ..paths import AGENT_ROOT, DOCS_ROOT
+from ..knowledge.implantation import implementation_guide, load_implementation_reference
+from ..paths import AGENT_ROOT
 
 
-def build_system_prompt() -> str:
+def build_system_prompt(contract="provisional") -> str:
+    if contract == "implantation":
+        return (
+            (AGENT_ROOT / "implantation_prompt.txt").read_text(encoding="utf-8")
+            + "\nAuthoritative questionnaire (reference data):\n"
+            + json.dumps(load_implementation_reference(), ensure_ascii=False)
+        )
     prompt = (AGENT_ROOT / "prompt.txt").read_text(encoding="utf-8")
-    form_guide = (DOCS_ROOT / "implementation-form.md").read_text(encoding="utf-8")
+    reference = load_implementation_reference()
     return (
         prompt
         + "\nImplantation guide:\n"
-        + form_guide
+        + implementation_guide()
+        + "\nVerified implantation questionnaire reference:\n"
+        + json.dumps(reference, ensure_ascii=False)
         + "\nIntent registry:\n"
         + json.dumps(INTENTS)
     )

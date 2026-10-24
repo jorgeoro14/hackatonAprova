@@ -21,7 +21,10 @@ class DemoModel:
             (
                 (key, text)
                 for key, text in statements.items()
-                if "optional email" in text.casefold()
+                if any(
+                    term in text.casefold()
+                    for term in ("optional email", "email opcional", "e-mail opcional")
+                )
             ),
             None,
         )
@@ -32,7 +35,7 @@ class DemoModel:
                 "next_questions": [
                     {
                         "key": "contact_channel",
-                        "text": "Which contact channel should be added, and is it required?",
+                        "text": "Qual canal de contato deve ser adicionado? Ele será obrigatório?",
                     }
                 ],
             }
@@ -41,9 +44,9 @@ class DemoModel:
                 {
                     "action": "add_field",
                     "field_id": "contact_email",
-                    "patch": {"label": "Contact email", "field_type": "email", "required": False},
+                    "patch": {"label": "E-mail de contato", "field_type": "email", "required": False},
                     "origin": "municipality_request",
-                    "rationale": "Optional contact requested in this synthetic demo.",
+                    "rationale": "Contato opcional solicitado nesta demonstração sintética.",
                     "statements": [{"message_id": reply[0], "quote": reply[1]}],
                     "legal_basis": [],
                 }
@@ -56,14 +59,14 @@ class DemoModel:
 def demo_dependencies():
     template = Template(
         template_id="information-request-demo",
-        name="Information request demo",
+        name="Demonstração de solicitação de informações",
         version="synthetic-v1",
         source="explicit_synthetic_demo",
         synthetic=True,
         fields=[
             FormField(
                 field_id="request_description",
-                label="Request description",
+                label="Descrição da solicitação",
                 field_type="texto_longo",
                 required=True,
             )

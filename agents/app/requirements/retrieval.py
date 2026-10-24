@@ -34,6 +34,33 @@ def _normalized(value: str) -> str:
     )
 
 
+def normalize_process_model(
+    model: dict, *, version: str, source: str, template_id=None
+) -> Template:
+    """Normalize the applicant field block without discarding the caller's full baseline."""
+    def normalize_field(field):
+        return FormField(
+            field_id=field["id"], label=field["rotulo"], field_type=field["tipo"],
+            required=field["obrigatorio"], options=field.get("opcoes", []),
+            help_text=field.get("ajuda"), required_when=field.get("obrigatorioSe"),
+            visible_when=field.get("visivelSe"),
+            children=[normalize_field(child) for child in field.get("campos", [])],
+        )
+
+    return Template(
+        template_id=template_id or model["id"],
+        name=model["nome"],
+        version=version,
+        source=source,
+        synthetic=model.get("exemplo", False),
+        fields=[
+            normalize_field(f)
+            for section in model["formulario"]["secoes"]
+            for f in section["campos"]
+        ],
+    )
+
+
 class TemplateCatalog:
     def __init__(self, templates: list[Template], *, allow_synthetic: bool = False):
         if len({t.template_id for t in templates}) != len(templates):
@@ -65,26 +92,11 @@ def load_team_models(root: Path, *, allow_synthetic: bool = False) -> TemplateCa
     for path in sorted(root.glob("*/processos/*.json")):
         raw = path.read_bytes()
         model = json.loads(raw)
-        fields = [
-            FormField(
-                field_id=f["id"],
-                label=f["rotulo"],
-                field_type=f["tipo"],
-                required=f["obrigatorio"],
-                options=f.get("opcoes", []),
-                help_text=f.get("ajuda"),
-            )
-            for section in model["formulario"]["secoes"]
-            for f in section["campos"]
-        ]
         templates.append(
-            Template(
-                template_id=model["id"],
-                name=model["nome"],
+            normalize_process_model(
+                model,
                 version=sha256(raw).hexdigest(),
                 source=path.as_posix(),
-                synthetic=model.get("exemplo", False),
-                fields=fields,
             )
         )
     return TemplateCatalog(templates, allow_synthetic=allow_synthetic)

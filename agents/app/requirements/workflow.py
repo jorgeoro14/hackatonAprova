@@ -11,9 +11,11 @@ from langgraph.graph.message import add_messages
 from langgraph.types import Command, interrupt
 from pydantic import ValidationError
 
+from ..knowledge.implantation import load_implementation_reference
 from ..rag.schemas import CorpusScope
 from ..rag.structured import model_step
 from .comparison import analyze_requirements, digest, preview_fields
+from .remote import ApiKnowledgeSource
 from .retrieval import LawSearch, TemplateCatalog, validate_capabilities
 from .schemas import (
     Analysis,
@@ -38,6 +40,7 @@ class AgentState(TypedDict, total=False):
     template_candidates: list[dict]
     legal_context: list[dict]
     source_issues: list[dict]
+    knowledge_context: dict
     answers: dict[str, str]
     analysis: dict
     specification: dict
@@ -63,11 +66,15 @@ def create_requirements_workflow(
     checkpointer,
     reviewer_roles: frozenset[str],
     server_managed_persistence: bool = False,
+    knowledge_source: ApiKnowledgeSource | None = None,
 ):
     """Dependencies and deployment scope are fixed outside user/model-controlled state."""
     validate_capabilities(capabilities)
     if (checkpointer is None and not server_managed_persistence) or not reviewer_roles:
         raise ValueError("A checkpointer and authorized reviewer roles are required")
+    if knowledge_source is not None and knowledge_source.scope != scope:
+        raise ValueError("Knowledge source must match the authorized workflow municipality")
+    questionnaire = load_implementation_reference()["metadata"]
 
     def identify(state):
         if state.get("process_query") and state.get("mode"):
@@ -91,6 +98,41 @@ def create_requirements_workflow(
 
     def retrieve(state):
         query = state.get("process_query") or ""
+        if knowledge_source is not None:
+            prior = state.get("analysis", {})
+            retained_ids = {
+                citation["chunk_id"]
+                for record in [
+                    *prior.get("tracked_changes", []),
+                    *prior.get("requirement_notes", []),
+                ]
+                for citation in record["legal_basis"]
+            }
+            retrieved = knowledge_source.retrieve(
+                query,
+                state.get("selected_template_id") if state.get("mode") != "create_new" else None,
+                scope,
+                search_query=query + " " + str(state["messages"][-1].content),
+                retained_evidence=[
+                    e for e in state.get("legal_context", []) if e["chunk_id"] in retained_ids
+                ],
+            )
+            if not retrieved.evidence:
+                retrieved.issues.append(
+                    Issue(
+                        key="legal_coverage",
+                        description="No citable law article retrieved; local legal requirements remain unknown.",
+                    )
+                )
+            return {
+                "template_candidates": [t.model_dump(mode="json") for t in retrieved.candidates],
+                "template": retrieved.template.model_dump(mode="json")
+                if retrieved.template
+                else None,
+                "legal_context": [e.model_dump(mode="json") for e in retrieved.evidence],
+                "knowledge_context": retrieved.context,
+                "source_issues": [i.model_dump() for i in retrieved.issues],
+            }
         candidates = catalog.search_templates(query)
         selected = state.get("selected_template_id") if state.get("mode") != "create_new" else None
         template = next((t for t in candidates if t.template_id == selected), None)
@@ -109,8 +151,11 @@ def create_requirements_workflow(
             prior = state.get("analysis", {})
             retained_ids = {
                 citation["chunk_id"]
-                for change in prior.get("tracked_changes", [])
-                for citation in change["legal_basis"]
+                for record in [
+                    *prior.get("tracked_changes", []),
+                    *prior.get("requirement_notes", []),
+                ]
+                for citation in record["legal_basis"]
             }
             previous = [
                 LegalEvidence.model_validate(e)
@@ -139,17 +184,26 @@ def create_requirements_workflow(
 
     def compare(state):
         questions = []
+        if any(
+            i["key"] in {"knowledge_api", "knowledge_scope"} for i in state.get("source_issues", [])
+        ):
+            questions.append(
+                Question(
+                    key="restore_knowledge_access",
+                    text="A fonte de conhecimento atribuída está indisponível. Solicite ao implementador que restabeleça o acesso do servidor ou a atribuição das bases e tente novamente. Mantenha as credenciais no servidor.",
+                )
+            )
         if not state.get("process_query"):
             questions.append(
                 Question(
-                    key="identify_process", text="Which municipal service is being configured?"
+                    key="identify_process", text="Qual serviço municipal será configurado?"
                 )
             )
         if not state.get("mode"):
             questions.append(
                 Question(
                     key="choose_mode",
-                    text="Should we use an existing form, adapt it, or create a new form?",
+                    text="Devemos usar um formulário existente, adaptá-lo ou criar um novo formulário?",
                 )
             )
         if state.get("mode") != "create_new" and state.get("template") is None:
@@ -159,17 +213,21 @@ def create_requirements_workflow(
             questions.append(
                 Question(
                     key="select_template",
-                    text="Select and confirm a supplied input-form baseline. "
-                    + (names or "No matching real baseline is available; supply one."),
+                    text="O questionário de implantação já está disponível. "
+                    "Selecione o formulário existente do processo municipal para comparar os campos. "
+                    + (names or "Nenhum modelo real correspondente está disponível; forneça um modelo."),
                 )
             )
         if questions:
+            previous = state.get("analysis", {})
             analysis = Analysis(
                 suggested_changes=[],
                 missing_information=[Issue(key=q.key, description=q.text) for q in questions],
                 legal_references=[],
                 conflicts=[],
                 next_questions=questions,
+                tracked_changes=previous.get("tracked_changes", []),
+                requirement_notes=previous.get("requirement_notes", []),
             )
         else:
             human_messages = [m for m in state["messages"] if isinstance(m, HumanMessage)]
@@ -189,6 +247,7 @@ def create_requirements_workflow(
                 answered=state.get("answers", {}),
                 previous_analysis=state.get("analysis"),
                 recorded_messages={m.id: str(m.content) for m in human_messages},
+                knowledge_context=state.get("knowledge_context", {}),
             )
             if state.get("mode") == "use_existing" and analysis.suggested_changes:
                 analysis = analysis.model_copy(
@@ -197,7 +256,7 @@ def create_requirements_workflow(
                             *analysis.conflicts,
                             Issue(
                                 key="mode",
-                                description="Changes conflict with use-existing mode; confirm adaptation.",
+                                description="As alterações conflitam com o uso do modelo existente sem mudanças; confirme a adaptação.",
                             ),
                         ]
                     }
@@ -215,6 +274,7 @@ def create_requirements_workflow(
             *[Issue.model_validate(i) for i in state["source_issues"]],
         ]
         spec = Specification(
+            questionnaire_reference=questionnaire,
             scope=scope,
             process_name=state.get("process_query"),
             mode=state.get("mode"),
@@ -229,6 +289,8 @@ def create_requirements_workflow(
             legal_references=analysis.legal_references,
             pending_questions=analysis.next_questions,
             blockers=blockers,
+            knowledge_context=state.get("knowledge_context", {}),
+            requirement_notes=analysis.requirement_notes,
             resulting_fields=fields,
             conditions=conditions,
         )
@@ -259,10 +321,28 @@ def create_requirements_workflow(
                 }
             )
             try:
-                reply = InterviewReply.model_validate(
-                    {k: v for k, v in raw.items() if k != "actor_role"}
+                if isinstance(raw, str):
+                    payload = {"message": raw}
+                elif isinstance(raw, dict):
+                    payload = dict(raw)
+                else:
+                    raise TypeError("Reply must be text or a reply object")
+                previous_role = next(
+                    (
+                        message.additional_kwargs.get("actor_role")
+                        for message in reversed(state.get("messages", []))
+                        if isinstance(message, HumanMessage)
+                    ),
+                    None,
                 )
-                if raw["actor_role"] not in {"municipal_representative", "implementer"}:
+                role = payload.pop(
+                    "actor_role",
+                    previous_role
+                    if previous_role in {"municipal_representative", "implementer"}
+                    else "implementer",
+                )
+                reply = InterviewReply.model_validate(payload)
+                if role not in {"municipal_representative", "implementer"}:
                     raise ValueError("Unknown actor role")
                 known = {q.key for q in spec.pending_questions}
                 if not set(reply.answered_question_keys) <= known:
@@ -287,7 +367,7 @@ def create_requirements_workflow(
                 HumanMessage(
                     content=reply.message,
                     id=str(uuid4()),
-                    additional_kwargs={"actor_role": raw["actor_role"]},
+                    additional_kwargs={"actor_role": role},
                 ),
             ],
             "answers": answers,
@@ -320,10 +400,22 @@ def create_requirements_workflow(
                 if decision.decision == "approve":
                     if spec.capabilities != capabilities:
                         raise ValueError("Capability profile changed; revise before approval")
-                    if spec.template and spec.template not in catalog.search_templates(
-                        spec.template.template_id
-                    ):
-                        raise ValueError("Baseline version changed; revise before approval")
+                    if spec.template:
+                        if knowledge_source is None:
+                            current = catalog.search_templates(spec.template.template_id)
+                        else:
+                            refreshed = knowledge_source.retrieve(
+                                state.get("process_query") or "",
+                                spec.template.template_id,
+                                scope,
+                            )
+                            current = refreshed.candidates
+                            if refreshed.issues:
+                                raise ValueError(
+                                    "Remote knowledge requires validation before approval"
+                                )
+                        if spec.template not in current:
+                            raise ValueError("Baseline version changed; revise before approval")
                     if spec.blockers or spec.pending_questions:
                         raise ValueError("Unresolved information or conflicts block approval")
                     if set(decision.confirmed_change_ids) != {c.change_id for c in spec.changes}:

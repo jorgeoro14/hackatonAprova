@@ -9,6 +9,10 @@
     "missing_fields"
   ],
   "properties": {
+    "ready_for_review": {
+      "type": "boolean",
+      "description": "Optional agent hint for the provisional candidate only. Backend recomputes readiness; this never confirms a form or certifies legal completeness."
+    },
     "assistant_reply": {
       "type": "string",
       "minLength": 1,

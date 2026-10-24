@@ -1,11 +1,12 @@
 # Aprova documentation reference pack
 
-Extracted from the [public Hub API documentation](https://hubapi.aprova.com.br/aprovahubapi/) and its [OpenAPI JSON](https://hubapi.aprova.com.br/_bundle/aprovahubapi.json?download=) on 2026-10-24. This pack contains documented structures and synthetic response templates. It contains no authenticated API extraction, real municipal catalog, employee answers or official implementation questionnaire.
+The API snapshot was extracted from the [public Hub API documentation](https://hubapi.aprova.com.br/aprovahubapi/) and its [OpenAPI JSON](https://hubapi.aprova.com.br/_bundle/aprovahubapi.json?download=) on 2026-10-24. It contains documented structures and synthetic response templates, without authenticated API extraction, real municipal catalog or employee answers. A separate `implantation-questionnaire.json` descriptor references the user-supplied project questionnaire in the root documentation; it is distinct from API response templates and a filled municipal process baseline.
 
 ## Contents
 
 | File | Purpose |
 | --- | --- |
+| [implantation-questionnaire.json](implantation-questionnaire.json) | Source URL, pinned file commit and normalized hash for the user-supplied implantation questionnaire; the canonical document stays in root `docs/` |
 | [api-contract.json](api-contract.json) | Generated parameters, request schemas and response schemas for 17 documented operations, with source URL, retrieval time and source hash |
 | [resources.json](resources.json) | English definitions, documented behavior, limitations and suggested interview questions |
 | [response-templates.json](response-templates.json) | 12 explicitly synthetic response examples covering all seven GET operations, plus ambiguity, pagination, missing results and errors |
