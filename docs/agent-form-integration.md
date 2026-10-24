@@ -23,6 +23,14 @@ API knowledge retrieval requires all of the following:
 - The token can read that agent's knowledge and the domain is in its available bases.
 - Synthetic baselines require explicit `REQUIREMENTS_ALLOW_SYNTHETIC=true`.
 
+An administrator can configure a municipality/domain default through
+`PUT /api/v1/clients/:clientId/agent-defaults/:domain`. New web conversations
+inherit that agent; existing unassigned conversations are repaired on their next
+message. Explicit assignments are never overwritten, and paused agents or
+unavailable/unassigned bases are excluded. Draft web agents do not need a fabricated
+WhatsApp number. The local helper's `--default-only` configures this once for all
+future conversations. See [the defaults contract](../contracts/conversation-defaults.md).
+
 Otherwise the tool returns unavailable knowledge, rather than using a different
 agent's bases. A single configured Python service currently enables API knowledge
 for one configured agent ID. Multiple assigned agents require a server-side
@@ -66,6 +74,9 @@ preview, preserving nested fields and labeling reference defaults as pending.
 The output middleware supplies the prepared form if the model returns null and
 sets the readiness flag. This avoids relying on a prose promise to show a form.
 The frontend owns the GET; the agent never calls the browser or `/submit`.
+For a newly identified Habite-se conversation, the HTTP adapter prepares that
+preview automatically from the real retrieved candidate on the first turn.
+Reference values remain pending municipal confirmation; this is not submission.
 
 `MessageBubble.tsx` renders the form card, which calls
 `GET /api/v1/chat/sessions/:sessionId/forms/:formId` with `X-Session-Token`.

@@ -213,3 +213,10 @@ SQLite FTS5 uses the Python standard library and adds no service dependency.
 - Local development reuses the existing PGlite dependency with an explicit persistent data directory. No new framework or infrastructure dependency was added. Knowledge credentials and skill files remain ignored.
 - Limits: one configured knowledge agent per Python service, unresolved legal applicability, and no automatic field-level merge of unsent editor changes. The stdlib HTTP adapter is for loopback development, not a hardened public deployment.
 - Validation: TypeScript checks, Python syntax parsing and shared-contract consistency checks only for the latest integration. Automated and new model-driven tests are deferred to the user; manual form-display and approval verification remain required.
+
+## 2026-10-24 - Default routing for new web conversations
+
+- A JWT-authorized per-municipality/domain default routes future web conversations to an explicitly configured agent. Assignment checks the same client, assigned available base and non-paused status; it never overwrites explicit conversation assignments. Existing unassigned conversations are repaired before the next turn.
+- A separate defaults table avoids misusing WhatsApp activation, which requires a real service number. Draft agents can serve the explicitly configured web demo without inventing a number or changing WhatsApp rules.
+- The first identified Habite-se turn automatically prepares the real reference form for display, preserving source fields, pending confirmation and the model's adaptive interview text. Presentation remains distinct from municipal submission.
+- Validation: backend TypeScript compilation, Python AST parsing, contract consistency and whitespace checks passed. No automated tests or model calls ran. Local service restart was blocked by automatic approval review; runtime activation requires restarting the backend, running the one-time default setup and restarting Python.

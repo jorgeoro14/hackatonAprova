@@ -6,6 +6,11 @@ identifiers, enum values and exact source quotations keep their original values.
 
 ## Start the local stack
 
+For Habite-se, follow [the current demonstration guide](habite-se-demo.md).
+Its one-time `--domain obras --default-only` setup automatically assigns future
+conversations in the same municipality/domain; it does not require a new setup
+for each phone. The LAP steps below remain an explicitly synthetic alternative.
+
 Use PowerShell from the repository root. Keep the OpenAI key in the root `.env`;
 never put it in a frontend environment variable. Node 22+, npm and uv are required.
 If dependencies are missing, run `npm ci` in the root and in `frontend/` first.

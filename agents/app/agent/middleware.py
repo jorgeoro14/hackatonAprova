@@ -26,6 +26,7 @@ def interview_prompt(request: ModelRequest) -> str:
         "knowledge_api_configured": context.knowledge_source is not None,
         "municipal_documents_configured": context.municipal_rag is not None,
         "current_form": context.current_form,
+        "editable_preview_ready": bool(request.state.get("form_preview")),
         "missing_required_fields": context.missing_required_fields,
         "attachments": list(context.attachments),
         "representative_sources": [

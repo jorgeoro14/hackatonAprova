@@ -5,6 +5,7 @@ import multipart from "@fastify/multipart";
 import rateLimit from "@fastify/rate-limit";
 import type { FastifyInstance, FastifyRequest } from "fastify";
 import { z } from "zod";
+import { assignDefaultAgent } from "../bases/defaults.js";
 import { ErroAgente, type AnexoAgente, type ClienteAgente, type MensagemAgente } from "../agente/cliente.js";
 import { tratarErros } from "../api/erros.js";
 import { verificarToken } from "../dashboard/auth.js";
@@ -210,7 +211,10 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
     const ativa = (
       await db.consultar("SELECT * FROM conversas WHERE contato_id = $1 AND status <> 'closed' ORDER BY ultima_mensagem_em DESC LIMIT 1", [c.id])
     )[0];
-    if (ativa) return ativa;
+    if (ativa) {
+      const ctx = await contato(ativa);
+      return assignDefaultAgent(db, ativa, dominioDaSecretaria(base, ctx.secretariat.name));
+    }
     return db.transacao(async (tx) => {
       const nova = (
         await tx.consultar("INSERT INTO conversas (cliente_id, contato_id, secretaria_id) VALUES ($1, $2, $3) RETURNING *", [c.cliente_id, c.id, c.secretaria_id])
@@ -218,7 +222,7 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
       const sec = c.secretaria_id ? (await tx.consultar<{ nome: string }>("SELECT nome FROM secretarias WHERE id = $1", [c.secretaria_id]))[0]?.nome : undefined;
       const saudacao = `Olá, ${c.nome.split(" ")[0]}! Sou o assistente de implantação da Aprova. Vamos mapear as regras dos processos${sec ? ` da **${sec}**` : ""}. Qual processo você quer configurar primeiro?`;
       await gravarMensagem(tx, nova.id as string, "agent", "text", saudacao);
-      return nova;
+      return assignDefaultAgent(tx, nova, dominioDaSecretaria(base, sec ?? ""));
     });
   }
 
@@ -337,6 +341,8 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
       historico.push({ id: pendingMessageId, role: "employee", content: texto });
       const aberto = await formularioAberto(db, conversaId);
       const ctx = await contato(conversa);
+      const domain = dominioDaSecretaria(base, ctx.secretariat.name);
+      const assignedConversation = await assignDefaultAgent(db, conversa, domain);
       const anexosAgente: AnexoAgente[] = await Promise.all(
         anexos.map(async (a) => ({ id: a.id as string, name: a.nome as string, mime_type: a.mime as string, text: await textoDoAnexo(a) })),
       );
@@ -345,10 +351,10 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
       try {
         r = await agente.turno({
           session_id: conversaId,
-          dominio: dominioDaSecretaria(base, ctx.secretariat.name),
+          dominio: domain,
           municipio: ctx.municipality.name,
           municipio_id: ctx.municipality.id,
-          ...(conversa.agente_id ? { agent_id: conversa.agente_id as string } : {}),
+          ...(assignedConversation.agente_id ? { agent_id: assignedConversation.agente_id as string } : {}),
           orgao: { municipio: ctx.municipality.name, uf: ctx.municipality.uf, orgao: ctx.secretariat.name, responsavel: { nome: ctx.name } },
           form: aberto ? paraFormulario(aberto) : null,
           messages: historico,

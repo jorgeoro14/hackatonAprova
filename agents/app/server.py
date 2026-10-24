@@ -16,7 +16,7 @@ from langchain_core.messages import AIMessage, HumanMessage
 from .agent.context import TurnContext
 from .agent.workflow import create_workflow
 from .agent.specification import prepare_specification
-from .agent.presentation import apply_form_preview
+from .agent.presentation import apply_form_preview, build_form_preview
 from .contracts import SCHEMAS, model_turn_schema
 from .rag.providers import chat_from_environment
 from .rag.schemas import CorpusScope
@@ -100,7 +100,13 @@ class ImplantationAgent:
             ).as_turn_data()
             initial_knowledge["prefetched"] = True
         response = self.graph.invoke(
-            {"messages": messages, "knowledge": initial_knowledge, "comparison": {}, "form_preview": {}},
+            {
+                "messages": messages, "knowledge": initial_knowledge, "comparison": {},
+                # Show the actual reference fields on the first identified Habite-se
+                # turn; previewing leaves all municipal facts pending confirmation.
+                "form_preview": (build_form_preview(context, initial_knowledge) or {})
+                if not current and discussed_habite_se and initial_knowledge else {},
+            },
             context=context,
             config={"recursion_limit": 30},
         )

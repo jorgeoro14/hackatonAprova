@@ -56,8 +56,8 @@ def apply_form_preview(result, preview):
         if result["form"] is None:
             result["form"] = deepcopy(preview)
             result["pendencias"] = deepcopy(preview.get("pendencias", []))
-            result["assistant_reply"] = (
-                "Segue abaixo a prévia editável do formulário, com os campos do modelo de referência. "
+            result["assistant_reply"] = result["assistant_reply"].rstrip() + "\n\n" + (
+                "A prévia editável do formulário está disponível abaixo, com os campos do modelo de referência. "
                 "As regras e pendências ainda precisam ser revisadas pela prefeitura; nada foi confirmado ou enviado."
             )
         result["pronto_para_revisao"] = True

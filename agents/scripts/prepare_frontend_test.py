@@ -14,6 +14,7 @@ def main():
     parser.add_argument("--domain", required=True, help="Actual domain ID containing the uploaded model")
     parser.add_argument("--conversation-id", help="Select explicitly when the municipality has multiple conversations")
     parser.add_argument("--allow-synthetic", action="store_true")
+    parser.add_argument("--default-only", action="store_true", help="Configure future conversations without selecting a session")
     args = parser.parse_args()
     base = "http://127.0.0.1:3333/api/v1"
     token = None
@@ -43,7 +44,7 @@ def main():
     conversations = call(f"/clients/{client['id']}/conversations")["items"]
     if args.conversation_id:
         conversations = [c for c in conversations if c["id"] == args.conversation_id]
-    if len(conversations) != 1:
+    if not args.default_only and len(conversations) != 1:
         raise ValueError("Use a dedicated local municipality with exactly one test conversation")
     agents = call(f"/clients/{client['id']}/agents")
     name = "Local implantation demo: " + args.domain
@@ -53,7 +54,9 @@ def main():
             f"/clients/{client['id']}/agents",
             {"name": name, "status": "draft", "normBaseIds": [args.domain]},
         )
-    call(f"/conversations/{conversations[0]['id']}/agent", {"agentId": agent["id"]}, method="PUT")
+    call(f"/clients/{client['id']}/agent-defaults/{args.domain}", {"agentId": agent["id"]}, method="PUT")
+    if not args.default_only:
+        call(f"/conversations/{conversations[0]['id']}/agent", {"agentId": agent["id"]}, method="PUT")
     destination = REPOSITORY_ROOT / "agents/.local/frontend-connection.json"
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(
@@ -68,7 +71,7 @@ def main():
         ),
         encoding="utf-8",
     )
-    print("Local test agent assigned; temporary credentials saved under ignored agents/.local/.")
+    print("Local domain default configured; temporary credentials saved under ignored agents/.local/.")
 
 
 if __name__ == "__main__":

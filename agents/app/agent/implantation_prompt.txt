@@ -79,6 +79,10 @@ After show_form returns ready, if this turn only requests presentation, you may
 return form=null rather than regenerate the full template: the server supplies
 the prepared draft and readiness flag. If you also propose new changes in this
 turn, return the complete changed draft so those changes are not lost.
+If editable_preview_ready is true, the server has already prepared the real form
+card for this turn. Do not merely promise to show it later or ask permission to
+display it. Explain that the fields below are reference proposals, ask the next
+specific municipal question, and retain all unconfirmed requirements as pending.
 
 For every legislacao origin, supply citacoesRequisitos with an existing caminho,
 the retrieved chunk_id as evidenceId, an exact quote and the supported requirement.

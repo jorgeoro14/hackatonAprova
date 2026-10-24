@@ -26,15 +26,16 @@ Nested lists, visibility conditions and conditional mandatory fields are retaine
 4. Register a dedicated fictional Cascavel contact through the frontend. Keep its
    conversation separate from the previous LAP demonstration to avoid changing
    process identity halfway through an interview.
-5. With the backend running, bind the correct domain. In PowerShell, replace both
-   placeholder values with the actual domain and conversation UUID:
+5. With the backend running, configure the municipality's default once:
 
    ```powershell
-   uv run --env-file .env --project agents --all-extras python -m agents.scripts.prepare_frontend_test --domain obras --conversation-id <conversation-uuid>
+   uv run --env-file .env --project agents --all-extras python -m agents.scripts.prepare_frontend_test --domain obras --default-only
    ```
 
-   `--conversation-id` is optional only when exactly one conversation exists for
-   the dedicated municipality. Omit `--allow-synthetic` for the real-template demo.
+   Future Obras conversations inherit this explicit default automatically; no
+   session ID copying or per-phone setup is required. Existing unassigned Obras
+   conversations are repaired on their next message. Explicit assignments stay
+   unchanged. Omit `--allow-synthetic` for the real-template demo.
    The helper stores a temporary server token in ignored `agents/.local/`; it
    does not print credentials. Backend agent assignment remains authenticated.
    Use an Obras conversation; an existing Meio Ambiente conversation keeps its
@@ -52,7 +53,9 @@ Nested lists, visibility conditions and conditional mandatory fields are retaine
 
 1. `Quero adaptar o modelo real de Habite-se para Cascavel, PR. Consulte os modelos disponíveis e apresente a origem do modelo antes de iniciar.`
    The agent must retrieve an available candidate or explicitly report its absence.
-2. Choose the returned real candidate explicitly. Do not accept a substituted LAP.
+2. The first identified Habite-se turn displays the actual template as an editable
+   draft. Its values remain reference proposals with pending municipal review.
+   Do not accept a substituted LAP.
 3. `Compare os campos existentes com as necessidades informadas. Consulte as normas disponíveis e diferencie exigências comprovadas, sugestões e informações ainda não validadas.`
 4. Answer a focused question using fictional operational information. For an
    existing nonessential field, request a label change; then correct that label in
