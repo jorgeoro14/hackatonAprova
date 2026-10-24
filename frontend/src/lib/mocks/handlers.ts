@@ -74,19 +74,26 @@ function summarize(list: Client[], from: string, to: string) {
 }
 
 function series(metric: MetricKey, total: number, days: number, step: number, cumulative: boolean) {
-  const points: { date: string; value: number }[] = []
   const n = Math.ceil(days / step)
-  for (let i = 0; i < n; i++) {
-    const t = (i + 1) / n
-    const d = new Date(NOW - (n - 1 - i) * step * 86_400_000).toISOString().slice(0, 10)
-    const wobble = 1 + Math.sin(i * 1.7) * 0.15
-    let value: number
-    if (metric === 'flowCreation') value = Math.round(total * (1.9 - t * 0.9) * wobble)
-    else if (cumulative) value = Math.round(total * t ** 1.2)
-    else value = Math.max(0, Math.round((total / n) * (1.7 - t) * wobble))
-    points.push({ date: d, value })
+  const date = (i: number) => new Date(NOW - (n - 1 - i) * step * 86_400_000).toISOString().slice(0, 10)
+  const wobble = (i: number) => 1 + Math.sin(i * 1.7) * 0.15
+  if (metric === 'flowCreation') {
+    return Array.from({ length: n }, (_, i) => ({ date: date(i), value: Math.round(total * (1.9 - ((i + 1) / n) * 0.9) * wobble(i)) }))
   }
-  return points
+  if (cumulative) {
+    return Array.from({ length: n }, (_, i) => ({ date: date(i), value: Math.round(total * ((i + 1) / n) ** 1.2) }))
+  }
+  // contagens por período: distribui o total (mais no início, caindo) sem perder resto de arredondamento
+  const w = Array.from({ length: n }, (_, i) => (1.7 - (i + 1) / n) * wobble(i))
+  const sum = w.reduce((a, b) => a + b, 0)
+  let acc = 0
+  let prev = 0
+  return w.map((x, i) => {
+    acc += (x / sum) * total
+    const value = Math.round(acc) - prev
+    prev = Math.round(acc)
+    return { date: date(i), value }
+  })
 }
 
 /* ----------------------------- Chat mock ----------------------------- */
