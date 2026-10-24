@@ -224,11 +224,31 @@ export const handlers = [
   http.get(url('/processes/:id'), authed(({ user, params }) => {
     const p = processes.find((x) => x.id === params.id)
     if (!p || !visibleClients(user).some((c) => c.id === p.clientId)) return err(404, 'NOT_FOUND', 'Processo não encontrado')
-    const fields = [
-      { key: 'documentos', label: 'Documentos exigidos', value: 'Documento pessoal; comprovante de endereço', status: 'filled' as const },
-      { key: 'taxa', label: 'Taxa', value: p.completeness > 60 ? 'R$ 120,00 na etapa de pagamento' : '', status: p.completeness > 60 ? ('to_validate' as const) : ('pending' as const) },
-      { key: 'prazo', label: 'Prazo total', value: p.completeness === 100 ? '30 dias' : '', status: p.completeness === 100 ? ('filled' as const) : ('pending' as const) },
+    const conv = conversations.find((c) => c.clientId === p.clientId && c.secretariat === p.secretariat)?.id
+    const done = p.completeness
+    // quanto mais completo o processo, mais campos preenchidos (ordem = ordem de coleta)
+    const spec: [string, string, string, string][] = [
+      ['resumo.apresentacao', 'Resumo do serviço', 'Apresentação no Portal', `Solicitação de ${p.name.toLowerCase()} pelo Portal de Serviços.`],
+      ['resumo.abertura', 'Resumo do serviço', 'Abertura', 'Externo (Portal)'],
+      ['documentos', 'Documentos e taxas', 'Documentos exigidos', 'Documento pessoal; comprovante de endereço; matrícula do imóvel'],
+      ['taxas', 'Documentos e taxas', 'Taxa', 'R$ 120,00, cobrada na etapa de pagamento'],
+      ['setores', 'Fluxo', 'Setores envolvidos', `${p.secretariat}; Protocolo; Jurídico`],
+      ['etapas', 'Fluxo', 'Etapas', 'Protocolo → Triagem → Análise → Parecer → Emissão'],
+      ['prazo', 'Fluxo', 'Prazo total', '30 dias úteis'],
+      ['despachos', 'Despachos e documento final', 'Despachos', 'Exigência; Parecer; Deferimento'],
+      ['documento_final', 'Despachos e documento final', 'Documento final', `Certidão com validade de 12 meses, assinada pelo titular de ${p.secretariat}`],
     ]
+    const filledCount = Math.round((done / 100) * spec.length)
+    const fields = spec.map(([key, section, label, value], i) => {
+      const filled = i < filledCount
+      const toValidate = !filled && i === filledCount && p.status !== 'not_started'
+      return {
+        key, section, label,
+        value: filled || toValidate ? value : '',
+        status: filled ? ('filled' as const) : toValidate ? ('to_validate' as const) : ('pending' as const),
+        sourceConversationId: filled || toValidate ? conv : undefined,
+      }
+    })
     return HttpResponse.json({ ...p, fields })
   })),
   http.get(url('/clients/:id/meetings'), authed(({ user, params }) => {

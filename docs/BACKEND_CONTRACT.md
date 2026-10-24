@@ -172,7 +172,8 @@ Process {                     // um processo/servi√ßo da prefeitura (ex.: Alvar√
 }
 
 ProcessDetail extends Process {
-  fields: [{ key, label, value, status: "filled"|"pending"|"to_validate", sourceMessageId?, sourceAttachmentId? }]
+  fields: [{ key, section, label, value, status: "filled"|"pending"|"to_validate",
+             sourceConversationId?, sourceMessageId?, sourceAttachmentId? }]   // section agrupa na tela; source* = origem p/ auditoria
 }
 
 Conversation {

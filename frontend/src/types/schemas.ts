@@ -153,9 +153,13 @@ export const processDetailSchema = processSchema.extend({
   fields: z.array(
     z.object({
       key: z.string(),
+      /** Agrupamento na tela (ex.: "Documentos e taxas"). */
+      section: z.string().default('Geral'),
       label: z.string(),
       value: z.string(),
       status: z.enum(['filled', 'pending', 'to_validate']),
+      /** Conversa de onde a informação veio (para o implantador auditar). */
+      sourceConversationId: z.string().optional(),
       sourceMessageId: z.string().optional(),
       sourceAttachmentId: z.string().optional(),
     }),

@@ -5,6 +5,8 @@ import { ChatPage } from '@/pages/ChatPage'
 import { DashboardLayout } from '@/features/dashboard/shell/DashboardLayout'
 import { TeamPage } from '@/pages/dashboard/Placeholders'
 import { ClientsPage } from '@/pages/dashboard/ClientsPage'
+import { ConversationPage } from '@/pages/dashboard/ConversationPage'
+import { ProcessDetailPage } from '@/pages/dashboard/ProcessDetailPage'
 import { ClientDetailPage } from '@/pages/dashboard/ClientDetailPage'
 import { OverviewPage } from '@/pages/dashboard/OverviewPage'
 import { RequireAuth, RequireRole } from './guards'
@@ -35,6 +37,8 @@ export function App() {
               <Route index element={<OverviewPage />} />
               <Route path="clients" element={<ClientsPage />} />
               <Route path="clients/:id" element={<ClientDetailPage />} />
+              <Route path="processes/:id" element={<ProcessDetailPage />} />
+              <Route path="conversations/:id" element={<ConversationPage />} />
               <Route element={<RequireRole role="head" />}>
                 <Route path="team" element={<TeamPage />} />
               </Route>

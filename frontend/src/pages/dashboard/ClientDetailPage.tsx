@@ -3,16 +3,18 @@ import { useState } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import { Card, ErrorState, ProgressBar, Skeleton, Tabs } from '@/components/ui'
 import { ClientStatusBadge, Deadline } from '@/features/dashboard/labels'
+import { ConversationsTab } from '@/features/dashboard/conversations/ConversationsTab'
 import { MeetingsTab } from '@/features/dashboard/clients/MeetingsTab'
 import { ProcessesTab } from '@/features/dashboard/clients/ProcessesTab'
 import { ApiError } from '@/lib/api/client'
 import { useClient } from '@/lib/api/hooks'
 import { formatDate, formatDuration, formatHours, formatNumber } from '@/lib/utils/format'
 
-type Tab = 'resumo' | 'processos' | 'reunioes'
+type Tab = 'resumo' | 'processos' | 'conversas' | 'reunioes'
 const tabs: { id: Tab; label: string }[] = [
   { id: 'resumo', label: 'Resumo' },
   { id: 'processos', label: 'Processos' },
+  { id: 'conversas', label: 'Conversas' },
   { id: 'reunioes', label: 'Reuniões' },
 ]
 
@@ -93,6 +95,7 @@ export function ClientDetailPage() {
           {tab === 'processos' && (
             <ProcessesTab clientId={c.id} secretariats={c.secretariats.map((s) => s.name)} secretariat={secretariat} onSecretariat={setSecretariat} />
           )}
+          {tab === 'conversas' && <ConversationsTab clientId={c.id} />}
           {tab === 'reunioes' && <MeetingsTab clientId={c.id} />}
         </>
       )}

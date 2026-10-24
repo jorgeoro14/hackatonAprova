@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Search } from 'lucide-react'
 import { EmptyState, ErrorState, Pagination, ProgressBar, Skeleton, Table, TBody, TD, TH, THead, TR } from '@/components/ui'
 import { ProcessStatusBadge, processStatusInfo } from '@/features/dashboard/labels'
@@ -17,6 +18,7 @@ interface Props {
 }
 
 export function ProcessesTab({ clientId, secretariats, secretariat, onSecretariat }: Props) {
+  const navigate = useNavigate()
   const [q, setQ] = useState('')
   const [status, setStatus] = useState('')
   const [page, setPage] = useState(1)
@@ -55,7 +57,7 @@ export function ProcessesTab({ clientId, secretariats, secretariat, onSecretaria
             </THead>
             <TBody>
               {items.map((p) => (
-                <TR key={p.id}>
+                <TR key={p.id} tabIndex={0} onClick={() => navigate(`/dashboard/processes/${p.id}`)} onKeyDown={(e) => e.key === 'Enter' && navigate(`/dashboard/processes/${p.id}`)}>
                   <TD className="font-medium">{p.name}</TD>
                   <TD className="text-muted">{p.secretariat}</TD>
                   <TD><ProcessStatusBadge status={p.status} /></TD>
