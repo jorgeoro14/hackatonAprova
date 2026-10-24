@@ -129,10 +129,15 @@ export function idDemo(chave: string): string {
   return `${h.slice(0, 8)}-${h.slice(8, 12)}-5${h.slice(13, 16)}-${variante}${h.slice(17, 20)}-${h.slice(20, 32)}`;
 }
 
-/** Processo-modelo usado nos formulários da demo: o primeiro de obras (ou do primeiro domínio que tiver processos). */
+/**
+ * Processo-modelo usado nos formulários da demo: prefere os de exemplo (o primeiro de obras, ou do primeiro domínio que
+ * tiver); processos importados do ambiente modelo só entram se não houver nenhum de exemplo.
+ */
 export function modeloDeDemo(base: BaseConhecimento): ProcessoModelo | undefined {
   const comProcessos = [...base.dominios.values()].filter((d) => d.processos.length);
-  return (comProcessos.find((d) => d.dominio.id === "obras") ?? comProcessos[0])?.processos[0];
+  const primeiro = (ps: ProcessoModelo[]) => (ps.find((p) => p.dominio === "obras") ?? ps[0]);
+  const exemplos = comProcessos.flatMap((d) => d.processos.filter((p) => p.exemplo));
+  return primeiro(exemplos) ?? primeiro(comProcessos.flatMap((d) => d.processos));
 }
 
 export async function bancoVazio(db: Banco): Promise<boolean> {
