@@ -247,7 +247,7 @@ export async function detalheProcesso(db: Banco, usuario: Usuario, id: string) {
   ).map((c) => ({
     key: texto(c.chave),
     label: texto(c.rotulo),
-    value: opcional(c.valor),
+    value: (c.valor ?? "") as string,
     status: c.status as "filled" | "pending" | "to_validate",
     ...(c.mensagem_origem_id ? { sourceMessageId: texto(c.mensagem_origem_id) } : {}),
     ...(c.anexo_origem_id ? { sourceAttachmentId: texto(c.anexo_origem_id) } : {}),
@@ -293,7 +293,7 @@ export interface Conversa {
   clientId: string;
   contactName: string;
   contactPhone: string;
-  secretariat: string | null;
+  secretariat: string;
   startedAt: string;
   lastMessageAt: string;
   messagesCount: number;
@@ -313,7 +313,7 @@ const paraConversa = (r: Linha): Conversa => ({
   clientId: texto(r.cliente_id),
   contactName: texto(r.contato),
   contactPhone: texto(r.telefone),
-  secretariat: opcional(r.secretaria),
+  secretariat: (r.secretaria ?? "—") as string,
   startedAt: texto(r.iniciada_em),
   lastMessageAt: texto(r.ultima_mensagem_em),
   messagesCount: numero(r.n_mensagens),
@@ -347,6 +347,42 @@ export async function detalheConversa(db: Banco, usuario: Usuario, id: string) {
     };
   });
   return { ...paraConversa(r), messages };
+}
+
+// ---------- Formulários (somente leitura) ----------
+
+const SQL_FORMULARIO = `
+  SELECT f.id, f.status, f.dados, f.revisao, f.confirmado_em, f.atualizado_em, cv.cliente_id
+  FROM formularios f JOIN conversas cv ON cv.id = f.conversa_id`;
+
+/** O JSON guardado em `dados` + os campos que o banco controla (id, status, atualizadoEm) e a revisão. */
+function paraFormulario(r: Linha) {
+  return {
+    formulario: {
+      ...(r.dados as Record<string, unknown>),
+      id: texto(r.id),
+      status: r.status as "rascunho" | "em_revisao" | "confirmado",
+      atualizadoEm: new Date(texto(r.atualizado_em)).toISOString(),
+    },
+    revision: numero(r.revisao),
+    confirmedAt: r.confirmado_em ? new Date(texto(r.confirmado_em)).toISOString() : null,
+  };
+}
+
+/** Último formulário do processo (maior revisão), se o processo estiver no escopo do usuário. */
+export async function formularioDoProcesso(db: Banco, usuario: Usuario, processoId: string) {
+  const p = ehUuid(processoId) ? await uma(db, "SELECT cliente_id FROM processos WHERE id = $1", [processoId]) : undefined;
+  if (!p || !(await clientesNoEscopo(db, usuario)).includes(texto(p.cliente_id))) throw naoEncontrado("Processo");
+  const r = await uma(db, `${SQL_FORMULARIO} WHERE f.processo_id = $1 ORDER BY f.revisao DESC, f.criado_em DESC LIMIT 1`, [processoId]);
+  if (!r) throw naoEncontrado("Formulário");
+  return paraFormulario(r);
+}
+
+/** Formulário aberto a partir da mensagem `kind: "form"` da conversa. */
+export async function detalheFormulario(db: Banco, usuario: Usuario, id: string) {
+  const r = ehUuid(id) ? await uma(db, `${SQL_FORMULARIO} WHERE f.id = $1`, [id]) : undefined;
+  if (!r || !(await clientesNoEscopo(db, usuario)).includes(texto(r.cliente_id))) throw naoEncontrado("Formulário");
+  return paraFormulario(r);
 }
 
 // ---------- Reuniões ----------

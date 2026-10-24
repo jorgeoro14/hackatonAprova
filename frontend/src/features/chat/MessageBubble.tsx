@@ -2,6 +2,7 @@ import { FileText } from 'lucide-react'
 import type { Message } from '@/types/schemas'
 import { cn } from '@/lib/utils/cn'
 import { useChatSession } from './ChatContext'
+import { FormularioLeituraPorId } from '@/features/dashboard/formulario/FormularioLeitura'
 import { FormularioCard } from './formulario/FormularioCard'
 import { Markdown } from './Markdown'
 
@@ -13,9 +14,11 @@ interface Props {
   /** Só a última mensagem do agente mostra as respostas rápidas. */
   showQuickReplies: boolean
   onQuickReply: (id: string, label: string) => void
+  /** Painel do administrador: o formulário aparece só para leitura, sem sessão de chat. */
+  readOnlyForm?: boolean
 }
 
-export function MessageBubble({ message, showQuickReplies, onQuickReply }: Props) {
+export function MessageBubble({ message, showQuickReplies, onQuickReply, readOnlyForm = false }: Props) {
   const mine = message.role === 'user'
   return (
     <div className={cn('flex flex-col gap-1.5', mine ? 'items-end' : 'items-start')}>
@@ -41,7 +44,8 @@ export function MessageBubble({ message, showQuickReplies, onQuickReply }: Props
 
       </div>
 
-      {message.kind === 'form' && message.formularioId && <FormCardSlot formularioId={message.formularioId} />}
+      {message.kind === 'form' && message.formularioId &&
+        (readOnlyForm ? <FormularioLeituraPorId formularioId={message.formularioId} /> : <FormCardSlot formularioId={message.formularioId} />)}
 
       {showQuickReplies && message.kind === 'quick_replies' && (
         <div className="flex flex-wrap gap-2">

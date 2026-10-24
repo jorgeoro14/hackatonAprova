@@ -4,6 +4,7 @@ import {
   authApi,
   clientsApi,
   conversationsApi,
+  formsApi,
   implementersApi,
   metricsApi,
   processesApi,
@@ -19,6 +20,8 @@ export const qk = {
   client: (id: string) => ['client', id] as const,
   processes: (id: string, p: object) => ['client', id, 'processes', p] as const,
   process: (id: string) => ['process', id] as const,
+  processForm: (id: string) => ['process', id, 'form'] as const,
+  form: (id: string) => ['form', id] as const,
   conversations: (id: string, p: object) => ['client', id, 'conversations', p] as const,
   conversation: (id: string) => ['conversation', id] as const,
   meetings: (id: string) => ['client', id, 'meetings'] as const,
@@ -50,6 +53,11 @@ export const useClientProcesses = (id: string, p: Parameters<typeof clientsApi.p
   useQuery({ queryKey: qk.processes(id, p), queryFn: () => clientsApi.processes(id, p), placeholderData: keepPreviousData })
 
 export const useProcess = (id: string) => useQuery({ queryKey: qk.process(id), queryFn: () => processesApi.get(id) })
+
+export const useProcessForm = (id: string) =>
+  useQuery({ queryKey: qk.processForm(id), queryFn: () => processesApi.form(id), retry: false })
+
+export const useForm = (id: string) => useQuery({ queryKey: qk.form(id), queryFn: () => formsApi.get(id), retry: false })
 
 export const useClientConversations = (id: string, p: Parameters<typeof clientsApi.conversations>[1] = {}) =>
   useQuery({ queryKey: qk.conversations(id, p), queryFn: () => clientsApi.conversations(id, p), placeholderData: keepPreviousData })
