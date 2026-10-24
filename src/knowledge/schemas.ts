@@ -9,6 +9,8 @@ export const SistemaFrontmatter = z.object({
   id: kebabId,
   titulo: z.string().min(1),
   tags: z.array(z.string()).default([]),
+  /** páginas de onde o conteúdo foi tirado (site, central de ajuda, telas) */
+  fontes: z.array(z.url()).default([]),
 });
 
 // ---------- Camada 2: legislação ----------
