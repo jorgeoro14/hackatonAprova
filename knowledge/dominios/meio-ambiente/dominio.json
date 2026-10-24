@@ -1,0 +1,11 @@
+{
+  "id": "meio-ambiente",
+  "nome": "Meio Ambiente",
+  "descricao": "Licenciamento ambiental municipal (LAP, LAI, LAO) e processos correlatos de secretarias de meio ambiente.",
+  "setoresTipicos": [
+    "Protocolo",
+    "Secretaria Municipal de Meio Ambiente",
+    "Fiscalização Ambiental",
+    "Conselho Municipal de Meio Ambiente"
+  ]
+}
