@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "scope": {"municipality_id": "example-city", "municipality_name": "Example City", "corpus_id": "phase-fixtures"},
+  "data_kind": "synthetic",
+  "queries": [
+    {"id": "triage-check", "question": "In the fictional guide, which role checks the site description before technical review?", "expected_document_ids": ["demo-triage"], "expected_phrases": ["licensing clerk", "site description"], "reference_answer": "In this synthetic example, the licensing clerk checks the site description before technical review."},
+    {"id": "final-content", "question": "Which fields does the fictional permit summary contain?", "expected_document_ids": ["demo-final-output"], "expected_phrases": ["application number", "activity description"], "reference_answer": "The synthetic permit summary contains the application number and the approved activity description."},
+    {"id": "cross-document", "question": "What does the fictional clerk check and what identifies the final permit summary?", "expected_document_ids": ["demo-triage", "demo-final-output"], "expected_phrases": ["site description", "application number"], "reference_answer": "The synthetic clerk checks the site description; the final summary includes the application number."},
+    {"id": "unknown-fee", "question": "What is the exact municipal fee amount in reais?", "should_abstain": true},
+    {"id": "unknown-deadline", "question": "Exactly how many days does Example City allow for issuing this permit?", "should_abstain": true}
+  ]
+}

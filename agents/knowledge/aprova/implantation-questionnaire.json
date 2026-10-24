@@ -1,0 +1,13 @@
+{
+  "resource_kind": "implementation_questionnaire",
+  "source_url": "https://github.com/jorgeoro14/hackatonAprova/blob/main/docs/modelo-formulario-implantacao.md",
+  "pinned_source_url": "https://github.com/jorgeoro14/hackatonAprova/blob/acd2de595365622a87f93765b008a1923140dcde/docs/modelo-formulario-implantacao.md",
+  "source_commit": "acd2de595365622a87f93765b008a1923140dcde",
+  "repository_path": "docs/modelo-formulario-implantacao.md",
+  "content_sha256": "bb991250c75a6cbfbdf9994a7b0a56e909d409a79d6756b03f53fe1465c10b7e",
+  "hash_normalization": "UTF-8 with LF newlines",
+  "verified_at": "2026-10-24",
+  "authority": "User-supplied project implantation questionnaire",
+  "is_municipal_process_baseline": false,
+  "contains_municipal_answers": false
+}

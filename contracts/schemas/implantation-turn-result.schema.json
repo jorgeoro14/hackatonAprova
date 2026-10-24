@@ -1,0 +1,925 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "assistant_reply": {
+      "type": "string",
+      "minLength": 1
+    },
+    "form": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "rascunho",
+                "em_revisao",
+                "confirmado"
+              ]
+            },
+            "dominio": {
+              "type": "string"
+            },
+            "modeloBase": {
+              "type": "string"
+            },
+            "orgao": {
+              "type": "object",
+              "properties": {
+                "municipio": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uf": {
+                  "type": "string",
+                  "minLength": 2,
+                  "maxLength": 2
+                },
+                "orgao": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "responsavel": {
+                  "type": "object",
+                  "properties": {
+                    "nome": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "cargo": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+                    }
+                  },
+                  "required": [
+                    "nome"
+                  ]
+                }
+              },
+              "required": [
+                "municipio",
+                "uf",
+                "orgao",
+                "responsavel"
+              ]
+            },
+            "legislacaoLocal": {
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "titulo": {
+                    "type": "string"
+                  },
+                  "numero": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "titulo"
+                ]
+              }
+            },
+            "processo": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                },
+                "nome": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "dominio": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                },
+                "exemplo": {
+                  "default": false,
+                  "type": "boolean"
+                },
+                "origem": {
+                  "type": "object",
+                  "properties": {
+                    "fonte": {
+                      "type": "string",
+                      "enum": [
+                        "ambiente-modelo",
+                        "manual"
+                      ]
+                    },
+                    "idExterno": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "importadoEm": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "fonte"
+                  ]
+                },
+                "descricao": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "publicoAlvo": {
+                  "minItems": 1,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "cidadao",
+                      "empresa",
+                      "servidor"
+                    ]
+                  }
+                },
+                "baseLegal": {
+                  "default": [],
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                  }
+                },
+                "resumo": {
+                  "type": "object",
+                  "properties": {
+                    "apresentacao": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "quemPodeSolicitar": {
+                      "type": "string"
+                    },
+                    "abertura": {
+                      "default": [
+                        "externo"
+                      ],
+                      "minItems": 1,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "externo",
+                          "interno"
+                        ]
+                      }
+                    },
+                    "camposDestaque": {
+                      "default": [],
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$"
+                      }
+                    }
+                  },
+                  "required": [
+                    "apresentacao"
+                  ]
+                },
+                "formulario": {
+                  "type": "object",
+                  "properties": {
+                    "secoes": {
+                      "minItems": 1,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "titulo": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "ajuda": {
+                            "type": "string"
+                          },
+                          "campos": {
+                            "minItems": 1,
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/$defs/__schema0"
+                            }
+                          },
+                          "avisos": {
+                            "default": [],
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "required": [
+                          "titulo",
+                          "campos"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "secoes"
+                  ]
+                },
+                "cartoes": {
+                  "default": [],
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$"
+                      },
+                      "nome": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "campos": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/$defs/__schema0"
+                        }
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "nome",
+                      "campos"
+                    ]
+                  }
+                },
+                "documentos": {
+                  "default": [],
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$"
+                      },
+                      "nome": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "obrigatorio": {
+                        "type": "boolean"
+                      },
+                      "descricao": {
+                        "type": "string"
+                      },
+                      "baseLegal": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                        }
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "nome",
+                      "obrigatorio"
+                    ]
+                  }
+                },
+                "taxas": {
+                  "default": [],
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "nome": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "baseCalculo": {
+                        "type": "string"
+                      },
+                      "etapa": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$"
+                      },
+                      "baseLegal": {
+                        "default": [],
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                        }
+                      }
+                    },
+                    "required": [
+                      "nome"
+                    ]
+                  }
+                },
+                "setores": {
+                  "minItems": 1,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$"
+                      },
+                      "nome": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "tipo": {
+                        "default": "interno",
+                        "type": "string",
+                        "enum": [
+                          "interno",
+                          "requerente",
+                          "automatico"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "nome"
+                    ]
+                  }
+                },
+                "fluxo": {
+                  "type": "object",
+                  "properties": {
+                    "etapas": {
+                      "minItems": 1,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9_]+$"
+                          },
+                          "nome": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "tipo": {
+                            "type": "string",
+                            "enum": [
+                              "protocolo",
+                              "triagem",
+                              "exigencia",
+                              "analise",
+                              "vistoria",
+                              "parecer",
+                              "audiencia",
+                              "decisao",
+                              "pagamento",
+                              "emissao",
+                              "arquivamento",
+                              "outro"
+                            ]
+                          },
+                          "responsavel": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9_]+$"
+                          },
+                          "prazoDias": {
+                            "type": "integer",
+                            "exclusiveMinimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          "contagemPrazo": {
+                            "type": "string",
+                            "enum": [
+                              "corridos",
+                              "uteis"
+                            ]
+                          },
+                          "suspendePrazoTotal": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "nome",
+                          "tipo",
+                          "responsavel"
+                        ]
+                      }
+                    },
+                    "transicoes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "de": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9_]+$"
+                          },
+                          "para": {
+                            "type": "string",
+                            "pattern": "^[a-z0-9_]+$"
+                          },
+                          "condicao": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "de",
+                          "para"
+                        ]
+                      }
+                    },
+                    "prazoTotalDias": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    }
+                  },
+                  "required": [
+                    "etapas",
+                    "transicoes"
+                  ]
+                },
+                "despachos": {
+                  "default": [],
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$"
+                      },
+                      "nome": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "tipo": {
+                        "type": "string",
+                        "enum": [
+                          "encaminhamento",
+                          "exigencia",
+                          "parecer",
+                          "deferimento",
+                          "indeferimento",
+                          "ciencia",
+                          "arquivamento",
+                          "outro"
+                        ]
+                      },
+                      "etapa": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$"
+                      },
+                      "levaPara": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$"
+                      },
+                      "texto": {
+                        "type": "string"
+                      },
+                      "visivelRequerente": {
+                        "default": true,
+                        "type": "boolean"
+                      },
+                      "exigeAssinatura": {
+                        "default": false,
+                        "type": "boolean"
+                      },
+                      "assinante": {
+                        "type": "string"
+                      },
+                      "prazoRespostaDias": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "baseLegal": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                        }
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "nome",
+                      "tipo",
+                      "etapa"
+                    ]
+                  }
+                },
+                "documentoFinal": {
+                  "type": "object",
+                  "properties": {
+                    "nome": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "numeracao": {
+                      "type": "string"
+                    },
+                    "etapa": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9_]+$"
+                    },
+                    "texto": {
+                      "type": "string"
+                    },
+                    "validadeMaximaMeses": {
+                      "type": "integer",
+                      "exclusiveMinimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "assinante": {
+                      "type": "string"
+                    },
+                    "baseLegal": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                      }
+                    }
+                  },
+                  "required": [
+                    "nome"
+                  ]
+                },
+                "observacoes": {
+                  "default": [],
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "nome",
+                "dominio",
+                "descricao",
+                "publicoAlvo",
+                "formulario",
+                "setores",
+                "fluxo"
+              ]
+            },
+            "origens": {
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "caminho": {
+                    "type": "string"
+                  },
+                  "origem": {
+                    "type": "string",
+                    "enum": [
+                      "modelo",
+                      "servidor",
+                      "legislacao"
+                    ]
+                  },
+                  "observacao": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "caminho",
+                  "origem"
+                ]
+              }
+            },
+            "pendencias": {
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "caminho": {
+                    "type": "string"
+                  },
+                  "descricao": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "caminho",
+                  "descricao"
+                ]
+              }
+            },
+            "evidenciasLegais": {
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "documentId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "municipalityId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "article": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "excerpt": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "sourceSha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "effectiveStatus": {
+                    "type": "string",
+                    "enum": [
+                      "confirmed",
+                      "unverified",
+                      "revoked"
+                    ]
+                  },
+                  "applicability": {
+                    "type": "string",
+                    "enum": [
+                      "confirmed",
+                      "conditional",
+                      "unverified"
+                    ]
+                  },
+                  "retrievedAt": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "id",
+                  "documentId",
+                  "municipalityId",
+                  "article",
+                  "excerpt",
+                  "sourceUrl",
+                  "sourceSha256",
+                  "effectiveStatus",
+                  "applicability",
+                  "retrievedAt"
+                ]
+              }
+            },
+            "citacoesRequisitos": {
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "caminho": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "evidenceId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "quote": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "requirement": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "validation": {
+                    "type": "string",
+                    "const": "pending_human_review"
+                  }
+                },
+                "required": [
+                  "caminho",
+                  "evidenceId",
+                  "quote",
+                  "requirement",
+                  "validation"
+                ]
+              }
+            },
+            "alteracoesCampos": {
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "fieldId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "add_field",
+                      "update_field",
+                      "remove_field"
+                    ]
+                  },
+                  "before": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string"
+                        },
+                        "additionalProperties": {}
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "after": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string"
+                        },
+                        "additionalProperties": {}
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "fieldId",
+                  "action",
+                  "before",
+                  "after"
+                ]
+              }
+            },
+            "atualizadoEm": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+            }
+          },
+          "required": [
+            "id",
+            "status",
+            "dominio",
+            "orgao",
+            "processo",
+            "atualizadoEm"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "pendencias": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "caminho": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "caminho",
+          "descricao"
+        ]
+      }
+    },
+    "pronto_para_revisao": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "assistant_reply",
+    "form",
+    "pronto_para_revisao"
+  ],
+  "$defs": {
+    "__schema0": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "rotulo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "enum": [
+            "texto",
+            "texto_longo",
+            "numero",
+            "moeda",
+            "data",
+            "cpf",
+            "cnpj",
+            "cpf_cnpj",
+            "email",
+            "telefone",
+            "cep",
+            "endereco",
+            "selecao",
+            "multipla_escolha",
+            "sim_nao",
+            "anexo",
+            "coordenadas",
+            "lista",
+            "processo"
+          ]
+        },
+        "obrigatorio": {
+          "type": "boolean"
+        },
+        "obrigatorioSe": {
+          "type": "string"
+        },
+        "visivelSe": {
+          "type": "string"
+        },
+        "opcoes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ajuda": {
+          "type": "string"
+        },
+        "campos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema0"
+          }
+        },
+        "baseLegal": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "rotulo",
+        "tipo",
+        "obrigatorio"
+      ]
+    }
+  },
+  "title": "implantation_turn",
+  "description": "Generated from src/agente/cliente.ts; backend Zod refinements remain authoritative."
+}

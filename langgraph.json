@@ -1,0 +1,7 @@
+{
+  "dependencies": ["./agents"],
+  "graphs": {
+    "requirements": "./agents/app/requirements/server.py:create_live_graph"
+  },
+  "env": ".env"
+}

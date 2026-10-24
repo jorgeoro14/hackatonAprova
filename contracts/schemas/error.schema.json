@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "error",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "error"
+  ],
+  "properties": {
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "message",
+        "missing_fields"
+      ],
+      "properties": {
+        "code": {
+          "enum": [
+            "validation_error",
+            "not_found",
+            "conflict",
+            "agent_unavailable",
+            "internal_error"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "missing_fields": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "municipality",
+              "process_name",
+              "objective",
+              "department",
+              "owner_role",
+              "trigger",
+              "steps",
+              "expected_output"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

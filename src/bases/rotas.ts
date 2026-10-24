@@ -1,5 +1,6 @@
 import type { FastifyInstance, FastifyRequest } from "fastify";
 import { z } from "zod";
+import { configureDefaultAgent } from "./defaults.js";
 import type { Banco } from "../db/banco.js";
 import { verificarToken, type Usuario } from "../dashboard/auth.js";
 import { buscarUsuario, ErroApi } from "../dashboard/repositorio.js";
@@ -119,6 +120,12 @@ export async function rotasBases(app: FastifyInstance, opcoes: OpcoesBases) {
   app.get<{ Params: { id: string } }>("/agents/:id/knowledge", async (req) =>
     conhecimentoDoAgente(db, await usuario(req), req.params.id),
   );
+
+  app.put<{ Params: { clientId: string; domain: string } }>("/clients/:clientId/agent-defaults/:domain", async (req) => {
+    const params = validar(z.object({ clientId: z.uuid(), domain: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/) }), req.params);
+    const { agentId } = validar(z.object({ agentId: z.uuid().nullable() }), req.body);
+    return configureDefaultAgent(db, await usuario(req), params.clientId, params.domain, agentId);
+  });
 
   app.put<{ Params: { id: string } }>("/conversations/:id/agent", async (req) => {
     const u = await usuario(req);

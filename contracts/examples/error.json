@@ -1,0 +1,14 @@
+{
+  "error": {
+    "code": "validation_error",
+    "message": "Complete the required fields before confirmation.",
+    "missing_fields": [
+      "department",
+      "expected_output",
+      "objective",
+      "owner_role",
+      "steps",
+      "trigger"
+    ]
+  }
+}

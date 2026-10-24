@@ -1,0 +1,14 @@
+{
+  "messages": [
+    {
+      "type": "human",
+      "content": "We need a way to contact applicants.",
+      "additional_kwargs": {
+        "actor_role": "municipal_representative"
+      }
+    }
+  ],
+  "process_query": "information-request-demo",
+  "mode": "adapt_existing",
+  "selected_template_id": "information-request-demo"
+}

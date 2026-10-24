@@ -1,0 +1,32 @@
+{
+  "ready_for_review": true,
+  "assistant_reply": "I captured the permit process. Please review the draft. You can also add any business rules, exceptions, or system integration needs before confirming.",
+  "form": {
+    "municipality": "Example City",
+    "process_name": "Small business permit",
+    "objective": "Authorize local business activity",
+    "department": "Economic Development",
+    "owner_role": "Licensing officer",
+    "trigger": "A business submits an application",
+    "inputs": [
+      "Application",
+      "Address document"
+    ],
+    "steps": [
+      {
+        "description": "Check the submitted documents",
+        "responsible_role": "Licensing officer"
+      },
+      {
+        "description": "Approve or reject the permit",
+        "responsible_role": "Supervisor"
+      }
+    ],
+    "business_rules": [],
+    "exceptions": [],
+    "current_systems": [],
+    "integration_needs": [],
+    "expected_output": "Approved permit or rejection notice"
+  },
+  "missing_fields": []
+}

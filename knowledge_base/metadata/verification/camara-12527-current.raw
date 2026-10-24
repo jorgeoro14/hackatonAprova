@@ -1,0 +1,1588 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.4.7.2 (Linux)"/>
+	<meta name="author" content="P_6140"/>
+	<meta name="created" content="2021-03-30T12:00:00"/>
+	<meta name="changedby" content="Ricardo Mandelli Bisi"/>
+	<meta name="changed" content="2025-08-06T09:06:00"/>
+	<style type="text/css">
+		@page { size: 21.59cm 27.94cm; margin-right: 2cm; margin-top: 2.5cm; margin-bottom: 2.5cm }
+		p { direction: ltr; color: #000000; orphans: 2; widows: 2; background: transparent }
+		p.western { font-family: "Times New Roman", serif; font-size: 12pt; so-language: pt-BR }
+		p.cjk { font-family: "Times New Roman", serif; font-size: 12pt }
+		p.ctl { font-family: "Times New Roman", serif; font-size: 10pt; so-language: ar-SA }
+		a:link { color: #0000ff; text-decoration: underline }
+		a:visited { color: #800080; text-decoration: underline }
+	</style>
+</head>
+<body lang="pt-BR" text="#000000" link="#0000ff" vlink="#800080" dir="ltr"><p align="center">
+<img src="data:image/png;base64,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" name="Object1" align="left" hspace="12" width="67" height="64"/>
+<br/>
+
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><b>CÂMARA
+DOS DEPUTADOS</b></font></p>
+<p align="center"><font size="2" style="font-size: 10pt">Centro de
+Documentação e Informação</font></p>
+<p align="justify"><br/>
+
+</p>
+<p align="center"><font size="4" style="font-size: 14pt"><b>LEI Nº
+12.527, DE 18 DE NOVEMBRO DE 2011</b></font></p>
+<p align="justify"><br/>
+
+</p>
+<p align="justify"><br/>
+
+</p>
+<p align="justify" style="margin-left: 8cm"><font size="3" style="font-size: 12pt">Regula
+o acesso a informações previsto no inciso XXXIII do art. 5º, no
+inciso II do § 3º do art. 37 e no § 2º do art. 216 da
+Constituição Federal; altera a Lei nº 8.112, de 11 de dezembro de
+1990; revoga a Lei nº 11.111, de 5 de maio de 2005, e dispositivos
+da Lei nº 8.159, de 8 de janeiro de 1991; e dá outras providências.
+</font>
+</p>
+<p align="justify"><br/>
+
+</p>
+<p align="justify"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt"><b>A
+PRESIDENTA DA REPÚBLICA </b></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Faço
+saber que o Congresso Nacional decreta e eu sanciono a seguinte Lei: </font>
+</p>
+<p align="justify"><br/>
+
+</p>
+<p align="center"><font size="3" style="font-size: 12pt">CAPÍTULO I</font></p>
+<p align="center"><font size="3" style="font-size: 12pt">DISPOSIÇÕES
+GERAIS</font></p>
+<p align="justify"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Art.
+1º Esta Lei dispõe sobre os procedimentos a serem observados pela
+União, Estados, Distrito Federal e Municípios, com o fim de
+garantir o acesso a informações previsto no inciso XXXIII do art.
+5º, no inciso II do § 3º do art. 37 e no § 2º do art. 216 da
+Constituição Federal. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Parágrafo
+único. Subordinam-se ao regime desta Lei: </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- os órgãos públicos integrantes da administração direta dos
+Poderes Executivo, Legislativo, incluindo as Cortes de Contas, e
+Judiciário e do Ministério Público; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- as autarquias, as fundações públicas, as empresas públicas, as
+sociedades de economia mista e demais entidades controladas direta ou
+indiretamente pela União, Estados, Distrito Federal e Municípios. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+2º Aplicam-se as disposições desta Lei, no que couber, às
+entidades privadas sem fins lucrativos que recebam, para realização
+de ações de interesse público, recursos públicos diretamente do
+orçamento ou mediante subvenções sociais, contrato de gestão,
+termo de parceria, convênios, acordo, ajustes ou outros instrumentos
+congêneres. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Parágrafo
+único. A publicidade a que estão submetidas as entidades citadas no
+</font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+refere-se à parcela dos recursos públicos recebidos e à sua
+destinação, sem prejuízo das prestações de contas a que estejam
+legalmente obrigadas. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+3º Os procedimentos previstos nesta Lei destinam-se a assegurar o
+direito fundamental de acesso à informação e devem ser executados
+em conformidade com os princípios básicos da administração
+pública e com as seguintes diretrizes: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- observância da publicidade como preceito geral e do sigilo como
+exceção; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- divulgação de informações de interesse público,
+independentemente de solicitações; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- utilização de meios de comunicação viabilizados pela tecnologia
+da informação; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IV
+- fomento ao desenvolvimento da cultura de transparência na
+administração pública; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">V
+- desenvolvimento do controle social da administração pública. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+4º Para os efeitos desta Lei, considera-se: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- informação: dados, processados ou não, que podem ser utilizados
+para produção e transmissão de conhecimento, contidos em qualquer
+meio, suporte ou formato; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- documento: unidade de registro de informações, qualquer que seja
+o suporte ou formato; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- informação sigilosa: aquela submetida temporariamente à
+restrição de acesso público em razão de sua imprescindibilidade
+para a segurança da sociedade e do Estado; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IV
+- informação pessoal: aquela relacionada à pessoa natural
+identificada ou identificável; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">V
+- tratamento da informação: conjunto de ações referentes à
+produção, recepção, classificação, utilização, acesso,
+reprodução, transporte, transmissão, distribuição, arquivamento,
+armazenamento, eliminação, avaliação, destinação ou controle da
+informação; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VI
+- disponibilidade: qualidade da informação que pode ser conhecida e
+utilizada por indivíduos, equipamentos ou sistemas autorizados; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VII
+- autenticidade: qualidade da informação que tenha sido produzida,
+expedida, recebida ou modificada por determinado indivíduo,
+equipamento ou sistema; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VIII
+- integridade: qualidade da informação não modificada, inclusive
+quanto à origem, trânsito e destino; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IX
+- primariedade: qualidade da informação coletada na fonte, com o
+máximo de detalhamento possível, sem modificações. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+5º É dever do Estado garantir o direito de acesso à informação,
+que será franqueada, mediante procedimentos objetivos e ágeis, de
+forma transparente, clara e em linguagem de fácil compreensão. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="center"><font size="3" style="font-size: 12pt">CAPÍTULO II</font></p>
+<p align="center"><font size="3" style="font-size: 12pt">DO ACESSO A
+INFORMAÇÕES E DA SUA DIVULGAÇÃO</font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+6º Cabe aos órgãos e entidades do poder público, observadas as
+normas e procedimentos específicos aplicáveis, assegurar a: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- gestão transparente da informação, propiciando amplo acesso a
+ela e sua divulgação; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- proteção da informação, garantindo-se sua disponibilidade,
+autenticidade e integridade; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- proteção da informação sigilosa e da informação pessoal,
+observada a sua disponibilidade, autenticidade, integridade e
+eventual restrição de acesso. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+7º O acesso à informação de que trata esta Lei compreende, entre
+outros, os direitos de obter: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- orientação sobre os procedimentos para a consecução de acesso,
+bem como sobre o local onde poderá ser encontrada ou obtida a
+informação almejada; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- informação contida em registros ou documentos, produzidos ou
+acumulados por seus órgãos ou entidades, recolhidos ou não a
+arquivos públicos; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- informação produzida ou custodiada por pessoa física ou entidade
+privada decorrente de qualquer vínculo com seus órgãos ou
+entidades, mesmo que esse vínculo já tenha cessado; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IV
+- informação primária, íntegra, autêntica e atualizada; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">V
+- informação sobre atividades exercidas pelos órgãos e entidades,
+inclusive as relativas à sua política, organização e serviços;</font></p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VI
+- informação pertinente à administração do patrimônio público,
+utilização de recursos públicos, licitação, contratos
+administrativos; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VII
+- informação relativa: </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">a)
+à implementação, acompanhamento e resultados dos programas,
+projetos e ações dos órgãos e entidades públicas, bem como metas
+e indicadores propostos;  </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">b)
+ao resultado de inspeções, auditorias, prestações e tomadas de
+contas realizadas pelos órgãos de controle interno e externo,
+incluindo prestações de contas relativas a exercícios anteriores. 
+</font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VIII
+- </font><font color="#0000ff"><u><a href="https://www2.camara.leg.br/legin/fed/lei/2022/lei-14345-24-maio-2022-792693-veto-165338-pl.html"><font size="3" style="font-size: 12pt"><i>(VETADO
+na Lei nº 14.345, de 24/5/2022)</i></font></a></u></font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º O acesso à informação previsto no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+não compreende as informações referentes a projetos de pesquisa e
+desenvolvimento científicos ou tecnológicos cujo sigilo seja
+imprescindível à segurança da sociedade e do Estado. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+2º Quando não for autorizado acesso integral à informação por
+ser ela parcialmente sigilosa, é assegurado o acesso à parte não
+sigilosa por meio de certidão, extrato ou cópia com ocultação da
+parte sob sigilo. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+3º O direito de acesso aos documentos ou às informações neles
+contidas utilizados como fundamento da tomada de decisão e do ato
+administrativo será assegurado com a edição do ato decisório
+respectivo. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+4º A negativa de acesso às informações objeto de pedido formulado
+aos órgãos e entidades referidas no art. 1o, quando não
+fundamentada, sujeitará o responsável a medidas disciplinares, nos
+termos do art. 32 desta Lei. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+5º Informado do extravio da informação solicitada, poderá o
+interessado requerer à autoridade competente a imediata abertura de
+sindicância para apurar o desaparecimento da respectiva
+documentação. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+6º Verificada a hipótese prevista no § 5º deste artigo, o
+responsável pela guarda da informação extraviada deverá, no prazo
+de 10 (dez) dias, justificar o fato e indicar testemunhas que
+comprovem sua alegação. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+8º É dever dos órgãos e entidades públicas promover,
+independentemente de requerimentos, a divulgação em local de fácil
+acesso, no âmbito de suas competências, de informações de
+interesse coletivo ou geral por eles produzidas ou custodiadas. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Na divulgação das informações a que se refere o </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">,
+deverão constar, no mínimo: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- registro das competências e estrutura organizacional, endereços e
+telefones das respectivas unidades e horários de atendimento ao
+público; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- registros de quaisquer repasses ou transferências de recursos
+financeiros; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- registros das despesas; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IV
+- informações concernentes a procedimentos licitatórios, inclusive
+os respectivos editais e resultados, bem como a todos os contratos
+celebrados; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">V
+- dados gerais para o acompanhamento de programas, ações, projetos
+e obras de órgãos e entidades; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VI
+- respostas a perguntas mais frequentes da sociedade. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º Para cumprimento do disposto no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">,
+os órgãos e entidades públicas deverão utilizar todos os meios e
+instrumentos legítimos de que dispuserem, sendo obrigatória a
+divulgação em sítios oficiais da rede mundial de computadores
+(internet). </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+3º Os sítios de que trata o § 2º deverão, na forma de
+regulamento, atender, entre outros, aos seguintes requisitos: </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- conter ferramenta de pesquisa de conteúdo que permita o acesso à
+informação de forma objetiva, transparente, clara e em linguagem de
+fácil compreensão; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- possibilitar a gravação de relatórios em diversos formatos
+eletrônicos, inclusive abertos e não proprietários, tais como
+planilhas e texto, de modo a facilitar a análise das informações; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- possibilitar o acesso automatizado por sistemas externos em
+formatos abertos, estruturados e legíveis por máquina; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IV
+- divulgar em detalhes os formatos utilizados para estruturação da
+informação; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">V
+- garantir a autenticidade e a integridade das informações
+disponíveis para acesso; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VI
+- manter atualizadas as informações disponíveis para acesso; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VII
+- indicar local e instruções que permitam ao interessado
+comunicar-se, por via eletrônica ou telefônica, com o órgão ou
+entidade detentora do sítio; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VIII
+- adotar as medidas necessárias para garantir a acessibilidade de
+conteúdo para pessoas com deficiência, nos termos do art. 17 da Lei
+nº 10.098, de 19 de dezembro de 2000, e do art. 9º da Convenção
+sobre os Direitos das Pessoas com Deficiência, aprovada pelo Decreto
+Legislativo nº 186, de 9 de julho de 2008. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+4º Os Municípios com população de até 10.000 (dez mil)
+habitantes ficam dispensados da divulgação obrigatória na internet
+a que se refere o § 2º, mantida a obrigatoriedade de divulgação,
+em tempo real, de informações relativas à execução orçamentária
+e financeira, nos critérios e prazos previstos no art. 73-B da Lei
+Complementar nº 101, de 4 de maio de 2000 (Lei de Responsabilidade
+Fiscal). </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+8º-A. As entidades com personalidade jurídica de direito privado,
+constituídas sob a forma de serviço social autônomo, que sejam
+destinatárias de contribuições ou de recursos públicos federais
+decorrentes de contrato de gestão deverão divulgar as seguintes
+informações relativas aos respectivos empregados:</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- o plano de cargos e salários, inclusive com a divulgação dos
+critérios para a evolução na carreira e para a fixação da
+política salarial;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- o quantitativo total de empregados da entidade, discriminado por
+cargo e por faixas salariais, acompanhado do nome do empregado e do
+cargo por ele ocupado;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- lista, discriminada por faixas salariais, das parcelas
+remuneratórias e indenizatórias, ainda que eventuais, incluídos os
+auxílios, as ajudas de custo, as gratificações, os jetons e
+quaisquer outras vantagens pecuniárias, que os empregados possam
+receber em virtude de condições específicas; e</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IV
+- o quantitativo de funções gratificadas, os critérios para sua
+ocupação e o rol dos empregados que ocupam cada espécie de função
+gratificada. </font><font color="#0000ff"><u><a href="https://www2.camara.leg.br/legin/fed/lei/2025/lei-15141-2-junho-2025-797540-publicacaooriginal-175543-pl.html"><font size="3" style="font-size: 12pt"><i>(Artigo
+acrescido pela Lei nº 15.141, de 2/6/2025)</i></font></a></u></font></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+8º-B. Os conselhos de fiscalização profissional devem divulgar, de
+forma nominal e individualizada, lista das parcelas remuneratórias e
+indenizatórias, ainda que eventuais, incluídos os auxílios, as
+ajudas de custo, as gratificações, os jetons e quaisquer outras
+vantagens pecuniárias, que os empregados possam receber em virtude
+de condições específicas. </font><font color="#0000ff"><u><a href="https://www2.camara.leg.br/legin/fed/lei/2025/lei-15141-2-junho-2025-797540-publicacaooriginal-175543-pl.html"><font size="3" style="font-size: 12pt"><i>(Artigo
+acrescido pela Lei nº 15.141, de 2/6/2025)</i></font></a></u></font></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+9º O acesso a informações públicas será assegurado mediante: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- criação de serviço de informações ao cidadão, nos órgãos e
+entidades do poder público, em local com condições apropriadas
+para: </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">a)
+atender e orientar o público quanto ao acesso a informações;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">b)
+informar sobre a tramitação de documentos nas suas respectivas
+unidades;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">c)
+protocolizar documentos e requerimentos de acesso a informações; e 
+</font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- realização de audiências ou consultas públicas, incentivo à
+participação popular ou a outras formas de divulgação. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="center" style="page-break-after: avoid"><font size="3" style="font-size: 12pt">CAPÍTULO
+III</font></p>
+<p align="center"><font size="3" style="font-size: 12pt">DO
+PROCEDIMENTO DE ACESSO À INFORMAÇÃO</font></p>
+<p align="center"><br/>
+
+</p>
+<p align="center" style="page-break-after: avoid"><font size="3" style="font-size: 12pt"><b>Seção
+I</b></font></p>
+<p align="center"><font size="3" style="font-size: 12pt"><b>Do Pedido
+de Acesso</b></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+10. Qualquer interessado poderá apresentar pedido de acesso a
+informações aos órgãos e entidades referidos no art. 1º desta
+Lei, por qualquer meio legítimo, devendo o pedido conter a
+identificação do requerente e a especificação da informação
+requerida. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+1º Para o acesso a informações de interesse público, a
+identificação do requerente não pode conter exigências que
+inviabilizem a solicitação. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+2º Os órgãos e entidades do poder público devem viabilizar
+alternativa de encaminhamento de pedidos de acesso por meio de seus
+sítios oficiais na internet. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+3º São vedadas quaisquer exigências relativas aos motivos
+determinantes da solicitação de informações de interesse público.
+</font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+11. O órgão ou entidade pública deverá autorizar ou conceder o
+acesso imediato à informação disponível. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Não sendo possível conceder o acesso imediato, na forma
+disposta no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">,
+o órgão ou entidade que receber o pedido deverá, em prazo não
+superior a 20 (vinte) dias: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- comunicar a data, local e modo para se realizar a consulta, efetuar
+a reprodução ou obter a certidão; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- indicar as razões de fato ou de direito da recusa, total ou
+parcial, do acesso pretendido; ou </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- comunicar que não possui a informação, indicar, se for do seu
+conhecimento, o órgão ou a entidade que a detém, ou, ainda,
+remeter o requerimento a esse órgão ou entidade, cientificando o
+interessado da remessa de seu pedido de informação. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+2º O prazo referido no § 1º poderá ser prorrogado por mais 10
+(dez) dias, mediante justificativa expressa, da qual será
+cientificado o requerente. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+3º Sem prejuízo da segurança e da proteção das informações e
+do cumprimento da legislação aplicável, o órgão ou entidade
+poderá oferecer meios para que o próprio requerente possa pesquisar
+a informação de que necessitar. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+4º Quando não for autorizado o acesso por se tratar de informação
+total ou parcialmente sigilosa, o requerente deverá ser informado
+sobre a possibilidade de recurso, prazos e condições para sua
+interposição, devendo, ainda, ser-lhe indicada a autoridade
+competente para sua apreciação. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+5º A informação armazenada em formato digital será fornecida
+nesse formato, caso haja anuência do requerente. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+6º Caso a informação solicitada esteja disponível ao público em
+formato impresso, eletrônico ou em qualquer outro meio de acesso
+universal, serão informados ao requerente, por escrito, o lugar e a
+forma pela qual se poderá consultar, obter ou reproduzir a referida
+informação, procedimento esse que desonerará o órgão ou entidade
+pública da obrigação de seu fornecimento direto, salvo se o
+requerente declarar não dispor de meios para realizar por si mesmo
+tais procedimentos. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+12. O serviço de busca e de fornecimento de informação é
+gratuito. </font><font color="#0000ff"><u><a href="https://www2.camara.leg.br/legin/fed/lei/2021/lei-14129-29-marco-2021-791203-publicacaooriginal-162567-pl.html"><font size="3" style="font-size: 12pt"><i>(“Caput”
+do artigo com redação dada pela Lei nº 14.129, de 29/3/2021,
+publicada no DOU de 30/3/2021, em vigor 90 dias após a publicação
+para a União; 120 dias após a publicação para os Estados e o
+Distrito Federal; e 180 dias após a publicação para os Municípios)</i></font></a></u></font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º O órgão ou a entidade poderá cobrar exclusivamente o valor
+necessário ao ressarcimento dos custos dos serviços e dos materiais
+utilizados, quando o serviço de busca e de fornecimento da
+informação exigir reprodução de documentos pelo órgão ou pela
+entidade pública consultada. </font><font color="#0000ff"><u><a href="https://www2.camara.leg.br/legin/fed/lei/2021/lei-14129-29-marco-2021-791203-publicacaooriginal-162567-pl.html"><font size="3" style="font-size: 12pt"><i>(Parágrafo
+acrescido pela Lei nº 14.129, de 29/3/2021, publicada no DOU de
+30/3/2021, em vigor 90 dias após a publicação para a União; 120
+dias após a publicação para os Estados e o Distrito Federal; e 180
+dias após a publicação para os Municípios)</i></font></a></u></font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º Estará isento de ressarcir os custos previstos no § 1º deste
+artigo aquele cuja situação econômica não lhe permita fazê-lo
+sem prejuízo do sustento próprio ou da família, declarada nos
+termos da Lei nº 7.115, de 29 de agosto de 1983. </font><font color="#0000ff"><u><a href="https://www2.camara.leg.br/legin/fed/lei/2021/lei-14129-29-marco-2021-791203-publicacaooriginal-162567-pl.html"><font size="3" style="font-size: 12pt"><i>(Parágrafo
+único transformado em § 2º e com redação dada pela Lei nº
+14.129, de 29/3/2021, publicada no DOU de 30/3/2021, em vigor 90 dias
+após a publicação para a União; 120 dias após a publicação
+para os Estados e o Distrito Federal; e 180 dias após a publicação
+para os Municípios)</i></font></a></u></font></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+13. Quando se tratar de acesso à informação contida em documento
+cuja manipulação possa prejudicar sua integridade, deverá ser
+oferecida a consulta de cópia, com certificação de que esta
+confere com o original. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Parágrafo
+único. Na impossibilidade de obtenção de cópias, o interessado
+poderá solicitar que, a suas expensas e sob supervisão de servidor
+público, a reprodução seja feita por outro meio que não ponha em
+risco a conservação do documento original. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+14. É direito do requerente obter o inteiro teor de decisão de
+negativa de acesso, por certidão ou cópia. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="center"><font size="3" style="font-size: 12pt"><b>Seção
+II</b></font></p>
+<p align="center"><font size="3" style="font-size: 12pt"><b>Dos
+Recursos</b></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+15. No caso de indeferimento de acesso a informações ou às razões
+da negativa do acesso, poderá o interessado interpor recurso contra
+a decisão no prazo de 10 (dez) dias a contar da sua ciência. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Parágrafo
+único. O recurso será dirigido à autoridade hierarquicamente
+superior à que exarou a decisão impugnada, que deverá se
+manifestar no prazo de 5 (cinco) dias. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+16. Negado o acesso a informação pelos órgãos ou entidades do
+Poder Executivo Federal, o requerente poderá recorrer à
+Controladoria- Geral da União, que deliberará no prazo de 5 (cinco)
+dias se: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- o acesso à informação não classificada como sigilosa for
+negado; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- a decisão de negativa de acesso à informação total ou
+parcialmente classificada como sigilosa não indicar a autoridade
+classificadora ou a hierarquicamente superior a quem possa ser
+dirigido pedido de acesso ou desclassificação; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- os procedimentos de classificação de informação sigilosa
+estabelecidos nesta Lei não tiverem sido observados; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IV
+- estiverem sendo descumpridos prazos ou outros procedimentos
+previstos nesta Lei. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+1º O recurso previsto neste artigo somente poderá ser dirigido à
+Controladoria-Geral da União depois de submetido à apreciação de
+pelo menos uma autoridade hierarquicamente superior àquela que
+exarou a decisão impugnada, que deliberará no prazo de 5 (cinco)
+dias. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+2º Verificada a procedência das razões do recurso, a
+Controladoria-Geral da União determinará ao órgão ou entidade que
+adote as providências necessárias para dar cumprimento ao disposto
+nesta Lei. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+3º Negado o acesso à informação pela Controladoria-Geral da
+União, poderá ser interposto recurso à Comissão Mista de
+Reavaliação de Informações, a que se refere o art. 35. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+17. No caso de indeferimento de pedido de desclassificação de
+informação protocolado em órgão da administração pública
+federal, poderá o requerente recorrer ao Ministro de Estado da área,
+sem prejuízo das competências da Comissão Mista de Reavaliação
+de Informações, previstas no art. 35, e do disposto no art. 16. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+1º O recurso previsto neste artigo somente poderá ser dirigido às
+autoridades mencionadas depois de submetido à apreciação de pelo
+menos uma autoridade hierarquicamente superior à autoridade que
+exarou a decisão impugnada e, no caso das Forças Armadas, ao
+respectivo Comando. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º Indeferido o recurso previsto no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+que tenha como objeto a desclassificação de informação secreta ou
+ultrassecreta, caberá recurso à Comissão Mista de Reavaliação de
+Informações prevista no art. 35. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+18. Os procedimentos de revisão de decisões denegatórias
+proferidas no recurso previsto no art. 15 e de revisão de
+classificação de documentos sigilosos serão objeto de
+regulamentação própria dos Poderes Legislativo e Judiciário e do
+Ministério Público, em seus respectivos âmbitos, assegurado ao
+solicitante, em qualquer caso, o direito de ser informado sobre o
+andamento de seu pedido. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+19. (VETADO). </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º (VETADO). </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+2º Os órgãos do Poder Judiciário e do Ministério Público
+informarão ao Conselho Nacional de Justiça e ao Conselho Nacional
+do Ministério Público, respectivamente, as decisões que, em grau
+de recurso, negarem acesso a informações de interesse público. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+20. Aplica-se subsidiariamente, no que couber, a Lei nº 9.784, de 29
+de janeiro de 1999, ao procedimento de que trata este Capítulo. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="center"><font size="3" style="font-size: 12pt">CAPÍTULO IV</font></p>
+<p align="center"><font size="3" style="font-size: 12pt">DAS
+RESTRIÇÕES DE ACESSO À INFORMAÇÃO</font></p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="3" style="font-size: 12pt"><b>Seção I</b></font></p>
+<p align="center"><font size="3" style="font-size: 12pt"><b>Disposições
+Gerais</b></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+21. Não poderá ser negado acesso à informação necessária à
+tutela judicial ou administrativa de direitos fundamentais. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Parágrafo
+único. As informações ou documentos que versem sobre condutas que
+impliquem violação dos direitos humanos praticada por agentes
+públicos ou a mando de autoridades públicas não poderão ser
+objeto de restrição de acesso. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+22. O disposto nesta Lei não exclui as demais hipóteses legais de
+sigilo e de segredo de justiça nem as hipóteses de segredo
+industrial decorrentes da exploração direta de atividade econômica
+pelo Estado ou por pessoa física ou entidade privada que tenha
+qualquer vínculo com o poder público. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="center"><font size="3" style="font-size: 12pt"><b>Seção
+II</b></font></p>
+<p align="center"><font size="3" style="font-size: 12pt"><b>Da
+Classificação da Informação quanto ao Grau e Prazos de Sigilo</b></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+23. São consideradas imprescindíveis à segurança da sociedade ou
+do Estado e, portanto, passíveis de classificação as informações
+cuja divulgação ou acesso irrestrito possam: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- pôr em risco a defesa e a soberania nacionais ou a integridade do
+território nacional; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- prejudicar ou pôr em risco a condução de negociações ou as
+relações internacionais do País, ou as que tenham sido fornecidas
+em caráter sigiloso por outros Estados e organismos internacionais; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- pôr em risco a vida, a segurança ou a saúde da população; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IV
+- oferecer elevado risco à estabilidade financeira, econômica ou
+monetária do País; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">V
+- prejudicar ou causar risco a planos ou operações estratégicos
+das Forças Armadas; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VI
+- prejudicar ou causar risco a projetos de pesquisa e desenvolvimento
+científico ou tecnológico, assim como a sistemas, bens, instalações
+ou áreas de interesse estratégico nacional; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VII
+- pôr em risco a segurança de instituições ou de altas
+autoridades nacionais ou estrangeiras e seus familiares; ou </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VIII
+- comprometer atividades de inteligência, bem como de investigação
+ou fiscalização em andamento, relacionadas com a prevenção ou
+repressão de infrações. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+24. A informação em poder dos órgãos e entidades públicas,
+observado o seu teor e em razão de sua imprescindibilidade à
+segurança da sociedade ou do Estado, poderá ser classificada como
+ultrassecreta, secreta ou reservada. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Os prazos máximos de restrição de acesso à informação,
+conforme a classificação prevista no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">,
+vigoram a partir da data de sua produção e são os seguintes: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- ultrassecreta: 25 (vinte e cinco) anos; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- secreta: 15 (quinze) anos; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- reservada: 5 (cinco) anos. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º As informações que puderem colocar em risco a segurança do
+Presidente e Vice-Presidente da República e respectivos cônjuges e
+filhos (as) serão classificadas como reservadas e ficarão sob
+sigilo até o término do mandato em exercício ou do último
+mandato, em caso de reeleição. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+3º Alternativamente aos prazos previstos no § 1º, poderá ser
+estabelecida como termo final de restrição de acesso a ocorrência
+de determinado evento, desde que este ocorra antes do transcurso do
+prazo máximo de classificação. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+4º Transcorrido o prazo de classificação ou consumado o evento que
+defina o seu termo final, a informação tornar-se-á,
+automaticamente, de acesso público. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+5º Para a classificação da informação em determinado grau de
+sigilo, deverá ser observado o interesse público da informação e
+utilizado o critério menos restritivo possível, considerados: </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- a gravidade do risco ou dano à segurança da sociedade e do
+Estado; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- o prazo máximo de restrição de acesso ou o evento que defina seu
+termo final. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="center"><font size="3" style="font-size: 12pt"><b>Seção
+III</b></font></p>
+<p align="center"><font size="3" style="font-size: 12pt"><b>Da
+Proteção e do Controle de Informações Sigilosas</b></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+25. É dever do Estado controlar o acesso e a divulgação de
+informações sigilosas produzidas por seus órgãos e entidades,
+assegurando a sua proteção. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+1º O acesso, a divulgação e o tratamento de informação
+classificada como sigilosa ficarão restritos a pessoas que tenham
+necessidade de conhecê-la e que sejam devidamente credenciadas na
+forma do regulamento, sem prejuízo das atribuições dos agentes
+públicos autorizados por lei. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+2º O acesso à informação classificada como sigilosa cria a
+obrigação para aquele que a obteve de resguardar o sigilo. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+3º Regulamento disporá sobre procedimentos e medidas a serem
+adotados para o tratamento de informação sigilosa, de modo a
+protegê-la contra perda, alteração indevida, acesso, transmissão
+e divulgação não autorizados. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+26. As autoridades públicas adotarão as providências necessárias
+para que o pessoal a elas subordinado hierarquicamente conheça as
+normas e observe as medidas e procedimentos de segurança para
+tratamento de informações sigilosas. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Parágrafo
+único. A pessoa física ou entidade privada que, em razão de
+qualquer vínculo com o poder público, executar atividades de
+tratamento de informações sigilosas adotará as providências
+necessárias para que seus empregados, prepostos ou representantes
+observem as medidas e procedimentos de segurança das informações
+resultantes da aplicação desta Lei. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="center"><font size="3" style="font-size: 12pt"><b>Seção
+IV</b></font></p>
+<p align="center"><font size="3" style="font-size: 12pt"><b>Dos
+Procedimentos de Classificação, Reclassificação e
+Desclassificação</b></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+27. A classificação do sigilo de informações no âmbito da
+administração pública federal é de competência: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- no grau de ultrassecreto, das seguintes autoridades: </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">a)
+Presidente da República;  </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">b)
+Vice-Presidente da República;  </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">c)
+Ministros de Estado e autoridades com as mesmas prerrogativas;  </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">d)
+Comandantes da Marinha, do Exército e da Aeronáutica; e  </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">e)
+Chefes de Missões Diplomáticas e Consulares permanentes no
+exterior;  </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- no grau de secreto, das autoridades referidas no inciso I, dos
+titulares de autarquias, fundações ou empresas públicas e
+sociedades de economia mista; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- no grau de reservado, das autoridades referidas nos incisos I e II
+e das que exerçam funções de direção, comando ou chefia, nível
+DAS 101.5, ou superior, do Grupo-Direção e Assessoramento
+Superiores, ou de hierarquia equivalente, de acordo com
+regulamentação específica de cada órgão ou entidade, observado o
+disposto nesta Lei. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+1º A competência prevista nos incisos I e II, no que se refere à
+classificação como ultrassecreta e secreta, poderá ser delegada
+pela autoridade responsável a agente público, inclusive em missão
+no exterior, vedada a subdelegação. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+2º A classificação de informação no grau de sigilo ultrassecreto
+pelas autoridades previstas nas alíneas &quot;d&quot; e &quot;e&quot;
+do inciso I deverá ser ratificada pelos respectivos Ministros de
+Estado, no prazo previsto em regulamento. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+3º A autoridade ou outro agente público que classificar informação
+como ultrassecreta deverá encaminhar a decisão de que trata o art.
+28 à Comissão Mista de Reavaliação de Informações, a que se
+refere o art. 35, no prazo previsto em regulamento. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+28. A classificação de informação em qualquer grau de sigilo
+deverá ser formalizada em decisão que conterá, no mínimo, os
+seguintes elementos: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- assunto sobre o qual versa a informação; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- fundamento da classificação, observados os critérios
+estabelecidos no art. 24; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- indicação do prazo de sigilo, contado em anos, meses ou dias, ou
+do evento que defina o seu termo final, conforme limites previstos no
+art. 24; e</font></p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IV
+- identificação da autoridade que a classificou. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Parágrafo
+único. A decisão referida no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+será mantida no mesmo grau de sigilo da informação classificada. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+29. A classificação das informações será reavaliada pela
+autoridade classificadora ou por autoridade hierarquicamente
+superior, mediante provocação ou de ofício, nos termos e prazos
+previstos em regulamento, com vistas à sua desclassificação ou à
+redução do prazo de sigilo, observado o disposto no art. 24. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º O regulamento a que se refere o </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+deverá considerar as peculiaridades das informações produzidas no
+exterior por autoridades ou agentes públicos. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º Na reavaliação a que se refere o </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">,
+deverão ser examinadas a permanência dos motivos do sigilo e a
+possibilidade de danos decorrentes do acesso ou da divulgação da
+informação. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+3º Na hipótese de redução do prazo de sigilo da informação, o
+novo prazo de restrição manterá como termo inicial a data da sua
+produção. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+30. A autoridade máxima de cada órgão ou entidade publicará,
+anualmente, em sítio à disposição na internet e destinado à
+veiculação de dados e informações administrativas, nos termos de
+regulamento: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- rol das informações que tenham sido desclassificadas nos últimos
+12 (doze) meses; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- rol de documentos classificados em cada grau de sigilo, com
+identificação para referência futura; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- relatório estatístico contendo a quantidade de pedidos de
+informação recebidos, atendidos e indeferidos, bem como informações
+genéricas sobre os solicitantes. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Os órgãos e entidades deverão manter exemplar da publicação
+prevista no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+para consulta pública em suas sedes. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+2º Os órgãos e entidades manterão extrato com a lista de
+informações classificadas, acompanhadas da data, do grau de sigilo
+e dos fundamentos da classificação. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="center"><font size="3" style="font-size: 12pt"><b>Seção V</b></font></p>
+<p align="center"><font size="3" style="font-size: 12pt"><b>Das
+Informações Pessoais</b></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+31. O tratamento das informações pessoais deve ser feito de forma
+transparente e com respeito à intimidade, vida privada, honra e
+imagem das pessoas, bem como às liberdades e garantias individuais. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+1º As informações pessoais, a que se refere este artigo, relativas
+à intimidade, vida privada, honra e imagem: </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- terão seu acesso restrito, independentemente de classificação de
+sigilo e pelo prazo máximo de 100 (cem) anos a contar da sua data de
+produção, a agentes públicos legalmente autorizados e à pessoa a
+que elas se referirem; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- poderão ter autorizada sua divulgação ou acesso por terceiros
+diante de previsão legal ou consentimento expresso da pessoa a que
+elas se referirem. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+2º Aquele que obtiver acesso às informações de que trata este
+artigo será responsabilizado por seu uso indevido. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+3º O consentimento referido no inciso II do § 1º não será
+exigido quando as informações forem necessárias: </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- à prevenção e diagnóstico médico, quando a pessoa estiver
+física ou legalmente incapaz, e para utilização única e
+exclusivamente para o tratamento médico; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- à realização de estatísticas e pesquisas científicas de
+evidente interesse público ou geral, previstos em lei, sendo vedada
+a identificação da pessoa a que as informações se referirem; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- ao cumprimento de ordem judicial; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IV
+- à defesa de direitos humanos; ou </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">V
+- à proteção do interesse público e geral preponderante. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+4º A restrição de acesso à informação relativa à vida privada,
+honra e imagem de pessoa não poderá ser invocada com o intuito de
+prejudicar processo de apuração de irregularidades em que o titular
+das informações estiver envolvido, bem como em ações voltadas
+para a recuperação de fatos históricos de maior relevância. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+5º Regulamento disporá sobre os procedimentos para tratamento de
+informação pessoal. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="center"><font size="3" style="font-size: 12pt">CAPÍTULO V</font></p>
+<p align="center"><font size="3" style="font-size: 12pt">DAS
+RESPONSABILIDADES</font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+32. Constituem condutas ilícitas que ensejam responsabilidade do
+agente público ou militar: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- recusar-se a fornecer informação requerida nos termos desta Lei,
+retardar deliberadamente o seu fornecimento ou fornecê-la
+intencionalmente de forma incorreta, incompleta ou imprecisa; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- utilizar indevidamente, bem como subtrair, destruir, inutilizar,
+desfigurar, alterar ou ocultar, total ou parcialmente, informação
+que se encontre sob sua guarda ou a que tenha acesso ou conhecimento
+em razão do exercício das atribuições de cargo, emprego ou função
+pública; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- agir com dolo ou má-fé na análise das solicitações de acesso à
+informação; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IV
+- divulgar ou permitir a divulgação ou acessar ou permitir acesso
+indevido à informação sigilosa ou informação pessoal; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">V
+- impor sigilo à informação para obter proveito pessoal ou de
+terceiro, ou para fins de ocultação de ato ilegal cometido por si
+ou por outrem; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VI
+- ocultar da revisão de autoridade superior competente informação
+sigilosa para beneficiar a si ou a outrem, ou em prejuízo de
+terceiros; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">VII
+- destruir ou subtrair, por qualquer meio, documentos concernentes a
+possíveis violações de direitos humanos por parte de agentes do
+Estado. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Atendido o princípio do contraditório, da ampla defesa e do
+devido processo legal, as condutas descritas no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+serão consideradas: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- para fins dos regulamentos disciplinares das Forças Armadas,
+transgressões militares médias ou graves, segundo os critérios
+neles estabelecidos, desde que não tipificadas em lei como crime ou
+contravenção penal; ou </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- para fins do disposto na Lei nº 8.112, de 11 de dezembro de 1990,
+e suas alterações, infrações administrativas, que deverão ser
+apenadas, no mínimo, com suspensão, segundo os critérios nela
+estabelecidos. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º Pelas condutas descritas no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">,
+poderá o militar ou agente público responder, também, por
+improbidade administrativa, conforme o disposto nas Leis nºs 1.079,
+de 10 de abril de 1950, e 8.429, de 2 de junho de 1992. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+33. A pessoa física ou entidade privada que detiver informações em
+virtude de vínculo de qualquer natureza com o poder público e
+deixar de observar o disposto nesta Lei estará sujeita às seguintes
+sanções: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- advertência; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- multa; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- rescisão do vínculo com o poder público; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IV
+- suspensão temporária de participar em licitação e impedimento
+de contratar com a administração pública por prazo não superior a
+2 (dois) anos; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">V
+- declaração de inidoneidade para licitar ou contratar com a
+administração pública, até que seja promovida a reabilitação
+perante a própria autoridade que aplicou a penalidade. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+1º As sanções previstas nos incisos I, III e IV poderão ser
+aplicadas juntamente com a do inciso II, assegurado o direito de
+defesa do interessado, no respectivo processo, no prazo de 10 (dez)
+dias. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+2º A reabilitação referida no inciso V será autorizada somente
+quando o interessado efetivar o ressarcimento ao órgão ou entidade
+dos prejuízos resultantes e após decorrido o prazo da sanção
+aplicada com base no inciso IV. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+3º A aplicação da sanção prevista no inciso V é de competência
+exclusiva da autoridade máxima do órgão ou entidade pública,
+facultada a defesa do interessado, no respectivo processo, no prazo
+de 10 (dez) dias da abertura de vista. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+34. Os órgãos e entidades públicas respondem diretamente pelos
+danos causados em decorrência da divulgação não autorizada ou
+utilização indevida de informações sigilosas ou informações
+pessoais, cabendo a apuração de responsabilidade funcional nos
+casos de dolo ou culpa, assegurado o respectivo direito de regresso. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Parágrafo
+único. O disposto neste artigo aplica-se à pessoa física ou
+entidade privada que, em virtude de vínculo de qualquer natureza com
+órgãos ou entidades, tenha acesso a informação sigilosa ou
+pessoal e a submeta a tratamento indevido. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="center"><font size="3" style="font-size: 12pt">CAPÍTULO VI</font></p>
+<p align="center"><font size="3" style="font-size: 12pt">DISPOSIÇÕES
+FINAIS E TRANSITÓRIAS</font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+35. (VETADO). </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+1º É instituída a Comissão Mista de Reavaliação de Informações,
+que decidirá, no âmbito da administração pública federal, sobre
+o tratamento e a classificação de informações sigilosas e terá
+competência para: </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- requisitar da autoridade que classificar informação como
+ultrassecreta e secreta esclarecimento ou conteúdo, parcial ou
+integral da informação; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- rever a classificação de informações ultrassecretas ou
+secretas, de ofício ou mediante provocação de pessoa interessada,
+observado o disposto no art. 7o e demais dispositivos desta Lei; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- prorrogar o prazo de sigilo de informação classificada como
+ultrassecreta, sempre por prazo determinado, enquanto o seu acesso ou
+divulgação puder ocasionar ameaça externa à soberania nacional ou
+à integridade do território nacional ou grave risco às relações
+internacionais do País, observado o prazo previsto no § 1º do art.
+24. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+2º O prazo referido no inciso III é limitado a uma única
+renovação. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+3º A revisão de ofício a que se refere o inciso II do § 1º
+deverá ocorrer, no máximo, a cada 4 (quatro) anos, após a
+reavaliação prevista no art. 39, quando se tratar de documentos
+ultrassecretos ou secretos. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+4º A não deliberação sobre a revisão pela Comissão Mista de
+Reavaliação de Informações nos prazos previstos no § 3º
+implicará a desclassificação automática das informações. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">§
+5º Regulamento disporá sobre a composição, organização e
+funcionamento da Comissão Mista de Reavaliação de Informações,
+observado o mandato de 2 (dois) anos para seus integrantes e demais
+disposições desta Lei. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+36. O tratamento de informação sigilosa resultante de tratados,
+acordos ou atos internacionais atenderá às normas e recomendações
+constantes desses instrumentos. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+37. É instituído, no âmbito do Gabinete de Segurança
+Institucional da Presidência da República, o Núcleo de Segurança
+e Credenciamento (NSC), que tem por objetivos: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- promover e propor a regulamentação do credenciamento de segurança
+de pessoas físicas, empresas, órgãos e entidades para tratamento
+de informações sigilosas; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- garantir a segurança de informações sigilosas, inclusive aquelas
+provenientes de países ou organizações internacionais com os quais
+a República Federativa do Brasil tenha firmado tratado, acordo,
+contrato ou qualquer outro ato internacional, sem prejuízo das
+atribuições do Ministério das Relações Exteriores e dos demais
+órgãos competentes. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Parágrafo
+único. Regulamento disporá sobre a composição, organização e
+funcionamento do NSC. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+38. Aplica-se, no que couber, a Lei nº 9.507, de 12 de novembro de
+1997, em relação à informação de pessoa, física ou jurídica,
+constante de registro ou banco de dados de entidades governamentais
+ou de caráter público. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+39. Os órgãos e entidades públicas deverão proceder à
+reavaliação das informações classificadas como ultrassecretas e
+secretas no prazo máximo de 2 (dois) anos, contado do termo inicial
+de vigência desta Lei. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º A restrição de acesso a informações, em razão da reavaliação
+prevista no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">,
+deverá observar os prazos e condições previstos nesta Lei. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º No âmbito da administração pública federal, a reavaliação
+prevista no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+poderá ser revista, a qualquer tempo, pela Comissão Mista de
+Reavaliação de Informações, observados os termos desta Lei. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3º Enquanto não transcorrido o prazo de reavaliação previsto no
+</font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">,
+será mantida a classificação da informação nos termos da
+legislação precedente. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+4º As informações classificadas como secretas e ultrassecretas não
+reavaliadas no prazo previsto no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+serão consideradas, automaticamente, de acesso público. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+40. No prazo de 60 (sessenta) dias, a contar da vigência desta Lei,
+o dirigente máximo de cada órgão ou entidade da administração
+pública federal direta e indireta designará autoridade que lhe seja
+diretamente subordinada para, no âmbito do respectivo órgão ou
+entidade, exercer as seguintes atribuições: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- assegurar o cumprimento das normas relativas ao acesso a
+informação, de forma eficiente e adequada aos objetivos desta Lei; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- monitorar a implementação do disposto nesta Lei e apresentar
+relatórios periódicos sobre o seu cumprimento; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- recomendar as medidas indispensáveis à implementação e ao
+aperfeiçoamento das normas e procedimentos necessários ao correto
+cumprimento do disposto nesta Lei; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IV
+- orientar as respectivas unidades no que se refere ao cumprimento do
+disposto nesta Lei e seus regulamentos. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+41. O Poder Executivo Federal designará órgão da administração
+pública federal responsável: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- pela promoção de campanha de abrangência nacional de fomento à
+cultura da transparência na administração pública e
+conscientização do direito fundamental de acesso à informação; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- pelo treinamento de agentes públicos no que se refere ao
+desenvolvimento de práticas relacionadas à transparência na
+administração pública; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">III
+- pelo monitoramento da aplicação da lei no âmbito da
+administração pública federal, concentrando e consolidando a
+publicação de informações estatísticas relacionadas no art. 30; </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">IV
+- pelo encaminhamento ao Congresso Nacional de relatório anual com
+informações atinentes à implementação desta Lei. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+42. O Poder Executivo regulamentará o disposto nesta Lei no prazo de
+180 (cento e oitenta) dias a contar da data de sua publicação. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+43. O inciso VI do art. 116 da Lei nº 8.112, de 11 de dezembro de
+1990, passa a vigorar com a seguinte redação: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="margin-left: 3cm">“<font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+116.
+.................................................................................
+</font></font>
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="3" style="font-size: 12pt">..................................................................................................
+</font>
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="3" style="font-size: 12pt">VI
+- levar as irregularidades de que tiver ciência em razão do cargo
+ao conhecimento da autoridade superior ou, quando houver suspeita de
+envolvimento desta, ao conhecimento de outra autoridade competente
+para apuração; </font>
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">...............................................................................................”
+(NR)</font></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+44. O Capítulo IV do Título IV da Lei nº 8.112, de 1990, passa a
+vigorar acrescido do seguinte art. 126-A: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="margin-left: 3cm">“<font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+126-A. Nenhum servidor poderá ser responsabilizado civil, penal ou
+administrativamente por dar ciência à autoridade superior ou,
+quando houver suspeita de envolvimento desta, a outra autoridade
+competente para apuração de informação concernente à prática de
+crimes ou improbidade de que tenha conhecimento, ainda que em
+decorrência do exercício de cargo, emprego ou função pública.”</font></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+45. Cabe aos Estados, ao Distrito Federal e aos Municípios, em
+legislação própria, obedecidas as normas gerais estabelecidas
+nesta Lei, definir regras específicas, especialmente quanto ao
+disposto no art. 9º e na Seção II do Capítulo III. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+46. Revogam-se: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">I
+- a Lei nº 11.111, de 5 de maio de 2005; e </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">II
+- os arts. 22 a 24 da Lei nº 8.159, de 8 de janeiro de 1991. </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+47. Esta Lei entra em vigor 180 (cento e oitenta) dias após a data
+de sua publicação. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Brasília,
+18 de novembro de 2011; 190º da Independência e 123º da República.
+</font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">DILMA
+ROUSSEFF </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">José
+Eduardo Cardoso </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Celso
+Luiz Nunes Amorim </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Antonio
+de Aguiar Patriota </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Miriam
+Belchior </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Paulo
+Bernardo Silva </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Gleisi
+Hoffmann </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">José
+Elito Carvalho Siqueira </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Helena
+Chagas </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Luís
+Inácio Lucena Adams </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Jorge
+Hage Sobrinho </font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="3" style="font-size: 12pt">Maria
+do Rosário Nunes</font></p>
+</body>
+</html>

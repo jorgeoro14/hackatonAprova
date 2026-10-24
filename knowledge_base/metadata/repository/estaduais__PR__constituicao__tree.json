@@ -1,0 +1,22 @@
+{
+  "sha": "23781c34ab189a3165cabe5addb6cc64dea479f3",
+  "url": "https://api.github.com/repos/ctresb/leis/git/trees/23781c34ab189a3165cabe5addb6cc64dea479f3",
+  "tree": [
+    {
+      "path": "1989",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "57899b81e4780dbb8264d27dfa185f792f0fe3aa",
+      "url": "https://api.github.com/repos/ctresb/leis/git/trees/57899b81e4780dbb8264d27dfa185f792f0fe3aa"
+    },
+    {
+      "path": "1989/constituicao-pr-seti-2025.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d1a495d91746be43ce265d4b3f0937da3395a593",
+      "size": 392200,
+      "url": "https://api.github.com/repos/ctresb/leis/git/blobs/d1a495d91746be43ce265d4b3f0937da3395a593"
+    }
+  ],
+  "truncated": false
+}

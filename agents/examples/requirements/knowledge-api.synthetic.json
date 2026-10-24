@@ -1,0 +1,108 @@
+{
+  "data_kind": "synthetic",
+  "notice": "Invented transport fixtures only; no actual municipal answer, legal requirement or vendor certification.",
+  "upstream_contract_commit": "8e611fcbccdbd3f4053327912c6811a6663af162",
+  "knowledge": {
+    "agentId": "synthetic-agent",
+    "bases": [
+      {
+        "id": "obras",
+        "name": "Synthetic building domain",
+        "maturity": "in_review",
+        "selection": "selected",
+        "available": true,
+        "guide": "Synthetic interview guide: ask which department reviews a permit and which fee rule applies.",
+        "norms": [
+          {
+            "id": "synthetic-law",
+            "title": "Synthetic permit law fixture",
+            "kind": "outro",
+            "number": "fixture-only",
+            "year": 2026,
+            "sphere": "municipal",
+            "summary": "Synthetic summary only.",
+            "officialUrl": "https://example.invalid/synthetic-law",
+            "coverage": "test_only",
+            "tags": ["synthetic"],
+            "relevance": "Synthetic permit interview context. This is not real legislation."
+          }
+        ]
+      },
+      {
+        "id": "governo-digital",
+        "name": "Synthetic cross-cutting domain",
+        "maturity": "in_review",
+        "selection": "automatic",
+        "available": true,
+        "guide": "Synthetic cross-cutting service guidance.",
+        "norms": []
+      },
+      {
+        "id": "removed",
+        "name": "Unavailable test base",
+        "maturity": "in_review",
+        "selection": "selected",
+        "available": false,
+        "guide": null,
+        "norms": []
+      }
+    ]
+  },
+  "system_documents": [
+    {
+      "id": "synthetic-fields",
+      "titulo": "Synthetic field guidance",
+      "tags": ["synthetic"],
+      "conteudo": "Synthetic guidance about optional applicant fields. This is not verified Aprova capability documentation."
+    }
+  ],
+  "processes": [
+    {
+      "id": "synthetic-permit",
+      "nome": "Synthetic permit",
+      "dominio": "obras",
+      "exemplo": true,
+      "descricao": "Synthetic baseline used only in automated transport tests.",
+      "publicoAlvo": ["cidadao"],
+      "baseLegal": ["synthetic-law"],
+      "formulario": {
+        "secoes": [
+          {
+            "titulo": "Synthetic request",
+            "campos": [
+              { "id": "description", "rotulo": "Description", "tipo": "texto", "obrigatorio": true }
+            ]
+          }
+        ]
+      },
+      "documentos": [],
+      "taxas": [],
+      "setores": [],
+      "despachos": [],
+      "fluxo": {
+        "etapas": [
+          { "id": "review", "nome": "Synthetic review", "tipo": "analise", "responsavel": "Synthetic reviewer role" }
+        ],
+        "transicoes": []
+      },
+      "documentoFinal": { "nome": "Synthetic permit document" }
+    }
+  ],
+  "norms": [
+    {
+      "id": "synthetic-law",
+      "baseId": "obras",
+      "title": "Synthetic permit law fixture",
+      "kind": "outro",
+      "number": "fixture-only",
+      "year": 2026,
+      "sphere": "municipal",
+      "summary": "Synthetic summary only.",
+      "officialUrl": "https://example.invalid/synthetic-law",
+      "coverage": "test_only",
+      "tags": ["synthetic"],
+      "relevance": "Synthetic permit interview context. This is not real legislation.",
+      "text": "SYNTHETIC FIXTURE: NOT REAL LEGISLATION.\nArt. 1º A synthetic permit request states its purpose.\nParagraph: test-only provision.\nArt. 2º A synthetic permit fee rule must be reviewed by a human.\n"
+    }
+  ]
+}

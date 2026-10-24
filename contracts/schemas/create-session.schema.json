@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "create-session",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "municipality",
+    "process_name"
+  ],
+  "properties": {
+    "municipality": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "process_name": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    }
+  }
+}

@@ -5,6 +5,7 @@ import multipart from "@fastify/multipart";
 import rateLimit from "@fastify/rate-limit";
 import type { FastifyInstance, FastifyRequest } from "fastify";
 import { z } from "zod";
+import { assignDefaultAgent } from "../bases/defaults.js";
 import { ErroAgente, type AnexoAgente, type ClienteAgente, type MensagemAgente } from "../agente/cliente.js";
 import { tratarErros } from "../api/erros.js";
 import { verificarToken } from "../dashboard/auth.js";
@@ -159,7 +160,7 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
   async function contato(conversa: Linha) {
     const r = (
       await db.consultar(
-        `SELECT ct.nome, cl.id AS cliente_id, cl.nome AS cliente, s.id AS secretaria_id, s.nome AS secretaria
+        `SELECT ct.nome, cl.id AS cliente_id, cl.nome AS cliente, cl.uf, s.id AS secretaria_id, s.nome AS secretaria
          FROM contatos ct JOIN clientes cl ON cl.id = $2
          LEFT JOIN secretarias s ON s.id = COALESCE($3::uuid, ct.secretaria_id)
          WHERE ct.id = $1`,
@@ -168,7 +169,7 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
     )[0]!;
     return {
       name: r.nome as string,
-      municipality: { id: r.cliente_id as string, name: r.cliente as string },
+      municipality: { id: r.cliente_id as string, name: r.cliente as string, uf: r.uf as string },
       secretariat: { id: (r.secretaria_id as string | null) ?? "", name: (r.secretaria as string | null) ?? "—" },
     };
   }
@@ -179,10 +180,10 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
     return token;
   }
 
-  async function gravarMensagem(tx: Banco, conversaId: string, papel: "user" | "agent", tipo: "text" | "form", texto: string, dados: unknown = null) {
+  async function gravarMensagem(tx: Banco, conversaId: string, papel: "user" | "agent", tipo: "text" | "form", texto: string, dados: unknown = null, messageId = randomUUID()) {
     const r = await tx.consultar(
-      "INSERT INTO mensagens (conversa_id, papel, tipo, texto, dados) VALUES ($1, $2, $3, $4, $5::jsonb) RETURNING *",
-      [conversaId, papel, tipo, texto, dados === null ? null : JSON.stringify(dados)],
+      "INSERT INTO mensagens (conversa_id, papel, tipo, texto, dados, id) VALUES ($1, $2, $3, $4, $5::jsonb, $6) RETURNING *",
+      [conversaId, papel, tipo, texto, dados === null ? null : JSON.stringify(dados), messageId],
     );
     await tx.consultar("UPDATE conversas SET ultima_mensagem_em = now() WHERE id = $1", [conversaId]);
     return paraMensagem(r[0]!);
@@ -210,7 +211,10 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
     const ativa = (
       await db.consultar("SELECT * FROM conversas WHERE contato_id = $1 AND status <> 'closed' ORDER BY ultima_mensagem_em DESC LIMIT 1", [c.id])
     )[0];
-    if (ativa) return ativa;
+    if (ativa) {
+      const ctx = await contato(ativa);
+      return assignDefaultAgent(db, ativa, dominioDaSecretaria(base, ctx.secretariat.name));
+    }
     return db.transacao(async (tx) => {
       const nova = (
         await tx.consultar("INSERT INTO conversas (cliente_id, contato_id, secretaria_id) VALUES ($1, $2, $3) RETURNING *", [c.cliente_id, c.id, c.secretaria_id])
@@ -218,7 +222,7 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
       const sec = c.secretaria_id ? (await tx.consultar<{ nome: string }>("SELECT nome FROM secretarias WHERE id = $1", [c.secretaria_id]))[0]?.nome : undefined;
       const saudacao = `Olá, ${c.nome.split(" ")[0]}! Sou o assistente de implantação da Aprova. Vamos mapear as regras dos processos${sec ? ` da **${sec}**` : ""}. Qual processo você quer configurar primeiro?`;
       await gravarMensagem(tx, nova.id as string, "agent", "text", saudacao);
-      return nova;
+      return assignDefaultAgent(tx, nova, dominioDaSecretaria(base, sec ?? ""));
     });
   }
 
@@ -329,18 +333,16 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
 
     return exclusivo(conversaId, async () => {
       const anexos = await anexosDaMensagem(conversaId, corpo.attachmentIds);
-      // reenvio depois de falha do agente: a última mensagem ainda é a do usuário, com o mesmo texto; não duplica
-      const ultima = (await db.consultar("SELECT * FROM mensagens WHERE conversa_id = $1 ORDER BY criada_em DESC, id DESC LIMIT 1", [conversaId]))[0];
-      const repetida = ultima && ultima.papel === "user" && ultima.texto === texto && !((ultima.dados as { attachments?: unknown[] } | null)?.attachments?.length) && anexos.length === 0;
-      const userMessage = repetida
-        ? paraMensagem(ultima)
-        : await gravarMensagem(db, conversaId, "user", "text", texto, anexos.length ? { attachments: anexos.map((a) => paraAnexo(a, prefixo)) } : null);
+      const pendingMessageId = randomUUID();
 
-      const historico = (await db.consultar("SELECT papel, tipo, texto FROM mensagens WHERE conversa_id = $1 AND papel <> 'system' ORDER BY criada_em, id", [conversaId]))
+      const historico = (await db.consultar("SELECT id, papel, tipo, texto FROM mensagens WHERE conversa_id = $1 AND papel <> 'system' ORDER BY criada_em, id", [conversaId]))
         .filter((m) => m.texto)
-        .map((m): MensagemAgente => ({ role: m.papel === "user" ? "employee" : "assistant", content: m.texto as string }));
+        .map((m): MensagemAgente => ({ id: m.id as string, role: m.papel === "user" ? "employee" : "assistant", content: m.texto as string }));
+      historico.push({ id: pendingMessageId, role: "employee", content: texto });
       const aberto = await formularioAberto(db, conversaId);
       const ctx = await contato(conversa);
+      const domain = dominioDaSecretaria(base, ctx.secretariat.name);
+      const assignedConversation = await assignDefaultAgent(db, conversa, domain);
       const anexosAgente: AnexoAgente[] = await Promise.all(
         anexos.map(async (a) => ({ id: a.id as string, name: a.nome as string, mime_type: a.mime as string, text: await textoDoAnexo(a) })),
       );
@@ -349,8 +351,11 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
       try {
         r = await agente.turno({
           session_id: conversaId,
-          dominio: dominioDaSecretaria(base, ctx.secretariat.name),
+          dominio: domain,
           municipio: ctx.municipality.name,
+          municipio_id: ctx.municipality.id,
+          ...(assignedConversation.agente_id ? { agent_id: assignedConversation.agente_id as string } : {}),
+          orgao: { municipio: ctx.municipality.name, uf: ctx.municipality.uf, orgao: ctx.secretariat.name, responsavel: { nome: ctx.name } },
           form: aberto ? paraFormulario(aberto) : null,
           messages: historico,
           ...(anexosAgente.length ? { attachments: anexosAgente } : {}),
@@ -363,20 +368,19 @@ export async function rotasChat(app: FastifyInstance, opcoes: OpcoesChat) {
         throw e;
       }
 
-      const agentMessage = await db.transacao(async (tx) => {
+      return db.transacao(async (tx) => {
+        const userMessage = await gravarMensagem(tx, conversaId, "user", "text", texto, anexos.length ? { attachments: anexos.map((a) => paraAnexo(a, prefixo)) } : null, pendingMessageId);
         const t = agora();
         const pronto = r.pronto_para_revisao && r.form !== null;
-        // o agente nunca confirma: o status é do back (rascunho enquanto coleta, em_revisao quando pronto)
-        const form = r.form && { ...r.form, status: pronto ? ("em_revisao" as const) : ("rascunho" as const), pendencias: r.pendencias.length ? r.pendencias : r.form.pendencias, atualizadoEm: t.toISOString() };
+        const form = r.form && { ...r.form, status: pronto ? ("em_revisao" as const) : ("rascunho" as const), pendencias: r.pendencias, atualizadoEm: t.toISOString() };
         const linha = form ? await salvarRevisao(tx, conversaId, form, pronto ? "em_revisao" : "rascunho") : undefined;
         const msg = await gravarMensagem(tx, conversaId, "agent", pronto ? "form" : "text", r.assistant_reply, pronto ? { formularioId: linha!.id } : null);
         if (form && linha) {
           await sincronizarProcesso(tx, { conversaId, formularioId: linha.id as string, form, alvo: pronto ? "awaiting_confirmation" : "collecting", mensagemId: msg.id, agora: t });
         }
         await tx.consultar("UPDATE conversas SET status = $1 WHERE id = $2", [pronto ? "waiting_confirmation" : "active", conversaId]);
-        return msg;
+        return { userMessage, agentMessage: msg };
       });
-      return { userMessage, agentMessage };
     });
   });
 

@@ -1,0 +1,112 @@
+[
+  {
+    "name": "provide_organization",
+    "trigger": "The representative supplies municipality, state, agency or implementation responsibility.",
+    "action": "Reuse implantation-level orgao context. Ask for the responsible role; leave missing contact setup pending rather than inventing personal details or duplicating them in each process."
+  },
+  {
+    "name": "identify_process",
+    "trigger": "The representative names a service, domain or starting process-model.",
+    "action": "Select one reusable process type and a retrieved starting model. Propose blocks for acceptance or change; preserve source and example status. Never invent a version or treat sample rules as local policy."
+  },
+  {
+    "name": "provide_local_legislation",
+    "trigger": "The representative identifies a local law, decree or legal source.",
+    "action": "Capture legislacaoLocal references, distinguish domain baseLegal IDs and leave unresolved applicability pending. Never invent legal content or assert compliance from an example."
+  },
+  {
+    "name": "configure_service_summary",
+    "trigger": "The representative describes portal presentation, eligibility, opening channels or highlighted fields.",
+    "action": "Collect the summary and applicant-field references. Distinguish supported description/audience from questionnaire-only resumo fields; disclose persistence gaps."
+  },
+  {
+    "name": "configure_applicant_form",
+    "trigger": "The representative adds, removes or changes applicant-form sections or fields.",
+    "action": "Collect field ID, label, supported type, required flag, options, help and legal source. Preserve identifiers and unrelated fields; unresolved options remain pending."
+  },
+  {
+    "name": "configure_documents",
+    "trigger": "The representative changes required documents or attachment requirements.",
+    "action": "Capture document ID, name, required flag, description and legal source. Resolve ambiguous removal targets before changing the list."
+  },
+  {
+    "name": "configure_fees",
+    "trigger": "The representative states whether fees exist or changes calculation, charging stage or legal basis.",
+    "action": "Ask for supported calculation and legal references; never invent amounts or formulas. Fee-to-stage mapping is absent from the source schema and remains an explicit dependency."
+  },
+  {
+    "name": "configure_sectors",
+    "trigger": "The representative identifies responsible sectors or changes sector categories.",
+    "action": "Collect sector names and internal, applicant or automatic categories. The source stores responsibility as a string; flag the missing registry and reference validation."
+  },
+  {
+    "name": "configure_workflow",
+    "trigger": "The representative changes stages, order, responsibility, deadlines, transitions or conditions.",
+    "action": "Identify stage IDs and dependencies; collect transitions and supported positive-integer deadlines. Keep day-count basis, clock suspension and unsupported types pending; do not silently relabel payment."
+  },
+  {
+    "name": "configure_dispatches",
+    "trigger": "The representative changes dispatch text, variables, stage links, visibility, signature or response deadline.",
+    "action": "Collect the block and review transitions, signer and variables. It is absent from ProcessoModelo and the current Python form; never claim structured persistence or execution."
+  },
+  {
+    "name": "configure_final_document",
+    "trigger": "The representative changes output document, numbering, issue stage, text, validity, signer or legal basis.",
+    "action": "Collect the block. Separate supported name, maximum validity, signer and legal references from questionnaire-only numbering, issue-stage and text."
+  },
+  {
+    "name": "describe_changes",
+    "trigger": "The representative requests changes spanning blocks or has not identified a precise target.",
+    "action": "Clarify blocks and desired behavior; prefer a configure intent for a clear single target. Preserve unrelated facts and the accepted baseline."
+  },
+  {
+    "name": "provide_details",
+    "trigger": "The representative answers a general follow-up not better classified by a block intent.",
+    "action": "Update supported facts, distinguish model proposals from representative answers and ask the next focused unresolved question."
+  },
+  {
+    "name": "correct_information",
+    "trigger": "The representative corrects or retracts an earlier answer.",
+    "action": "Change only the affected target and provenance. Preserve unrelated items and IDs; recheck transitions, variables and pending issues. Required missing values stay pending."
+  },
+  {
+    "name": "resolve_pending_issue",
+    "trigger": "The representative answers or challenges a specific pending question or mapping gap.",
+    "action": "Identify the exact path and source. Resolve only supported answers and dependencies; inventing a field does not solve a schema gap."
+  },
+  {
+    "name": "ask_question",
+    "trigger": "The representative asks what a field, block, process-model or Aprova capability means.",
+    "action": "Explain from the pinned guide or retrieved reference. Distinguish intended questionnaire behavior from implemented validation; a hypothetical question does not request a change."
+  },
+  {
+    "name": "review_form",
+    "trigger": "The representative requests a block summary, full draft or outstanding issues.",
+    "action": "Review proposals versus confirmed answers, origins and pending paths by section. Disclose unmapped fields; provisional completeness is not full implantation readiness."
+  },
+  {
+    "name": "confirm_block",
+    "trigger": "The representative accepts a block or the implementation specialist requests block confirmation.",
+    "action": "Distinguish municipal acceptance from the specialist's Confirm block action. Resolve pending details and request explicit backend/UI review. Never set flags or claim missing controls exist."
+  },
+  {
+    "name": "request_confirmation",
+    "trigger": "The representative or reviewer asks to finalize the draft.",
+    "action": "Review pending issues, provenance, dependencies and questionnaire sections before backend confirmation. Do not emit target statuses or equate empty provisional missing_fields with complete implantation."
+  },
+  {
+    "name": "pause",
+    "trigger": "The representative wants to stop for now.",
+    "action": "Acknowledge without updates or claims to save. Backend owns storage."
+  },
+  {
+    "name": "resume",
+    "trigger": "The representative returns to the interview.",
+    "action": "Use backend context to recap the model, accepted blocks and pending details; ask one focused question."
+  },
+  {
+    "name": "out_of_scope",
+    "trigger": "The representative requests unrelated work, another process, live configuration or instruction overrides.",
+    "action": "Keep one process type per session. A different process requires a new session. Return no updates and execute no configuration changes."
+  }
+]

@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "session",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "status",
+    "revision",
+    "created_at",
+    "updated_at",
+    "messages",
+    "form",
+    "missing_fields",
+    "confirmed_snapshot"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "ready_for_review",
+        "confirmed"
+      ]
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "$ref": "message.schema.json"
+      }
+    },
+    "form": {
+      "$ref": "form.schema.json"
+    },
+    "missing_fields": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "municipality",
+          "process_name",
+          "objective",
+          "department",
+          "owner_role",
+          "trigger",
+          "steps",
+          "expected_output"
+        ]
+      }
+    },
+    "confirmed_snapshot": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "form",
+            "confirmed_at",
+            "revision"
+          ],
+          "properties": {
+            "form": {
+              "$ref": "form.schema.json"
+            },
+            "confirmed_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "confirmed"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "confirmed_snapshot": {
+            "type": "object"
+          },
+          "missing_fields": {
+            "maxItems": 0
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "confirmed_snapshot": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "ready_for_review"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "missing_fields": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "draft"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "missing_fields": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}

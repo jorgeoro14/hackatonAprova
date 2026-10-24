@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "indexes": [
+    {"name": "recursive_1000_200", "chunks": {"strategy": "recursive", "chunk_size": 1000, "chunk_overlap": 200}},
+    {"name": "markdown_300_60", "chunks": {"strategy": "markdown", "chunk_size": 300, "chunk_overlap": 60}}
+  ],
+  "experiments": [
+    {"name": "recursive_vector_k4", "index": "recursive_1000_200", "retrieval": {"search_type": "vector", "k": 4}},
+    {"name": "recursive_mmr_k4", "index": "recursive_1000_200", "retrieval": {"search_type": "mmr", "k": 4, "fetch_k": 20, "lambda_mult": 0.5}},
+    {"name": "markdown_vector_k1", "index": "markdown_300_60", "retrieval": {"search_type": "vector", "k": 1}},
+    {"name": "markdown_vector_k4", "index": "markdown_300_60", "retrieval": {"search_type": "vector", "k": 4}},
+    {"name": "markdown_mmr_k4", "index": "markdown_300_60", "retrieval": {"search_type": "mmr", "k": 4, "fetch_k": 20, "lambda_mult": 0.5}}
+  ]
+}

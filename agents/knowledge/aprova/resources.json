@@ -1,0 +1,109 @@
+{
+  "source_kind": "public_api_documentation",
+  "is_municipal_catalog": false,
+  "is_official_developer_questionnaire": false,
+  "resources": {
+    "process": {
+      "meaning": "A submitted process instance. This is distinct from the reusable subject/form definition.",
+      "documentation_url": "https://hubapi.aprova.com.br/aprovahubapi/process",
+      "facts": [
+        "Raw process JSON is retrieved by a 24-character hexadecimal ObjectId with type=process; raw form JSON uses type=form.",
+        "A process number can be resolved by nP, cidade and uf. Ambiguous municipality matches return candidates and must not be chosen automatically.",
+        "Batch listing uses dateStart/dateEnd and opaque nextCursor pagination; the same filters must be kept across pages.",
+        "dateField accepts created, updated or finished. A query window cannot exceed 366 days; the docs recommend windows up to 15 days for large cities.",
+        "The include parameter accepts timeline and lastVersion. Omitting it requests both; include= requests neither. Timeline is limited to the 100 most recent entries.",
+        "A tenant key is scoped to its municipality. Raw process contents can contain citizen data and are not a reusable municipal process catalog."
+      ],
+      "interview_questions": [
+        "Which reusable subject/form are we changing, rather than a submitted citizen process?",
+        "If you are referencing an instance, what are its process number, municipality and state?"
+      ],
+      "limits": [
+        "Documentation provides response shapes, not actual submitted processes or municipal answers.",
+        "Raw document content is an open object; the public schema does not enumerate its complete internal fields."
+      ]
+    },
+    "forms": {
+      "meaning": "A reusable process subject/type, discoverable by municipality and state; its raw form defines the process configuration.",
+      "documentation_url": "https://hubapi.aprova.com.br/aprovahubapi/type",
+      "facts": [
+        "GET /hub-api/type/find accepts cidade, uf and optional titulo; without titulo it lists all forms for that municipality.",
+        "Municipality matching ignores accents and case. The title filter ignores case but is accent-sensitive.",
+        "Discovery returns form id/title pairs. Retrieve full raw form JSON through /hub-api/document/json with type=form.",
+        "An ambiguous municipality result includes candidates; the caller must resolve the ambiguity.",
+        "The API also documents creating, editing, patching and duplicating subjects. These are reference capabilities only; the interview agent does not execute them."
+      ],
+      "interview_questions": [
+        "Which municipality, state and subject title should identify the baseline?",
+        "Which form fields should be added, removed or changed, and what should their labels, required conditions and options be?"
+      ],
+      "limits": [
+        "A process input form is not the official implementation questionnaire used by the development team.",
+        "Documentation does not provide the actual catalog, complete Formly field taxonomy or local workflow answers."
+      ]
+    },
+    "templates": {
+      "meaning": "An HTML document template identified by its municipality/file name.",
+      "documentation_url": "https://hubapi.aprova.com.br/aprovahubapi/template",
+      "facts": [
+        "GET /hub-api/template requires name in the documented Municipality/File.html format.",
+        "The response includes name, html, created_at_iso and from. The last two may be null.",
+        "The API chooses the active version when it contains valid HTML, otherwise the last version with valid HTML.",
+        "A missing template, missing versions or no nonblank HTML produces 404.",
+        "Creating and updating HTML templates are documented, but the agent only gathers requested changes."
+      ],
+      "interview_questions": [
+        "What is the exact template name, including municipality prefix and .html suffix?",
+        "Which document text or layout must change, and what should the resulting document contain?"
+      ],
+      "limits": [
+        "The published API has no template-list endpoint; a template name or a supplied catalog is needed.",
+        "Example HTML is not an official municipal template, nor documentation of placeholder syntax.",
+        "The GET response does not expose an explicit version identifier; do not invent one from its timestamp."
+      ]
+    },
+    "dispatches": {
+      "meaning": "A reusable dispatch definition, called blueprint-post in API paths, with a Formly form and configuration flags.",
+      "documentation_url": "https://hubapi.aprova.com.br/aprovahubapi/dispatch/getblueprintpostv1http",
+      "facts": [
+        "GET /hub-api/blueprint-post/{id} retrieves a dispatch definition by UUID.",
+        "The response describes its form, name, municipality, allowed user types, statuses, deadline settings and disabled/deleted flags.",
+        "The documented GET response uses statusList as an array of objects and deadlineValue as a nullable string. The creation response describes different types for these fields; preserve operation-specific shapes.",
+        "The API documents create, full update and selective patch operations. The agent does not execute them."
+      ],
+      "interview_questions": [
+        "Which dispatch should change, and which process subject is it linked to?",
+        "What should change in the dispatch form, allowed roles, statuses or deadline?",
+        "Where should the dispatch be available in the intended workflow?"
+      ],
+      "limits": [
+        "Allowed user types do not by themselves identify the municipal role responsible for a workflow step.",
+        "A reusable dispatch definition is not the history of dispatches executed in an individual submitted process."
+      ]
+    },
+    "blueprints": {
+      "meaning": "Reusable process configuration in the core API, including linked dispatch definitions and available tabs.",
+      "documentation_url": "https://hubapi.aprova.com.br/aprovahubapi/blueprint-process/listblueprintpostsv1http",
+      "facts": [
+        "GET /hub-api/blueprint-process/{id}/blueprint-posts accepts a blueprint UUID or the legacy subject/form ObjectId.",
+        "The response includes process metadata, linkedBy, total, blueprintPosts and unresolved references.",
+        "The linkage source is blueprint_process.available_custom_posts, not the raw Mongo form.",
+        "hydrate defaults to true; onlyEnabled defaults to false, so disabled/deleted definitions remain visible unless explicitly filtered.",
+        "Unresolved links may report not_found, other_city or error while the overall HTTP response remains 200.",
+        "Linked dispatches describe a subject's current configuration, not a submitted process's form_tramites snapshot.",
+        "A documented PATCH can change available tabs via enable/disable deltas or an availableTabs replacement. There is no blueprint version/updatedAt or optimistic locking in that operation."
+      ],
+      "interview_questions": [
+        "Which subject or blueprint is the baseline, and which linked dispatches should remain or change?",
+        "Which tabs should be enabled or disabled, and what is the intended resulting behavior?",
+        "Should an unresolved linked definition be repaired before this change can be reviewed?"
+      ],
+      "limits": [
+        "The published spec has no full blueprint GET/list endpoint; the linked-dispatch GET exposes only the documented metadata and relationships.",
+        "Linked dispatch order alone does not establish execution order or approval rules.",
+        "Blueprint metadata has no documented version identifier; the agent must not fabricate one.",
+        "Tab settings, dispatch forms and HTML are not fully represented in the provisional developer form; keep unsupported changes unresolved until the shared contract is mapped."
+      ]
+    }
+  }
+}

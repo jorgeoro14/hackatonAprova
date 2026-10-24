@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { CheckCircle2, ClipboardList } from 'lucide-react'
 import { Button, ErrorState, Skeleton } from '@/components/ui'
 import { chatApi } from '@/lib/api/endpoints'
 import type { FormularioEdits, Message } from '@/types/schemas'
 import { FormProvider, FormularioEditor, countPendentes, makeCtx } from './FormularioEditor'
+import { SpecificationEvidence } from './SpecificationEvidence'
 
 interface Props {
   sessionId: string
@@ -18,10 +19,16 @@ export function FormularioCard({ sessionId, sessionToken, formularioId }: Props)
   const key = ['chat', 'form', formularioId] as const
   const q = useQuery({ queryKey: key, queryFn: () => chatApi.getFormulario(sessionId, sessionToken, formularioId), staleTime: Infinity })
   const [draft, setDraft] = useState<FormularioEdits | null>(null)
+  const serverSnapshot = useRef<FormularioEdits | null>(null)
 
   useEffect(() => {
-    if (q.data && !draft) setDraft({ orgao: q.data.orgao, processo: q.data.processo })
-  }, [q.data, draft])
+    if (!q.data) return
+    const previous = serverSnapshot.current
+    const next = { orgao: q.data.orgao, processo: q.data.processo }
+    serverSnapshot.current = next
+    // Refresh untouched editors without overwriting unsent municipal edits.
+    setDraft((current) => !current || JSON.stringify(current) === JSON.stringify(previous) ? next : current)
+  }, [q.data])
 
   const submit = useMutation({
     mutationFn: (edits: FormularioEdits) => chatApi.submitFormulario(sessionId, sessionToken, formularioId, edits),
@@ -52,6 +59,7 @@ export function FormularioCard({ sessionId, sessionToken, formularioId }: Props)
       <FormProvider value={ctx}>
         <FormularioEditor form={form} />
       </FormProvider>
+      <SpecificationEvidence form={form} />
 
       <div className="mt-4 flex flex-col gap-2">
         {submit.isError && <p role="alert" className="text-sm text-danger">{submit.error.message}</p>}

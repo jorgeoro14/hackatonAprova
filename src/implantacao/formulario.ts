@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { ProcessoModelo } from "../knowledge/schemas.js";
+import { FieldDifference, LegalEvidenceRecord, RequirementCitation } from "../../contracts/implantation-evidence.js";
 
 /**
  * Saída do agente: o formulário de implantação de UM tipo de processo para um órgão.
@@ -51,6 +52,9 @@ export const FormularioImplantacao = z.object({
   processo: ProcessoModelo,
   origens: z.array(RegistroOrigem).default([]),
   pendencias: z.array(Pendencia).default([]),
+  evidenciasLegais: z.array(LegalEvidenceRecord).default([]),
+  citacoesRequisitos: z.array(RequirementCitation).default([]),
+  alteracoesCampos: z.array(FieldDifference).default([]),
   atualizadoEm: z.iso.datetime(),
 });
 
@@ -73,6 +77,9 @@ export function novoFormulario(id: string, modelo: ProcessoModelo, orgao: Orgao,
     processo,
     origens: BLOCOS.filter((b) => processo[b] !== undefined).map((caminho) => ({ caminho, origem: "modelo" as const })),
     pendencias: [],
+    evidenciasLegais: [],
+    citacoesRequisitos: [],
+    alteracoesCampos: [],
     atualizadoEm: agora.toISOString(),
   };
   return { ...formulario, pendencias: lacunas(formulario) };

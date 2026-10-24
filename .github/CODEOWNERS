@@ -1,0 +1,6 @@
+# Replace placeholders with actual GitHub handles, then uncomment.
+# /frontend/ @frontend-owner
+# /backend/ @backend-owner
+# /agents/ @agents-owner
+# /contracts/ @backend-owner @frontend-owner @agents-owner
+# /docs/ @backend-owner @frontend-owner @agents-owner

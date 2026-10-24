@@ -9,6 +9,8 @@
   },
   "scripts": {
     "dev": "tsx watch src/server.ts",
+    "dev:local": "tsx scripts/dev-local.ts",
+    "contracts:agent": "tsx scripts/export-agent-contract.ts",
     "start": "node dist/server.js",
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",

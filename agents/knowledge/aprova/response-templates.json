@@ -1,0 +1,156 @@
+{
+  "data_kind": "synthetic_response_templates",
+  "usage": "Illustrate documented API response shapes only. These values are fictional and must never fill municipal interview answers.",
+  "templates": [
+    {
+      "operation_id": "getDocumentJsonV1Http",
+      "status": "200",
+      "scenario": "Minimal raw process example; other stored fields are unspecified by the public schema",
+      "body": {"_id": "000000000000000000000001", "city_id": 999999, "nP": "EXAMPLE-PROCESS-001"}
+    },
+    {
+      "operation_id": "findProcessByNpV1Http",
+      "status": "200",
+      "scenario": "A synthetic municipality and process were resolved",
+      "body": {
+        "city": {"index": 999999, "cidade": "Example City", "estado": "SC"},
+        "process": {"id": "000000000000000000000001", "nP": "EXAMPLE-PROCESS-001", "codValid": "example-only"}
+      }
+    },
+    {
+      "operation_id": "findProcessByNpV1Http",
+      "status": "200",
+      "scenario": "No process was found; null is not an extraction failure",
+      "body": {"city": {"index": 999999, "cidade": "Example City", "estado": "SC"}, "process": null}
+    },
+    {
+      "operation_id": "listProcessesV1Http",
+      "status": "200",
+      "scenario": "A synthetic metadata page requested with include= and an opaque continuation cursor",
+      "body": {
+        "items": [
+          {
+            "id": "000000000000000000000001",
+            "nP": "EXAMPLE-PROCESS-001",
+            "codValid": null,
+            "status": null,
+            "typeId": "000000000000000000000002",
+            "typeTitle": "Example permit",
+            "createdAt": "2026-01-01T10:00:00Z",
+            "finishedAt": null,
+            "finished": false,
+            "rejected": false,
+            "lastVersion": null,
+            "timeline": []
+          }
+        ],
+        "nextCursor": "example-opaque-cursor"
+      }
+    },
+    {
+      "operation_id": "listProcessesV1Http",
+      "status": "200",
+      "scenario": "Terminal empty page",
+      "body": {"items": [], "nextCursor": null}
+    },
+    {
+      "operation_id": "findTypesByCityV1Http",
+      "status": "200",
+      "scenario": "Discovery of a reusable form in a synthetic municipality",
+      "body": {
+        "city": {"index": 999999, "cidade": "Example City", "estado": "SC"},
+        "total": 1,
+        "forms": [{"id": "000000000000000000000002", "title": "Example permit"}]
+      }
+    },
+    {
+      "operation_id": "findTypesByCityV1Http",
+      "status": "200",
+      "scenario": "Ambiguous municipality requires a choice; no baseline is selected",
+      "body": {
+        "city": null,
+        "ambiguous": true,
+        "candidates": [
+          {"index": 999998, "cidade": "Example City", "estado": "SC", "totalForms": 1},
+          {"index": 999999, "cidade": "Example City", "estado": "SC", "totalForms": 2}
+        ]
+      }
+    },
+    {
+      "operation_id": "getTemplateV1Http",
+      "status": "200",
+      "scenario": "Synthetic HTML response; placeholder syntax is not specified",
+      "body": {
+        "name": "ExampleCity/permit.html",
+        "html": "<!DOCTYPE html><html><body>Example permit template</body></html>",
+        "created_at_iso": null,
+        "from": null
+      }
+    },
+    {
+      "operation_id": "getBlueprintPostV1Http",
+      "status": "200",
+      "scenario": "A synthetic reusable dispatch definition, not an executed dispatch",
+      "body": {
+        "id": "11111111-1111-4111-8111-111111111111",
+        "cityId": 999999,
+        "name": "Example review dispatch",
+        "form": {
+          "formData": [{"fieldGroup": [{"type": "next-input", "key": "example_reference", "templateOptions": {"label": "Example reference", "required": false}}]}]
+        },
+        "disabled": false,
+        "allowedUserTypes": [],
+        "statusList": [],
+        "deadlineFormat": null,
+        "deadlineValue": null,
+        "createdAt": "2026-01-01T10:00:00Z",
+        "deletedAt": null,
+        "deleted": false
+      }
+    },
+    {
+      "operation_id": "listBlueprintPostsV1Http",
+      "status": "200",
+      "scenario": "Synthetic blueprint metadata and relationships, including an unresolved link",
+      "body": {
+        "process": {
+          "id": "22222222-2222-4222-8222-222222222222",
+          "legacyId": "000000000000000000000002",
+          "title": "Example permit",
+          "subject": "Example permit",
+          "cityId": 999999,
+          "disabled": false
+        },
+        "linkedBy": "blueprint_process.available_custom_posts",
+        "total": 1,
+        "blueprintPosts": [
+          {
+            "id": "11111111-1111-4111-8111-111111111111",
+            "name": "Example review dispatch",
+            "disabled": false,
+            "deleted": false,
+            "allowedUserTypes": [],
+            "deadlineFormat": null,
+            "deadlineValue": null,
+            "statuses": []
+          }
+        ],
+        "unresolved": [
+          {"id": "33333333-3333-4333-8333-333333333333", "reason": "not_found", "message": "Synthetic missing linked definition"}
+        ]
+      }
+    },
+    {
+      "operation_id": "getDocumentJsonV1Http",
+      "status": "401",
+      "scenario": "Documented authentication error shape; no request is made",
+      "body": {"error": "Unauthorized", "message": "API Key is required"}
+    },
+    {
+      "operation_id": "getTemplateV1Http",
+      "status": "404",
+      "scenario": "Synthetic missing-template error",
+      "body": {"error": "Not Found", "message": "Synthetic template unavailable"}
+    }
+  ]
+}

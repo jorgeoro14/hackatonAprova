@@ -1,0 +1,267 @@
+[
+  {
+    "id": "planalto-14133",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm",
+    "status": null,
+    "error_type": "ConnectionResetError"
+  },
+  {
+    "id": "planalto-lc140",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp140.htm",
+    "status": null,
+    "error_type": "ConnectionResetError"
+  },
+  {
+    "id": "chamber-organic",
+    "url": "https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/lei-organica-municipal/",
+    "final_url": "https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/lei-organica-municipal/",
+    "status": 200,
+    "size_bytes": 89030,
+    "content_type": "text/html; charset=utf-8",
+    "snapshot": "knowledge_base/metadata/verification/chamber-organic.raw"
+  },
+  {
+    "id": "chamber-building",
+    "url": "https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-obras/",
+    "final_url": "https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-obras/",
+    "status": 200,
+    "size_bytes": 93111,
+    "content_type": "text/html; charset=utf-8",
+    "snapshot": "knowledge_base/metadata/verification/chamber-building.raw"
+  },
+  {
+    "id": "ipc-index",
+    "url": "https://ipc.cascavel.pr.gov.br/",
+    "final_url": "https://ipc.cascavel.pr.gov.br/",
+    "status": 200,
+    "size_bytes": 153766,
+    "content_type": "text/html; charset=UTF-8",
+    "snapshot": "knowledge_base/metadata/verification/ipc-index.raw"
+  },
+  {
+    "id": "municipal-inforce",
+    "url": "https://cascavel.atende.net/cidadao/pagina/legislacao-em-vigor",
+    "final_url": "https://cascavel.atende.net/cidadao/pagina/legislacao-em-vigor",
+    "status": 200,
+    "size_bytes": 216567,
+    "content_type": "text/html; charset=iso-8859-1",
+    "snapshot": "knowledge_base/metadata/verification/municipal-inforce.raw"
+  },
+  {
+    "id": "ibge-4104808",
+    "url": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios/4104808",
+    "final_url": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios/4104808",
+    "status": 200,
+    "size_bytes": 171,
+    "content_type": "application/json; charset=utf-8",
+    "snapshot": "knowledge_base/metadata/verification/ibge-4104808.raw"
+  },
+  {
+    "id": "sapl-6699",
+    "url": "https://sapl.cascavel.pr.leg.br/api/norma/normajuridica/?numero=6699",
+    "final_url": "https://sapl.cascavel.pr.leg.br/api/norma/normajuridica/?numero=6699",
+    "status": 200,
+    "size_bytes": 178,
+    "content_type": "application/json",
+    "snapshot": "knowledge_base/metadata/verification/sapl-6699.raw"
+  },
+  {
+    "id": "sapl-91",
+    "url": "https://sapl.cascavel.pr.leg.br/api/norma/normajuridica/?numero=91&ano=2017",
+    "final_url": "https://sapl.cascavel.pr.leg.br/api/norma/normajuridica/?numero=91&ano=2017",
+    "status": 200,
+    "size_bytes": 178,
+    "content_type": "application/json",
+    "snapshot": "knowledge_base/metadata/verification/sapl-91.raw"
+  },
+  {
+    "id": "ipc-laws",
+    "url": "https://ipc.cascavel.pr.gov.br/legislacao/",
+    "final_url": "https://ipc.cascavel.pr.gov.br/legislacao/",
+    "status": 200,
+    "size_bytes": 131107,
+    "content_type": "text/html; charset=UTF-8",
+    "snapshot": "knowledge_base/metadata/verification/ipc-laws.raw"
+  },
+  {
+    "id": "camara-lc140-metadata",
+    "url": "https://www2.camara.leg.br/legin/fed/leicom/2011/leicomplementar-140-8-dezembro-2011-611919-norma-pl.html",
+    "final_url": "https://www2.camara.leg.br/legin/fed/leicom/2011/leicomplementar-140-8-dezembro-2011-611919-norma-pl.html",
+    "status": 200,
+    "size_bytes": 46761,
+    "content_type": "text/html; charset=UTF-8",
+    "snapshot": "knowledge_base/metadata/verification/camara-lc140-metadata.raw",
+    "relevant_links": [
+      {
+        "url": "leicomplementar-140-8-dezembro-2011-611919-normaatualizada-pl.html",
+        "label": "Texto Atualizado (HTML)"
+      },
+      {
+        "url": "leicomplementar-140-8-dezembro-2011-611919-normaatualizada-pl.doc",
+        "label": "Formato doc"
+      },
+      {
+        "url": "leicomplementar-140-8-dezembro-2011-611919-normaatualizada-pl.pdf",
+        "label": "Formato pdf"
+      }
+    ]
+  },
+  {
+    "id": "camara-14133-search",
+    "url": "https://www.camara.leg.br/legislacao/busca?numero=14133&ano=2021&tipo=Lei",
+    "final_url": "https://www.camara.leg.br/legislacao/busca?numero=14133&ano=2021&tipo=Lei",
+    "status": 200,
+    "size_bytes": 45459,
+    "content_type": "text/html; charset=utf-8",
+    "snapshot": "knowledge_base/metadata/verification/camara-14133-search.raw",
+    "relevant_links": []
+  },
+  {
+    "id": "camara-lgpd-metadata",
+    "url": "https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-norma-pl.html",
+    "final_url": "https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-norma-pl.html",
+    "status": 200,
+    "size_bytes": 53383,
+    "content_type": "text/html; charset=UTF-8",
+    "snapshot": "knowledge_base/metadata/verification/camara-lgpd-metadata.raw",
+    "relevant_links": [
+      {
+        "url": "lei-13709-14-agosto-2018-787077-normaatualizada-pl.html",
+        "label": "Texto Atualizado (HTML)"
+      },
+      {
+        "url": "lei-13709-14-agosto-2018-787077-normaatualizada-pl.docx",
+        "label": "Formato docx"
+      },
+      {
+        "url": "lei-13709-14-agosto-2018-787077-normaatualizada-pl.pdf",
+        "label": "Formato pdf"
+      }
+    ]
+  },
+  {
+    "id": "camara-lc140-current",
+    "url": "https://www2.camara.leg.br/legin/fed/leicom/2011/leicomplementar-140-8-dezembro-2011-611919-normaatualizada-pl.html",
+    "final_url": "https://www2.camara.leg.br/legin/fed/leicom/2011/leicomplementar-140-8-dezembro-2011-611919-normaatualizada-pl.html",
+    "status": 200,
+    "size_bytes": 73161,
+    "content_type": "text/html; charset=UTF-8",
+    "snapshot": "knowledge_base/metadata/verification/camara-lc140-current.raw",
+    "links": [],
+    "status_excerpt": null
+  },
+  {
+    "id": "camara-lgpd-current",
+    "url": "https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html",
+    "final_url": "https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html",
+    "status": 200,
+    "size_bytes": 223813,
+    "content_type": "text/html; charset=UTF-8",
+    "snapshot": "knowledge_base/metadata/verification/camara-lgpd-current.raw",
+    "links": [],
+    "status_excerpt": null
+  },
+  {
+    "id": "camara-14133-metadata",
+    "url": "https://www2.camara.leg.br/legin/fed/lei/2021/lei-14133-1-abril-2021-791222-norma-pl.html",
+    "final_url": "https://www2.camara.leg.br/legin/fed/lei/2021/lei-14133-1-abril-2021-791222-norma-pl.html",
+    "status": 200,
+    "size_bytes": 61941,
+    "content_type": "text/html; charset=UTF-8",
+    "snapshot": "knowledge_base/metadata/verification/camara-14133-metadata.raw",
+    "links": [
+      "lei-14133-1-abril-2021-791222-normaatualizada-pl.html",
+      "lei-14133-1-abril-2021-791222-normaatualizada-pl.docx",
+      "lei-14133-1-abril-2021-791222-normaatualizada-pl.pdf"
+    ],
+    "status_excerpt": null
+  },
+  {
+    "id": "camara-14133-current",
+    "url": "https://www2.camara.leg.br/legin/fed/lei/2021/lei-14133-1-abril-2021-791222-normaatualizada-pl.html",
+    "status": 200,
+    "size_bytes": 160,
+    "content_type": "text/html; charset=UTF-8",
+    "snapshot": "knowledge_base/metadata/verification/camara-14133-current.raw"
+  },
+  {
+    "id": "camara-13460-metadata",
+    "url": "https://www2.camara.leg.br/legin/fed/lei/2017/lei-13460-26-junho-2017-785098-norma-pl.html",
+    "status": 200,
+    "size_bytes": 44789,
+    "content_type": "text/html; charset=UTF-8",
+    "snapshot": "knowledge_base/metadata/verification/camara-13460-metadata.raw"
+  },
+  {
+    "id": "camara-14129-metadata",
+    "url": "https://www2.camara.leg.br/legin/fed/lei/2021/lei-14129-29-marco-2021-791203-norma-pl.html",
+    "status": 200,
+    "size_bytes": 51312,
+    "content_type": "text/html; charset=UTF-8",
+    "snapshot": "knowledge_base/metadata/verification/camara-14129-metadata.raw"
+  },
+  {
+    "id": "camara-13460-current",
+    "url": "https://www2.camara.leg.br/legin/fed/lei/2017/lei-13460-26-junho-2017-785098-normaatualizada-pl.html",
+    "status": 200,
+    "size_bytes": 69367,
+    "content_type": "text/html; charset=UTF-8",
+    "snapshot": "knowledge_base/metadata/verification/camara-13460-current.raw"
+  },
+  {
+    "id": "camara-14129-current",
+    "url": "https://www2.camara.leg.br/legin/fed/lei/2021/lei-14129-29-marco-2021-791203-normaatualizada-pl.html",
+    "status": 200,
+    "size_bytes": 110265,
+    "content_type": "text/html; charset=UTF-8",
+    "snapshot": "knowledge_base/metadata/verification/camara-14129-current.raw"
+  },
+  {
+    "id": "organic-pdf",
+    "url": "https://www.camaracascavel.pr.gov.br/download/arquivo/52375/artigo/",
+    "status": 200,
+    "size_bytes": 454817,
+    "snapshot": "knowledge_base/municipal/cascavel/lei-organica-consolidada.pdf",
+    "content_type": "application/pdf"
+  },
+  {
+    "id": "camara-14133-docx",
+    "url": "https://www2.camara.leg.br/legin/fed/lei/2021/lei-14133-1-abril-2021-791222-normaatualizada-pl.docx",
+    "status": 200,
+    "size_bytes": 182684,
+    "snapshot": "knowledge_base/metadata/verification/camara-14133.docx",
+    "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  {
+    "id": "camara-12527-metadata",
+    "url": "https://www2.camara.leg.br/legin/fed/lei/2011/lei-12527-18-novembro-2011-611802-norma-pl.html",
+    "status": 200,
+    "size_bytes": 49924,
+    "snapshot": "knowledge_base/metadata/verification/camara-12527-metadata.raw",
+    "content_type": "text/html; charset=UTF-8"
+  },
+  {
+    "id": "camara-10257-metadata",
+    "url": "https://www2.camara.leg.br/legin/fed/lei/2001/lei-10257-10-julho-2001-327901-norma-pl.html",
+    "status": 200,
+    "size_bytes": 55724,
+    "snapshot": "knowledge_base/metadata/verification/camara-10257-metadata.raw",
+    "content_type": "text/html; charset=UTF-8"
+  },
+  {
+    "id": "camara-12527-current",
+    "url": "https://www2.camara.leg.br/legin/fed/lei/2011/lei-12527-18-novembro-2011-611802-normaatualizada-pl.html",
+    "status": 200,
+    "size_bytes": 109893,
+    "snapshot": "knowledge_base/metadata/verification/camara-12527-current.raw",
+    "content_type": "text/html; charset=UTF-8"
+  },
+  {
+    "id": "camara-10257-current",
+    "url": "https://www2.camara.leg.br/legin/fed/lei/2001/lei-10257-10-julho-2001-327901-normaatualizada-pl.html",
+    "status": 200,
+    "size_bytes": 149478,
+    "snapshot": "knowledge_base/metadata/verification/camara-10257-current.raw",
+    "content_type": "text/html; charset=UTF-8"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "constituicao",
+    "path": "estaduais/PR/constituicao",
+    "sha": "23781c34ab189a3165cabe5addb6cc64dea479f3",
+    "size": 0,
+    "url": "https://api.github.com/repos/ctresb/leis/contents/estaduais/PR/constituicao?ref=15eb09b618ff08a38c4dfee06a91bd139d093f5d",
+    "html_url": "https://github.com/ctresb/leis/tree/15eb09b618ff08a38c4dfee06a91bd139d093f5d/estaduais/PR/constituicao",
+    "git_url": "https://api.github.com/repos/ctresb/leis/git/trees/23781c34ab189a3165cabe5addb6cc64dea479f3",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/ctresb/leis/contents/estaduais/PR/constituicao?ref=15eb09b618ff08a38c4dfee06a91bd139d093f5d",
+      "git": "https://api.github.com/repos/ctresb/leis/git/trees/23781c34ab189a3165cabe5addb6cc64dea479f3",
+      "html": "https://github.com/ctresb/leis/tree/15eb09b618ff08a38c4dfee06a91bd139d093f5d/estaduais/PR/constituicao"
+    }
+  },
+  {
+    "name": "emendas-constitucionais",
+    "path": "estaduais/PR/emendas-constitucionais",
+    "sha": "4265c58064f82668119cdb982b1c583dc03f4a2b",
+    "size": 0,
+    "url": "https://api.github.com/repos/ctresb/leis/contents/estaduais/PR/emendas-constitucionais?ref=15eb09b618ff08a38c4dfee06a91bd139d093f5d",
+    "html_url": "https://github.com/ctresb/leis/tree/15eb09b618ff08a38c4dfee06a91bd139d093f5d/estaduais/PR/emendas-constitucionais",
+    "git_url": "https://api.github.com/repos/ctresb/leis/git/trees/4265c58064f82668119cdb982b1c583dc03f4a2b",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/ctresb/leis/contents/estaduais/PR/emendas-constitucionais?ref=15eb09b618ff08a38c4dfee06a91bd139d093f5d",
+      "git": "https://api.github.com/repos/ctresb/leis/git/trees/4265c58064f82668119cdb982b1c583dc03f4a2b",
+      "html": "https://github.com/ctresb/leis/tree/15eb09b618ff08a38c4dfee06a91bd139d093f5d/estaduais/PR/emendas-constitucionais"
+    }
+  }
+]

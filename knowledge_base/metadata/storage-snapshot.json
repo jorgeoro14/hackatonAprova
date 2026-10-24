@@ -1,0 +1,418 @@
+{
+  "date": "2026-10-24",
+  "excluded_self": "metadata/storage-snapshot.json",
+  "total_files": 82,
+  "total_bytes": 11801506,
+  "files": [
+    {
+      "path": "chunks/articles.jsonl",
+      "size_bytes": 401510,
+      "sha256": "b32e035e0965b5de110ed7fbe1126bff14127125b088f64a037ef2fa7cf821ab"
+    },
+    {
+      "path": "chunks/lexical.sqlite3",
+      "size_bytes": 954368,
+      "sha256": "c62a6e4c4655e6099c37d12e6c550ea2cc98fa2153030d127bcde2599729e3d1"
+    },
+    {
+      "path": "estadual/PR/constituicao-pr-seti-2025.md",
+      "size_bytes": 392200,
+      "sha256": "efc40da49d3494cca03db17ef9c869e58ca241f554638f41c945deedb5b8c293"
+    },
+    {
+      "path": "federal/constituicao.md",
+      "size_bytes": 722006,
+      "sha256": "32619869bc81b4eb97e0ec344daa7295fe581701a8e7804a5bf5039ec4f71774"
+    },
+    {
+      "path": "federal/lcp-140-2011-12-08.md",
+      "size_bytes": 1175,
+      "sha256": "1dda0f2f3aeebb746444ff85f4336dd4939155997362f96731deed4306c66889"
+    },
+    {
+      "path": "federal/lei-10257-2001-07-10.md",
+      "size_bytes": 52240,
+      "sha256": "845868dcf9ad25485a19162e4fffd981f8c3e9a4f7cdcb311e91a167a8cb528b"
+    },
+    {
+      "path": "federal/lei-12527-2011-11-18.md",
+      "size_bytes": 43815,
+      "sha256": "19c12470a1a453b4c30a1d9c10dbeb74f9cc8c20fc05d919af3e95236eda9a55"
+    },
+    {
+      "path": "federal/lei-13460-2017-06-26.md",
+      "size_bytes": 21565,
+      "sha256": "be56cb67de6b8d423a6bbb4894f164a1279fcc3d9821bd8264ddb3b5aa57530c"
+    },
+    {
+      "path": "federal/lei-13709-2018-08-14.md",
+      "size_bytes": 84925,
+      "sha256": "72d32431037ce85955c6f959f50f11d10971a8ec36f93cdae5ee3459ec66a4dd"
+    },
+    {
+      "path": "federal/lei-13726-2018-10-08.md",
+      "size_bytes": 6243,
+      "sha256": "8efb25ca0ae457ee4821d6bb7712631a183c1d33e0e393e186dba772c6ec3ba8"
+    },
+    {
+      "path": "federal/lei-14129-2021-03-29.md",
+      "size_bytes": 48276,
+      "sha256": "df8c9c81ee024b06fa50b9a2addd960e43b09e912dff4cf179525527cef86665"
+    },
+    {
+      "path": "federal/lei-14133-2021-04-01.md",
+      "size_bytes": 3303,
+      "sha256": "e2af0d78543a4513c32c9b8c53b26fb58f5bccc6c6f2a5b37ebc5df438bb2760"
+    },
+    {
+      "path": "federal/lei-6766-1979-12-19.md",
+      "size_bytes": 67622,
+      "sha256": "a914d778bbec366951cb32e4e2800cbb908050a2385a449548e0d055ac35fb57"
+    },
+    {
+      "path": "federal/official-10257.md",
+      "size_bytes": 53137,
+      "sha256": "f165b1ee059e1719dfbc800bde789a456080d31b52ad754c8f9a83803525a454"
+    },
+    {
+      "path": "federal/official-12527.md",
+      "size_bytes": 45512,
+      "sha256": "1d280d9541cc388adf28003d0044bb19e5c3ba48b298843440f7c69780b4447b"
+    },
+    {
+      "path": "federal/official-13460.md",
+      "size_bytes": 21540,
+      "sha256": "22161605bcee9c6060a463b7b472ba6c637bd2c9f18fda3f25e2ddfe503d0f4d"
+    },
+    {
+      "path": "federal/official-14129.md",
+      "size_bytes": 48261,
+      "sha256": "81b91a514fcd769db49d3af5f8d0cc4acd0ebc13febe405796d62dcba3c68e0b"
+    },
+    {
+      "path": "federal/official-14133.md",
+      "size_bytes": 285543,
+      "sha256": "c7a41c67801b3ccee6c481ea05ad2ce8279db36b8a35494ec918dbbcea6aa741"
+    },
+    {
+      "path": "federal/official-lc140.md",
+      "size_bytes": 25781,
+      "sha256": "1619e816e88010929a4a58dadabf0f370b3a9f09fac45760373c7802d5262def"
+    },
+    {
+      "path": "federal/official-lgpd.md",
+      "size_bytes": 86897,
+      "sha256": "e40b72738dd1ce94b2d6adb6112985f63e14fe741a029c1a6a2f91069eadb7be"
+    },
+    {
+      "path": "metadata/manifest.json",
+      "size_bytes": 382162,
+      "sha256": "b2612b060b7fc1a7c89b664d07fa4d2148360e618f5b997992f22b511ed1a8c6"
+    },
+    {
+      "path": "metadata/municipality-requests.json",
+      "size_bytes": 186,
+      "sha256": "d91f4280ecff1a985332c930f1914209cba136c7ca52e33662bb2bea1fc83cc1"
+    },
+    {
+      "path": "metadata/repository/COBERTURA.md",
+      "size_bytes": 2702,
+      "sha256": "15ed152a82cb542b0102c4dc91345ea37bc0aea42fd47e5d5362897f96e90566"
+    },
+    {
+      "path": "metadata/repository/estaduais__PR.json",
+      "size_bytes": 1995,
+      "sha256": "d99969cea83d4f21fe462a912f20c9e97e2b85127f8379554b9d73b24cde9782"
+    },
+    {
+      "path": "metadata/repository/estaduais__PR__constituicao__tree.json",
+      "size_bytes": 759,
+      "sha256": "0de8e73fffb8fea7e3320317305f4b77d13ebb2b5afa360acbf0f6fdfc4c355b"
+    },
+    {
+      "path": "metadata/repository/estaduais__PR__emendas-constitucionais__tree.json",
+      "size_bytes": 2779,
+      "sha256": "9c4563fd99f444952e7bd1ac82a87cfb060aff5bd060d80d4a8f338944031997"
+    },
+    {
+      "path": "metadata/repository/federal__decretos.json",
+      "size_bytes": 74803,
+      "sha256": "037fc9ac93d766edfa60f37069d1d1492da70aca9b16e69f0d774638a1a19acf"
+    },
+    {
+      "path": "metadata/repository/federal__decretos__2012__complete-tree.json",
+      "size_bytes": 52092,
+      "sha256": "3aa238b084960609c28dc2b840538cdcfee991828a42ca6615b02b7759073196"
+    },
+    {
+      "path": "metadata/repository/federal__decretos__2020__complete-tree.json",
+      "size_bytes": 93775,
+      "sha256": "9ef818c96702f7b86d2e709afd3dfa5a4ac9e856407e1c3f8b12e1f672b79366"
+    },
+    {
+      "path": "metadata/repository/federal__leis-complementares.json",
+      "size_bytes": 59403,
+      "sha256": "5f0e40eb396175b185fd222677fa5143f5c4a14fa5bf4fc716fc50eef1fb3533"
+    },
+    {
+      "path": "metadata/repository/federal__leis-complementares__2011__tree.json",
+      "size_bytes": 784,
+      "sha256": "c5a8d1c1172e26ac92bff38fb90b34f324971f6ca10ac50155b4550c4e88ae19"
+    },
+    {
+      "path": "metadata/repository/federal__leis-complementares__complete-tree.json",
+      "size_bytes": 70049,
+      "sha256": "4f06af7f7289b8acd06fd84b7847181b1f977949234d5d7c5b13bad295ab5bdd"
+    },
+    {
+      "path": "metadata/repository/federal__leis-ordinarias.json",
+      "size_bytes": 170723,
+      "sha256": "2b45aaabd1a59748b55aafcefdef1ee25f499d5b4b910068df8b1024fce7565d"
+    },
+    {
+      "path": "metadata/repository/federal__leis-ordinarias__1979__tree.json",
+      "size_bytes": 42995,
+      "sha256": "e389c14798197900e985fc13dafeec3749f438732ae8dedd58a91bb88a45454e"
+    },
+    {
+      "path": "metadata/repository/federal__leis-ordinarias__2001__tree.json",
+      "size_bytes": 67390,
+      "sha256": "471e7557c568bc885d538020d0f675d3fb48f0d3ac0f58f7440ce910385c0a0c"
+    },
+    {
+      "path": "metadata/repository/federal__leis-ordinarias__2011__tree.json",
+      "size_bytes": 60951,
+      "sha256": "4b8f0e4e3c00036662c81d11157f1cddae53af600fa3b0fdd80ca62d46dff5fc"
+    },
+    {
+      "path": "metadata/repository/federal__leis-ordinarias__2017__tree.json",
+      "size_bytes": 50733,
+      "sha256": "1bcb11ea6ff119902b22c94b1f64dd163399277738dfc464722373fa4af0dba9"
+    },
+    {
+      "path": "metadata/repository/federal__leis-ordinarias__2018__tree.json",
+      "size_bytes": 59201,
+      "sha256": "234fd09771667ef271918ccf503d396c89fcc26b3d0b1ccdc07ae4f2befd58e4"
+    },
+    {
+      "path": "metadata/repository/federal__leis-ordinarias__2021__tree.json",
+      "size_bytes": 50456,
+      "sha256": "5ad55d49aae63746427ede5cca9eb5ac6bebd24ad286f9128ca8701ee243bfd9"
+    },
+    {
+      "path": "metadata/repository/federal__leis-ordinarias__complete-tree.json",
+      "size_bytes": 4103445,
+      "sha256": "b0c349d014be5e85cf7da555727c04679da6568c56c654a897821b8feaa86b72"
+    },
+    {
+      "path": "metadata/repository/inventory-scopes.json",
+      "size_bytes": 519,
+      "sha256": "484cafe7cde918671e2ea622b7caeb56d4b3ccd8558adab6a532c77c8122c83e"
+    },
+    {
+      "path": "metadata/repository/LICENSE",
+      "size_bytes": 1305,
+      "sha256": "e71449c818e669b01200bbd28679a9ae048ab7cae466a41e1a697c5ac8206d8f"
+    },
+    {
+      "path": "metadata/repository/municipais__PR.json",
+      "size_bytes": 120155,
+      "sha256": "d5351a88f2230b45866528299c00818457bbe952e9a21f67dac5161a21ae3730"
+    },
+    {
+      "path": "metadata/repository/PROGRESSO.md",
+      "size_bytes": 24476,
+      "sha256": "caee1f1912524ab77d340a377fc082a4d3387661794a96b3f6ce3059e166d905"
+    },
+    {
+      "path": "metadata/repository/README.md",
+      "size_bytes": 19116,
+      "sha256": "c6de25bbe0b804cc8b73c7bbb4f843f782a97cbaf2437acba7e577f001af4cd4"
+    },
+    {
+      "path": "metadata/repository/selected-downloads.json",
+      "size_bytes": 7675,
+      "sha256": "2fd5ff3392948c29d3a04a14e351defe3c40e1c9d401d9424553317b085809dc"
+    },
+    {
+      "path": "metadata/repository/snapshot.json",
+      "size_bytes": 132,
+      "sha256": "4ccaf764c834d118c513b140a5201882565e27690fafc4e304f06762af69a115"
+    },
+    {
+      "path": "metadata/requirements.jsonl",
+      "size_bytes": 29389,
+      "sha256": "d4505e821d291351d263603b3c6b01e0fab0b511f201a68af1a6dc98b448738a"
+    },
+    {
+      "path": "metadata/source-catalog.json",
+      "size_bytes": 29937,
+      "sha256": "3531455ad0afc6a9cd8ca02c94efcc132dd11be776cfcf7f384c6d68f4cec166"
+    },
+    {
+      "path": "metadata/verification/access-checks.json",
+      "size_bytes": 10970,
+      "sha256": "3434ec4f816e2bcf0131b2ab80cfdf1b015011f9df4ee1242dd2f24a7bdd50d1"
+    },
+    {
+      "path": "metadata/verification/camara-10257-current.raw",
+      "size_bytes": 149478,
+      "sha256": "b7bf41cf8aefcbcca7445e09f29bd6b57c87c960484f802e6d6a61e00aafef21"
+    },
+    {
+      "path": "metadata/verification/camara-10257-metadata.raw",
+      "size_bytes": 55724,
+      "sha256": "91a6822d3996d98fe7224c62c1a2fe50bc2de6a269126010998c13ab681ad2b4"
+    },
+    {
+      "path": "metadata/verification/camara-12527-current.raw",
+      "size_bytes": 109893,
+      "sha256": "879f1f2a828e39d6928786f523957b5c71f68b04c4132a0d541e0b65a8f51130"
+    },
+    {
+      "path": "metadata/verification/camara-12527-metadata.raw",
+      "size_bytes": 49924,
+      "sha256": "be28d4f40e2551cbfa97a92cd9f41089b13bca828a5cb98282dc2b62cfaa2857"
+    },
+    {
+      "path": "metadata/verification/camara-13460-current.raw",
+      "size_bytes": 69367,
+      "sha256": "cd7590e241fb86f13bb85566f10f52913a955c9afb5262950cbc021f1e1e14e7"
+    },
+    {
+      "path": "metadata/verification/camara-13460-metadata.raw",
+      "size_bytes": 44789,
+      "sha256": "3ba07a4ef872f7d1f864803a8411d9840276d67ac29841d04cff192fb32749af"
+    },
+    {
+      "path": "metadata/verification/camara-14129-current.raw",
+      "size_bytes": 110265,
+      "sha256": "0f1639e49cf639fde51d8a1b7f026d9acc731793d886a28f46f8e0feed6e3aa3"
+    },
+    {
+      "path": "metadata/verification/camara-14129-metadata.raw",
+      "size_bytes": 51312,
+      "sha256": "cf4291500725e2c9334a3b40cb8171a23568049b947130676e29ec32e678a5ec"
+    },
+    {
+      "path": "metadata/verification/camara-14133-current.raw",
+      "size_bytes": 160,
+      "sha256": "c9c89d274726b86306e1c97d80360f820bce86042c34c9bb2487aac4ada6d606"
+    },
+    {
+      "path": "metadata/verification/camara-14133-metadata.raw",
+      "size_bytes": 61941,
+      "sha256": "3f4075f009b1146c8ef429583455af90b2037bc1ad538daee2db8bbd47014591"
+    },
+    {
+      "path": "metadata/verification/camara-14133-search.raw",
+      "size_bytes": 45459,
+      "sha256": "f34ab2dc4fdd141350422e5b2608ff0e738011c02b0f49bedf78deacdeee4c76"
+    },
+    {
+      "path": "metadata/verification/camara-14133.docx",
+      "size_bytes": 182684,
+      "sha256": "52c07732e02484309ae084ddfacb474a5b7241bc49651c0e8ae21967ec9bd279"
+    },
+    {
+      "path": "metadata/verification/camara-lc140-current.raw",
+      "size_bytes": 73161,
+      "sha256": "7d4a02010842a85849278623c1eb08daa160c86666418b867e247bf3e9a3c6e2"
+    },
+    {
+      "path": "metadata/verification/camara-lc140-metadata.raw",
+      "size_bytes": 46761,
+      "sha256": "bdc9de66e8d59cbf37c68db720bb75aec56593e914735aab0a76321e5c9a7213"
+    },
+    {
+      "path": "metadata/verification/camara-lgpd-current.raw",
+      "size_bytes": 223813,
+      "sha256": "5ade20f12d206504f3beb13a0595d144efc891229ad0e6badcebfa97a8a83596"
+    },
+    {
+      "path": "metadata/verification/camara-lgpd-metadata.raw",
+      "size_bytes": 53383,
+      "sha256": "325318dae61e6af6b9463c6ac754410a56130dc2bdfe99e3bc15f61d91d7029f"
+    },
+    {
+      "path": "metadata/verification/chamber-building.raw",
+      "size_bytes": 93111,
+      "sha256": "91a4186ef91664c8425f083bd9f42df38b73a73ae70aa753834689e34bb8a6e8"
+    },
+    {
+      "path": "metadata/verification/chamber-organic.raw",
+      "size_bytes": 89030,
+      "sha256": "acdbba9f63161ad5fc5a9640089c44d0fc8c0521dc1d9095b2165693016a5633"
+    },
+    {
+      "path": "metadata/verification/ibge-4104808.raw",
+      "size_bytes": 171,
+      "sha256": "7e144928de5129dcd227e4798af546d8be910c91af7d6b11f5da7cd8893bb5ed"
+    },
+    {
+      "path": "metadata/verification/ipc-index.raw",
+      "size_bytes": 153766,
+      "sha256": "531834cf73aabeb3343173d57f330a36f813336da10c9cd88205d555ad6c224c"
+    },
+    {
+      "path": "metadata/verification/ipc-laws.raw",
+      "size_bytes": 131107,
+      "sha256": "5c92dfcd6a6eefe47fe61c5be69ced935015c367185f3657825b854e0fbdf9ff"
+    },
+    {
+      "path": "metadata/verification/municipal-inforce.raw",
+      "size_bytes": 216567,
+      "sha256": "f7d63dc88235a3e453f64d70d35526e9148eb15cffad48acde1da3d87740c9f2"
+    },
+    {
+      "path": "metadata/verification/sapl-6699.raw",
+      "size_bytes": 178,
+      "sha256": "833dca2a8fb4e3d6bd2ff8766d5445b11b423545c14901c885b710007442d175"
+    },
+    {
+      "path": "metadata/verification/sapl-91.raw",
+      "size_bytes": 178,
+      "sha256": "833dca2a8fb4e3d6bd2ff8766d5445b11b423545c14901c885b710007442d175"
+    },
+    {
+      "path": "municipal/cascavel/lei-organica-consolidada.md",
+      "size_bytes": 174577,
+      "sha256": "771dee125cf01d6a524019ff0f682c5d0d4509f1da996fe0465f68a73fa1d3e3"
+    },
+    {
+      "path": "municipal/cascavel/lei-organica-consolidada.pdf",
+      "size_bytes": 454817,
+      "sha256": "e291322ae9859741418c3cd9252a128e320a6b528754154d3ded30524d94428e"
+    },
+    {
+      "path": "municipal/cascavel/lei-organica.pages.json",
+      "size_bytes": 175839,
+      "sha256": "5d007d073b86f83d3edc182fd2a17993a04b1176aa9aa748d7f9b394ae43bb9a"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 2574,
+      "sha256": "8d5cfd0f32350631f6a7a4a250807228f5f9513e12f923260b598bc2b8c7f1a1"
+    },
+    {
+      "path": "reports/collection_report.md",
+      "size_bytes": 8603,
+      "sha256": "0662ce9c2e6a33509ce2c82ed2d298f426fbbaad923790f94393aae7a2a70b74"
+    },
+    {
+      "path": "reports/inventory.csv",
+      "size_bytes": 5342,
+      "sha256": "b9365faaad0c7b344b306eac499ee50af192fcc9588cae8a3213b9753ae756b9"
+    },
+    {
+      "path": "reports/inventory.md",
+      "size_bytes": 6704,
+      "sha256": "7ad6b5b2e9565ab3372597c3329e87e65faacf071b78591c5673a88c9ae35041"
+    },
+    {
+      "path": "reports/missing_sources.md",
+      "size_bytes": 3852,
+      "sha256": "49b6b6244f5f502fae4072382676526d8dc9c6a05f80e6a96543d44ac3cfce41"
+    }
+  ]
+}

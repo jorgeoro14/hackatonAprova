@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "message-request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "client_message_id",
+    "expected_revision",
+    "text"
+  ],
+  "properties": {
+    "client_message_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "expected_revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "maxLength": 10000
+    }
+  }
+}

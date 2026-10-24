@@ -1,0 +1,26 @@
+[
+  {
+    "path": "federal/leis-complementares",
+    "truncated": false,
+    "documents": 239,
+    "metadata_bytes": 70049
+  },
+  {
+    "path": "federal/leis-ordinarias",
+    "truncated": false,
+    "documents": 16784,
+    "metadata_bytes": 4103445
+  },
+  {
+    "path": "federal/decretos/2012",
+    "truncated": false,
+    "documents": 219,
+    "metadata_bytes": 52092
+  },
+  {
+    "path": "federal/decretos/2020",
+    "truncated": false,
+    "documents": 393,
+    "metadata_bytes": 93775
+  }
+]

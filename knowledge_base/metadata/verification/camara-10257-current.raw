@@ -1,0 +1,1910 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.4.7.2 (Linux)"/>
+	<meta name="author" content="P_6140"/>
+	<meta name="created" content="2026-06-15T15:13:00"/>
+	<meta name="changedby" content="Alexandre Pereira Pinheiro"/>
+	<meta name="changed" content="2026-06-15T16:14:00"/>
+	<meta name="AppVersion" content="14.0000"/>
+	<meta name="Company" content="CD"/>
+	<meta name="DocSecurity" content="0"/>
+	<meta name="HyperlinksChanged" content="false"/>
+	<meta name="LinksUpToDate" content="false"/>
+	<meta name="ScaleCrop" content="false"/>
+	<meta name="ShareDoc" content="false"/>
+	<style type="text/css">
+		@page { size: 21.59cm 27.94cm; margin-left: 3cm; margin-right: 2cm; margin-top: 2.5cm; margin-bottom: 2.5cm }
+		p { margin-bottom: 0cm; direction: ltr; text-align: left; orphans: 2; widows: 2; background: transparent }
+		p.western { font-size: 12pt }
+		p.cjk { font-size: 12pt }
+		h2 { text-indent: 2cm; margin-top: 0cm; margin-bottom: 0cm; direction: ltr; text-align: left; orphans: 2; widows: 2; background: transparent; page-break-after: avoid }
+		h2.western { font-family: "Arial", serif; font-size: 12pt }
+		h2.cjk { font-size: 12pt }
+		a:link { color: #0000ff; text-decoration: underline }
+		a:visited { color: #800080; text-decoration: underline }
+		em.western { font-style: italic }
+		em.cjk { font-style: italic }
+	</style>
+</head>
+<body lang="pt-BR" link="#0000ff" vlink="#800080" dir="ltr"><p align="center">
+<img src="data:image/png;base64,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" align="left"/>
+<br/>
+
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><b>CÂMARA
+DOS DEPUTADOS</b></font></p>
+<p align="center"><font size="2" style="font-size: 10pt">Centro de
+Documentação e Informação</font></p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="4" style="font-size: 14pt"><b>LEI
+Nº 10.257, DE 10 DE JULHO DE 2001</b></font></font></p>
+<p style="margin-left: 7.75cm"><br/>
+
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="margin-left: 7.75cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Regulamenta
+os arts. 182 e 183 da Constituição Federal, estabelece diretrizes
+gerais da política urbana e dá outras providências. </font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>O
+PRESIDENTE DA REPÚBLICA, </b></font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Faço
+saber que o Congresso Nacional decreta e eu sanciono a seguinte Lei: </font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">CAPÍTULO
+I </font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">DIRETRIZES
+GERAIS </font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+1º Na execução da política urbana, de que tratam os arts. 182 e
+183 da Constituição Federal, será aplicado o previsto nesta Lei. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Parágrafo
+único. Para todos os efeitos, esta Lei, denominada Estatuto da
+Cidade, estabelece normas de ordem pública e interesse social que
+regulam o uso da propriedade urbana em prol do bem coletivo, da
+segurança e do bem-estar dos cidadãos, bem como do equilíbrio
+ambiental. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+2º A política urbana tem por objetivo ordenar o pleno
+desenvolvimento das funções sociais da cidade e da propriedade
+urbana, mediante as seguintes diretrizes gerais: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- garantia do direito a cidades sustentáveis, entendido como o
+direito à terra urbana, à moradia, ao saneamento ambiental, à
+infra-estrutura urbana, ao transporte e aos serviços públicos, ao
+trabalho e ao lazer, para as presentes e futuras gerações; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- gestão democrática por meio da participação da população e de
+associações representativas dos vários segmentos da comunidade na
+formulação, execução e acompanhamento de planos, programas e
+projetos de desenvolvimento urbano; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- cooperação entre os governos, a iniciativa privada e os demais
+setores da sociedade no processo de urbanização, em atendimento ao
+interesse social; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IV
+- planejamento do desenvolvimento das cidades, da distribuição
+espacial da população e das atividades econômicas do Município e
+do território sob sua área de influência, de modo a evitar e
+corrigir as distorções do crescimento urbano e seus efeitos
+negativos sobre o meio ambiente; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">V
+- oferta de equipamentos urbanos e comunitários, transporte e
+serviços públicos adequados aos interesses e necessidades da
+população e às características locais; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VI
+- ordenação e controle do uso do solo, de forma a evitar: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">a)
+a utilização inadequada dos imóveis urbanos;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">b)
+a proximidade de usos incompatíveis ou inconvenientes;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">c)
+o parcelamento do solo, a edificação ou o uso excessivos ou
+inadequados em relação à infra-estrutura urbana;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">d)
+a instalação de empreendimentos ou atividades que possam funcionar
+como pólos geradores de tráfego, sem a previsão da infra-estrutura
+correspondente;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">e)
+a retenção especulativa de imóvel urbano, que resulte na sua
+subutilização ou não utilização;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">f)
+a deterioração das áreas urbanizadas;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">g)
+a poluição e a degradação ambiental;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">h)
+a exposição da população a riscos de desastres. </font><a href="http://www2.camara.gov.br/legin/fed/medpro/2011/medidaprovisoria-547-11-outubro-2011-611580-publicacaooriginal-133791-pe.html"><font size="3" style="font-size: 12pt"><i>(Alínea
+acrescida pela Medida Provisória nº 547, de 11/10/2011,</i></font></a><font color="#ff0000"><font size="3" style="font-size: 12pt"><i>
+</i></font></font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>com
+redação dada pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VII
+- integração e complementaridade entre as atividades urbanas e
+rurais, tendo em vista o desenvolvimento socioeconômico do Município
+e do território sob sua área de influência; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VIII
+- adoção de padrões de produção e consumo de bens e serviços e
+de expansão urbana compatíveis com os limites da sustentabilidade
+ambiental, social e econômica do Município e do território sob sua
+área de influência; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IX
+- justa distribuição dos benefícios e ônus decorrentes do
+processo de urbanização; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">X
+- adequação dos instrumentos de política econômica, tributária e
+financeira e dos gastos públicos aos objetivos do desenvolvimento
+urbano, de modo a privilegiar os investimentos geradores de bem-estar
+geral e a fruição dos bens pelos diferentes segmentos sociais; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">XI
+- recuperação dos investimentos do Poder Público de que tenha
+resultado a valorização de imóveis urbanos; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">XII
+- proteção, preservação e recuperação do meio ambiente natural
+e construído, do patrimônio cultural, histórico, artístico,
+paisagístico e arqueológico; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">XIII
+- audiência do Poder Público municipal e da população interessada
+nos processos de implantação de empreendimentos ou atividades com
+efeitos potencialmente negativos sobre o meio ambiente natural ou
+construído, o conforto ou a segurança da população; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">XIV
+- regularização fundiária e urbanização de áreas ocupadas por
+população de baixa renda mediante o estabelecimento de normas
+especiais de urbanização, uso e ocupação do solo e edificação,
+consideradas a situação socioeconômica da população e as normas
+ambientais; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">XV
+- simplificação da legislação de parcelamento, uso e ocupação
+do solo e das normas edilícias, com vistas a permitir a redução
+dos custos e o aumento da oferta dos lotes e unidades habitacionais; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">XVI
+- isonomia de condições para os agentes públicos e privados na
+promoção de empreendimentos e atividades relativos ao processo de
+urbanização, atendido o interesse social; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">XVII
+- estímulo à utilização, nos parcelamentos do solo e nas
+edificações urbanas, de sistemas operacionais, padrões
+construtivos e aportes tecnológicos que objetivem a redução de
+impactos ambientais e a economia de recursos naturais; </font><a href="http://www2.camara.leg.br/legin/fed/lei/2013/lei-12836-2-julho-2013-776414-publicacaooriginal-140333-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 12.836, de 2/7/2013)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">XVIII
+- tratamento prioritário às obras e edificações de infraestrutura
+de energia, telecomunicações, abastecimento de água e saneamento;
+</font><a href="http://www2.camara.leg.br/legin/fed/lei/2015/lei-13116-20-abril-2015-780558-publicacaooriginal-146693-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 13.116, de 20/4/2015)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">XIX
+- garantia de condições condignas de acessibilidade, utilização e
+conforto nas dependências internas das edificações urbanas,
+inclusive nas destinadas à moradia e ao serviço dos trabalhadores
+domésticos, observados requisitos mínimos de dimensionamento,
+ventilação, iluminação, ergonomia, privacidade e qualidade dos
+materiais empregados. </font><a href="http://www2.camara.leg.br/legin/fed/lei/2018/lei-13699-2-agosto-2018-787009-publicacaooriginal-156092-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 13.699, de 2/8/2018)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">XX
+- promoção de conforto, abrigo, descanso, bem-estar e
+acessibilidade na fruição dos espaços livres de uso público, de
+seu mobiliário e de suas interfaces com os espaços de uso privado,
+vedado o emprego de materiais, estruturas, equipamentos e técnicas
+construtivas hostis que tenham como objetivo ou resultado o
+afastamento de pessoas em situação de rua, idosos, jovens e outros
+segmentos da população. </font><font size="3" style="font-size: 12pt"><i><a href="https://www2.camara.leg.br/legin/fed/lei/2022/lei-14489-21-dezembro-2022-793527-publicacaooriginal-166602-pl.html">(Inciso
+acrescido pela Lei nº 14.489, de 21/12/2022</a>, <a href="https://www2.camara.leg.br/legin/fed/lei/2022/lei-14489-21-dezembro-2022-793527-republicacao-166834-pl.html">republicada
+no DOU de 11/1/2023)</a></i></font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">XXI
+– adequada construção, instalação, sinalização, higienização
+e conservação dos equipamentos públicos e privados de uso
+coletivo, com vistas à prevenção de acidentes e à proteção da
+saúde dos usuários. </font><a href="https://www2.camara.leg.br/legin/fed/lei/2026/lei-15333-7-janeiro-2026-798636-publicacaooriginal-177719-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 15.333, de 7/1/2026, publicada no DOU de
+8/1/2026, em vigor 90 dias após a publicação)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><a name="_GoBack"></a><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">XXII
+- </font><a href="https://www2.camara.leg.br/legin/fed/lei/2026/lei-15432-13-junho-2026-799355-publicacaooriginal-179916-pl.html"><font size="3" style="font-size: 12pt"><i>(Vide
+Lei nº 15.432, de 13/6/2026)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">XXIII
+- </font><a href="https://www2.camara.leg.br/legin/fed/lei/2026/lei-15432-13-junho-2026-799355-publicacaooriginal-179916-pl.html"><font size="3" style="font-size: 12pt"><i>(Vide
+Lei nº 15.432, de 13/6/2026)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+3º Compete à União, entre outras atribuições de interesse da
+política urbana: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- legislar sobre normas gerais de direito urbanístico; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- legislar sobre normas para a cooperação entre a União, os
+Estados, o Distrito Federal e os Municípios em relação à política
+urbana, tendo em vista o equilíbrio do desenvolvimento e do
+bem-estar em âmbito nacional; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- promover, por iniciativa própria e em conjunto com os Estados, o
+Distrito Federal e os Municípios, programas de construção de
+moradias e melhoria das condições habitacionais, de saneamento
+básico, das calçadas, dos passeios públicos, do mobiliário urbano
+e dos demais espaços de uso público; </font><a href="http://www2.camara.leg.br/legin/fed/lei/2015/lei-13146-6-julho-2015-781174-publicacaooriginal-147468-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+com redação dada pela Lei nº 13.146, de 6/7/2015, publicada no DOU
+de 7/7/2015, em vigor 180 dias após sua publicação)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IV
+- instituir diretrizes para desenvolvimento urbano, inclusive
+habitação, saneamento básico, transporte e mobilidade urbana, que
+incluam regras de acessibilidade aos locais de uso público; </font><a href="http://www2.camara.leg.br/legin/fed/lei/2015/lei-13146-6-julho-2015-781174-publicacaooriginal-147468-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+com redação dada pela Lei nº 13.146, de 6/7/2015, publicada no DOU
+de 7/7/2015, em vigor 180 dias após sua publicação)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">V
+- elaborar e executar planos nacionais e regionais de ordenação do
+território e de desenvolvimento econômico e social. </font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">CAPÍTULO
+II </font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">DOS
+INSTRUMENTOS DA POLÍTICA URBANA</font> </font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Seção
+I </b></font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Dos
+instrumentos em geral </b></font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+4º Para os fins desta Lei, serão utilizados, entre outros
+instrumentos: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- planos nacionais, regionais e estaduais de ordenação do
+território e de desenvolvimento econômico e social; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- planejamento das regiões metropolitanas, aglomerações urbanas e
+microrregiões; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- planejamento municipal, em especial: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">a)
+plano diretor;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">b)
+disciplina do parcelamento, do uso e da ocupação do solo;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">c)
+zoneamento ambiental;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">d)
+plano plurianual;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">e)
+diretrizes orçamentárias e orçamento anual;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">f)
+gestão orçamentária participativa;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">g)
+planos, programas e projetos setoriais;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">h)
+planos de desenvolvimento econômico e social;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IV
+- institutos tributários e financeiros: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">a)
+imposto sobre a propriedade predial e territorial urbana - IPTU;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">b)
+contribuição de melhoria;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">c)
+incentivos e benefícios fiscais e financeiros;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">V
+- institutos jurídicos e políticos: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">a)
+desapropriação;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">b)
+servidão administrativa;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">c)
+limitações administrativas;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">d)
+tombamento de imóveis ou de mobiliário urbano;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">e)
+instituição de unidades de conservação;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">f)
+instituição de zonas especiais de interesse social;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">g)
+concessão de direito real de uso;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">h)
+concessão de uso especial para fins de moradia;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">i)
+parcelamento, edificação ou utilização compulsórios;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">j)
+usucapião especial de imóvel urbano;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">l)
+direito de superfície;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">m)
+direito de preempção;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">n)
+outorga onerosa do direito de construir e de alteração de uso;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">o)
+transferência do direito de construir;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">p)
+operações urbanas consorciadas;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">q)
+regularização fundiária;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">r)
+assistência técnica e jurídica gratuita para as comunidades e
+grupos sociais menos favorecidos;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">s)
+referendo popular e plebiscito;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">t)
+demarcação urbanística para fins de regularização fundiária;
+</font><font size="3" style="font-size: 12pt"><i><a href="http://www2.camara.leg.br/legin/fed/medpro/2009/medidaprovisoria-459-25-marco-2009-587252-norma-pe.html">(Alínea
+acrescida pela Medida Provisória nº 459, de 25/3/2009</a>
+<a href="http://www2.camara.leg.br/legin/fed/lei/2009/lei-11977-7-julho-2009-589206-norma-pl.html">convertida
+na Lei nº 11.977, de 7/7/2009</a>)</i></font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">u)
+legitimação de posse</font><font size="3" style="font-size: 12pt"><i>.
+<a href="http://www2.camara.leg.br/legin/fed/medpro/2009/medidaprovisoria-459-25-marco-2009-587252-norma-pe.html">(Alínea
+acrescida pela Medida Provisória nº 459, de 25/3/2009</a>
+<a href="http://www2.camara.leg.br/legin/fed/lei/2009/lei-11977-7-julho-2009-589206-norma-pl.html">convertida
+na Lei nº 11.977, de 7/7/2009</a>)</i></font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">v)
+</font><a href="https://www2.camara.leg.br/legin/fed/lei/2026/lei-15432-13-junho-2026-799355-publicacaooriginal-179916-pl.html"><font size="3" style="font-size: 12pt"><i>(Vide
+Lei nº 15.432, de 13/6/2026)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VI
+- estudo prévio de impacto ambiental (EIA) e estudo prévio de
+impacto de vizinhança (EIV). </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Os instrumentos mencionados neste artigo regem-se pela legislação
+que lhes é própria, observado o disposto nesta Lei. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º Nos casos de programas e projetos habitacionais de interesse
+social, desenvolvidos por órgãos ou entidades da Administração
+Pública com atuação específica nessa área, a concessão de
+direito real de uso de imóveis públicos poderá ser contratada
+coletivamente. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3º Os instrumentos previstos neste artigo que demandam dispêndio de
+recursos por parte do Poder Público municipal devem ser objeto de
+controle social, garantida a participação de comunidades,
+movimentos e entidades da sociedade civil. </font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Seção
+II </b></font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Do
+parcelamento, edificação ou utilização compulsórios </b></font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+5º Lei municipal específica para área incluída no plano diretor
+poderá determinar o parcelamento, a edificação ou a utilização
+compulsórios do solo urbano não edificado, subutilizado ou não
+utilizado, devendo fixar as condições e os prazos para
+implementação da referida obrigação. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Considera-se subutilizado o imóvel: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- cujo aproveitamento seja inferior ao mínimo definido no plano
+diretor ou em legislação dele decorrente; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- (VETADO) </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º O proprietário será notificado pelo Poder Executivo municipal
+para o cumprimento da obrigação, devendo a notificação ser
+averbada no cartório de registro de imóveis. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3º A notificação far-se-á: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- por funcionário do órgão competente do Poder Público municipal,
+ao proprietário do imóvel ou, no caso de este ser pessoa jurídica,
+a quem tenha poderes de gerência geral ou administração; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- por edital quando frustrada, por três vezes, a tentativa de
+notificação na forma prevista pelo inciso I. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+4º Os prazos a que se refere o </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+não poderão ser inferiores a: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- um ano, a partir da notificação, para que seja protocolado o
+projeto no órgão municipal competente; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- dois anos, a partir da aprovação do projeto, para iniciar as
+obras do empreendimento. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+5º Em empreendimentos de grande porte, em caráter excepcional, a
+lei municipal específica a que se refere o </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+poderá prever a conclusão em etapas, assegurando-se que o projeto
+aprovado compreenda o empreendimento como um todo. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+6º A transmissão do imóvel, por ato </font><font size="3" style="font-size: 12pt"><i>inter
+vivos</i></font><font size="3" style="font-size: 12pt"> ou causa
+mortis , posterior à data da notificação, transfere as obrigações
+de parcelamento, edificação ou utilização previstas no art. 5º
+desta Lei, sem interrupção de quaisquer prazos. </font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Seção
+III </b></font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Do
+IPTU progressivo no tempo</b></font> </font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+7º Em caso de descumprimento das condições e dos prazos previstos
+na forma do </font><font size="3" style="font-size: 12pt"><i>caput </i></font><font size="3" style="font-size: 12pt">do
+art. 5º desta Lei, ou não sendo cumpridas as etapas previstas no §
+5º do art. 5º desta Lei, o Município procederá à aplicação do
+imposto sobre a propriedade predial e territorial urbana (IPTU)
+progressivo no tempo, mediante a majoração da alíquota pelo prazo
+de cinco anos consecutivos. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º O valor da alíquota a ser aplicado a cada ano será fixado na
+lei específica a que se refere o </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+do art. 5º desta Lei e não excederá a duas vezes o valor referente
+ao ano anterior, respeitada a alíquota máxima de quinze por cento. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º Caso a obrigação de parcelar, edificar ou utilizar não esteja
+atendida em cinco anos, o Município manterá a cobrança pela
+alíquota máxima, até que se cumpra a referida obrigação,
+garantida a prerrogativa prevista no art. 8º. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3º É vedada a concessão de isenções ou de anistia relativas à
+tributação progressiva de que trata este artigo. </font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Seção
+IV </b></font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Da
+desapropriação com pagamento em títulos</b></font> </font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 1.75cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+8º Decorridos cinco anos de cobrança do IPTU progressivo sem que o
+proprietário tenha cumprido a obrigação de parcelamento,
+edificação ou utilização, o Município poderá proceder à
+desapropriação do imóvel, com pagamento em títulos da dívida
+pública. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Os títulos da dívida pública terão prévia aprovação pelo
+Senado Federal e serão resgatados no prazo de até dez anos, em
+prestações anuais, iguais e sucessivas, assegurados o valor real da
+indenização e os juros legais de seis por cento ao ano. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º O valor real da indenização: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- refletirá o valor da base de cálculo do IPTU, descontado o
+montante incorporado em função de obras realizadas pelo Poder
+Público na área onde o mesmo se localiza após a notificação de
+que trata o § 2º do art. 5º desta Lei; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- não computará expectativas de ganhos, lucros cessantes e juros
+compensatórios. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3º Os títulos de que trata este artigo não terão poder
+liberatório para pagamento de tributos. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+4º O Município procederá ao adequado aproveitamento do imóvel no
+prazo máximo de cinco anos, contado a partir da sua incorporação
+ao patrimônio público. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+5º O aproveitamento do imóvel poderá ser efetivado diretamente
+pelo Poder Público ou por meio de alienação ou concessão a
+terceiros, observando-se, nesses casos, o devido procedimento
+licitatório. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+6º Ficam mantidas para o adquirente de imóvel nos termos do § 5°
+as mesmas obrigações de parcelamento, edificação ou utilização
+previstas no art. 5° desta Lei. </font></font>
+</p>
+<p align="center" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Seção
+V </b></font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Da
+usucapião especial de imóvel urbano </b></font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+9º Aquele que possuir como sua área ou edificação urbana de até
+duzentos e cinqüenta metros quadrados, por cinco anos,
+ininterruptamente e sem oposição, utilizando-a para sua moradia ou
+de sua família, adquirir-lhe-á o domínio, desde que não seja
+proprietário de outro imóvel urbano ou rural. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º O título de domínio será conferido ao homem ou à mulher, ou a
+ambos, independentemente do estado civil. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º O direito de que trata este artigo não será reconhecido ao
+mesmo possuidor mais de uma vez. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3º Para os efeitos deste artigo, o herdeiro legítimo continua, de
+pleno direito, a posse de seu antecessor, desde que já resida no
+imóvel por ocasião da abertura da sucessão. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+10. Os núcleos urbanos informais existentes sem oposição há mais
+de cinco anos e cuja área total dividida pelo número de possuidores
+seja inferior a duzentos e cinquenta metros quadrados por possuidor
+são suscetíveis de serem usucapidos coletivamente, desde que os
+possuidores não sejam proprietários de outro imóvel urbano ou
+rural. </font><a href="http://www2.camara.leg.br/legin/fed/lei/2017/lei-13465-11-julho-2017-785192-publicacaooriginal-153348-pl.html"><font size="3" style="font-size: 12pt"><i>(“Caput”
+do artigo com redação dada pela Lei nº 13.465, de 11/7/2017)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º O possuidor pode, para o fim de contar o prazo exigido por, este
+artigo, acrescentar sua posse à de seu antecessor contanto que ambas
+sejam contínuas. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º A usucapião especial coletiva de imóvel urbano será declarada
+pelo juiz, mediante sentença, a qual servirá de título para
+registro no cartório de registro de imóveis. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3º Na sentença, o juiz atribuirá igual fração ideal de terreno a
+cada possuidor, independentemente da dimensão do terreno que cada um
+ocupe, salvo hipótese de acordo escrito entre os condôminos,
+estabelecendo frações ideais diferenciadas. </font></font>
+</p>
+<p><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+4º O condomínio especial constituído é indivisível, não sendo
+passível de extinção, salvo deliberação favorável tomada por,
+no mínimo, dois terços dos condôminos, no caso de execução de
+urbanização posterior à constituição do condomínio. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+5º As deliberações relativas à administração do condomínio
+especial serão tomadas por maioria de votos dos condôminos
+presentes, obrigando também os demais, discordantes ou ausentes. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+11. Na pendência da ação de usucapião especial urbana, ficarão
+sobrestadas quaisquer outras ações, petitórias ou possessórias,
+que venham a ser propostas relativamente ao imóvel usucapiendo. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+12. São partes legítimas para a propositura da ação de usucapião
+especial urbana: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- o possuidor, isoladamente ou em litisconsórcio originário ou
+superveniente; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- os possuidores, em estado de composse; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- como substituto processual, a associação de moradores da
+comunidade; regularmente constituída, com personalidade jurídica,
+desde que explicitamente autorizada pelos representados. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Na ação de usucapião especial urbana é obrigatória a
+intervenção do Ministério Público. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º O autor terá os benefícios da justiça e da assistência
+judiciária gratuita, inclusive perante o cartório de registro de
+imóveis. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+13. A usucapião especial de imóvel urbano poderá ser invocada como
+matéria de defesa, valendo a sentença que a reconhecer como título
+para registro no cartório de registro de imóveis. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+14. Na ação judicial de usucapião especial de imóvel urbano, o
+rito processual a ser observado é o sumário. </font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Seção
+VI </b></font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Da
+concessão de uso especial para fins de moradia</b></font> </font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><span lang="en-US">Art.
+15. (VETADO) </span></font></font>
+</p>
+<p lang="en-US" align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><span lang="en-US">Art.
+16. (VETADO) </span></font></font>
+</p>
+<p lang="en-US" align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><span lang="en-US">Art.
+17. </span></font><font size="3" style="font-size: 12pt">(VETADO) </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+18. (VETADO) </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+19. (VETADO) </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+20. (VETADO</font>) </font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Seção
+VII </b></font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Do
+direito de superfície</b></font> </font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+21. O proprietário urbano poderá conceder a outrem o direito de
+superfície do seu terreno, por tempo determinado ou indeterminado,
+mediante escritura pública registrada no cartório de registro de
+imóveis. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º O direito de superfície abrange o direito de utilizar o solo, o
+subsolo ou o espaço aéreo relativo ao terreno, na forma
+estabelecida no contrato respectivo, atendida a legislação
+urbanística. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º A concessão do direito de superfície poderá ser gratuita ou
+onerosa. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3° O superficiário responderá integralmente pelos encargos e
+tributos que incidirem sobre a propriedade superficiária, arcando,
+ainda, proporcionalmente à sua parcela de ocupação efetiva, com os
+encargos e tributos sobre a área objeto da concessão do direito de
+superfície, salvo disposição em contrário do contrato respectivo.
+</font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+4º O direito de superfície pode ser transferido a terceiros,
+obedecidos os termos do contrato respectivo. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+5º Por morte do superficiário, os seus direitos transmitem-se a
+seus herdeiros. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+22. Em caso de alienação do terreno, ou do direito de superfície,
+o superficiário e o proprietário, respectivamente, terão direito
+de preferência, em igualdade de condições à oferta de terceiros. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+23. Extingue-se o direito de superfície: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- pelo advento do termo; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- pelo descumprimento das obrigações contratuais assumidas pelo
+superficiário. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+24. Extinto o direito de superfície, o proprietário recuperará o
+pleno domínio do terreno, bem como das acessões e benfeitorias
+introduzidas no imóvel, independentemente de indenização, se as
+partes não houverem estipulado o contrário no respectivo contrato. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Antes do termo final do contrato, extinguir-se-á o direito de
+superfície se o superficiário der ao terreno destinação diversa
+daquela para a qual for concedida. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º A extinção do direito de superfície será averbada no cartório
+de registro de imóveis. </font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Seção
+VIII </b></font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Do
+direito de preempção</b></font> </font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+25. O direito de preempção confere ao Poder Público municipal
+preferência para aquisição de imóvel urbano objeto de alienação
+onerosa entre particulares. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Lei municipal, baseada no plano diretor, delimitará as áreas em
+que incidirá o direito de preempção e fixará prazo de vigência,
+não superior a cinco anos, renovável a partir de um ano após o
+decurso do prazo inicial de vigência. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º O direito de preempção fica assegurado durante o prazo de
+vigência fixado na forma do § 1º, independentemente do número de
+alienações referentes ao mesmo imóvel. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+26. O direito de preempção será exercido sempre que o Poder
+Público necessitar de áreas para: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- regularização fundiária; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- execução de programas e projetos habitacionais de interesse
+social; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- constituição de reserva fundiária; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IV
+- ordenamento e direcionamento da expansão urbana; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">V
+- implantação de equipamentos urbanos e comunitários; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VI
+- criação de espaços públicos de lazer e áreas verdes; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VII
+- criação de unidades de conservação ou proteção de outras
+áreas de interesse ambiental; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VIII
+- proteção de áreas de interesse histórico, cultural ou
+paisagístico; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IX
+- (VETADO) </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Parágrafo
+único. A lei municipal prevista no § 1º do art. 25 desta Lei
+deverá enquadrar cada área em que incidirá o direito de preempção
+em uma ou mais das finalidades enumeradas por este artigo. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+27. O proprietário deverá notificar sua intenção de alienar o
+imóvel, para que o Município, no prazo máximo de trinta dias,
+manifeste por escrito seu interesse em comprá-lo. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º À notificação mencionada no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+será anexada proposta de compra assinada por terceiro interessado na
+aquisição do imóvel, da qual constarão preço, condições de
+pagamento e prazo de validade. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º O Município fará publicar, em órgão oficial e em pelo menos
+um jornal local ou regional de grande circulação, edital de aviso
+da notificação recebida nos termos do </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+e da intenção de aquisição do imóvel nas condições da proposta
+apresentada. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3º Transcorrido o prazo mencionado no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+sem manifestação, fica o proprietário autorizado a realizar a
+alienação para terceiros, nas condições da proposta apresentada. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+4º Concretizada a venda a terceiro, o proprietário fica obrigado a
+apresentar ao Município, no prazo de trinta dias, cópia do
+instrumento público de alienação do imóvel. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+5º A alienação processada em condições diversas da proposta
+apresentada é nula de pleno direito. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+6º Ocorrida a hipótese prevista no § 5º o Município poderá
+adquirir o imóvel pelo valor da base de cálculo do IPTU ou pelo
+valor indicado na proposta apresentada, se este for inferior àquele.
+</font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Seção
+IX </b></font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Da
+outorga onerosa do direito de construir</b></font> </font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+28. O plano diretor poderá fixar áreas nas quais o direito de
+construir poderá ser exercido acima do coeficiente de aproveitamento
+básico adotado, mediante contrapartida a ser prestada pelo
+beneficiário. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Para os efeitos desta Lei, coeficiente de aproveitamento é a
+relação entre a área edificável e a área do terreno. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º O plano diretor poderá fixar coeficiente de aproveitamento
+básico único para toda a zona urbana ou diferenciado para áreas
+específicas dentro da zona urbana. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3º O plano diretor definirá os limites máximos a serem atingidos
+pelos coeficientes de aproveitamento, considerando a
+proporcionalidade entre a infraestrutura existente e o aumento de
+densidade esperado em cada área. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+29. O plano diretor poderá fixar áreas nas quais poderá ser
+permitida alteração de uso do solo, mediante contrapartida a ser
+prestada pelo beneficiário. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+30. Lei municipal específica estabelecerá as condições a serem
+observadas para a outorga onerosa do direito de construir e de
+alteração de uso, determinando: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- a fórmula de cálculo para a cobrança; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- os casos passíveis de isenção do pagamento da outorga; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- a contrapartida do beneficiário. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+31. Os recursos auferidos com a adoção da outorga onerosa do
+direito de construir e de alteração de uso serão aplicados com as
+finalidades previstas nos incisos I a IX do art. 26 desta Lei. </font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Seção
+X </b></font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Das
+operações urbanas consorciadas</b></font> </font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+32. Lei municipal específica, baseada no plano diretor, poderá
+delimitar área para aplicação de operações consorciadas. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Considera-se operação urbana consorciada o conjunto de
+intervenções e medidas coordenadas pelo Poder Público municipal,
+com a participação dos proprietários, moradores, usuários
+permanentes e investidores privados, com o objetivo de alcançar em
+uma área transformações urbanísticas estruturais, melhorias
+sociais e a valorização ambiental. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º Poderão ser previstas nas operações urbanas consorciadas,
+entre outras medidas: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- a modificação de índices e características de parcelamento, uso
+e ocupação do solo e subsolo, bem como alterações das normas
+edilícias, considerado o impacto ambiental delas decorrente; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- a regularização de construções, reformas ou ampliações
+executadas em desacordo com a legislação vigente;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- a concessão de incentivos a operações urbanas que utilizam
+tecnologias visando a redução de impactos ambientais, e que
+comprovem a utilização, nas construções e uso de edificações
+urbanas, de tecnologias que reduzam os impactos ambientais e
+economizem recursos naturais, especificadas as modalidades de </font><font size="3" style="font-size: 12pt"><i>design</i></font><font size="3" style="font-size: 12pt">
+e de obras a serem contempladas. </font><a href="http://www2.camara.leg.br/legin/fed/lei/2013/lei-12836-2-julho-2013-776414-publicacaooriginal-140333-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 12.836, de 2/7/2013)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+33. Da lei específica que aprovar a operação urbana consorciada
+constará o plano de operação urbana consorciada, contendo, no
+mínimo: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- definição da área a ser atingida; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- programa básico de ocupação da área; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- programa de atendimento econômico e social para a população
+diretamente afetada pela operação; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IV
+- finalidades da operação; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">V
+- estudo prévio de impacto de vizinhança; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VI
+- contrapartida a ser exigida dos proprietários, usuários
+permanentes e investidores privados em função da utilização dos
+benefícios previstos nos incisos I, II e III do § 2º do art. 32
+desta Lei; </font><a href="http://www2.camara.leg.br/legin/fed/lei/2013/lei-12836-2-julho-2013-776414-publicacaooriginal-140333-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+com redação dada pela Lei nº 12.836, de 2/7/2013)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VII
+- forma de controle da operação, obrigatoriamente compartilhado com
+representação da sociedade civil;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VIII
+- natureza dos incentivos a serem concedidos aos proprietários,
+usuários permanentes e investidores privados, uma vez atendido o
+disposto no inciso III do § 2º do art. 32 desta Lei. </font><a href="http://www2.camara.leg.br/legin/fed/lei/2013/lei-12836-2-julho-2013-776414-publicacaooriginal-140333-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 12.836, de 2/7/2013)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Os recursos obtidos pelo Poder Público municipal na forma do
+inciso VI deste artigo serão aplicados exclusivamente na própria
+operação urbana consorciada. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º A partir da aprovação da lei específica de que trata o </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+, são nulas as licenças e autorizações a cargo do Poder Público
+municipal expedidas em desacordo com o plano de operação urbana
+consorciada. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+34. A lei específica que aprovar a operação urbana consorciada
+poderá prever a emissão pelo Município de quantidade determinada
+de certificados de potencial adicional de construção, que serão
+alienados em leilão ou utilizados diretamente no pagamento das obras
+necessárias à própria operação. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Os certificados de potencial adicional de construção serão
+livremente negociados, mas conversíveis em direito de construir
+unicamente na área objeto da operação. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º Apresentado pedido de licença para construir, o certificado de
+potencial adicional será utilizado no pagamento da área de
+construção que supere os padrões estabelecidos pela legislação
+de uso e ocupação do solo, até o limite fixado pela lei específica
+que aprovar a operação urbana consorciada. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+34-A. Nas regiões metropolitanas ou nas aglomerações urbanas
+instituídas por lei complementar estadual, poderão ser realizadas
+operações urbanas consorciadas interfederativas, aprovadas por leis
+estaduais específicas.</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Parágrafo
+único. As disposições dos arts. 32 a 34 desta Lei aplicam-se às
+operações urbanas consorciadas interfederativas previstas no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+deste artigo, no que couber. </font><a href="http://www2.camara.leg.br/legin/fed/lei/2015/lei-13089-12-janeiro-2015-780060-publicacaooriginal-145925-pl.html"><font size="3" style="font-size: 12pt"><i>(Artigo
+acrescido pela Lei nº 13.089, de 12/1/2015)</i></font></a></font></p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Seção
+XI </b></font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Da
+transferência do direito de construir</b></font><b> </b></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+35. Lei municipal, baseada no plano diretor, poderá autorizar o
+proprietário de imóvel urbano, privado ou público, a exercer em
+outro local, ou alienar, mediante escritura pública, o direito de
+construir previsto no plano diretor ou em legislação urbanística
+dele decorrente, quando o referido imóvel for considerado necessário
+para fins de: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- implantação de equipamentos urbanos e comunitários; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- preservação, quando o imóvel for considerado de interesse
+histórico, ambiental, paisagístico, social ou cultural; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- servir a programas de regularização fundiária, urbanização de
+áreas ocupadas por população de baixa renda e habitação de
+interesse social. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º A mesma faculdade poderá ser concedida ao proprietário que doar
+ao Poder Público seu imóvel, ou parte dele, para os fins previstos
+nos incisos I a III do </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">.
+</font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º A lei municipal referida no </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+estabelecerá as condições relativas à aplicação da
+transferência do direito de construir. </font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Seção
+XII </b></font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt"><b>Do
+estudo de impacto de vizinhança</b></font> </font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+36. Lei municipal definirá os empreendimentos e atividades privados
+ou públicos em área urbana que dependerão de elaboração de
+estudo prévio de impacto de vizinhança (EIV) para obter as licenças
+ou autorizações de construção, ampliação ou funcionamento a
+cargo do Poder Público municipal. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+37. O EIV será executado de forma a contemplar os efeitos positivos
+e negativos do empreendimento ou atividade quanto à qualidade de
+vida da população residente na área e suas proximidades, incluindo
+a análise, no mínimo, das seguintes questões: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- adensamento populacional; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- equipamentos urbanos e comunitários; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- uso e ocupação do solo; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IV
+- valorização imobiliária; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">V
+- mobilidade urbana, geração de tráfego e demanda por transporte
+público; </font><a href="https://www2.camara.leg.br/legin/fed/lei/2024/lei-14849-2-maio-2024-795554-publicacaooriginal-171659-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+com redação dada pela Lei nº 14.849, de 2/5/2024)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VI
+- ventilação e iluminação; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VII
+- paisagem urbana e patrimônio natural e cultural. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Parágrafo
+único. Dar-se-á publicidade aos documentos integrantes do EIV, que
+ficarão disponíveis para consulta, no órgão competente do Poder
+Público municipal, por qualquer interessado. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+38. A elaboração do EIV não substitui a elaboração e a aprovação
+de estudo prévio de impacto ambiental (EIA), requeridas nos termos
+da legislação ambiental. </font></font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">CAPÍTULO
+III </font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">DO
+PLANO DIRETOR</font> </font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+39. A propriedade urbana cumpre sua função social quando atende às
+exigências fundamentais de ordenação da cidade expressas no plano
+diretor, assegurando o atendimento das necessidades dos cidadãos
+quanto à qualidade de vida, à justiça social e ao desenvolvimento
+das atividades econômicas, respeitadas as diretrizes previstas no
+art. 2º desta Lei. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+40. O plano diretor, aprovado por lei municipal, é o instrumento
+básico da política de desenvolvimento e expansão urbana. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º O plano diretor é parte integrante do processo de planejamento
+municipal, devendo o plano plurianual, as diretrizes orçamentárias
+e o orçamento anual incorporar as diretrizes e as prioridades nele
+contidas. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º O plano diretor deverá englobar o território do Município como
+um todo. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3º A lei que instituir o plano diretor deverá ser revista, pelo
+menos, a cada dez anos. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+4º No processo de elaboração do plano diretor e na fiscalização
+de sua implementação, os Poderes Legislativo e Executivo municipais
+garantirão: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- a promoção de audiências públicas e debates com a participação
+da população e de associações representativas dos vários
+segmentos da comunidade; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- a publicidade quanto aos documentos e informações produzidos; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- o acesso de qualquer interessado aos documentos e informações
+produzidos. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+5º (VETADO) </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+41. O plano diretor é obrigatório para cidades: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- com mais de vinte mil habitantes; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- integrantes de regiões metropolitanas e aglomerações urbanas; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- onde o Poder Público municipal pretenda utilizar os instrumentos
+previstos no § 4º do art. 182 da Constituição Federal; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IV
+- integrantes de áreas de especial interesse turístico; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">V
+- inseridas na área de influência de empreendimentos ou atividades
+com significativo impacto ambiental de âmbito regional ou nacional;</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VI
+- incluídas no cadastro nacional de Municípios com áreas
+suscetíveis à ocorrência de deslizamentos de grande impacto,
+inundações bruscas ou processos geológicos ou hidrológicos
+correlatos. </font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º No caso da realização de empreendimentos ou atividades
+enquadrados no inciso V do </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">,
+os recursos técnicos e financeiros para a elaboração do plano
+diretor estarão inseridos entre as medidas de compensação
+adotadas. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º No caso de cidades com mais de quinhentos mil habitantes, deverá
+ser elaborado um plano de transporte urbano integrado, compatível
+com o plano diretor ou nele inserido. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3º As cidades de que trata o </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+deste artigo devem elaborar plano de rotas acessíveis, compatível
+com o plano diretor no qual está inserido, que disponha sobre os
+passeios públicos a serem implantados ou reformados pelo poder
+público, com vistas a garantir acessibilidade da pessoa com
+deficiência ou com mobilidade reduzida a todas as rotas e vias
+existentes, inclusive as que concentrem os focos geradores de maior
+circulação de pedestres, como os órgãos públicos e os locais de
+prestação de serviços públicos e privados de saúde, educação,
+assistência social, esporte, cultura, correios e telégrafos,
+bancos, entre outros, sempre que possível de maneira integrada com
+os sistemas de transporte coletivo de passageiros. </font><a href="http://www2.camara.leg.br/legin/fed/lei/2015/lei-13146-6-julho-2015-781174-publicacaooriginal-147468-pl.html"><font size="3" style="font-size: 12pt"><i>(Parágrafo
+acrescido pela Lei nº 13.146, de 6/7/2015, publicada no DOU de
+7/7/2015, em vigor 180 dias após sua publicação)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+42. O plano diretor deverá conter no mínimo: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- a delimitação das áreas urbanas onde poderá ser aplicado o
+parcelamento, edificação ou utilização compulsórios,
+considerando a existência de infra-estrutura e de demanda para
+utilização, na forma do art. 5º desta Lei; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- disposições requeridas pelos arts. 25, 28, 29, 32 e 35 desta Lei;
+</font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- sistema de acompanhamento e controle. </font></font>
+</p>
+<p><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+42-A. Além do conteúdo previsto no art. 42, o plano diretor dos
+Municípios incluídos no cadastro nacional de municípios com áreas
+suscetíveis à ocorrência de deslizamentos de grande impacto,
+inundações bruscas ou processos geológicos ou hidrológicos
+correlatos deverá conter: </font><a href="http://www2.camara.gov.br/legin/fed/medpro/2011/medidaprovisoria-547-11-outubro-2011-611580-publicacaooriginal-133791-pe.html"><font size="3" style="font-size: 12pt"><i>(“Caput”
+do artigo acrescido pela Medida Provisória nº 547, de 11/10/2011,</i></font></a><font color="#ff0000"><font size="3" style="font-size: 12pt"><i>
+</i></font></font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>com
+redação dada pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- parâmetros de parcelamento, uso e ocupação do solo, de modo a
+promover a diversidade de usos e a contribuir para a geração de
+emprego e renda; </font><a href="http://www2.camara.gov.br/legin/fed/medpro/2011/medidaprovisoria-547-11-outubro-2011-611580-publicacaooriginal-133791-pe.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Medida Provisória nº 547, de 11/10/2011,</i></font></a><font color="#ff0000"><font size="3" style="font-size: 12pt"><i>
+</i></font></font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>com
+redação dada pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- mapeamento contendo as áreas suscetíveis à ocorrência de
+deslizamentos de grande impacto, inundações bruscas ou processos
+geológicos ou hidrológicos correlatos; </font><a href="http://www2.camara.gov.br/legin/fed/medpro/2011/medidaprovisoria-547-11-outubro-2011-611580-publicacaooriginal-133791-pe.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Medida Provisória nº 547, de 11/10/2011,</i></font></a><font color="#ff0000"><font size="3" style="font-size: 12pt"><i>
+</i></font></font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>com
+redação dada pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- planejamento de ações de intervenção preventiva e realocação
+de população de áreas de risco de desastre; </font><a href="http://www2.camara.gov.br/legin/fed/medpro/2011/medidaprovisoria-547-11-outubro-2011-611580-publicacaooriginal-133791-pe.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Medida Provisória nº 547, de 11/10/2011,</i></font></a><font color="#ff0000"><font size="3" style="font-size: 12pt"><i>
+</i></font></font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>com
+redação dada pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IV
+- medidas de drenagem urbana necessárias à prevenção e à
+mitigação de impactos de desastres; e </font><a href="http://www2.camara.gov.br/legin/fed/medpro/2011/medidaprovisoria-547-11-outubro-2011-611580-publicacaooriginal-133791-pe.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Medida Provisória nº 547, de 11/10/2011,</i></font></a><font color="#ff0000"><font size="3" style="font-size: 12pt"><i>
+</i></font></font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>com
+redação dada pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">V
+- diretrizes para a regularização fundiária de assentamentos
+urbanos irregulares, se houver, observadas a Lei nº 11.977, de 7 de
+julho de 2009, e demais normas federais e estaduais pertinentes, e
+previsão de áreas para habitação de interesse social por meio da
+demarcação de zonas especiais de interesse social e de outros
+instrumentos de política urbana, onde o uso habitacional for
+permitido. </font><a href="http://www2.camara.gov.br/legin/fed/medpro/2011/medidaprovisoria-547-11-outubro-2011-611580-publicacaooriginal-133791-pe.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Medida Provisória nº 547, de 11/10/2011,</i></font></a><font color="#ff0000"><font size="3" style="font-size: 12pt"><i>
+</i></font></font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>com
+redação dada pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VI
+- identificação e diretrizes para a preservação e ocupação das
+áreas verdes municipais, quando for o caso, com vistas à redução
+da impermeabilização das cidades. </font><a href="http://www2.camara.leg.br/legin/fed/lei/2014/lei-12983-2-junho-2014-778847-publicacaooriginal-144287-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 12.983, de 2/6/2014)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º A identificação e o mapeamento de áreas de risco levarão em
+conta as cartas geotécnicas. </font><a href="http://www2.camara.gov.br/legin/fed/medpro/2011/medidaprovisoria-547-11-outubro-2011-611580-publicacaooriginal-133791-pe.html"><font size="3" style="font-size: 12pt"><i>(Parágrafo
+acrescido pela Medida Provisória nº 547, de 11/10/2011,</i></font></a><font color="#ff0000"><font size="3" style="font-size: 12pt"><i>
+</i></font></font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>com
+redação dada pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º O conteúdo do plano diretor deverá ser compatível com as
+disposições insertas nos planos de recursos hídricos, formulados
+consoante a Lei nº 9.433, de 8 de janeiro de 1997. </font><a href="http://www2.camara.gov.br/legin/fed/medpro/2011/medidaprovisoria-547-11-outubro-2011-611580-publicacaooriginal-133791-pe.html"><font size="3" style="font-size: 12pt"><i>(Parágrafo
+acrescido pela Medida Provisória nº 547, de 11/10/2011,</i></font></a><font color="#ff0000"><font size="3" style="font-size: 12pt"><i>
+</i></font></font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>com
+redação dada pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3º Os Municípios adequarão o plano diretor às disposições deste
+artigo, por ocasião de sua revisão, observados os prazos legais.
+</font><a href="http://www2.camara.gov.br/legin/fed/medpro/2011/medidaprovisoria-547-11-outubro-2011-611580-publicacaooriginal-133791-pe.html"><font size="3" style="font-size: 12pt"><i>(Parágrafo
+acrescido pela Medida Provisória nº 547, de 11/10/2011,</i></font></a><font color="#ff0000"><font size="3" style="font-size: 12pt"><i>
+</i></font></font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>com
+redação dada pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+4º Os Municípios enquadrados no inciso VI do art. 41 desta Lei e
+que não tenham plano diretor aprovado terão o prazo de 5 (cinco)
+anos para o seu encaminhamento para aprovação pela Câmara
+Municipal. </font><a href="http://www2.camara.gov.br/legin/fed/medpro/2011/medidaprovisoria-547-11-outubro-2011-611580-publicacaooriginal-133791-pe.html"><font size="3" style="font-size: 12pt"><i>(Parágrafo
+acrescido pela Medida Provisória nº 547, de 11/10/2011,</i></font></a><font color="#ff0000"><font size="3" style="font-size: 12pt"><i>
+</i></font></font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>com
+redação dada pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+42-B. Os Municípios que pretendam ampliar o seu perímetro urbano
+após a data de publicação desta Lei deverão elaborar projeto
+específico que contenha, no mínimo: </font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>(“Caput”
+do artigo acrescido pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- demarcação do novo perímetro urbano; </font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- delimitação dos trechos com restrições à urbanização e dos
+trechos sujeitos a controle especial em função de ameaça de
+desastres naturais; </font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- definição de diretrizes específicas e de áreas que serão
+utilizadas para infraestrutura, sistema viário, equipamentos e
+instalações públicas, urbanas e sociais; </font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IV
+- definição de parâmetros de parcelamento, uso e ocupação do
+solo, de modo a promover a diversidade de usos e contribuir para a
+geração de emprego e renda; </font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">V
+- a previsão de áreas para habitação de interesse social por meio
+da demarcação de zonas especiais de interesse social e de outros
+instrumentos de política urbana, quando o uso habitacional for
+permitido; </font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VI
+- definição de diretrizes e instrumentos específicos para proteção
+ambiental e do patrimônio histórico e cultural; e </font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VII
+- definição de mecanismos para garantir a justa distribuição dos
+ônus e benefícios decorrentes do processo de urbanização do
+território de expansão urbana e a recuperação para a coletividade
+da valorização imobiliária resultante da ação do poder público.
+</font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VIII
+- planejamento integrado de transporte urbano, inclusive por meio de
+veículos não motorizados, com vistas a melhorar a mobilidade.
+</font><a href="https://www2.camara.leg.br/legin/fed/lei/2023/lei-14729-23-novembro-2023-794977-publicacaooriginal-170166-pl.html"><font size="3" style="font-size: 12pt"><i>(Inciso
+acrescido pela Lei nº 14.729, de 23/11/2023, publicada na Edição
+Extra B do DOU de 23/11/2023, em vigor 180 dias após a publicação)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º O projeto específico de que trata o </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+deste artigo deverá ser instituído por lei municipal e atender às
+diretrizes do plano diretor, quando houver. </font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>(Parágrafo
+acrescido pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º Quando o plano diretor contemplar as exigências estabelecidas no
+</font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">,
+o Município ficará dispensado da elaboração do projeto específico
+de que trata o </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+deste artigo. </font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>(Parágrafo
+acrescido pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+3º A aprovação de projetos de parcelamento do solo no novo
+perímetro urbano ficará condicionada à existência do projeto
+específico e deverá obedecer às suas disposições. </font><a href="http://www2.camara.gov.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html"><font size="3" style="font-size: 12pt"><i>(Parágrafo
+acrescido pela Lei nº 12.608, de 10/4/2012)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">CAPÍTULO
+IV </font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">DA
+GESTÃO DEMOCRÁTICA DA CIDADE</font> </font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+43. Para garantir a gestão democrática da cidade, deverão ser
+utilizados, entre outros, os seguintes instrumentos: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- órgãos colegiados de política urbana, nos níveis nacional,
+estadual e municipal; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+-debates, audiências e consultas públicas; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- conferências sobre assuntos de interesse urbano, nos níveis
+nacional, estadual e municipal; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IV
+- iniciativa popular de projeto de lei e de planos, programas e
+projetos de desenvolvimento urbano; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">V
+- (VETADO) </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+44. No âmbito municipal, a gestão orçamentária participativa de
+que trata a alínea </font><font size="3" style="font-size: 12pt"><i>f</i></font><font size="3" style="font-size: 12pt">
+do inciso III do art. 4º desta Lei incluirá a realização de
+debates, audiências e consultas públicas sobre as propostas do
+plano plurianual, da lei de diretrizes orçamentárias e do orçamento
+anual, como condição obrigatória para sua aprovação pela Câmara
+Municipal. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+45. Os organismos gestores das regiões metropolitanas e aglomerações
+urbanas incluirão obrigatória e significativa participação da
+população e de associações representativas dos vários segmentos
+da comunidade, de modo a garantir o controle direto de suas
+atividades e o pleno exercício da cidadania. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">CAPÍTULO
+V </font></font>
+</p>
+<p align="center"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">DISPOSIÇÕES
+GERAIS</font> </font>
+</p>
+<p align="center"><br/>
+
+</p>
+<p class="western" align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+46. O poder público municipal poderá facultar ao proprietário da
+área atingida pela obrigação de que trata o </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+do art. 5º desta Lei, ou objeto de regularização fundiária urbana
+para fins de regularização fundiária, o estabelecimento de
+consórcio imobiliário como forma de viabilização financeira do
+aproveitamento do imóvel.</font><font color="#ff0000"><font size="3" style="font-size: 12pt"><i>
+</i></font></font><a href="http://www2.camara.leg.br/legin/fed/lei/2017/lei-13465-11-julho-2017-785192-publicacaooriginal-153348-pl.html"><font size="3" style="font-size: 12pt"><i>(“Caput”
+do artigo com redação dada pela Lei nº 13.465, de 11/7/2017)</i></font></a></font></p>
+<p class="western" align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+1º Considera-se consórcio imobiliário a forma de viabilização de
+planos de urbanização, de regularização fundiária ou de reforma,
+conservação ou construção de edificação por meio da qual o
+proprietário transfere ao poder público municipal seu imóvel e,
+após a realização das obras, recebe, como pagamento, unidades
+imobiliárias devidamente urbanizadas ou edificadas, ficando as
+demais unidades incorporadas ao patrimônio público.</font><font size="3" style="font-size: 12pt"><i>
+</i></font><a href="http://www2.camara.leg.br/legin/fed/lei/2017/lei-13465-11-julho-2017-785192-publicacaooriginal-153348-pl.html"><font size="3" style="font-size: 12pt"><i>(Parágrafo
+com redação dada pela Lei nº 13.465, de 11/7/2017)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+2º O valor das unidades imobiliárias a serem entregues ao
+proprietário será correspondente ao valor do imóvel antes da
+execução das obras.</font><font size="3" style="font-size: 12pt"><i>
+</i></font><a href="http://www2.camara.leg.br/legin/fed/lei/2017/lei-13465-11-julho-2017-785192-publicacaooriginal-153348-pl.html"><font size="3" style="font-size: 12pt"><i>(Parágrafo
+com redação dada pela Lei nº 13.465, de 11/7/2017)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">§
+A instauração do consórcio imobiliário por proprietários que
+tenham dado causa à formação de núcleos urbanos informais, ou por
+seus sucessores, não os eximirá das responsabilidades
+administrativa, civil ou criminal.</font><font size="3" style="font-size: 12pt"><i>
+</i></font><a href="http://www2.camara.leg.br/legin/fed/lei/2017/lei-13465-11-julho-2017-785192-publicacaooriginal-153348-pl.html"><font size="3" style="font-size: 12pt"><i>(Parágrafo
+acrescido pela Lei nº 13.465, de 11/7/2017)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+47. Os tributos sobre imóveis urbanos, assim como as tarifas
+relativas a serviços públicos urbanos, serão diferenciados em
+função do interesse social. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+48. Nos casos de programas e projetos habitacionais de interesse
+social, desenvolvidos por órgãos ou entidades da Administração
+Pública com atuação específica nessa área, os contratos de
+concessão de direito real de uso de imóveis públicos: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- terão, para todos os fins de direito, caráter de escritura
+pública, não se aplicando o disposto no inciso II do art. 134 do
+Código Civil; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- constituirão título de aceitação obrigatória em garantia de
+contratos de financiamentos habitacionais. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+49. Os Estados e Municípios terão o prazo de noventa dias, a partir
+da entrada em vigor desta Lei, para fixar prazos, por lei, para a
+expedição de diretrizes de empreendimentos urbanísticos, aprovação
+de projetos de parcelamento e de edificação, realização de
+vistorias e expedição de termo de verificação e conclusão de
+obras. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Parágrafo
+único. Não sendo cumprida a determinação do </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+, fica estabelecido o prazo de sessenta dias para a realização de
+cada um dos referidos atos administrativos, que valerá até que os
+Estados e Municípios disponham em lei de forma diversa. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+50. Os Municípios que estejam enquadrados na obrigação prevista
+nos incisos I e II do </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+do art. 41 desta Lei e que não tenham plano diretor aprovado na data
+de entrada em vigor desta Lei deverão aprová-lo até 30 de junho de
+2008. </font><font size="3" style="font-size: 12pt"><i><a href="http://www2.camara.leg.br/legin/fed/lei/2008/lei-11673-8-maio-2008-575048-norma-pl.html">(Artigo
+com redação dada pela Lei nº 11.673, de 8/5/2008, produzindo
+efeitos deste 10/10/2006)</a> </i></font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+51. Para os efeitos desta Lei, aplicam-se ao Distrito Federal e ao
+Governador do Distrito Federal as disposições relativas,
+respectivamente, a Município e a Prefeito. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+52. Sem prejuízo da punição de outros agentes públicos envolvidos
+e da aplicação de outras sanções cabíveis, o Prefeito incorre em
+improbidade administrativa, nos termos da Lei n° 8.429, de 2 de
+junho de 1992, quando: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+- (VETADO) </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+- deixar de proceder, no prazo de cinco anos, o adequado
+aproveitamento do imóvel incorporado ao patrimônio público,
+conforme o disposto no § 4º do art. 8°desta Lei; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">III
+- utilizar áreas obtidas por meio do direito de preempção em
+desacordo com o disposto no art. 26 desta Lei; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">IV
+- aplicar os recursos auferidos com a outorga onerosa do direito de
+construir e de alteração de uso em desacordo com o previsto no art.
+31 desta Lei; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">V
+- aplicar os recursos auferidos com operações consorciadas em
+desacordo com o previsto no § 1º do art. 33 desta Lei; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VI
+- impedir ou deixar de garantir os requisitos contidos nos incisos I
+a III do § 4º do art. 40 desta Lei; </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VII
+- deixar de tomar as providências necessárias para garantir a
+observância do disposto no § 3º do art. 40 e no art. 50 desta Lei;
+</font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">VIII
+- adquirir imóvel objeto de direito de preempção, nos termos dos
+arts. 25 a 27 desta Lei, pelo valor da proposta apresentada, se este
+for, comprovadamente, superior ao de mercado. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+53. </font><a href="http://www2.camara.leg.br/legin/fed/medpro/2001/medidaprovisoria-2180-35-24-agosto-2001-390945-norma-pe.html"><font size="3" style="font-size: 12pt"><i>(Revogado
+pela Medida Provisória nº 2.180-35, de 24/8/2001)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+54. O art. 4º da Lei nº 7.347, de 1985, passa a vigorar com a
+seguinte redação: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">&quot;Art.
+4º Poderá ser ajuizada ação cautelar para os fins desta Lei,
+objetivando, inclusive, evitar o dano ao meio ambiente, ao
+consumidor, à ordem urbanística ou aos bens e direitos de valor
+artístico, estético, histórico, turístico e paisagístico
+(VETADO).&quot; (NR)</font></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+55. O art. 167, inciso 1, item 28, da Lei nº 6.015, de 31 de
+dezembro de 1973, alterado pela Lei nº 6.216, de 30 de junho de
+1975, passa a vigorar com a seguinte redação: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">&quot;Art.
+167.
+...............................................................................................................</font></font></p>
+<p align="justify" style="margin-left: 3cm"><br/>
+
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+-
+..........................................................................................................................</font></font></p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">................................................................................................................................</font></font></p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">28)
+das sentenças declaratórias de usucapião, independente da
+regularidade do parcelamento do solo ou da edificação; </font></font>
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">...................................................................................................&quot;
+(NR)</font></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+56. O art. 167, inciso I, da Lei nº 6.015, de 1973, passa a vigorar
+acrescido dos seguintes itens 37, 38 e 39: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">&quot;Art.
+167.
+...............................................................................................................
+</font></font>
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">I
+-
+...........................................................................................................................</font></font></p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">37)
+dos termos administrativos ou das sentenças declaratórias da
+concessão de uso especial para fins de moradia, independente da
+regularidade do parcelamento do solo ou da edificação; </font></font>
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">38)
+(VETADO) </font></font>
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">39)
+da constituição do direito de superfície de imóvel urbano;&quot;
+(NR)</font></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+57. O art. 167, inciso II, da Lei nº 6.015, de 1973, passa a vigorar
+acrescido dos seguintes itens 18, 19 e 20: </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">&quot;Art.
+167.
+...............................................................................................................</font></font></p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">II
+-
+..........................................................................................................................</font></font></p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">18)
+da notificação para parcelamento, edificação ou utilização
+compulsórios de imóvel urbano; </font></font>
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">19)
+da extinção da concessão de uso especial para fins de moradia; </font></font>
+</p>
+<p align="justify" style="margin-left: 3cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">20)
+da extinção do direito de superfície do imóvel urbano.&quot; (NR)</font></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+57-A. A operadora ferroviária, inclusive metroferroviária, poderá
+constituir o direito real de laje de que trata a Lei nº 10.406, de
+10 de janeiro de 2002 (Código Civil), e o de superfície de que
+trata esta Lei, sobre ou sob a faixa de domínio de sua via férrea,
+observado o plano diretor e o respectivo contrato de outorga com o
+poder concedente.</font></font></p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Parágrafo
+único. A constituição do direito real de laje ou de superfície a
+que se refere o </font><font size="3" style="font-size: 12pt"><i>caput</i></font><font size="3" style="font-size: 12pt">
+deste artigo é condicionada à existência prévia de licenciamento
+urbanístico municipal, que estabelecerá os ônus urbanísticos a
+serem observados e o direito de construir incorporado a cada unidade
+imobiliária. </font><a href="https://www2.camara.leg.br/legin/fed/lei/2021/lei-14273-23-dezembro-2021-792156-publicacaooriginal-164213-pl.html"><font size="3" style="font-size: 12pt"><i>(Artigo
+acrescido pela Lei nº 14.273, de 23/12/2021, publicada na Edição
+Extra C do DOU de 23/12/2021, em vigor 45 dias após a publicação)</i></font></a></font></p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Art.
+58. Esta Lei entra em vigor após decorridos noventa dias de sua
+publicação. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Brasília,
+10 de julho de 2001; 180º da Independência e 113° da República. </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><br/>
+
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">FERNANDO
+HENRIQUE CARDOSO </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Paulo
+de Tarso Ramos Ribeiro </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Geraldo
+Magela da Cruz Quintão </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Pedro
+Malan </font></font>
+</p>
+<p align="justify" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><font size="3" style="font-size: 12pt">Benjamin
+Benzaquen Sicsú</font></font></p>
+<h2 class="western"><em class="western"><font face="Times New Roman, serif"><span style="font-style: normal">Martus
+Tavares</span></font></em></h2>
+<p class="western" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><em class="western"><font size="3" style="font-size: 12pt"><span style="font-style: normal">José
+Sarney Filho</span></font></em></font></p>
+<p class="western" style="text-indent: 2cm"><font size="2" style="font-size: 10pt"><em class="western"><font size="3" style="font-size: 12pt"><span style="font-style: normal">Alberto
+Mendes Cardoso</span></font></em></font></p>
+</body>
+</html>

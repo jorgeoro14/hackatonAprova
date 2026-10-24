@@ -41,8 +41,11 @@ export function useChat(sessionId: string, sessionToken: string) {
       qc.setQueryData<Message[]>(key, (old = []) => [...old, tmp])
       return { tmpId: tmp.id }
     },
-    onSuccess: ({ userMessage, agentMessage }, _d, ctx) =>
-      qc.setQueryData<Message[]>(key, (old = []) => [...old.filter((m) => m.id !== ctx.tmpId), userMessage, agentMessage]),
+    onSuccess: ({ userMessage, agentMessage }, _d, ctx) => {
+      qc.setQueryData<Message[]>(key, (old = []) => [...old.filter((m) => m.id !== ctx.tmpId), userMessage, agentMessage])
+      // Every successful turn can update an already displayed form revision.
+      void qc.invalidateQueries({ queryKey: ['chat', 'form'] })
+    },
     onError: (_e, _d, ctx) =>
       qc.setQueryData<Message[]>(key, (old = []) => old.filter((m) => m.id !== ctx?.tmpId)),
   })

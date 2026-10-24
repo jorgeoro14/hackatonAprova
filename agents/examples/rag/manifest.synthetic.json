@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "scope": {
+    "municipality_id": "example-city",
+    "municipality_name": "Example City",
+    "corpus_id": "synthetic-permit-guide"
+  },
+  "data_kind": "synthetic",
+  "documents": [
+    {
+      "document_id": "demo-permit-guide",
+      "title": "Synthetic permit guide — demonstration only",
+      "path": "permit-guide.synthetic.md",
+      "kind": "procedure",
+      "source_url": null,
+      "version": null
+    }
+  ]
+}

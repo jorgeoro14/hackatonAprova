@@ -1,0 +1,979 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Código de Obras - Câmara Municipal de Cascavel</title>
+        <meta name='title' content="Código de Obras - Câmara Municipal de Cascavel">
+        <meta name='description' content="Código de Obras">
+
+        <!-- Facebook -->
+        <meta property='og:type' content="website" />
+        <meta property='og:url' content="https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-obras/">
+        <meta property='og:title' content="Código de Obras - Câmara Municipal de Cascavel">
+        <meta property='og:description' content="Código de Obras">
+        <meta property='og:image' content="https://www.camaracascavel.pr.gov.br/images/brasao.jpg">
+        <!--<meta property='fb:admins' content="">-->
+        <meta property="fb:admins" content="100069252997907">
+        
+        <!-- Twitter -->
+        <meta property='twitter:card' content="summary">
+        <meta property='twitter:url' content="https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-obras/">
+        <meta property='twitter:title' content="Código de Obras - Câmara Municipal de Cascavel">
+        <meta property='twitter:description' content="Código de Obras">
+        <meta property='twitter:image' content="https://www.camaracascavel.pr.gov.br/images/brasao.jpg">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+        <link rel="icon" href="https://www.camaracascavel.pr.gov.br/images/favicon.ico" type="image/x-icon"> 
+        <link rel="stylesheet" href="https://www.camaracascavel.pr.gov.br/css/libs.css">
+        <link rel="stylesheet" href="https://www.camaracascavel.pr.gov.br/css/style.css">
+        <link rel="stylesheet" href="https://www.camaracascavel.pr.gov.br/css/jquery.minicolors.css">
+        <link rel="stylesheet" href="https://www.camaracascavel.pr.gov.br/css/settings.css">
+        <link rel="stylesheet" href="https://www.camaracascavel.pr.gov.br/css/ecommerce.css">
+        <link rel="stylesheet" href="https://www.camaracascavel.pr.gov.br/css/contraste.css">
+        <link rel="stylesheet" href="https://www.camaracascavel.pr.gov.br/css/fontawesome.css">
+        
+        <link rel="preload" href="https://www.camaracascavel.pr.gov.br/fonts/istok-web-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="https://www.camaracascavel.pr.gov.br/fonts/istok-web-v15-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="https://www.camaracascavel.pr.gov.br/fonts/montserrat-v15-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="https://www.camaracascavel.pr.gov.br/fonts/montserrat-v15-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="https://www.camaracascavel.pr.gov.br/fonts/material-design-icons.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="https://www.camaracascavel.pr.gov.br/fonts/material-design-icons-outlined.woff2" as="font" type="font/woff2" crossorigin>
+
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXXCH6ZVT1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-NXXCH6ZVT1');
+        </script>
+        <style>
+            .bg-facebook {
+                background: #ffffff !important;
+                /*width: 17px !important;*/
+                height: 22px !important;
+                border-radius: 3px;
+                padding-left: 5px;
+                padding-right: 5px;
+                text-align: center;
+            }
+            .bg-instagram {
+                background: #ffffff !important;
+                /*width: 17px !important;*/
+                height: 22px !important;
+                border-radius: 3px;
+                padding-left: 5px;
+                padding-right: 5px;
+                text-align: center;
+            }
+            .bg-flickr {
+                background: #ffffff !important;
+                /*width: 17px !important;*/
+                height: 22px !important;
+                border-radius: 3px;
+                padding-left: 5px;
+                padding-right: 5px;
+                text-align: center;
+            }
+            .bg-youtube {
+                background: #ffffff !important;
+                /*width: 17px !important;*/
+                height: 22px !important;
+                border-radius: 3px;
+                padding-left: 5px;
+                padding-right: 5px;
+                text-align: center;
+            }
+
+            .icon-facebook {
+                color: #3b5998 !important;
+            }
+            .icon-instagram {
+                color: #ba1b79 !important;
+            }
+            .icon-flickr {
+                color: #f70080 !important;
+            }
+            .icon-youtube {
+                color: #f71212 !important;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="main">
+            <button id="aovivo" class="card-action-btn el-ripple card-action-preview card_preview_popup_open">
+                <i class="material-icons material-icons-outlined md-22">remove_red_eye</i>
+            </button>
+            <button id="pesquisadesatisfacao" class="card-action-btn el-ripple card-action-preview card_preview_popup_open">
+                <i class="material-icons material-icons-outlined md-22">remove_red_eye</i>
+            </button>
+            <div class="main-inner">
+                <!-- Inicio Menu Mobile -->
+                <nav class="mob-main-mnu">
+                    
+                    <div class="mob-main-mnu-content">
+                        <ul class="mob-main-mnu-list">
+                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/home/'>Home</a></li>
+                            <li>
+                                <a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/'>A Câmara</a>
+                                <div class='mmm-btn'><i class='material-icons md-24'>expand_more</i></div>
+                                <div class='mob-main-submnu'>
+                                    <div class='mob-main-submnu-item'>
+                                        <ul>
+                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/institucional/' data-title='Institucional'><span>Institucional</span></a></li>
+                                            <li><a target='_blank' href='https://www.camaracascavel.pr.gov.br/download/arquivo/20/menu/' data-title='Cartilha Institucional'><span>Cartilha Institucional</span></a></li>
+                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/vereadores/' data-title='Vereadores'><span>Vereadores</span></a></li>
+                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/mesa-diretora/' data-title='Mesa Diretora'><span>Mesa Diretora</span></a></li>
+                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/comissoes/' data-title='Comissões'><span>Comissões</span></a></li>
+                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/camara-mirim/' data-title='Câmara Mirim'><span>Câmara Mirim</span></a></li>
+                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/camara-jovem/' data-title='Câmara Jovem'><span>Câmara Jovem</span></a></li>
+                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/escola-do-legislativo/' data-title='Escola do Legislativo'><span>Escola do Legislativo</span></a></li>
+                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/procuradoria-da-mulher/' data-title='Procuradoria da Mulher'><span>Procuradoria da Mulher</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/'>Legislações</a><div class='mmm-btn'><i class='material-icons md-24'>expand_more</i></div><div class='mob-main-submnu'><div class='mob-main-submnu-item'><h5 class='mob-main-submnu-item-title'>Proposições</h5><ul><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/projetos-de-leis/' data-title='Projetos de Leis'><span>Projetos de Leis</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/projetos-de-resolucoes/' data-title='Projetos de Resoluções'><span>Projetos de Resoluções</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/pedidos-de-providencias/' data-title='Pedidos de Providências'><span>Pedidos de Providências</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/requerimentos/' data-title='Requerimentos'><span>Requerimentos</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/indicacoes/' data-title='Indicações'><span>Indicações</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/mencoes/' data-title='Menções'><span>Menções</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/mocoes/' data-title='Moções'><span>Moções</span></a></li></ul></div><div class='mob-main-submnu-item'><h5 class='mob-main-submnu-item-title'>Legislações</h5><ul><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/leis-ordinarias/' data-title='Leis Ordinárias'><span>Leis Ordinárias</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/leis-complementares/' data-title='Leis Complementares'><span>Leis Complementares</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/portarias/' data-title='Portarias'><span>Portarias</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/decretos/' data-title='Decretos'><span>Decretos</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/resolucoes/' data-title='Resoluções'><span>Resoluções</span></a></li></ul></div><div class='mob-main-submnu-item'><h5 class='mob-main-submnu-item-title'>Leis Municípais</h5><ul><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/lei-organica-municipal/' data-title='Lei Orgânica Municipal'><span>Lei Orgânica Municipal</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/emenda-a-lei-organica/' data-title='Emenda à Lei Orgânica'><span>Emenda à Lei Orgânica</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/regimento-interno/' data-title='Regimento Interno'><span>Regimento Interno</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-obras/' data-title='Código de Obras'><span>Código de Obras</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-tributario/' data-title='Código Tributário'><span>Código Tributário</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-posturas/' data-title='Código de Posturas'><span>Código de Posturas</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/estatuto-dos-servidores/' data-title='Estatuto dos Servidores'><span>Estatuto dos Servidores</span></a></li></ul></div><div class='mob-main-submnu-item'><h5 class='mob-main-submnu-item-title'>Orçamento do Município</h5><ul><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/orcamento-do-municipio/ppa-plano-plurianual/' data-title='PPA - Plano Plurianual'><span>PPA - Plano Plurianual</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/orcamento-do-municipio/loa-lei-orcamentaria-anual/' data-title='LOA - Lei Orçamentária Anual'><span>LOA - Lei Orçamentária Anual</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/orcamento-do-municipio/ldo-lei-de-diretrizes-orcamentarias/' data-title='LDO - Lei de Diretrizes Orçamentárias'><span>LDO - Lei de Diretrizes Orçamentárias</span></a></li></ul></div></div></li>
+                            <li><a target='_blank' href='https://www.camaracascavel.pr.gov.br/menu/123/site/?url=https://sapl.cascavel.pr.leg.br/'>SAPL</a></li>
+                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/'>Comunicação</a><div class='mmm-btn'><i class='material-icons md-24'>expand_more</i></div><div class='mob-main-submnu'><div class='mob-main-submnu-item'><h5 class='mob-main-submnu-item-title'>Multimídia</h5><ul><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/galeria-de-arquivos/' data-title='Galeria de Arquivos'><span>Galeria de Arquivos</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/galeria-de-imagens/' data-title='Galeria de Imagens'><span>Galeria de Imagens</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/galeria-de-videos/' data-title='Galeria de Vídeos'><span>Galeria de Vídeos</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/tv-camara/' data-title='TV Câmara'><span>TV Câmara</span></a></li></ul></div><div class='mob-main-submnu-item'><h5 class='mob-main-submnu-item-title'>Sessões Plenárias</h5><ul><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/pautas-das-sessoes/' data-title='Pautas das Sessões'><span>Pautas das Sessões</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/atas-das-sessoes/' data-title='Atas das Sessões'><span>Atas das Sessões</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/transmissoes-ao-vivo/' data-title='Transmissões Ao Vivo'><span>Transmissões Ao Vivo</span></a></li></ul></div><div class='mob-main-submnu-item'><h5 class='mob-main-submnu-item-title'>Assessoria de Comunicação</h5><ul><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/agenda-de-eventos/' data-title='Agenda de Eventos'><span>Agenda de Eventos</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/agenda-de-reunioes/' data-title='Agenda de Reuniões'><span>Agenda de Reuniões</span></a></li><li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/noticias/' data-title='Notícias'><span>Notícias</span></a></li></ul></div></div></li>
+                            <li><a target='_blank' href='https://camaracascavel.atende.net'>Transparência</a></li>                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/contato/'>Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="mob-main-mnu-footer">
+                        <ul class="mob-main-mnu-lang">
+                            <li><a target="_blank" href="https://www.facebook.com/CamaraCascavel" title="Facebook"><i class="fab fa-facebook"></i></a></li>
+                            <!--<li><a target="_blank" href="" title="Instagram"><i class="fab fa-instagram"></i></a></li>-->
+                            <!--<li><a target="_blank" href="" title="Twitter"><i class="fab fa-twitter"></i></a></li>-->
+                            <li><a target="_blank" href="https://www.flickr.com/photos/vereadorescascavel/albums" title="Flickr"><i class="fab fa-flickr"></i></a></li>
+                            <li><a target="_blank" href="https://www.youtube.com/camaracascavel" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- Fim Menu Mobile -->
+                <!-- Inicio Cabeçalho -->
+                <header class="header">
+                    <nav class="header-top" style="background-color: #325636; border-bottom: 5px solid #D6C413; webkit-box-shadow: 0px 30px 0px 0px #009644; box-shadow: 0px 30px 0px 0px #009644;">
+                        <div class="container">
+                            <div class="row align-items-center justify-content-between">
+                                <div class="col-auto">
+                                    <!-- Inicio Redes Socias -->
+                                    <ul class="social-links">
+                                        <li class="bg-facebook"><a target="_blank" href="https://www.facebook.com/CamaraCascavel" title="Facebook" class=""><i class="fab fa-facebook icon-facebook"></i></a></li>
+                                        <li class="bg-instagram"><a target="_blank" href="https://www.instagram.com/camaradecascavel/" title="Instagram" class=""><i class="fab fa-instagram icon-instagram"></i></a></li>
+                                        <!--<li><a target="_blank" href="" title="Twitter"><i class="fab fa-twitter"></i></a></li>-->
+                                        <li class="bg-flickr"><a target="_blank" href="https://www.flickr.com/photos/vereadorescascavel/albums" title="Flickr" class=""><i class="fab fa-flickr icon-flickr"></i></a></li>
+                                        <li class="bg-youtube"><a target="_blank" href="https://www.youtube.com/camaracascavel" title="Youtube" class=""><i class="fab fa-youtube icon-youtube"></i></a></li>
+                                        <!--<li><a target="_blank" href="https://www.youtube.com/camaracascavel" title="Área do Servidor"><i class="fa fa-user"></i></a></li>-->
+                                        <!--<li><a target="_blank" href="https://www.youtube.com/camaracascavel" title="Webmail"><i class="fa fa-envelope-square"></i></a></li>-->
+                                    </ul>
+                                    <!-- Fim Redes Socias -->
+                                </div>
+                                <div class="col-auto">
+                                    <div class="header-top-links">
+                                        <!-- Inicio Acessibilidade -->
+                                        <ul class="header-top-info">
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/mapa-do-site/" title="Mapa do Site"><i class="fa fa-sitemap"></i><span>Mapa do Site</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/dados-abertos/" title="Dados Abertos"><i class="fa fa-rss"></i><span>Dados Abertos</span></a></li>
+                                            <li><a href="https://radardatransparencia.atricon.org.br/" title="Radar TCE" target="_blank"><i class="fas fa-satellite-dish"></i><span>Radar TCE</span></a></li>
+                                            <li>|</li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/acessibilidade/" title="Acessibilidade"><i class="fa fa-wheelchair"></i><span>Acessibilidade</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/vlibras/" title="VLibras"><i class="fa fa-sign-language"></i><span>VLibras</span></a></li>
+                                            <li><a href="#" title="Contraste"id="altocontraste" accesskey="3" onclick="window.toggleContrast()" onkeydown="window.toggleContrast()"><i class="fa fa-adjust"></i> <span>Contraste</span></a></li>
+                                            <!--<li><a href="#" name="reset-font" id="reset-font" title="Voltar ao Normal"><i class="fa fa-font"></i> </a></li>-->
+                                            <li><a href="#" name="increase-font" id="increase-font" title="Aumentar Fonte"><i class="fa fa-font"></i><span>+</span></a></li>
+                                            <li><a href="#" name="decrease-font" id="decrease-font" title="Diminuir Fonte"><i class="fa fa-font"></i><span>-</span></a></li>
+                                        </ul>
+                                        <!-- Fim Acessibilidade -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <!-- Inicio Menu Desktop -->
+                                        <nav class="header-fixed" style="border-bottom: 6px solid #4B8152">
+                        <div class="container">
+                            <div class="row flex-nowrap align-items-center justify-content-between">
+                                <div class="col-auto d-block d-lg-none header-fixed-col">
+                                    <div class="main-mnu-btn">
+                                        <span class="bar bar-1"></span>
+                                        <span class="bar bar-2"></span>
+                                        <span class="bar bar-3"></span>
+                                        <span class="bar bar-4"></span>
+                                    </div>
+                                </div>
+                                <div class="col-auto header-fixed-col">
+                                    <!-- Begin logo -->
+                                    <a href="https://www.camaracascavel.pr.gov.br/" class="logo logo-ico-widht-text" title="Câmara Municipal de Cascavel">
+                                        <img class="lazy logo-ico" data-src="https://www.camaracascavel.pr.gov.br/images/logo.png" height="60" src="https://www.camaracascavel.pr.gov.br/images/logo.png" title="Câmara Municipal de Cascavel">
+                                    </a> 
+                                </div>
+                                <div class="col-lg col-auto col-static header-fixed-col">
+                                    <div class="row flex-nowrap align-items-center justify-content-end">
+                                        <div class="col-auto header-fixed-col d-none d-lg-block col-static">
+                                            <!-- Begin main menu -->
+                                            <nav class="main-mnu">
+                                                <ul class="main-mnu-list">
+                                                <li class='main-mnu-item-has-child'><a target='_self' href='https://www.camaracascavel.pr.gov.br/' data-title='Home'><span>Home</span></a></li>
+                                                <li class='main-mnu-item-has-child'><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/' data-title='A Câmara'><span>A Câmara</span><i class='material-icons'>expand_more</i></a>
+                                                    <ul>
+                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/institucional/' data-title='Institucional'><span>Institucional</span></a></li>
+                                                        <li><a target='_blank' href='https://www.camaracascavel.pr.gov.br/download/arquivo/20/menu/' data-title='Cartilha Institucional'><span>Cartilha Institucional</span></a></li>
+                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/vereadores/' data-title='Vereadores'><span>Vereadores</span></a></li>
+                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/mesa-diretora/' data-title='Mesa Diretora'><span>Mesa Diretora</span></a></li>
+                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/comissoes/' data-title='Comissões'><span>Comissões</span></a></li>
+                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/camara-mirim/' data-title='Câmara Mirim'><span>Câmara Mirim</span></a></li>
+                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/camara-jovem/' data-title='Câmara Jovem'><span>Câmara Jovem</span></a></li>
+                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/escola-do-legislativo/' data-title='Escola do Legislativo'><span>Escola do Legislativo</span></a></li>
+                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/procuradoria-da-mulher/' data-title='Procuradoria da Mulher'><span>Procuradoria da Mulher</span></a></li>
+                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/vivencia-legislativa/' data-title='Vivência Legislativa'><span>Vivência Legislativa</span></a></li>
+                                                        
+                                                        <li><a target='_blank' href='https://www.camaracascavel.pr.gov.br/menu/701/site/?url=https://sapl.cascavel.pr.leg.br/' data-title='Atividades Legislativas'><span>Atividades Legislativas</span></a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class='main-mnu-item-has-child main-mnu-item-mega-mnu'><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/' data-title='Legislações'><span>Legislações</span><i class='material-icons'>expand_more</i></a>
+                                                    <div class='main-sub-mnu'>
+                                                        <div class='container'>
+                                                            <div class='row'>
+                                                                <div class='col-3 mega-mnu-item'>
+                                                                    <h5 class='mega-mnu-title'>Proposições</h5>
+                                                                    <ul class='main-sub-mnu-list main-sub-mnu-listh'>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/sugira-um-projeto/' data-title='Sugira um Projeto'><span>Sugira um Projeto</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/projetos-de-leis/' data-title='Projetos de Leis'><span>Projetos de Leis</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/projetos-de-resolucoes/' data-title='Projetos de Resoluções'><span>Projetos de Resoluções</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/pedidos-de-providencias/' data-title='Pedidos de Providências'><span>Pedidos de Providências</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/requerimentos/' data-title='Requerimentos'><span>Requerimentos</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/indicacoes/' data-title='Indicações'><span>Indicações</span></a></li>
+                                                                        <!--<li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/mencoes/' data-title='Menções'><span>Menções</span></a></li>-->
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/mocoes/' data-title='Moções'><span>Moções</span></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class='col-3 mega-mnu-item'>
+                                                                    <h5 class='mega-mnu-title'>Legislações</h5>
+                                                                    <ul class='main-sub-mnu-list main-sub-mnu-listh'>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/leis-ordinarias/' data-title='Leis Ordinárias'><span>Leis Ordinárias</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/leis-complementares/' data-title='Leis Complementares'><span>Leis Complementares</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/portarias/' data-title='Portarias'><span>Portarias</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/decretos/' data-title='Decretos'><span>Decretos</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/categoria/resolucoes/' data-title='Resoluções'><span>Resoluções</span></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class='col-3 mega-mnu-item'>
+                                                                    <h5 class='mega-mnu-title'>Leis Municípais</h5>
+                                                                    <ul class='main-sub-mnu-list main-sub-mnu-listh'>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/lei-organica-municipal/' data-title='Lei Orgânica Municipal'><span>Lei Orgânica Municipal</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/emenda-a-lei-organica/' data-title='Emenda à Lei Orgânica'><span>Emenda à Lei Orgânica</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/regimento-interno/' data-title='Regimento Interno'><span>Regimento Interno</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-obras/' data-title='Código de Obras'><span>Código de Obras</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-tributario/' data-title='Código Tributário'><span>Código Tributário</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-posturas/' data-title='Código de Posturas'><span>Código de Posturas</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/estatuto-dos-servidores/' data-title='Estatuto dos Servidores'><span>Estatuto dos Servidores</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/plano-de-cargos-e-salarios/' data-title='Plano de Cargos e Salários'><span>Plano de Cargos e Salários</span></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class='col-3 mega-mnu-item'>
+                                                                    <h5 class='mega-mnu-title'>Orçamento do Município</h5>
+                                                                    <ul class='main-sub-mnu-list main-sub-mnu-listh'>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/orcamento-do-municipio/ppa-plano-plurianual/' data-title='PPA - Plano Plurianual'><span>PPA - Plano Plurianual</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/orcamento-do-municipio/loa-lei-orcamentaria-anual/' data-title='LOA - Lei Orçamentária Anual'><span>LOA - Lei Orçamentária Anual</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/orcamento-do-municipio/ldo-lei-de-diretrizes-orcamentarias/' data-title='LDO - Lei de Diretrizes Orçamentárias'><span>LDO - Lei de Diretrizes Orçamentárias</span></a></li>
+                                                                    </ul>
+                                                                    <h5 class='mega-mnu-title mt-5 mb-1'>Guia de Orientações Gerais</h5>
+                                                                    <ul class='main-sub-mnu-list main-sub-mnu-listh'>
+                                                                        <li><a target='_blank' href='https://www.camaracascavel.pr.gov.br/arquivos/guia-de-orientacoes-emendas-impositivas-2025-2026.pdf' data-title='Emendas Impositivas 2025-2026'><span>Emendas Impositivas 2025-2026</span></a></li>
+                                                                    </ul>
+                                                                    <h5 class='mega-mnu-title mt-5 mb-1'>Pareceres Técnicos</h5>
+                                                                    <ul class='main-sub-mnu-list main-sub-mnu-listh'>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/parecer-tce-pr/' data-title='Parecer TCE-PR'><span>Parecer TCE-PR</span></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class='main-mnu-item-has-child'><a target='_blank' href='https://www.camaracascavel.pr.gov.br/menu/123/site/?url=https://sapl.cascavel.pr.leg.br/' data-title='SAPL'><span>SAPL</span></a></li>
+                                                <li class='main-mnu-item-has-child main-mnu-item-mega-mnu'>
+                                                    <a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/' data-title='Comunicação'><span>Comunicação</span><i class='material-icons'>expand_more</i></a>
+                                                        <div class='main-sub-mnu'>
+                                                            <div class='container'>
+                                                                <div class='row'>
+                                                                    <div class='col-3 mega-mnu-item'>
+                                                                        <h5 class='mega-mnu-title'>Multimídia</h5>
+                                                                        <ul class='main-sub-mnu-list main-sub-mnu-listh'>
+                                                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/galeria-de-arquivos/' data-title='Galeria de Arquivos'><span>Galeria de Arquivos</span></a></li>
+                                                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/galeria-de-imagens/' data-title='Galeria de Imagens'><span>Galeria de Imagens</span></a></li>
+                                                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/galeria-de-videos/' data-title='Galeria de Vídeos'><span>Galeria de Vídeos</span></a></li>
+                                                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/tv-camara/' data-title='TV Câmara'><span>TV Câmara</span></a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class='col-3 mega-mnu-item'>
+                                                                        <h5 class='mega-mnu-title'>Sessões Plenárias</h5><ul class='main-sub-mnu-list main-sub-mnu-listh'>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/pautas-das-sessoes/'   data-title='Pautas das Sessões'><span>Pautas das Sessões</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/pautas-das-comissoes/' data-title='Pautas das Comissões'><span>Pautas das Comissões</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/atas-das-sessoes/'     data-title='Atas das Sessões'><span>Atas das Sessões</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/transmissoes-ao-vivo/' data-title='Transmissões Ao Vivo'><span>Transmissões Ao Vivo</span></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class='col-3 mega-mnu-item'>
+                                                                    <h5 class='mega-mnu-title'>Assessoria de Comunicação</h5>
+                                                                    <ul class='main-sub-mnu-list main-sub-mnu-listh'>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/agenda-de-eventos/' data-title='Agenda de Eventos'><span>Agenda de Eventos</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/agenda-de-reunioes/' data-title='Agenda de Reuniões'><span>Agenda de Reuniões</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/pesquisa-de-satisfacao/' data-title='Pesquisa de Satisfação'><span>Pesquisa de Satisfação</span></a></li>
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/carta-de-servicos/' data-title='Carta de Serviços'><span>Carta de Serviços</span></a></li>
+                                                                        <!--<li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/enquetes/' data-title='Enquetes'><span>Enquetes</span></a></li>-->
+                                                                        <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/comunicacao/noticias/' data-title='Notícias'><span>Notícias</span></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class='main-mnu-item-has-child'><a target='_blank' href='https://camaracascavel.atende.net' data-title='Transparência'><span>Transparência</span></a></li>                                                    <li class='main-mnu-item-has-child'><a target='_self' href='https://www.camaracascavel.pr.gov.br/contato/' data-title='Contato'><span>Contato</span></a></li>
+                                                    <!--
+                                                    <li class='main-mnu-item-has-child'><a target='_self' href='#' data-title='A Câmara'><span>Contato</span><i class='material-icons'>expand_more</i></a>
+                                                        <ul>
+                                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/contato/' data-title='Câmara Municipal'><span>Câmara Municipal</span></a></li>
+                                                            <li><a target='_self' href='https://www.camaracascavel.pr.gov.br/a-camara/vereadores/' data-title='Procuradoria da Mulher'><span>Procuradoria da Mulher</span></a></li>
+                                                        </ul>
+                                                    </li>
+                                                    -->
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                        <div class="col-auto header-fixed-col col-static">
+                                            <ul class="header-actions">
+                                                <li>
+                                                    <div class="header-search">
+                                                        <div class="header-action-icon header-search-ico">
+                                                            <i class="material-icons md-22 header-search-ico-search">search</i>
+                                                            <i class="material-icons md-22 header-search-ico-close">close</i>
+                                                        </div>
+                                                        <form action="https://www.camaracascavel.pr.gov.br/busca-avancada/" method="post" class="header-search-form">
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="form-field">
+                                                                            <label for="field-search" class="form-field-label">Pesquisar no site...</label>
+                                                                            <input type="search" class="form-field-input" name="Search" value="" autocomplete="off" required="required" id="field-search">
+                                                                            <button type="submit" class="header-search-btn"><i class="material-icons md-22">search</i></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </li>
+                                                <li class="d-block d-lg-none">
+                                                    <div class="header-navbar">
+                                                        <div class="header-navbar-btn">
+                                                            <i class="material-icons md-24">more_vert</i>
+                                                        </div>
+                                                        <ul class="header-navbar-content">
+                                                            <li><a href="https://www.camaracascavel.pr.gov.br/acessibilidade/" title="Acessibilidade"><i class="fa fa-wheelchair"></i> <span>Acessibilidade</span></a></li>
+                                                            <li><a href="https://www.camaracascavel.pr.gov.br/vlibras/" title="VLibras"><i class="fa fa-sign-language"></i> <span>VLibras</span></a></li>
+                                                            <li><a href="#" title="Contraste"id="altocontraste" accesskey="3" onclick="window.toggleContrast()" onkeydown="window.toggleContrast()"><i class="fa fa-adjust"></i> <span>Contraste</span></a></li>
+                                                            <li><a href="#" name="increase-font" id="increase-font" title="Aumentar Fonte"><i class="fa fa-font"></i> <span>+</span></a></li>
+                                                            <li><a href="#" name="decrease-font" id="decrease-font" title="Diminuir Fonte"><i class="fa fa-font"></i> <span>-</span></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <!-- Fim Menu Desktop -->
+                </header>
+                <!-- Fim Cabeçalho -->
+                    <nav class="bread-crumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="bread-crumbs-list">
+                    <li><a href='https://www.camaracascavel.pr.gov.br/'>Home</a><i class='material-icons md-18'>chevron_right</i></li><li><a href='https://www.camaracascavel.pr.gov.br/legislacoes/'>Legislações</a><i class='material-icons md-18'>chevron_right</i></li><li><a href='https://www.camaracascavel.pr.gov.br/leis-municipais/'>Leis Municípais</a><i class='material-icons md-18'>chevron_right</i></li><li><a href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-obras/'>Código de Obras</a><i class='material-icons md-18'>chevron_right</i></li>                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="section-page">
+        <div class="container">
+            <div class="row items">
+                <div class="col-12">
+                    <div class="section-heading heading-left">
+                        <h2>Código de Obras</h2>
+                        <div class="em_bar"><div class="em_bar_bg"></div></div>
+                                            </div>
+                </div>
+                <div class="col-lg-8 col-md-12 col-12">
+                <div class='row items'>
+<div class="col-md-12 col-12 item">
+    <article class="news-item item-style">
+            <div class="news-item-info">
+            <h4 class="news-item-title-artigo item-heading">
+                <a target="_blank" href="https://www.camaracascavel.pr.gov.br/artigo/11177/site/?url=https://leismunicipais.com.br/a/pr/c/cascavel/lei-ordinaria/2017/999/6699/lei-ordinarias-n-6699-2017" title="Lei Ordinária Nº 6.699/2017">Lei Ordinária Nº 6.699/2017</a>
+            </h4>
+            <div class="card-posted-in card-wide-item">
+                <span data-toggle='tooltip' data-placement='bottom' title='Categorias'><i class='far fa-folder-open pr-2'></i>Leis Ordinárias</span><span class='pl-3' data-toggle='tooltip' data-placement='bottom' title='Visualizações'><i class='far fa-eye pr-2'></i>8.171</span>            </div>
+                        <div class="news-item-desc-artigo mt-3">
+                <div class="content">
+                    <p>DISPÕE SOBRE O CÓDIGO DE OBRAS DO MUNICÍPIO DE CASCAVEL/PR E DÁ OUTRAS PROVIDÊNCIAS.</p>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+</div><div class='row'><div class='col-12 pt-5 pb-5'></div></div>                </div>
+                <div class="col-lg-4 col-md-12 col-12">
+                    <aside class="sidebar items">
+                        <div class="sidebar-item sidebar-item-margin sidebar-item-style content-sub mb-3">
+        <p class="sidebar-item-title item-heading">Leis Municipais</p>
+        <ul class="sidebar-cat hl-list sidebar-cat-tree">
+        <li class='sidebar-cat-item '><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/lei-organica-municipal/' class='sidebar-cat-link hover-link' data-title='Lei Orgânica Municipal'><span>Lei Orgânica Municipal</span></a></li><li class='sidebar-cat-item '><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/emenda-a-lei-organica/' class='sidebar-cat-link hover-link' data-title='Emenda à Lei Orgânica'><span>Emenda à Lei Orgânica</span></a></li><li class='sidebar-cat-item '><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/regimento-interno/' class='sidebar-cat-link hover-link' data-title='Regimento Interno'><span>Regimento Interno</span></a></li><li class='sidebar-cat-item active'><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-obras/' class='sidebar-cat-link hover-link' data-title='Código de Obras'><span>Código de Obras</span></a></li><li class='sidebar-cat-item '><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-tributario/' class='sidebar-cat-link hover-link' data-title='Código Tributário'><span>Código Tributário</span></a></li><li class='sidebar-cat-item '><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-posturas/' class='sidebar-cat-link hover-link' data-title='Código de Posturas'><span>Código de Posturas</span></a></li><li class='sidebar-cat-item '><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/estatuto-dos-servidores/' class='sidebar-cat-link hover-link' data-title='Estatuto dos Servidores'><span>Estatuto dos Servidores</span></a></li><li class='sidebar-cat-item '><a target='_self' href='https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/plano-de-cargos-e-salarios/' class='sidebar-cat-link hover-link' data-title='Plano de Cargos e Salários'><span>Plano de Cargos e Salários</span></a></li>            </ul>
+        </div>
+                    </aside>
+                </div>
+                <div class='col-12 pt-0 mt-5 mb-3'>
+<footer class="news-post-footer mt-0">
+    <div class="row align-items-center justify-content-between items">
+        <div class="col-md col-12 item">
+            <!--
+            <ul class="news-post-cat">
+                <li><a href="#!">Startup</a></li>
+                <li><a href="#!">Software Development</a></li>
+            </ul>
+            -->
+        </div>
+        <div class="col-md-auto col-12 item">
+            <div class="news-post-share">
+                <p class="news-post-share-title">Compartilhar:</p>
+                <ul class="page-social-links">
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-obras" title="Facebook">
+                            <svg viewBox="0 0 320 512">
+                                <use xlink:href="https://www.camaracascavel.pr.gov.br/fonts/sprite.svg#facebook-ico"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://twitter.com/share?text=Código de Obras - Câmara Municipal de Cascavel&url=https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-obras" title="Twitter">
+                            <svg viewBox="0 0 512 512">
+                                <use xlink:href="https://www.camaracascavel.pr.gov.br/fonts/sprite.svg#twitter-ico"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://api.whatsapp.com/send?text=Código de Obras - Câmara Municipal de Cascavel Acesse: https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-obras" title="WhatsApp">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://telegram.me/share/url?url=https://www.camaracascavel.pr.gov.br/legislacoes/leis-municipais/codigo-de-obras&text=Código de Obras - Câmara Municipal de Cascavel" title="Telegram">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><path id="telegram-1" d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z"/></svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer></div>            </div>
+        </div>
+    </section>
+                </div>
+            <footer class="footer" style="background-color: #325636; border-top: 8px solid #D6C413;">
+                <div class="footer-main">
+                    <div class="container">
+                        <div class="row items">
+                            <div class="col-xl-3 col-lg-3 col-md-5 col-12 item">
+                                <div class="footer-item">
+                                    <h4 class="footer-item-title">A Câmara</h4>
+                                    <nav class="footer-nav">
+                                        <ul class="footer-mnu">
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/a-camara/institucional/" class="hover-link" data-title="Institucional"><span>Institucional</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/a-camara/vereadores/" class="hover-link" data-title="Vereadores"><span>Vereadores</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/a-camara/mesa-diretora/" class="hover-link" data-title="Mesa Diretora"><span>Mesa Diretora</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/a-camara/comissoes/" class="hover-link" data-title="Comissões"><span>Comissões</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/a-camara/camara-jovem/" class="hover-link" data-title="Câmara Jovem"><span>Câmara Jovem</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/a-camara/escola-do-legislativo/" class="hover-link" data-title="Escola do Legislativo"><span>Escola do Legislativo</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/a-camara/vereadores/alecio-espinola/contato/" class="hover-link" data-title="Fale com o Presidente"><span>Fale com o Presidente</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/menu/701/site/?url=https://sapl.cascavel.pr.leg.br/" class="hover-link" data-title="Atividades Legislativas" target="_blank"><span>Atividades Legislativas</span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="footer-item">
+                                    <h4 class="footer-item-title">Arquivos Históricos</h4>
+                                    <nav class="footer-nav">
+                                        <ul class="footer-mnu">
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/a-camara/institucional/ata-de-instalacao-do-municipio/" class="hover-link" data-title="Ata de Instalação do Município"><span>Ata de Instalação do Município</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/a-camara/institucional/galeria-de-presidentes/" class="hover-link" data-title="Galeria de Presidentes"><span>Galeria de Presidentes</span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-7 item">
+                                <div class="footer-item">
+                                    <h4 class="footer-item-title">Legislações</h4>
+                                    <nav class="footer-nav">
+                                        <ul class="footer-mnu">
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/legislacoes/categoria/leis-ordinarias/" class="hover-link" data-title="Leis Ordinárias"><span>Leis Ordinárias</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/legislacoes/categoria/leis-complementares/" class="hover-link" data-title="Leis Complementares"><span>Leis Complementares</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/legislacoes/categoria/portarias/" class="hover-link" data-title="Portarias"><span>Portarias</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/legislacoes/categoria/decretos/" class="hover-link" data-title="Decretos"><span>Decretos</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/legislacoes/categoria/resolucoes/" class="hover-link" data-title="Resoluções"><span>Resoluções</span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="footer-item">
+                                    <h4 class="footer-item-title">Transparência</h4>
+                                    <nav class="footer-nav">
+                                        <ul class="footer-mnu">
+                                            <li><a target="_blank" href="https://camaracascavel.atende.net/transparencia/item/licitacoes-gerais" class="hover-link" data-title="Compras e Licitações"><span>Compras e Licitações</span></a></li>
+                                            <li><a target="_blank" href="https://camaracascavel.atende.net/transparencia/item/contratos-gerais" class="hover-link" data-title="Contratos e Atas"><span>Contratos e Atas</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/transparencia/concurso-e-processo/categoria/concurso-publico/" class="hover-link" data-title="Concurso Público"><span>Concurso Público</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/transparencia/acesso-a-informacao/ouvidoria/" class="hover-link" data-title="Ouvidoria"><span>Ouvidoria</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/transparencia/acesso-a-informacao/sic/" class="hover-link" data-title="SIC"><span>SIC</span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-7 item">
+                                <div class="footer-item">
+                                    <h4 class="footer-item-title">Sessões Plenárias</h4>
+                                    <nav class="footer-nav">
+                                        <ul class="footer-mnu">
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/comunicacao/pautas-das-reunioes/" class="hover-link" data-title="Pautas das Reuniões"><span>Pautas das Reuniões</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/comunicacao/atas-das-reunioes/" class="hover-link" data-title="Atas das Reuniões"><span>Atas das Reuniões</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/comunicacao/audios-das-reunioes/" class="hover-link" data-title="Áudios das Reuniões"><span>Áudios das Reuniões</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/comunicacao/transmissoes-ao-vivo/" class="hover-link" data-title="Transmissões Ao Vivo"><span>Transmissões Ao Vivo</span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="footer-item">
+                                    <h4 class="footer-item-title">Comunicação</h4>
+                                    <nav class="footer-nav">
+                                        <ul class="footer-mnu">
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/comunicacao/agenda-de-eventos/" class="hover-link" data-title="Agenda de Eventos"><span>Agenda de Eventos</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/comunicacao/agenda-de-reunioes/" class="hover-link" data-title="Agenda de Reuniões"><span>Agenda de Reuniões</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/comunicacao/galeria-de-imagens/" class="hover-link" data-title="Galeria de Imagens"><span>Galeria de Imagens</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/comunicacao/pesquisa-de-satisfacao/" class="hover-link" data-title="Pesquisa de Satisfação"><span>Pesquisa de Satisfação</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/comunicacao/carta-de-servicos/" class="hover-link" data-title="Carta de Serviços"><span>Carta de Serviços</span></a></li>
+                                            <li><a href="https://www.camaracascavel.pr.gov.br/comunicacao/noticias/" class="hover-link" data-title="Notícias"><span>Notícias</span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xs-3 col-lg-3 col-12 item">
+                                <div class="footer-item">
+                                    <h4 class="footer-item-title">Onde Estamos</h4>
+                                    <ul class="footer-contacts">
+                                        <li>
+                                            <i class="material-icons md-22">location_on</i>
+                                            <div class="footer-contact-info">
+                                                <a target="_blank" href="https://goo.gl/maps/P9qvVesWNnLXZngWA">Rua Pernambuco, 1.843, Centro<br>Cascavel, Paraná, 85.810-021</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="footer-item">
+                                    <h4 class="footer-item-title">Atendimento</h4>
+                                    <ul class="footer-contacts">
+                                        <li class="pb-0 mb-0">
+                                            <i class="material-icons md-22">date_range</i>
+                                            <div class="footer-contact-info">
+                                                Segunda à Sexta
+                                            </div>
+                                        </li>
+                                        <li class="pt-0 mt-0">
+                                            <i class="material-icons md-22">history</i>
+                                            <div class="footer-contact-info">
+                                                08:00 às 11:30 e 13:30 às 18:00
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="footer-item">
+                                    <h4 class="footer-item-title">Sessões Plenárias</h4>
+                                    <ul class="footer-contacts">
+                                        <li class="pb-0 mb-0">
+                                            <i class="material-icons md-22">date_range</i>
+                                            <div class="footer-contact-info">
+                                                Segundas-feiras às 9h
+                                            </div>
+                                        </li>
+                                        <li class="pt-0 mt-0">
+                                            <i class="material-icons md-22">date_range</i>
+                                            <div class="footer-contact-info">
+                                                Terças-feiras às 14h
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="footer-item">
+                                    <h4 class="footer-item-title">Contato</h4>
+                                    <ul class="footer-contacts">
+                                        <li class="pb-0 mb-0">
+                                            <i class="material-icons md-22 footer-contact-email">email</i>
+                                            <div class="footer-contact-info">
+                                                <a href="mailto:ouvidoria@camaracascavel.pr.gov.br">ouvidoria@camaracascavel.pr.gov.br</a>
+                                            </div>
+                                        </li>
+                                        <li class="pt-0 mt-0">
+                                            <i class="material-icons md-22 footer-contact-tel">smartphone</i>
+                                            <div class="footer-contact-info">
+                                                <a href="tel:+554533218800" class="formingHrefTel">(45) 3321-8800</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row justify-content-between items d-flex align-items-center">
+                            <div class="col-md-auto col-12 item ">
+                                <img src="https://www.camaracascavel.pr.gov.br/images/selo-diamante-2025.png" height="150px">
+                            </div>
+                            <div class="col-md-auto col-12 item">
+                                <div class="copyright" align="center">Copyright © 2026<br>Câmara Municipal de Cascavel</div>
+                            </div>
+                            <div class="col-md-auto col-12 item">
+                                <a target="_blank" href="http://webmes.com.br"><img src="https://www.camaracascavel.pr.gov.br/images/logoWMS.png" width="200px"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- Begin cookie message -->
+            <div class="cookie-message">
+                <div class="cm-content">
+                    <h5 class="cmc-title">Cookies</h5>
+                    <p class="cmc-desc">
+                        Nós utilizamos cookies para otimizar e aprimorar sua navegação do site, manter uma melhoria contínua no conteúdo oferecido e aperfeiçoar a experiência de nossos usuários.
+                        Todos os cookies, exceto os estritamente necessários, necessitam de seu consentimento para serem executados.
+                    </p>
+                </div>
+                <div class="mc-btn btn btn-with-icon btn-small ripple">
+                    <span><i class="fa fa-check"></i> Concordo</span>  
+                </div>
+            </div>
+                <div id="popup_enquete" class="popup_style card_preview_popup popup_style_sally open_popup" style="display:none;">
+        <div class="popup">
+            <div class="popup_content card-preview-container">
+                <a href="#" class="card-image img-style card-preview-img">
+                    <img style="height: 100%" data-src="https://www.camaracascavel.pr.gov.br/images/cmc06.jpg" class="lazy" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="">
+                </a>
+                <div class="card-preview-info" style="width: 100%">
+                    <h2 class="card-title mb-0">Pesquisa de Satisfação</h2>
+                    <span class="inventory-status"></span>
+                    <div class="card-page-rating mb-3">
+                        <ul class="list-style-none card-rating">
+                            <li><i class="material-icons md-20">star</i></li>
+                            <li><i class="material-icons md-20">star</i></li>
+                            <li><i class="material-icons md-20">star</i></li>
+                            <li><i class="material-icons md-20">star</i></li>
+                            <li><i class="material-icons md-20">star</i></li>
+                        </ul>
+                    </div>
+                    <div class="card-prices mb-3">
+                        <div class="card-price" style="line-height: 1.1;">Qual é o seu grau de satisfação com o atendimento ou serviço solicitado/recebido?</div>
+                    </div>
+                    <div class="card-section-desc">
+                        <form id="formEnquete" action="https://www.camaracascavel.pr.gov.br/includes/form/enquete/index.php" method="POST" class="survey-form" novalidate="novalidate">
+                            <input type="hidden" name="idEnquete" value="179336">
+                            <h4 class="news-item-title item-heading mb-1" style="height: 25px; font-size: 16px;"><input type="radio" id="item1" name="itemEnquete" value="1" class="itemEnquete mr-2" checked="checked"><label for="item1">Muito Satisfeito</label></h4>
+                            <h4 class="news-item-title item-heading mb-1" style="height: 25px; font-size: 16px;"><input type="radio" id="item2" name="itemEnquete" value="2" class="itemEnquete mr-2"><label for="item2">Satisfeito</label></h4>
+                            <h4 class="news-item-title item-heading mb-1" style="height: 25px; font-size: 16px;"><input type="radio" id="item3" name="itemEnquete" value="3" class="itemEnquete mr-2"><label for="item3">Insatisfeito</label></h4>
+                            <hr class="mt-3 mb-3" style="border: 1px solid #d4d4e1;">
+                            <p class="mt-0 mb-2" style="line-height: 1.1;"><b>Caso esteja INSATISFEITO, conte-nos o que podemos fazer para melhorar esse atendimento ou serviço.<b></p>
+                            <div class="form-field">
+                                <label for="sugestao" class="form-field-label">Informe sua sugestão...</label>
+                                <textarea minlength="10" name="sugestao" maxlength="256" class="form-field-input" id="sugestao" cols="30" rows="3" style="overflow: hidden; overflow-wrap: break-word; height: 100px;"></textarea>
+                            </div>
+                            <button type="submit" name="save" class="btn btn-wide btn-with-icon">
+                                <i class="material-icons material-icons-outlined btn-icon-left md-22">save</i>
+                                <span>Salvar Avaliação</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="alerts alerts-static mt-3">
+						<div id="alert-info" class="alert d-none" role="alert">
+							<div class="alert-ico"><i class="material-icons md-22">info</i></div>
+							<div class="alert-text"></div>
+						</div>
+						<div id="alert-success" class="alert alert-success d-none" role="alert">
+							<div class="alert-ico"><i class="material-icons md-22">check</i></div>
+							<div class="alert-text"></div>
+						</div>
+						<div id="alert-danger" class="alert alert-danger  d-none" role="alert">
+							<div class="alert-ico"><i class="material-icons md-22">error</i></div>
+							<div class="alert-text"></div>
+						</div>
+						<div id="alert-warning" class="alert alert-warning d-none" role="alert">
+							<div class="alert-ico"><i class="material-icons md-22">warning</i></div>
+							<div class="alert-text"></div>
+						</div>
+					</div>
+                </div>
+            </div>
+            <div id="popup_enquete_close" class="popup_enquete_close popup_close"><i class="material-icons md-24">close</i></div>
+        </div>
+    </div>
+    <div id="popup-atribuicoes" class="popup_style card_preview_popup popup_style_sally open_popup">
+        <div class="popup">
+            <div class="popup_content card-preview-container">
+                <a href="#" class="card-image img-style " style="min-width: 350px; width: 350px;">
+                    <img id='popup-atribuicoes-foto' style="height: 100%" data-src="" class="lazy" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="">
+                </a>
+                <div class="card-preview-info" style="width: 100%">
+                    <h2 class="card-title" id='popup-atribuicoes-titulo'></h2>
+                    <div class="card-section-desc cp-item" id='popup-atribuicoes-descricao'>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card_preview_popup_close popup_close btn-close-popup"><i class="material-icons md-24">close</i></div>
+        </div>
+    </div>        </main>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6LfLYfolAAAAAAsD6WepifThirqJVAez50wO0WwK"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/jquery.min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/lozad.min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/device.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/jquery-scrolltofixed-min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/jquery.spincrement.min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/jquery.popupoverlay.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/jquery.validate.min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/autosize.min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/flickity.pkgd.min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/flickity-imagesloaded.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/bg-lazyload.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/flickity-fade.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/isotope.pkgd.min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/picturefill.min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/lightgallery-all.min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/jquery.mousewheel.min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/jquery-ui.min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/jquery.mask.min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/custom.js"></script>
+        
+
+        <script src="https://www.camaracascavel.pr.gov.br/js/jquery.minicolors.min.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/settings.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/custom-ecommerce.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/fontawesome.js"></script>
+        
+        
+        
+        <script src="https://www.camaracascavel.pr.gov.br/js/acessibilidade.js"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/includes/paginas/sic/estatisticas/javascript-1.js"></script>
+        
+        <script src="https://www.camaracascavel.pr.gov.br/js/form-pesquisa.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/bil.js"></script>
+        <script src="https://www.camaracascavel.pr.gov.br/js/sic.js"></script>
+        <script type="text/javascript">
+jQuery(document).ready(function () {
+    //CORRESPONDENCIA
+    $('#manifestante-resposta-correspondencia-estado').change(function(e){
+        $("#manifestante-resposta-correspondencia-cidade").html("<option value=''>Carregando...</option>");
+         
+        $.getJSON('https://www.camaracascavel.pr.gov.br/json/cidades.php?CodEstado='+$('#manifestante-resposta-correspondencia-estado').val(),
+        function (estados){
+            var options_cidades = "<option value=''></option>";
+            var str = "";
+            $("#manifestante-resposta-correspondencia-estado option:selected").each(function () {
+                    str += $(this).val();
+            });
+            $.each(estados, function (index, estado) {
+                if(estado[0]['codestado'] == str)
+                {
+                    $.each(estado[0]['cidades'], function (index, cidade) {
+                        options_cidades += '<option id="codcidadeOption' + cidade['codcidade'] + '" value="' + cidade['codcidade'] + '">' + cidade['nome'] + '</option>';
+                    });							
+                }
+            });
+            //$("#codcidade").text("Selecione");
+            $('.TextRetornoManifestacao').html("<p></p>");
+        });
+    });
+    
+    //MANIFESTANTE
+    $('#manifestante-estado').change(function(e){
+        $("#manifestante-cidade").html("<option value=''>Carregando...</option>");
+         
+        $.getJSON('https://www.camaracascavel.pr.gov.br/json/cidades.php?CodEstado='+$('#manifestante-estado').val(),
+        function (estados){
+            var options_cidades = "<option value=''></option>";
+            var str = "";
+            $("#manifestante-estado option:selected").each(function () {
+                    str += $(this).val();
+            });
+            $.each(estados, function (index, estado) {
+                if(estado[0]['codestado'] == str)
+                {
+                    $.each(estado[0]['cidades'], function (index, cidade) {
+                        options_cidades += '<option id="codcidadeOption' + cidade['codcidade'] + '" value="' + cidade['codcidade'] + '">' + cidade['nome'] + '</option>';
+                    });							
+                }
+            });
+            //$("#codcidade").text("Selecione");
+            $('#manifestante-cidade').html(options_cidades);
+        });
+    });
+    
+    $('#idestado').change(function(e){
+        $("#idcidade").html("<option value=''>Carregando...</option>");
+        
+        var data = {limit:0,idestado:$('#idestado').val()};
+         
+        $.post("https://sistemas.webmes.com.br/api/sistema/parametros/cidades", data, 
+        function (cidades){
+            var options_cidades = "<option value=''></option>";
+            var str = "";
+            $("#idestado option:selected").each(function () {
+                    str += $(this).val();
+            });
+            $.each(cidades.results, function (index, cidade) {
+                
+                options_cidades += '<option id="'+cidade["id"]+'" value="'+cidade["id"]+'">'+cidade["nome"]+'</option>';
+                /*
+                if(estado[0]['codestado'] == str)
+                {
+                    $.each(estado[0]['cidades'], function (index, cidade) {
+                        options_cidades += '<option id="codcidadeOption' + cidade['codcidade'] + '" value="' + cidade['codcidade'] + '">' + cidade['nome'] + '</option>';
+                    });							
+                }
+                */
+            });
+            //$("#codcidade").text("Selecione");
+            $('#idcidade').html(options_cidades);
+        },'json');
+    });
+});
+</script>        <script>
+            jQuery(document).ready(function () {
+                            });
+        </script>
+
+        <div class="btn-top active"><svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="https://www.camaracascavel.pr.gov.br/fonts/sprite.svg#arrow-right"></use></svg></div>
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+        
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
+        
+        <script src="https://cdn.userway.org/widget.js" data-account="VLwY6CDt4q"></script>
+    </body>
+</html>
+
+
+<script>
+        $(".popup_sic_status_close").on('click', function (e) {
+            $("#popup_sic_status_wrapper").trigger('click');
+            //$("#popup-atribuicoes").hide();
+        });
+        $(".popup_sic_consulta_close").on('click', function (e) {
+            $("#popup_sic_consulta_wrapper").trigger('click');
+            //$("#popup-atribuicoes").hide();
+        });
+        $(".popup_sic_recurso_close").on('click', function (e) {
+            $("#popup_sic_recurso_wrapper").trigger('click');
+            //$("#popup-atribuicoes").hide();
+        });
+        $(".btn-close-popup").on('click', function (e) {
+            $("#popup-atribuicoes_wrapper").trigger('click');
+            //$("#popup-atribuicoes").hide();
+        });
+
+        $(".atribuicoes-cargo-vereador").on('click', function (e) {
+            e.preventDefault();
+            
+            $("#popup-atribuicoes-foto").attr("data-src","");
+            $("#popup-atribuicoes-foto").attr("src","");
+            $("#popup-atribuicoes-titulo").html("");
+            $("#popup-atribuicoes-descricao").html("");
+            
+            var link    = $(this).data('vereador-link');
+            var cargo   = $(this).data('vereador-cargo');
+            var nome    = $(this).data('vereador-nome');
+            var foto    = $(this).data('vereador-foto');
+            var partido = $(this).data('vereador-partido');
+            
+            if(cargo === "Presidente")
+            {
+                var atribuicoes = ""+
+                    "<p style='text-align:justify'>Al&eacute;m de ter prefer&ecirc;ncia na substitui&ccedil;&atilde;o ao prefeito, no caso de vac&acirc;ncia, aus&ecirc;ncia ou impedimento do vice-prefeito, o presidente tamb&eacute;m &eacute; o respons&aacute;vel por representar o Legislativo oficialmente e fazer a gest&atilde;o da Casa.</p>"+
+                    "<p style='text-align:justify'>Quem ocupa a Presid&ecirc;ncia da CMC comanda as sess&otilde;es plen&aacute;rias, sendo o respons&aacute;vel por abri-las, presidi-las, suspend&ecirc;-las e encerr&aacute;-las; manter a ordem, interpretar e fazer cumprir o Regimento Interno; conceder a palavra aos vereadores e a outros convidados e interromper o orador que se desviar do assunto em debate, podendo cassar a palavra; organizar a ordem do dia da sess&atilde;o seguinte (projetos de lei que entrar&atilde;o na pauta de vota&ccedil;&otilde;es); e convocar sess&otilde;es ordin&aacute;rias, extraordin&aacute;rias e solenes.</p>"+
+                    "<p style='text-align:justify'>Ainda em rela&ccedil;&atilde;o ao processo legislativo, o presidente possui prerrogativa de promulgar leis, o que ocorre quando o prefeito deixa de promulgar ou sancionar uma lei - a chamada san&ccedil;&atilde;o t&aacute;cita. A promulga&ccedil;&atilde;o &eacute; o ato que declara a exist&ecirc;ncia da norma e ordena sua execu&ccedil;&atilde;o. Devido a essas atribui&ccedil;&otilde;es, o presidente &eacute; o &uacute;nico com remunera&ccedil;&atilde;o maior que os demais vereadores.</p>"+
+                    "<p style='text-align:justify'>O presidente tamb&eacute;m indica os integrantes das comiss&otilde;es permanentes e tempor&aacute;rias, zela pelo prest&iacute;gio e decoro da C&acirc;mara, ordena as despesas do Legislativo, deve apresentar mensalmente o balancete da C&acirc;mara do m&ecirc;s anterior, administra o pessoal da C&acirc;mara e atribui aos servidores do Legislativo vantagens legalmente autorizadas bem como determina a apura&ccedil;&atilde;o de responsabilidade administrativa, civil e criminal de servidores. Al&eacute;m disso, pode exercer atos de pol&iacute;cia em quaisquer mat&eacute;rias relacionadas com as atividades da C&acirc;mara.</p>"+
+                    "<p style='text-align:justify'>O Presidente n&atilde;o tem direito a voto a menos que haja empate em qualquer vota&ccedil;&atilde;o simb&oacute;lica ou nominal durantes as sess&otilde;es e na vota&ccedil;&atilde;o de cassa&ccedil;&atilde;o de mandato de Vereador, Prefeito ou Vice-Prefeito.</p>"+
+                "";
+            }
+            else
+            if((cargo === "1º Vice-Presidente") || (cargo === "2º Vice-Presidente"))
+            {
+                var atribuicoes = ""+
+                    "<p style='text-align:justify'>Os vice-presidentes do Legislativo têm a função de substituir o presidente em suas ausências ou impedimentos. Eles também devem promulgar leis, caso o presidente deixe de fazê-lo, e, assim como os demais membros da Mesa Diretora, estão na linha sucessória do prefeito.</p>"+
+                "";
+            }
+            else
+            if((cargo === "1º Secretário") || (cargo === "2º Secretário"))
+            {
+                var atribuicoes = ""+
+                    "<p style='text-align:justify'>O primeiro-secretários substitui os vice-presidentes em suas ausências ou impedimentos, auxiliam o presidente nos trabalhos da sessão, no controle da presença dos vereadores, na inscrição para debates, na leitura de projetos etc.</p>"+
+                    "<p style='text-align:justify'>O segundo-secretários substitui os vice-presidentes em suas ausências ou impedimentos, auxiliam o presidente nos trabalhos da sessão, no controle da presença dos vereadores, na inscrição para debates, na leitura de projetos etc.</p>"+
+                "";
+            }
+            
+            
+            
+            $("#popup-atribuicoes-foto").attr("data-src",foto);
+            $("#popup-atribuicoes-foto").attr("src",foto);
+            
+            $("#popup-atribuicoes-titulo").html(cargo);
+            $("#popup-atribuicoes-descricao").html(atribuicoes);
+            
+			$("#popup-atribuicoes").popup({
+				autoopen: true,
+			});
+            
+            //$("").show();
+            //$(".modal-").html();
+            
+            
+            
+            
+            //alert(link + cargo + nome + foto + partido);
+        });
+        
+    /*
+
+    grecaptcha.ready(function() {
+    // do request for recaptcha token
+    // response is promise with passed token
+        grecaptcha.execute('6LfLYfolAAAAAAsD6WepifThirqJVAez50wO0WwK', {action:'validate_captcha'})
+                  .then(function(token) {
+            // add token value to form
+            document.getElementById('g-recaptcha-response').value = token;
+        });
+    });
+    
+    */
+</script>
+

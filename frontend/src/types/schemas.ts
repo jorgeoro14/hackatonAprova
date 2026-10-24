@@ -3,6 +3,7 @@
  * Tipos TypeScript são inferidos daqui — fonte única da verdade.
  */
 import { z } from 'zod'
+import { FieldDifference, LegalEvidenceRecord, RequirementCitation } from '../../../contracts/implantation-evidence'
 
 export const roleSchema = z.enum(['implementer', 'head'])
 export type Role = z.infer<typeof roleSchema>
@@ -110,6 +111,10 @@ export const formularioSchema = z.object({
   status: z.enum(['rascunho', 'em_revisao', 'confirmado']),
   dominio: z.string(),
   modeloBase: z.string().optional(),
+  evidenciasLegais: z.array(LegalEvidenceRecord).optional(),
+  citacoesRequisitos: z.array(RequirementCitation).optional(),
+  alteracoesCampos: z.array(FieldDifference).optional(),
+  legislacaoLocal: z.array(z.object({ titulo: z.string(), numero: z.string().optional(), url: z.string().optional() })).optional(),
   orgao: z.looseObject({
     municipio: z.string(),
     uf: z.string(),

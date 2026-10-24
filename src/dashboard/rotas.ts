@@ -1,5 +1,7 @@
 import type { FastifyInstance, FastifyRequest } from "fastify";
 import { z } from "zod";
+import { ImplementerApprovalRequest } from "../../contracts/implantation-evidence.js";
+import { approvedSnapshot, approveForm, formApprovals } from "../formularios/approval.js";
 import type { Banco } from "../db/banco.js";
 import { tratarErros } from "../api/erros.js";
 import { conferirSenha, emitirToken, verificarToken, type Usuario } from "./auth.js";
@@ -108,6 +110,16 @@ export async function rotasDashboard(app: FastifyInstance, opcoes: OpcoesDashboa
   });
 
   app.get("/auth/me", async (req) => usuario(req));
+
+  app.get<{ Params: { id: string } }>("/forms/:id/approval", async (req) =>
+    formApprovals(db, await usuario(req), req.params.id),
+  );
+  app.post<{ Params: { id: string } }>("/forms/:id/approval", async (req) =>
+    approveForm(db, await usuario(req), req.params.id, validar(ImplementerApprovalRequest, req.body), agora()),
+  );
+  app.get<{ Params: { id: string; approvalId: string } }>("/forms/:id/approval/:approvalId", async (req) =>
+    approvedSnapshot(db, await usuario(req), req.params.id, req.params.approvalId),
+  );
 
   // JWT sem estado: o front descarta o token
   app.post("/auth/logout", async (req, reply) => {

@@ -1,0 +1,708 @@
+{
+  "schema_version": 1,
+  "municipality": "Cascavel",
+  "municipality_ibge": "4104808",
+  "uf": "PR",
+  "collected_at": "2026-10-24",
+  "repository": {
+    "repository": "https://github.com/ctresb/leis",
+    "branch": "main",
+    "commit": "15eb09b618ff08a38c4dfee06a91bd139d093f5d"
+  },
+  "documents": [
+    {
+      "document_id": "repo-6766",
+      "title": "Urban land subdivision (6766/1979, repository)",
+      "jurisdiction": "federal",
+      "law_number": "6766",
+      "law_year": 1979,
+      "source_url": "https://www.planalto.gov.br/ccivil_03/leis/l6766.htm",
+      "repository_path": "federal/leis-ordinarias/1979/lei-6766-1979-12-19.md",
+      "local_path": "federal/lei-6766-1979-12-19.md",
+      "effective_status": "unverified",
+      "applicability": "service_specific",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "parcelamento_solo"
+      ],
+      "relevance": "high",
+      "index_policy": "selected_articles",
+      "selected_articles": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "12",
+        "13",
+        "18"
+      ],
+      "quality_notes": [],
+      "issuer": "Brazilian National Congress / Presidency",
+      "repository_sha256": "a914d778bbec366951cb32e4e2800cbb908050a2385a449548e0d055ac35fb57",
+      "original_yaml_preserved": true,
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "repo-10257",
+      "title": "City Statute (10257/2001, repository)",
+      "jurisdiction": "federal",
+      "law_number": "10257",
+      "law_year": 2001,
+      "source_url": "https://www.planalto.gov.br/ccivil_03/leis/leis_2001/l10257.htm",
+      "repository_path": "federal/leis-ordinarias/2001/lei-10257-2001-07-10.md",
+      "local_path": "federal/lei-10257-2001-07-10.md",
+      "effective_status": "unverified",
+      "applicability": "service_specific",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "urbanismo",
+        "parcelamento_solo"
+      ],
+      "relevance": "high",
+      "index_policy": "archive_only",
+      "selected_articles": [],
+      "quality_notes": [
+        "Prefer separately preserved official consolidated supplement; repository YAML remains unchanged."
+      ],
+      "issuer": "Brazilian National Congress / Presidency",
+      "repository_sha256": "845868dcf9ad25485a19162e4fffd981f8c3e9a4f7cdcb311e91a167a8cb528b",
+      "original_yaml_preserved": true,
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "repo-12527",
+      "title": "Access to Information Law (12527/2011, repository)",
+      "jurisdiction": "federal",
+      "law_number": "12527",
+      "law_year": 2011,
+      "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm",
+      "repository_path": "federal/leis-ordinarias/2011/lei-12527-2011-11-18.md",
+      "local_path": "federal/lei-12527-2011-11-18.md",
+      "effective_status": "unverified",
+      "applicability": "service_specific",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "acesso_informacao"
+      ],
+      "relevance": "high",
+      "index_policy": "archive_only",
+      "selected_articles": [],
+      "quality_notes": [
+        "Prefer separately preserved official consolidated supplement; repository YAML remains unchanged."
+      ],
+      "issuer": "Brazilian National Congress / Presidency",
+      "repository_sha256": "19c12470a1a453b4c30a1d9c10dbeb74f9cc8c20fc05d919af3e95236eda9a55",
+      "original_yaml_preserved": true,
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "repo-13460",
+      "title": "Public Service Users Rights (13460/2017, repository)",
+      "jurisdiction": "federal",
+      "law_number": "13460",
+      "law_year": 2017,
+      "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13460.htm",
+      "repository_path": "federal/leis-ordinarias/2017/lei-13460-2017-06-26.md",
+      "local_path": "federal/lei-13460-2017-06-26.md",
+      "effective_status": "unverified",
+      "applicability": "service_specific",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "ouvidoria",
+        "carta_servicos"
+      ],
+      "relevance": "high",
+      "index_policy": "archive_only",
+      "selected_articles": [],
+      "quality_notes": [
+        "Prefer separately preserved official consolidated supplement; repository YAML remains unchanged."
+      ],
+      "issuer": "Brazilian National Congress / Presidency",
+      "repository_sha256": "be56cb67de6b8d423a6bbb4894f164a1279fcc3d9821bd8264ddb3b5aa57530c",
+      "original_yaml_preserved": true,
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "repo-13709",
+      "title": "General Data Protection Law (13709/2018, repository)",
+      "jurisdiction": "federal",
+      "law_number": "13709",
+      "law_year": 2018,
+      "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm",
+      "repository_path": "federal/leis-ordinarias/2018/lei-13709-2018-08-14.md",
+      "local_path": "federal/lei-13709-2018-08-14.md",
+      "effective_status": "unverified",
+      "applicability": "service_specific",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "all_selected_services"
+      ],
+      "relevance": "high",
+      "index_policy": "archive_only",
+      "selected_articles": [],
+      "quality_notes": [
+        "Prefer separately preserved official consolidated supplement; repository YAML remains unchanged."
+      ],
+      "issuer": "Brazilian National Congress / Presidency",
+      "repository_sha256": "72d32431037ce85955c6f959f50f11d10971a8ec36f93cdae5ee3459ec66a4dd",
+      "original_yaml_preserved": true,
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "repo-13726",
+      "title": "Administrative Simplification (13726/2018, repository)",
+      "jurisdiction": "federal",
+      "law_number": "13726",
+      "law_year": 2018,
+      "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13726.htm",
+      "repository_path": "federal/leis-ordinarias/2018/lei-13726-2018-10-08.md",
+      "local_path": "federal/lei-13726-2018-10-08.md",
+      "effective_status": "unverified",
+      "applicability": "service_specific",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "all_selected_services"
+      ],
+      "relevance": "high",
+      "index_policy": "selected_articles",
+      "selected_articles": [
+        "1",
+        "3",
+        "6"
+      ],
+      "quality_notes": [],
+      "issuer": "Brazilian National Congress / Presidency",
+      "repository_sha256": "8efb25ca0ae457ee4821d6bb7712631a183c1d33e0e393e186dba772c6ec3ba8",
+      "original_yaml_preserved": true,
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "repo-14129",
+      "title": "Digital Government (14129/2021, repository)",
+      "jurisdiction": "federal",
+      "law_number": "14129",
+      "law_year": 2021,
+      "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14129.htm",
+      "repository_path": "federal/leis-ordinarias/2021/lei-14129-2021-03-29.md",
+      "local_path": "federal/lei-14129-2021-03-29.md",
+      "effective_status": "unverified",
+      "applicability": "conditional",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "digital_services"
+      ],
+      "relevance": "high",
+      "index_policy": "archive_only",
+      "selected_articles": [],
+      "quality_notes": [
+        "Repository text is original, not an independently verified consolidation; municipal adoption remains unknown.",
+        "Prefer separately preserved official consolidated supplement; repository YAML remains unchanged."
+      ],
+      "issuer": "Brazilian National Congress / Presidency",
+      "repository_sha256": "df8c9c81ee024b06fa50b9a2addd960e43b09e912dff4cf179525527cef86665",
+      "original_yaml_preserved": true,
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "repo-14133",
+      "title": "Public Procurement and Administrative Contracts (14133/2021, repository)",
+      "jurisdiction": "federal",
+      "law_number": "14133",
+      "law_year": 2021,
+      "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm",
+      "repository_path": "federal/leis-ordinarias/2021/lei-14133-2021-04-01.md",
+      "local_path": "federal/lei-14133-2021-04-01.md",
+      "effective_status": "unverified",
+      "applicability": "service_specific",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "contratacao_publica"
+      ],
+      "relevance": "high",
+      "index_policy": "archive_only",
+      "selected_articles": [],
+      "quality_notes": [
+        "Repository publication is a veto-promulgation fragment (14.133) or signatory correction (LC140), not the full statute.",
+        "Prefer separately preserved official consolidated supplement; repository YAML remains unchanged."
+      ],
+      "issuer": "Brazilian National Congress / Presidency",
+      "repository_sha256": "e2af0d78543a4513c32c9b8c53b26fb58f5bccc6c6f2a5b37ebc5df438bb2760",
+      "original_yaml_preserved": true,
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "repo-140",
+      "title": "Environmental Administrative Competence (LC) (140/2011, repository)",
+      "jurisdiction": "federal",
+      "law_number": "140",
+      "law_year": 2011,
+      "source_url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp140.htm",
+      "repository_path": "federal/leis-complementares/2011/lcp-140-2011-12-08.md",
+      "local_path": "federal/lcp-140-2011-12-08.md",
+      "effective_status": "unverified",
+      "applicability": "service_specific",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "licenciamento_ambiental"
+      ],
+      "relevance": "high",
+      "index_policy": "archive_only",
+      "selected_articles": [],
+      "quality_notes": [
+        "Repository publication is a veto-promulgation fragment (14.133) or signatory correction (LC140), not the full statute.",
+        "Prefer separately preserved official consolidated supplement; repository YAML remains unchanged."
+      ],
+      "issuer": "Brazilian National Congress / Presidency",
+      "repository_sha256": "1dda0f2f3aeebb746444ff85f4336dd4939155997362f96731deed4306c66889",
+      "original_yaml_preserved": true,
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "repo-pr-constitution",
+      "title": "Parana State Constitution (SETI 2025 snapshot)",
+      "jurisdiction": "state",
+      "law_number": null,
+      "law_year": 1989,
+      "source_url": "https://www.seti.pr.gov.br/sites/default/arquivos_restritos/files/documento/2025-06/Contitui%C3%A7%C3%A3oParan%C3%A1.pdf",
+      "repository_path": "estaduais/PR/constituicao/1989/constituicao-pr-seti-2025.md",
+      "local_path": "estadual/PR/constituicao-pr-seti-2025.md",
+      "effective_status": "unverified",
+      "applicability": "constitutional_context",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "urbanismo",
+        "all_selected_services"
+      ],
+      "relevance": "high",
+      "index_policy": "archive_only",
+      "selected_articles": [],
+      "quality_notes": [
+        "Historical and transitional repetitions; first occurrence selected only.",
+        "2026 amendments not verified incorporated; PDF ligatures and duplicate historical wording."
+      ],
+      "issuer": "Parana Constituent Assembly",
+      "repository_sha256": "efc40da49d3494cca03db17ef9c869e58ca241f554638f41c945deedb5b8c293",
+      "original_yaml_preserved": true,
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "repo-federal-constitution",
+      "title": "Federal Constitution",
+      "jurisdiction": "federal",
+      "law_number": null,
+      "law_year": 1988,
+      "source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+      "repository_path": "constituicao.md",
+      "local_path": "federal/constituicao.md",
+      "effective_status": "unverified",
+      "applicability": "constitutional_context",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "urbanismo",
+        "all_selected_services"
+      ],
+      "relevance": "high",
+      "index_policy": "selected_articles",
+      "selected_articles": [
+        "5",
+        "18",
+        "23",
+        "29",
+        "30",
+        "37",
+        "182",
+        "183",
+        "225"
+      ],
+      "quality_notes": [
+        "Historical and transitional repetitions; first occurrence selected only.",
+        "Root Constitution has no YAML in the source repository."
+      ],
+      "issuer": "Brazilian National Constituent Assembly",
+      "repository_sha256": "32619869bc81b4eb97e0ec344daa7295fe581701a8e7804a5bf5039ec4f71774",
+      "original_yaml_preserved": false,
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "official-10257",
+      "title": "City Statute (10257/2001, official supplement)",
+      "jurisdiction": "federal",
+      "law_number": "10257",
+      "law_year": 2001,
+      "source_url": "https://www2.camara.leg.br/legin/fed/lei/2001/lei-10257-10-julho-2001-327901-normaatualizada-pl.html",
+      "repository_path": null,
+      "local_path": "federal/official-10257.md",
+      "effective_status": "confirmed",
+      "applicability": "service_specific",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "urbanismo",
+        "parcelamento_solo"
+      ],
+      "relevance": "high",
+      "index_policy": "selected_articles",
+      "selected_articles": [
+        "1",
+        "2",
+        "4",
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "42-A",
+        "42-B"
+      ],
+      "quality_notes": [
+        "Confirmed means Camara metadata lists no express repeal of the act; individual provisions, temporal effects and local application require review.",
+        "Full official text retained; only listed relevant articles indexed."
+      ],
+      "issuer": "Brazilian National Congress / Presidency; consolidation by Chamber of Deputies",
+      "original_yaml_preserved": false,
+      "official_snapshot": {
+        "path": "metadata/verification/camara-10257-current.raw",
+        "sha256": "b7bf41cf8aefcbcca7445e09f29bd6b57c87c960484f802e6d6a61e00aafef21",
+        "url": "https://www2.camara.leg.br/legin/fed/lei/2001/lei-10257-10-julho-2001-327901-normaatualizada-pl.html"
+      },
+      "status_verification_snapshot": "metadata/verification/camara-10257-metadata.raw",
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "official-12527",
+      "title": "Access to Information Law (12527/2011, official supplement)",
+      "jurisdiction": "federal",
+      "law_number": "12527",
+      "law_year": 2011,
+      "source_url": "https://www2.camara.leg.br/legin/fed/lei/2011/lei-12527-18-novembro-2011-611802-normaatualizada-pl.html",
+      "repository_path": null,
+      "local_path": "federal/official-12527.md",
+      "effective_status": "confirmed",
+      "applicability": "service_specific",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "acesso_informacao"
+      ],
+      "relevance": "high",
+      "index_policy": "selected_articles",
+      "selected_articles": [
+        "1",
+        "5",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "14",
+        "15",
+        "31",
+        "45"
+      ],
+      "quality_notes": [
+        "Confirmed means Camara metadata lists no express repeal of the act; individual provisions, temporal effects and local application require review.",
+        "Full official text retained; only listed relevant articles indexed."
+      ],
+      "issuer": "Brazilian National Congress / Presidency; consolidation by Chamber of Deputies",
+      "original_yaml_preserved": false,
+      "official_snapshot": {
+        "path": "metadata/verification/camara-12527-current.raw",
+        "sha256": "879f1f2a828e39d6928786f523957b5c71f68b04c4132a0d541e0b65a8f51130",
+        "url": "https://www2.camara.leg.br/legin/fed/lei/2011/lei-12527-18-novembro-2011-611802-normaatualizada-pl.html"
+      },
+      "status_verification_snapshot": "metadata/verification/camara-12527-metadata.raw",
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "official-13460",
+      "title": "Public Service Users Rights (13460/2017, official supplement)",
+      "jurisdiction": "federal",
+      "law_number": "13460",
+      "law_year": 2017,
+      "source_url": "https://www2.camara.leg.br/legin/fed/lei/2017/lei-13460-26-junho-2017-785098-normaatualizada-pl.html",
+      "repository_path": null,
+      "local_path": "federal/official-13460.md",
+      "effective_status": "confirmed",
+      "applicability": "service_specific",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "ouvidoria",
+        "carta_servicos"
+      ],
+      "relevance": "high",
+      "index_policy": "selected_articles",
+      "selected_articles": [
+        "1",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "10-A",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "23"
+      ],
+      "quality_notes": [
+        "Confirmed means Camara metadata lists no express repeal of the act; individual provisions, temporal effects and local application require review.",
+        "Full official text retained; only listed relevant articles indexed."
+      ],
+      "issuer": "Brazilian National Congress / Presidency; consolidation by Chamber of Deputies",
+      "original_yaml_preserved": false,
+      "official_snapshot": {
+        "path": "metadata/verification/camara-13460-current.raw",
+        "sha256": "cd7590e241fb86f13bb85566f10f52913a955c9afb5262950cbc021f1e1e14e7",
+        "url": "https://www2.camara.leg.br/legin/fed/lei/2017/lei-13460-26-junho-2017-785098-normaatualizada-pl.html"
+      },
+      "status_verification_snapshot": "metadata/verification/camara-13460-metadata.raw",
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "official-13709",
+      "title": "General Data Protection Law (13709/2018, official supplement)",
+      "jurisdiction": "federal",
+      "law_number": "13709",
+      "law_year": 2018,
+      "source_url": "https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html",
+      "repository_path": null,
+      "local_path": "federal/official-lgpd.md",
+      "effective_status": "confirmed",
+      "applicability": "service_specific",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "all_selected_services"
+      ],
+      "relevance": "high",
+      "index_policy": "selected_articles",
+      "selected_articles": [
+        "1",
+        "3",
+        "5",
+        "6",
+        "7",
+        "11",
+        "14",
+        "18",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "46"
+      ],
+      "quality_notes": [
+        "Confirmed means Camara metadata lists no express repeal of the act; individual provisions, temporal effects and local application require review.",
+        "Full official text retained; only listed relevant articles indexed."
+      ],
+      "issuer": "Brazilian National Congress / Presidency; consolidation by Chamber of Deputies",
+      "original_yaml_preserved": false,
+      "official_snapshot": {
+        "path": "metadata/verification/camara-lgpd-current.raw",
+        "sha256": "5ade20f12d206504f3beb13a0595d144efc891229ad0e6badcebfa97a8a83596",
+        "url": "https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html"
+      },
+      "status_verification_snapshot": "metadata/verification/camara-lgpd-metadata.raw",
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "official-14129",
+      "title": "Digital Government (14129/2021, official supplement)",
+      "jurisdiction": "federal",
+      "law_number": "14129",
+      "law_year": 2021,
+      "source_url": "https://www2.camara.leg.br/legin/fed/lei/2021/lei-14129-29-marco-2021-791203-normaatualizada-pl.html",
+      "repository_path": null,
+      "local_path": "federal/official-14129.md",
+      "effective_status": "confirmed",
+      "applicability": "conditional",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "digital_services"
+      ],
+      "relevance": "high",
+      "index_policy": "selected_articles",
+      "selected_articles": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "14"
+      ],
+      "quality_notes": [
+        "Confirmed means Camara metadata lists no express repeal of the act; individual provisions, temporal effects and local application require review.",
+        "Full official text retained; only listed relevant articles indexed."
+      ],
+      "issuer": "Brazilian National Congress / Presidency; consolidation by Chamber of Deputies",
+      "original_yaml_preserved": false,
+      "official_snapshot": {
+        "path": "metadata/verification/camara-14129-current.raw",
+        "sha256": "0f1639e49cf639fde51d8a1b7f026d9acc731793d886a28f46f8e0feed6e3aa3",
+        "url": "https://www2.camara.leg.br/legin/fed/lei/2021/lei-14129-29-marco-2021-791203-normaatualizada-pl.html"
+      },
+      "status_verification_snapshot": "metadata/verification/camara-14129-metadata.raw",
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "official-14133",
+      "title": "Public Procurement and Administrative Contracts (14133/2021, official supplement)",
+      "jurisdiction": "federal",
+      "law_number": "14133",
+      "law_year": 2021,
+      "source_url": "https://www2.camara.leg.br/legin/fed/lei/2021/lei-14133-1-abril-2021-791222-normaatualizada-pl.docx",
+      "repository_path": null,
+      "local_path": "federal/official-14133.md",
+      "effective_status": "confirmed",
+      "applicability": "service_specific",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "contratacao_publica"
+      ],
+      "relevance": "high",
+      "index_policy": "selected_articles",
+      "selected_articles": [
+        "1",
+        "2",
+        "3",
+        "6",
+        "7",
+        "8",
+        "12",
+        "17",
+        "18",
+        "25",
+        "62",
+        "63",
+        "64",
+        "66",
+        "67",
+        "68",
+        "69",
+        "72"
+      ],
+      "quality_notes": [
+        "Confirmed means Camara metadata lists no express repeal of the act; individual provisions, temporal effects and local application require review.",
+        "Full official text retained; only listed relevant articles indexed.",
+        "HTML timeout; official DOCX used instead."
+      ],
+      "issuer": "Brazilian National Congress / Presidency; consolidation by Chamber of Deputies",
+      "original_yaml_preserved": false,
+      "official_snapshot": {
+        "path": "metadata/verification/camara-14133.docx",
+        "sha256": "52c07732e02484309ae084ddfacb474a5b7241bc49651c0e8ae21967ec9bd279",
+        "url": "https://www2.camara.leg.br/legin/fed/lei/2021/lei-14133-1-abril-2021-791222-normaatualizada-pl.docx"
+      },
+      "status_verification_snapshot": "metadata/verification/camara-14133-metadata.raw",
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "official-140",
+      "title": "Environmental Administrative Competence (LC) (140/2011, official supplement)",
+      "jurisdiction": "federal",
+      "law_number": "140",
+      "law_year": 2011,
+      "source_url": "https://www2.camara.leg.br/legin/fed/leicom/2011/leicomplementar-140-8-dezembro-2011-611919-normaatualizada-pl.html",
+      "repository_path": null,
+      "local_path": "federal/official-lc140.md",
+      "effective_status": "confirmed",
+      "applicability": "conditional",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "licenciamento_ambiental"
+      ],
+      "relevance": "high",
+      "index_policy": "selected_articles",
+      "selected_articles": [
+        "1",
+        "2",
+        "3",
+        "5",
+        "8",
+        "9",
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "quality_notes": [
+        "Confirmed means Camara metadata lists no express repeal of the act; individual provisions, temporal effects and local application require review.",
+        "Full official text retained; only listed relevant articles indexed."
+      ],
+      "issuer": "Brazilian National Congress / Presidency; consolidation by Chamber of Deputies",
+      "original_yaml_preserved": false,
+      "official_snapshot": {
+        "path": "metadata/verification/camara-lc140-current.raw",
+        "sha256": "7d4a02010842a85849278623c1eb08daa160c86666418b867e247bf3e9a3c6e2",
+        "url": "https://www2.camara.leg.br/legin/fed/leicom/2011/leicomplementar-140-8-dezembro-2011-611919-normaatualizada-pl.html"
+      },
+      "status_verification_snapshot": "metadata/verification/camara-lc140-metadata.raw",
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    },
+    {
+      "document_id": "cascavel-organic-1990",
+      "title": "Cascavel Organic Law 1/1990 (Council-hosted consolidation)",
+      "jurisdiction": "municipal",
+      "law_number": "1",
+      "law_year": 1990,
+      "source_url": "https://www.camaracascavel.pr.gov.br/download/arquivo/52375/artigo/",
+      "repository_path": null,
+      "local_path": "municipal/cascavel/lei-organica-consolidada.md",
+      "effective_status": "unverified",
+      "applicability": "municipal_text_currentness_pending",
+      "verified_at": "2026-10-24",
+      "service_types": [
+        "urbanismo",
+        "all_selected_services"
+      ],
+      "relevance": "high",
+      "index_policy": "selected_articles",
+      "selected_articles": [
+        "3",
+        "18",
+        "19",
+        "20",
+        "23"
+      ],
+      "quality_notes": [
+        "Officially hosted PDF is a LeisMunicipais consolidation exported 2023-10-26; 2026 currency unverified.",
+        "74 pages extracted using PDF layout mode; article labels occur out of order in default extraction. Historical text and judgments retained; not certified operative.",
+        "Page markers, page numbers and footers retained in extraction; no OCR used."
+      ],
+      "issuer": "Cascavel Municipal Council",
+      "original_yaml_preserved": false,
+      "original_pdf": {
+        "path": "municipal/cascavel/lei-organica-consolidada.pdf",
+        "sha256": "e291322ae9859741418c3cd9252a128e320a6b528754154d3ded30524d94428e",
+        "size_bytes": 454817,
+        "pages": 74
+      },
+      "version_review": "No independent all-provision legal certification; consult recorded official metadata and retained amendment annotations."
+    }
+  ],
+  "coverage_gaps": [
+    {
+      "key": "municipal_coverage",
+      "description": "Cascavel PR has no texts in the pinned collection repository. Only a Council-hosted 2023 Organic Law consolidation was collected externally; current process codes, decrees, local LAI regulation and amendments remain unverified. Municipal legal validation is incomplete."
+    }
+  ]
+}
