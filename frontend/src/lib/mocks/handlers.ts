@@ -1,5 +1,5 @@
 import { http, HttpResponse, delay } from 'msw'
-import type { Client, MetricKey, Message, Process } from '@/types/schemas'
+import type { Client, Formulario, FormularioEdits, MetricKey, Message, Process } from '@/types/schemas'
 import { API_URL } from '@/lib/api/client'
 import {
   FLOW_BASELINE_MINUTES,
@@ -98,7 +98,7 @@ function series(metric: MetricKey, total: number, days: number, step: number, cu
 
 /* ----------------------------- Chat mock ----------------------------- */
 
-interface Session { id: string; token: string; municipalityId: string; municipality: string; secretariatId: string; secretariat: string; name?: string; messages: Message[]; userTurns: number }
+interface Session { id: string; token: string; municipalityId: string; municipality: string; secretariatId: string; secretariat: string; name?: string; messages: Message[]; userTurns: number; formulario?: Formulario }
 const SESSIONS_KEY = 'mock.chatSessions'
 const loadSessions = (): Record<string, Session> => {
   try { return JSON.parse(localStorage.getItem(SESSIONS_KEY) ?? '{}') } catch { return {} }
@@ -115,8 +115,72 @@ const agentScript = [
   'Entendi. Quais **documentos** o requerente precisa apresentar?',
   'Anotado. Existe alguma **taxa**? Se sim, como é calculada e em que etapa é cobrada?',
   'Certo. Agora me conte o **fluxo**: quais setores analisam e em quantos dias, aproximadamente?',
-  'Obrigado! Já tenho o suficiente para montar o formulário deste processo. Posso seguir para o próximo?',
+  'Obrigado! Já tenho o suficiente para montar o formulário deste processo.',
 ]
+
+/** Formulário de exemplo (baseado no modelo "alvará" do back), com 2 pendências para a demo. */
+function buildFormulario(s: Session): Formulario {
+  return {
+    id: `f-${s.id}`,
+    status: 'em_revisao',
+    dominio: 'obras',
+    modeloBase: 'alvara-de-reforma',
+    orgao: { municipio: s.municipality, uf: 'RS', orgao: s.secretariat, responsavel: { nome: s.name ?? '', cargo: 'Analista', email: '' } },
+    processo: {
+      id: 'alvara-de-reforma',
+      nome: 'Alvará de reforma',
+      descricao: 'Autoriza reformas em edificações existentes.',
+      resumo: { apresentacao: 'Solicite o alvará para reformar seu imóvel, enviando o projeto e os documentos pelo Portal.', quemPodeSolicitar: 'Proprietário do imóvel ou responsável técnico', abertura: 'Externo (Portal)' },
+      formulario: {
+        secoes: [
+          { titulo: 'Requerente', campos: [
+            { id: 'requerente_nome', rotulo: 'Nome / Razão social', tipo: 'texto', obrigatorio: true },
+            { id: 'requerente_documento', rotulo: 'CPF / CNPJ', tipo: 'cpf_cnpj', obrigatorio: true },
+          ] },
+          { titulo: 'Imóvel', campos: [
+            { id: 'imovel_endereco', rotulo: 'Endereço do imóvel', tipo: 'endereco', obrigatorio: true },
+            { id: 'area_reforma', rotulo: 'Área da reforma (m²)', tipo: 'numero', obrigatorio: true, ajuda: 'Soma das áreas que serão reformadas' },
+          ] },
+        ],
+      },
+      documentos: [
+        { id: 'doc_identificacao', nome: 'Documento de identificação do requerente', obrigatorio: true },
+        { id: 'doc_matricula', nome: 'Matrícula do imóvel', obrigatorio: true },
+        { id: 'doc_art', nome: 'ART/RRT do responsável técnico', obrigatorio: true },
+      ],
+      taxas: [{ nome: 'Taxa de análise de projeto', baseCalculo: '' }],
+      fluxo: {
+        etapas: [
+          { id: 'protocolo', nome: 'Protocolo do requerimento', tipo: 'protocolo', responsavel: 'Requerente' },
+          { id: 'triagem', nome: 'Conferência documental', tipo: 'triagem', responsavel: s.secretariat, prazoDias: 5 },
+          { id: 'analise', nome: 'Análise técnica do projeto', tipo: 'analise', responsavel: s.secretariat, prazoDias: 15 },
+          { id: 'emissao', nome: 'Emissão do alvará', tipo: 'emissao', responsavel: s.secretariat, prazoDias: 3 },
+        ],
+        transicoes: [
+          { de: 'protocolo', para: 'triagem' },
+          { de: 'triagem', para: 'analise', condicao: 'Documentação completa' },
+          { de: 'analise', para: 'emissao', condicao: 'Projeto aprovado' },
+        ],
+        prazoTotalDias: null,
+      },
+      documentoFinal: { nome: 'Alvará de reforma', validadeMaximaMeses: 12, assinante: 'Secretário(a) responsável' },
+    },
+    origens: [
+      { caminho: 'resumo', origem: 'servidor' },
+      { caminho: 'formulario', origem: 'modelo' },
+      { caminho: 'documentos', origem: 'servidor' },
+      { caminho: 'taxas', origem: 'servidor' },
+      { caminho: 'fluxo', origem: 'servidor' },
+      { caminho: 'fluxo.etapas.0', origem: 'modelo' },
+      { caminho: 'documentoFinal', origem: 'legislacao' },
+    ],
+    pendencias: [
+      { caminho: 'taxas.0.baseCalculo', descricao: 'Falta informar como a taxa é calculada.' },
+      { caminho: 'fluxo.prazoTotalDias', descricao: 'Falta o prazo total do processo.' },
+    ],
+    atualizadoEm: new Date().toISOString(),
+  }
+}
 
 function newSession(p: { municipalityId: string; municipality: string; secretariatId: string; secretariat: string; name?: string }): Session {
   const id = `s-${uid()}`
@@ -313,11 +377,36 @@ export const handlers = [
     const b = (await request.json()) as { text: string; attachmentIds?: string[] }
     await delay(900)
     const userMessage = msg('user', b.text, { attachments: (b.attachmentIds ?? []).flatMap((id) => uploaded.get(id) ?? []) })
-    const agentMessage = msg('agent', agentScript[Math.min(s.userTurns, agentScript.length - 1)])
+    let agentMessage: Message
+    if (s.userTurns === agentScript.length - 1 && !s.formulario) {
+      s.formulario = buildFormulario(s)
+      agentMessage = msg('agent', 'Terminei de preencher o formulário deste processo com o que você me contou. Confira abaixo, corrija o que estiver errado e, se estiver tudo certo, envie ao time.', { kind: 'form', formularioId: s.formulario.id })
+    } else {
+      agentMessage = msg('agent', agentScript[Math.min(s.userTurns, agentScript.length - 2)])
+    }
     s.userTurns++
     s.messages.push(userMessage, agentMessage)
     saveSessions({ ...loadSessions(), [s.id]: s })
     return HttpResponse.json({ userMessage, agentMessage })
+  }),
+  http.get(url('/chat/sessions/:id/forms/:formId'), async ({ request, params }) => {
+    const s = sessionFrom(request, params.id as string)
+    if (!s) return err(401, 'INVALID_SESSION', 'Sessão inválida')
+    return s.formulario?.id === params.formId ? HttpResponse.json(s.formulario) : err(404, 'NOT_FOUND', 'Formulário não encontrado')
+  }),
+  http.post(url('/chat/sessions/:id/forms/:formId/submit'), async ({ request, params }) => {
+    const s = sessionFrom(request, params.id as string)
+    if (!s) return err(401, 'INVALID_SESSION', 'Sessão inválida')
+    const atual = s.formulario
+    if (!atual || atual.id !== params.formId) return err(404, 'NOT_FOUND', 'Formulário não encontrado')
+    await delay(700)
+    const edits = (await request.json()) as FormularioEdits
+    const confirmado: Formulario = { ...atual, ...edits, status: 'confirmado', atualizadoEm: new Date().toISOString() }
+    s.formulario = confirmado
+    const agentMessage = msg('agent', 'Recebi! Enviei o formulário **' + confirmado.processo.nome + '** para o time de implantação. Se quiser configurar outro processo, é só me dizer qual.')
+    s.messages.push(agentMessage)
+    saveSessions({ ...loadSessions(), [s.id]: s })
+    return HttpResponse.json({ formulario: confirmado, agentMessage })
   }),
   http.post(url('/chat/sessions/:id/attachments'), async ({ request, params }) => {
     if (!sessionFrom(request, params.id as string)) return err(401, 'INVALID_SESSION', 'Sessão inválida')

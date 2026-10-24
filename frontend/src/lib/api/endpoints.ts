@@ -4,6 +4,9 @@ import {
   catalogMunicipalitySchema,
   catalogSecretariatSchema,
   clientDetailSchema,
+  formularioSchema,
+  submitFormularioResponseSchema,
+  type FormularioEdits,
   clientSchema,
   conversationDetailSchema,
   conversationSchema,
@@ -68,6 +71,15 @@ export const chatApi = {
       method: 'POST',
       sessionToken,
       body,
+    }),
+  getFormulario: (sessionId: string, sessionToken: string, formId: string) =>
+    request(`/chat/sessions/${sessionId}/forms/${formId}`, formularioSchema, { sessionToken }),
+  /** Confirma e envia ao time: manda o formulário já revisado/editado pela prefeitura. */
+  submitFormulario: (sessionId: string, sessionToken: string, formId: string, edits: FormularioEdits) =>
+    request(`/chat/sessions/${sessionId}/forms/${formId}/submit`, submitFormularioResponseSchema, {
+      method: 'POST',
+      sessionToken,
+      body: edits,
     }),
   uploadAttachment: (sessionId: string, sessionToken: string, file: File) => {
     const formData = new FormData()

@@ -64,10 +64,67 @@ export const attachmentSchema = z.object({
 export type Attachment = z.infer<typeof attachmentSchema>
 
 /*
- * O formulário de implantação (FormularioImplantacao) tem modelo próprio e complexo,
- * definido no back (docs/modelo-formulario-implantacao.md). Será tipado na task T8;
- * até lá a mensagem do chat só carrega a referência.
+ * FormularioImplantacao: modelo do back (docs/modelo-formulario-implantacao.md,
+ * src/implantacao/formulario.ts). looseObject preserva campos que o front não edita
+ * (baseLegal etc.) ao devolver o formulário no envio.
  */
+const campoFormSchema = z.looseObject({
+  id: z.string(),
+  rotulo: z.string(),
+  tipo: z.string(),
+  obrigatorio: z.boolean().default(false),
+  opcoes: z.array(z.string()).optional(),
+  ajuda: z.string().optional(),
+})
+
+export const processoFormSchema = z.looseObject({
+  id: z.string(),
+  nome: z.string(),
+  descricao: z.string().default(''),
+  resumo: z
+    .looseObject({
+      apresentacao: z.string().default(''),
+      quemPodeSolicitar: z.string().default(''),
+      abertura: z.string().default(''),
+    })
+    .optional(),
+  formulario: z.object({
+    secoes: z.array(z.looseObject({ titulo: z.string(), campos: z.array(campoFormSchema) })),
+  }),
+  documentos: z.array(z.looseObject({ id: z.string(), nome: z.string(), obrigatorio: z.boolean().default(false), descricao: z.string().optional() })).default([]),
+  taxas: z.array(z.looseObject({ nome: z.string(), baseCalculo: z.string().optional() })).default([]),
+  fluxo: z.looseObject({
+    etapas: z.array(
+      z.looseObject({ id: z.string(), nome: z.string(), tipo: z.string(), responsavel: z.string(), prazoDias: z.number().nullable().optional() }),
+    ),
+    transicoes: z.array(z.looseObject({ de: z.string(), para: z.string(), condicao: z.string().optional() })),
+    prazoTotalDias: z.number().nullable().optional(),
+  }),
+  documentoFinal: z.looseObject({ nome: z.string().default(''), validadeMaximaMeses: z.number().nullable().optional(), assinante: z.string().optional() }).optional(),
+})
+export type ProcessoForm = z.infer<typeof processoFormSchema>
+
+export const formularioSchema = z.object({
+  id: z.string(),
+  status: z.enum(['rascunho', 'em_revisao', 'confirmado']),
+  dominio: z.string(),
+  modeloBase: z.string().optional(),
+  orgao: z.looseObject({
+    municipio: z.string(),
+    uf: z.string(),
+    orgao: z.string(),
+    responsavel: z.looseObject({ nome: z.string(), cargo: z.string().optional(), email: z.string().optional() }),
+  }),
+  processo: processoFormSchema,
+  origens: z.array(z.object({ caminho: z.string(), origem: z.enum(['modelo', 'servidor', 'legislacao']), observacao: z.string().optional() })).default([]),
+  /** `caminho` é relativo ao processo (ex.: "taxas.0.baseCalculo"). */
+  pendencias: z.array(z.object({ caminho: z.string(), descricao: z.string() })).default([]),
+  atualizadoEm: z.string(),
+})
+export type Formulario = z.infer<typeof formularioSchema>
+
+/** O que a prefeitura devolve ao confirmar: órgão + processo já revisados. */
+export type FormularioEdits = Pick<Formulario, 'orgao' | 'processo'>
 
 export const messageSchema = z.object({
   id: z.string(),
@@ -235,3 +292,5 @@ export type ImplementerDetail = z.infer<typeof implementerDetailSchema>
 export const apiErrorBodySchema = z.object({
   error: z.object({ code: z.string(), message: z.string(), details: z.record(z.string(), z.unknown()).optional() }),
 })
+
+export const submitFormularioResponseSchema = z.object({ formulario: formularioSchema, agentMessage: messageSchema })

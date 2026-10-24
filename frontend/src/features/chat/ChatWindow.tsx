@@ -3,6 +3,7 @@ import { LogOut } from 'lucide-react'
 import { ApiError } from '@/lib/api/client'
 import { ErrorState, Skeleton } from '@/components/ui'
 import type { Contact } from '@/types/schemas'
+import { ChatSessionProvider } from './ChatContext'
 import { Composer } from './Composer'
 import { MessageBubble, TypingIndicator } from './MessageBubble'
 import { useChat } from './useChat'
@@ -36,6 +37,7 @@ export function ChatWindow({ sessionId, sessionToken, contact, onExit }: Props) 
     send.mutate({ text, attachments, quickReplyId })
 
   return (
+    <ChatSessionProvider value={{ sessionId, sessionToken }}>
     <div className="flex h-dvh flex-col">
       <header className="flex items-center justify-between gap-3 border-b border-line bg-surface px-4 py-3">
         <div className="min-w-0">
@@ -57,7 +59,7 @@ export function ChatWindow({ sessionId, sessionToken, contact, onExit }: Props) 
       </header>
 
       <main className="flex-1 overflow-y-auto bg-bg px-3 py-4 sm:px-4" aria-live="polite">
-        <div className="mx-auto flex max-w-2xl flex-col gap-3">
+        <div className="mx-auto flex max-w-3xl flex-col gap-3">
           {messages.isLoading && (
             <>
               <Skeleton className="h-14 w-3/4" />
@@ -87,5 +89,6 @@ export function ChatWindow({ sessionId, sessionToken, contact, onExit }: Props) 
         <Composer disabled={send.isPending || messages.isLoading} upload={upload} onSend={(t, a) => sendText(t, a)} />
       </div>
     </div>
+    </ChatSessionProvider>
   )
 }

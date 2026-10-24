@@ -110,34 +110,24 @@ Timeout sugerido do agente: 60s. Se demorar, responder `202` com `{ "pending": t
 `text` aceita **markdown simples** (negrito, listas). O front não executa HTML.
 
 ### Formulário preenchido (`kind: "form"`)
-> ⚠️ **Em revisão.** O modelo real do formulário (`docs/modelo-formulario-implantacao.md`, tipo `FormularioImplantacao` do back) é bem mais rico que o `key/label/value` abaixo (seções, fluxo, despachos, selo de origem, "Confirmar bloco", pendências). A mensagem `form` passará a carregar o `FormularioImplantacao`, e os endpoints de leitura/edição/confirmação serão definidos na task T8. O texto abaixo vale só como esboço do fluxo.
-
-O agente preenche o formulário **no back**, durante a conversa, sem mostrá-lo. Ao terminar a coleta de um processo, ele envia uma mensagem `form` já preenchida. O front exibe o formulário com os valores preenchidos, **cada campo editável** (clicar e alterar o texto), e **um único botão: "Confirmar e enviar ao time"**. Não há botão de "alterar": a pessoa corrige direto nos campos.
+O agente preenche o `FormularioImplantacao` (tipo do back; ver `docs/modelo-formulario-implantacao.md`) durante a conversa, sem mostrá-lo. Ao terminar um processo, envia uma mensagem com `kind: "form"` e `formularioId`. O front exibe o formulário **já preenchido, com todos os campos editáveis pela prefeitura** e **um único botão: "Confirmar e enviar ao time"**.
 
 ```json
-"form": {
-  "id": "f1",
-  "processName": "Alvará de reforma",
-  "secretariat": "Secretaria de Obras",
-  "status": "awaiting_confirmation",     // awaiting_confirmation | submitted
-  "fields": [
-    { "key": "documentos_exigidos", "label": "Documentos exigidos", "type": "textarea", "value": "Projeto arquitetônico, ART/RRT, matrícula do imóvel", "required": true },
-    { "key": "prazo_analise",       "label": "Prazo de análise",    "type": "text",     "value": "15 dias úteis", "required": true },
-    { "key": "taxa",                "label": "Possui taxa?",        "type": "select",   "value": "Sim", "options": ["Sim", "Não"], "required": false }
-  ]
-}
+{ "id": "msg9", "role": "agent", "kind": "form", "text": "Terminei de preencher… confira e envie ao time.", "formularioId": "f-123", ... }
 ```
-- `type`: `text` | `textarea` | `select` | `number` | `date`. Se o back só usar `text`/`textarea`, o front já funciona; os demais são opcionais.
-- **Enviar:** `POST /chat/sessions/:sessionId/forms/:formId/submit` com os valores finais (editados ou não) de uma vez:
+
+- `GET /chat/sessions/:sessionId/forms/:formId` → `FormularioImplantacao`. Campos que o front edita hoje: `orgao.*`, `processo.resumo`, `processo.formulario.secoes[].{titulo,campos[]}` (rótulo, tipo, obrigatório, ajuda; adicionar/remover), `processo.documentos`, `processo.taxas`, `processo.fluxo.etapas` (nome, responsável, prazo) e `prazoTotalDias`, `processo.documentoFinal`. Transições são só exibidas. Propriedades desconhecidas são preservadas no envio. **Fora do MVP do front:** setores e despachos.
+- `origens[]` (`caminho` por prefixo: `resumo`, `formulario`, `documentos`, `taxas`, `fluxo`, `documentoFinal`, `orgao`) vira o selo "Do modelo / Você informou / Da legislação" de cada bloco.
+- `pendencias[]` (`caminho` **relativo ao processo**, ex.: `taxas.0.baseCalculo`): o campo aparece com "Falta informar" enquanto estiver vazio; há contador de pendências. O front permite enviar mesmo com pendências.
+- **Enviar:** `POST /chat/sessions/:sessionId/forms/:formId/submit` com o que a prefeitura revisou:
 ```json
 // req
-{ "values": { "documentos_exigidos": "Projeto, ART/RRT, matrícula", "prazo_analise": "20 dias úteis", "taxa": "Sim" } }
+{ "orgao": { ... }, "processo": { ... } }
 // res 200
-{ "form": Form(status:"submitted"), "agentMessage": Message }
+{ "formulario": FormularioImplantacao /* status: "confirmado" */, "agentMessage": Message }
 ```
-O back grava os valores (sobrescrevendo o que o agente preencheu), marca o processo como pronto para o time e dispara o fluxo interno. `422 VALIDATION_ERROR` com `details: { "<key>": "mensagem" }` se faltar campo `required`.
-- Campos são **genéricos** (`key/label/type/value`) porque o formulário ainda será definido; o front renderiza qualquer lista sem mudar código.
-- Se a pessoa continuar conversando depois de `submitted` (ex.: outro processo), o agente pode enviar um novo `form`.
+O back grava (sobrescrevendo o preenchido pelo agente), muda `status` para `confirmado`, dispara o fluxo para o time e responde com uma mensagem do agente. Validações do back (etapa/setor inexistente, `{{variáveis}}` inválidas etc.) devem voltar como `422 VALIDATION_ERROR` com `details: { "<caminho>": "mensagem" }`.
+- Depois de `confirmado` o front mostra o formulário somente leitura. Se a conversa continuar (outro processo), o agente envia um novo `form`.
 
 ### Anexos
 `POST /chat/sessions/:sessionId/attachments` — `multipart/form-data`, campo `file`.
@@ -251,4 +241,4 @@ Dashboard pode usar polling (30s). SSE/WebSocket só se sobrar tempo.
 1. **Resposta do agente demora?** Se passar de ~60s, usar polling (`?after=`) em vez de bloquear a requisição.
 2. **Fórmula das métricas:** como o back define o `baseline` de reuniões e de tempo de fluxo, e como estima as horas economizadas (sugestão: minutos manuais estimados por tipo de informação × itens coletados pelo agente).
 3. **Reuniões:** registro manual pelo implantador (proposto) ou o back obtém de outra fonte?
-4. **Estrutura final do formulário:** quando definida, atualizar `form.fields` (continuam genéricos, sem quebrar o front).
+4. **Setores e despachos** do modelo do formulário ainda não são editáveis no front (aguardam o schema final no back).

@@ -1,6 +1,8 @@
-import { FileText, ClipboardList } from 'lucide-react'
+import { FileText } from 'lucide-react'
 import type { Message } from '@/types/schemas'
 import { cn } from '@/lib/utils/cn'
+import { useChatSession } from './ChatContext'
+import { FormularioCard } from './formulario/FormularioCard'
 import { Markdown } from './Markdown'
 
 const time = (iso: string) => new Date(iso).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
@@ -37,13 +39,9 @@ export function MessageBubble({ message, showQuickReplies, onQuickReply }: Props
           </ul>
         )}
 
-        {message.kind === 'form' && (
-          // Substituído na T8 pelo formulário editável.
-          <div className="mt-2 flex items-center gap-2 rounded-lg bg-soft px-3 py-2 text-sm text-petrol">
-            <ClipboardList size={16} /> Formulário preenchido disponível para revisão.
-          </div>
-        )}
       </div>
+
+      {message.kind === 'form' && message.formularioId && <FormCardSlot formularioId={message.formularioId} />}
 
       {showQuickReplies && message.kind === 'quick_replies' && (
         <div className="flex flex-wrap gap-2">
@@ -62,6 +60,11 @@ export function MessageBubble({ message, showQuickReplies, onQuickReply }: Props
       <span className="px-1 text-[11px] text-muted">{time(message.createdAt)}</span>
     </div>
   )
+}
+
+function FormCardSlot({ formularioId }: { formularioId: string }) {
+  const { sessionId, sessionToken } = useChatSession()
+  return <FormularioCard sessionId={sessionId} sessionToken={sessionToken} formularioId={formularioId} />
 }
 
 export function TypingIndicator() {
