@@ -1,0 +1,87 @@
+[
+  {
+    "id": "cf-1988-politica-urbana",
+    "titulo": "Competências municipais (art. 30) e Política Urbana (arts. 182 e 183)",
+    "esfera": "federal",
+    "tipo": "constituicao",
+    "numero": "arts. 30, 182 e 183",
+    "ano": 1988,
+    "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+    "tags": ["constituicao", "competencia", "plano-diretor", "funcao-social", "uso-do-solo"],
+    "leis": "constituicao.md",
+    "trechos": [
+      { "de": "**Art. 30.**", "ate": "**Art. 31.**" },
+      { "de": "### CAPÍTULO II — DA POLÍTICA URBANA", "ate": "### CAPÍTULO III" }
+    ]
+  },
+  {
+    "id": "lei-10257-2001",
+    "titulo": "Estatuto da Cidade",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "10.257",
+    "ano": 2001,
+    "tags": ["plano-diretor", "eiv", "outorga-onerosa", "iptu-progressivo", "gestao-democratica"],
+    "leis": "federal/leis-ordinarias/2001/lei-10257-2001-07-10.md"
+  },
+  {
+    "id": "lei-6766-1979",
+    "titulo": "Parcelamento do solo urbano (loteamento e desmembramento)",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "6.766",
+    "ano": 1979,
+    "tags": ["loteamento", "desmembramento", "diretrizes", "aprovacao-de-projeto", "prazos"],
+    "leis": "federal/leis-ordinarias/1979/lei-6766-1979-12-19.md"
+  },
+  {
+    "id": "lei-13465-2017",
+    "titulo": "Regularização fundiária rural e urbana (Reurb)",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "13.465",
+    "ano": 2017,
+    "tags": ["reurb", "regularizacao-fundiaria", "crf", "legitimacao-fundiaria"],
+    "leis": "federal/leis-ordinarias/2017/lei-13465-2017-07-11.md"
+  },
+  {
+    "id": "decreto-9310-2018",
+    "titulo": "Regulamento da Reurb",
+    "esfera": "federal",
+    "tipo": "decreto",
+    "numero": "9.310",
+    "ano": 2018,
+    "tags": ["reurb", "regularizacao-fundiaria", "procedimento", "prazos"],
+    "planalto": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/decreto/d9310.htm"
+  },
+  {
+    "id": "lei-13089-2015",
+    "titulo": "Estatuto da Metrópole",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "13.089",
+    "ano": 2015,
+    "tags": ["regiao-metropolitana", "governanca-interfederativa", "pdui"],
+    "leis": "federal/leis-ordinarias/2015/lei-13089-2015-01-12.md"
+  },
+  {
+    "id": "lei-12587-2012",
+    "titulo": "Política Nacional de Mobilidade Urbana",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "12.587",
+    "ano": 2012,
+    "tags": ["mobilidade", "plano-de-mobilidade", "polo-gerador-de-trafego"],
+    "leis": "federal/leis-ordinarias/2012/lei-12587-2012-01-03.md"
+  },
+  {
+    "id": "lei-12608-2012",
+    "titulo": "Política Nacional de Proteção e Defesa Civil",
+    "esfera": "federal",
+    "tipo": "lei",
+    "numero": "12.608",
+    "ano": 2012,
+    "tags": ["areas-de-risco", "defesa-civil", "uso-do-solo"],
+    "leis": "federal/leis-ordinarias/2012/lei-12608-2012-04-10.md"
+  }
+]

@@ -1,15 +1,73 @@
+import cors from "@fastify/cors";
 import Fastify from "fastify";
+import type { AgenteImplantacao } from "./agente/agente.js";
+import { montarFormulario } from "./agente/ferramentas.js";
+import type { RepositorioSessoes, SessaoImplantacao } from "./agente/sessao.js";
+import { rotasBases } from "./bases/rotas.js";
+import { rotasDashboard, type OpcoesDashboard } from "./dashboard/rotas.js";
 import type { BaseConhecimento } from "./knowledge/loader.js";
-import { buscar, indexar } from "./knowledge/search.js";
+import { buscar, CAMADAS, indexar, type OrigemTrecho } from "./knowledge/search.js";
 
-export function criarApp(base: BaseConhecimento, { logger = true } = {}) {
+export interface OpcoesApp {
+  logger?: boolean;
+  agente?: AgenteImplantacao;
+  sessoes?: RepositorioSessoes;
+  /** Liga as rotas do dashboard em /api/v1 */
+  dashboard?: OpcoesDashboard;
+  /** Origens liberadas no CORS (front) */
+  origensCors?: string[];
+}
+
+function estadoFormulario(sessao: SessaoImplantacao) {
+  const r = montarFormulario(sessao);
+  return {
+    rascunho: sessao.rascunho,
+    valido: r.success,
+    erros: r.success ? [] : r.error.issues.map((i) => `/${i.path.join("/")}: ${i.message}`),
+  };
+}
+
+export function criarApp(base: BaseConhecimento, { logger = true, agente, sessoes, dashboard, origensCors = [] }: OpcoesApp = {}) {
   const app = Fastify({ logger });
 
+  if (origensCors.length) app.register(cors, { origin: origensCors });
+  if (dashboard) {
+    app.register(rotasDashboard, { ...dashboard, prefix: "/api/v1" });
+    // bases de normas e agentes de WhatsApp; espelha o knowledge/ no banco ao registrar
+    app.register(rotasBases, { db: dashboard.db, segredoJwt: dashboard.segredoJwt, base, agora: dashboard.agora, prefix: "/api/v1" });
+  }
+
   app.get("/health", async () => ({ ok: true }));
+
+  // ---------- Três portas da base: Aprova (sistema), legislação e processos de referência ----------
 
   app.get("/sistema", async () =>
     base.sistema.map((d) => ({ id: d.meta.id, titulo: d.meta.titulo, tags: d.meta.tags })),
   );
+
+  app.get<{ Params: { id: string } }>("/sistema/:id", async (req, reply) => {
+    const d = base.sistema.find((x) => x.meta.id === req.params.id);
+    if (!d) return reply.code(404).send({ erro: "documento não encontrado" });
+    return { ...d.meta, conteudo: d.conteudo };
+  });
+
+  app.get<{ Params: { id: string } }>("/dominios/:id/legislacao", async (req, reply) => {
+    const d = base.dominios.get(req.params.id);
+    if (!d) return reply.code(404).send({ erro: "domínio não encontrado" });
+    return d.legislacao.map((l) => l.meta);
+  });
+
+  app.get<{ Params: { id: string; normaId: string } }>("/dominios/:id/legislacao/:normaId", async (req, reply) => {
+    const l = base.dominios.get(req.params.id)?.legislacao.find((x) => x.meta.id === req.params.normaId);
+    if (!l) return reply.code(404).send({ erro: "norma não encontrada" });
+    return { ...l.meta, conteudo: l.conteudo };
+  });
+
+  app.get<{ Params: { id: string } }>("/dominios/:id/processos", async (req, reply) => {
+    const d = base.dominios.get(req.params.id);
+    if (!d) return reply.code(404).send({ erro: "domínio não encontrado" });
+    return d.processos.map((p) => ({ id: p.id, nome: p.nome, descricao: p.descricao, exemplo: p.exemplo }));
+  });
 
   app.get("/dominios", async () =>
     [...base.dominios.values()].map(({ dominio, legislacao, processos }) => ({
@@ -35,12 +93,67 @@ export function criarApp(base: BaseConhecimento, { logger = true } = {}) {
     return p;
   });
 
-  app.get<{ Querystring: { q?: string; dominio?: string; limite?: string } }>("/busca", async (req, reply) => {
-    const { q, dominio, limite } = req.query;
+  app.get<{ Querystring: { q?: string; dominio?: string; camada?: string; limite?: string } }>("/busca", async (req, reply) => {
+    const { q, dominio, camada, limite } = req.query;
     if (!q) return reply.code(400).send({ erro: "parâmetro q é obrigatório" });
+    if (camada && !CAMADAS.includes(camada as OrigemTrecho)) {
+      return reply.code(400).send({ erro: `camada deve ser uma de: ${CAMADAS.join(", ")}` });
+    }
+    if (camada && camada !== "sistema" && !dominio) return reply.code(400).send({ erro: `camada ${camada} exige dominio` });
     if (dominio && !base.dominios.has(dominio)) return reply.code(404).send({ erro: "domínio não encontrado" });
-    return buscar(indexar(base, dominio), q, Number(limite) || 5);
+    const trechos = indexar(base, dominio).filter((t) => !camada || t.origem === camada);
+    return buscar(trechos, q, Number(limite) || 5);
   });
+
+  // ---------- Implantações (chat com o agente) ----------
+
+  if (agente && sessoes) {
+    app.post<{ Body: { dominio?: string } }>("/implantacoes", async (req, reply) => {
+      const dominio = req.body?.dominio;
+      if (!dominio || !base.dominios.has(dominio)) return reply.code(400).send({ erro: "dominio inválido" });
+      const sessao = await sessoes.criar(dominio);
+      return reply.code(201).send({ id: sessao.id, dominio: sessao.dominio, criadaEm: sessao.criadaEm });
+    });
+
+    app.get<{ Params: { id: string } }>("/implantacoes/:id", async (req, reply) => {
+      const sessao = await sessoes.obter(req.params.id);
+      if (!sessao) return reply.code(404).send({ erro: "implantação não encontrada" });
+      const conversa = sessao.mensagens.flatMap((m) =>
+        typeof m.content === "string"
+          ? [{ autor: m.role === "user" ? "servidor" : "agente", texto: m.content }]
+          : m.role === "assistant"
+            ? m.content.flatMap((b) => (b.type === "text" ? [{ autor: "agente", texto: b.text }] : []))
+            : [],
+      );
+      return { id: sessao.id, dominio: sessao.dominio, conversa, ...estadoFormulario(sessao) };
+    });
+
+    app.get<{ Params: { id: string } }>("/implantacoes/:id/formulario", async (req, reply) => {
+      const sessao = await sessoes.obter(req.params.id);
+      if (!sessao) return reply.code(404).send({ erro: "implantação não encontrada" });
+      return estadoFormulario(sessao);
+    });
+
+    // Uma mensagem por vez por sessão: o histórico precisa ficar em ordem.
+    const ocupadas = new Set<string>();
+
+    app.post<{ Params: { id: string }; Body: { texto?: string } }>("/implantacoes/:id/mensagens", async (req, reply) => {
+      const texto = req.body?.texto?.trim();
+      if (!texto) return reply.code(400).send({ erro: "texto é obrigatório" });
+      const sessao = await sessoes.obter(req.params.id);
+      if (!sessao) return reply.code(404).send({ erro: "implantação não encontrada" });
+      if (ocupadas.has(sessao.id)) return reply.code(409).send({ erro: "a mensagem anterior ainda está sendo processada" });
+
+      ocupadas.add(sessao.id);
+      try {
+        const resposta = await agente.responder(sessao, texto);
+        await sessoes.salvar(sessao);
+        return { resposta: resposta.texto, ferramentas: resposta.ferramentas, motivoParada: resposta.motivoParada, ...estadoFormulario(sessao) };
+      } finally {
+        ocupadas.delete(sessao.id);
+      }
+    });
+  }
 
   return app;
 }
