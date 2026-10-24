@@ -1,15 +1,41 @@
 import Fastify from "fastify";
 import type { BaseConhecimento } from "./knowledge/loader.js";
-import { buscar, indexar } from "./knowledge/search.js";
+import { buscar, CAMADAS, indexar, type OrigemTrecho } from "./knowledge/search.js";
 
 export function criarApp(base: BaseConhecimento, { logger = true } = {}) {
   const app = Fastify({ logger });
 
   app.get("/health", async () => ({ ok: true }));
 
+  // ---------- Três portas da base: Aprova (sistema), legislação e processos de referência ----------
+
   app.get("/sistema", async () =>
     base.sistema.map((d) => ({ id: d.meta.id, titulo: d.meta.titulo, tags: d.meta.tags })),
   );
+
+  app.get<{ Params: { id: string } }>("/sistema/:id", async (req, reply) => {
+    const d = base.sistema.find((x) => x.meta.id === req.params.id);
+    if (!d) return reply.code(404).send({ erro: "documento não encontrado" });
+    return { ...d.meta, conteudo: d.conteudo };
+  });
+
+  app.get<{ Params: { id: string } }>("/dominios/:id/legislacao", async (req, reply) => {
+    const d = base.dominios.get(req.params.id);
+    if (!d) return reply.code(404).send({ erro: "domínio não encontrado" });
+    return d.legislacao.map((l) => l.meta);
+  });
+
+  app.get<{ Params: { id: string; normaId: string } }>("/dominios/:id/legislacao/:normaId", async (req, reply) => {
+    const l = base.dominios.get(req.params.id)?.legislacao.find((x) => x.meta.id === req.params.normaId);
+    if (!l) return reply.code(404).send({ erro: "norma não encontrada" });
+    return { ...l.meta, conteudo: l.conteudo };
+  });
+
+  app.get<{ Params: { id: string } }>("/dominios/:id/processos", async (req, reply) => {
+    const d = base.dominios.get(req.params.id);
+    if (!d) return reply.code(404).send({ erro: "domínio não encontrado" });
+    return d.processos.map((p) => ({ id: p.id, nome: p.nome, descricao: p.descricao, exemplo: p.exemplo }));
+  });
 
   app.get("/dominios", async () =>
     [...base.dominios.values()].map(({ dominio, legislacao, processos }) => ({
@@ -35,11 +61,16 @@ export function criarApp(base: BaseConhecimento, { logger = true } = {}) {
     return p;
   });
 
-  app.get<{ Querystring: { q?: string; dominio?: string; limite?: string } }>("/busca", async (req, reply) => {
-    const { q, dominio, limite } = req.query;
+  app.get<{ Querystring: { q?: string; dominio?: string; camada?: string; limite?: string } }>("/busca", async (req, reply) => {
+    const { q, dominio, camada, limite } = req.query;
     if (!q) return reply.code(400).send({ erro: "parâmetro q é obrigatório" });
+    if (camada && !CAMADAS.includes(camada as OrigemTrecho)) {
+      return reply.code(400).send({ erro: `camada deve ser uma de: ${CAMADAS.join(", ")}` });
+    }
+    if (camada && camada !== "sistema" && !dominio) return reply.code(400).send({ erro: `camada ${camada} exige dominio` });
     if (dominio && !base.dominios.has(dominio)) return reply.code(404).send({ erro: "domínio não encontrado" });
-    return buscar(indexar(base, dominio), q, Number(limite) || 5);
+    const trechos = indexar(base, dominio).filter((t) => !camada || t.origem === camada);
+    return buscar(trechos, q, Number(limite) || 5);
   });
 
   return app;

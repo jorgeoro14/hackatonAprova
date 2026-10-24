@@ -1,6 +1,8 @@
 import type { BaseConhecimento } from "./loader.js";
 
-export type OrigemTrecho = "sistema" | "legislacao" | "processo";
+/** As três camadas da base: Aprova (sistema), legislação e processos de referência. */
+export const CAMADAS = ["sistema", "legislacao", "processo"] as const;
+export type OrigemTrecho = (typeof CAMADAS)[number];
 
 export interface Trecho {
   origem: OrigemTrecho;
