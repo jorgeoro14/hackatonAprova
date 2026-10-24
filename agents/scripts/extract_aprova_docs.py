@@ -7,8 +7,10 @@ from datetime import UTC, datetime
 from pathlib import Path
 from urllib.request import urlopen
 
+from ..app.paths import KNOWLEDGE_ROOT
+
 SOURCE_URL = "https://hubapi.aprova.com.br/_bundle/aprovahubapi.json?download="
-OUTPUT_PATH = Path(__file__).with_name("knowledge") / "aprova" / "api-contract.json"
+OUTPUT_PATH = KNOWLEDGE_ROOT / "aprova" / "api-contract.json"
 RESOURCE_TAGS = {
     "Process": "process",
     "Type": "forms",

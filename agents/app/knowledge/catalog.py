@@ -5,7 +5,7 @@ from typing import Protocol
 
 from jsonschema import Draft202012Validator
 
-from .contracts import FORM_SCHEMA
+from ..contracts import FORM_SCHEMA
 
 CATALOG_SCHEMA = {
     "type": "array",

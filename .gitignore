@@ -22,3 +22,6 @@ Thumbs.db
 .codex/
 skills-lock.json
 *.skill
+# Municipal source documents, corpus manifests, chunks and vector indexes stay local.
+agents/data/
+agents/.local/

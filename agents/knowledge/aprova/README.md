@@ -48,8 +48,8 @@ Full required fields, types and response statuses are kept per operation in the 
 From the repository root:
 
 ```powershell
-uv run --project agents python -m agents.aprova_reference templates
-uv run --project agents python -m agents.aprova_reference dispatches --operation-id getBlueprintPostV1Http
+uv run --project agents python -m agents.app.knowledge.aprova_reference templates
+uv run --project agents python -m agents.app.knowledge.aprova_reference dispatches --operation-id getBlueprintPostV1Http
 ```
 
 These commands need neither an Aprova key nor a model key. The LangChain agent exposes the same data through `get_aprova_reference(resource, operation_id=None)`. Without an operation ID the tool returns concise endpoint summaries; a selected operation includes its complete captured request/response schemas. Every result labels its examples synthetic and marks it as neither a municipal catalog nor an employee answer.
@@ -57,7 +57,7 @@ These commands need neither an Aprova key nor a model key. The LangChain agent e
 ## Refresh and verify
 
 ```powershell
-uv run --project agents python -m agents.extract_aprova_docs
+uv run --project agents python -m agents.scripts.extract_aprova_docs
 uv run --project agents pytest agents/tests
 uv run --project agents ruff check agents
 ```

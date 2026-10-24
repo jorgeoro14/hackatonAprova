@@ -7,8 +7,8 @@ from pathlib import Path
 from jsonschema import Draft202012Validator, FormatChecker
 from referencing import Registry, Resource
 
-ROOT = Path(__file__).resolve().parents[1]
-SCHEMA_ROOT = ROOT / "contracts" / "schemas"
+from .paths import AGENT_ROOT, SCHEMA_ROOT
+
 BASE_URI = SCHEMA_ROOT.as_uri() + "/"
 
 
@@ -21,7 +21,7 @@ REGISTRY = Registry().with_resources(
     (BASE_URI + name, Resource.from_contents(schema)) for name, schema in SCHEMAS.items()
 )
 FORM_SCHEMA = SCHEMAS["form.schema.json"]
-INTENTS = load_json(Path(__file__).with_name("intents.json"))
+INTENTS = load_json(AGENT_ROOT / "intents.json")
 
 
 def validate(name: str, value: dict) -> None:

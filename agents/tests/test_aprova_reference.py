@@ -3,8 +3,13 @@
 from copy import deepcopy
 
 import pytest
-from agents.aprova_reference import API_CONTRACT, RESOURCE_GUIDE, RESPONSE_TEMPLATES, get_reference
-from agents.extract_aprova_docs import extract_contract, schema_from_openapi
+from agents.app.knowledge.aprova_reference import (
+    API_CONTRACT,
+    RESOURCE_GUIDE,
+    RESPONSE_TEMPLATES,
+    get_reference,
+)
+from agents.scripts.extract_aprova_docs import extract_contract, schema_from_openapi
 from jsonschema import Draft202012Validator, FormatChecker
 
 

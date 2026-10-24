@@ -5,8 +5,9 @@ from copy import deepcopy
 from unittest.mock import patch
 
 import pytest
-from agents.catalog import JsonProcessCatalog
-from agents.contracts import INTENTS, ROOT, load_json, missing_fields, validate
+from agents.app.contracts import INTENTS, load_json, missing_fields, validate
+from agents.app.knowledge.catalog import JsonProcessCatalog
+from agents.app.paths import REPOSITORY_ROOT as ROOT
 from agents.interview import ProcessInterviewAgent
 from jsonschema import ValidationError
 from langchain_core.language_models.chat_models import BaseChatModel
@@ -256,7 +257,7 @@ def test_default_catalog_is_empty(request_payload):
 def test_intent_registry_is_unique_and_covered_by_documentation():
     names = [intent["name"] for intent in INTENTS]
     assert len(names) == len(set(names))
-    documentation = (ROOT / "agents/intents.md").read_text(encoding="utf-8")
+    documentation = (ROOT / "agents/docs/intents.md").read_text(encoding="utf-8")
     assert all(f"`{name}`" in documentation for name in names)
 
 
@@ -280,3 +281,132 @@ def test_documentation_tool_roundtrip_keeps_synthetic_examples_out_of_form(
     assert reference["is_employee_answer"] is False
     assert reference["response_templates"]["data_kind"] == "synthetic_response_templates"
     assert result["form"] == request_payload["form"]
+
+
+def test_implantation_guide_reaches_model_during_applicant_form_interview(request_payload):
+    model = ScriptedModel(
+        responses=[
+            turn(
+                intent="configure_applicant_form",
+                reply="Which applicant field should become required? The nested form mapping is pending.",
+            )
+        ]
+    )
+    result = ProcessInterviewAgent(model).invoke(request_payload)
+    instructions = model.seen[0][0].content
+    assert "acd2de595365622a87f93765b008a1923140dcde" in instructions
+    assert "processo.formulario.secoes" in instructions
+    assert "FormularioImplantacao" in instructions
+    assert result["form"] == request_payload["form"]
+    validate("agent-result.schema.json", result)
+
+
+def test_workflow_intent_can_correct_supported_step_summary(request_payload, complete_form):
+    request_payload["form"] = deepcopy(complete_form)
+    original = deepcopy(request_payload)
+    steps = deepcopy(complete_form["steps"])
+    steps[0]["responsible_role"] = "Licensing coordinator"
+    model = ScriptedModel(responses=[turn({"steps": steps}, intent="configure_workflow")])
+    result = ProcessInterviewAgent(model).invoke(request_payload)
+    assert result["form"]["steps"][0]["responsible_role"] == "Licensing coordinator"
+    assert result["form"]["steps"][1] == complete_form["steps"][1]
+    assert request_payload == original
+
+
+def test_block_acceptance_does_not_confirm_or_change_form(request_payload):
+    result = ProcessInterviewAgent(
+        ScriptedModel(
+            responses=[
+                turn(
+                    intent="confirm_block",
+                    reply="Your acceptance is recorded in this conversation for review.",
+                )
+            ]
+        )
+    ).invoke(request_payload)
+    assert result["form"] == request_payload["form"]
+    assert set(result) == {"assistant_reply", "form", "missing_fields"}
+
+
+@pytest.mark.parametrize(
+    "updates",
+    [
+        {"processo": {"taxas": []}},
+        {"origens": []},
+        {"pendencias": []},
+        {"status": "confirmado"},
+    ],
+)
+def test_target_model_keys_cannot_bypass_current_public_contract(request_payload, updates):
+    original = deepcopy(request_payload)
+    with pytest.raises(ValidationError):
+        ProcessInterviewAgent(
+            ScriptedModel(responses=[turn(updates, intent="resolve_pending_issue")])
+        ).invoke(request_payload)
+    assert request_payload == original
+
+
+def test_municipal_search_unconfigured_keeps_form_unknown(request_payload):
+    model = ScriptedModel(
+        responses=[
+            tool_call("search_municipal_documents", {"query": "Which fee applies?"}),
+            turn(
+                intent="ask_question",
+                reply="The municipal documents are not indexed yet. Which source should we use?",
+            ),
+        ]
+    )
+    result = ProcessInterviewAgent(model).invoke(request_payload)
+    reference = json.loads(model.seen[1][-1].content)
+    assert reference["status"] == "not_configured"
+    assert result["form"] == request_payload["form"]
+
+
+def test_municipal_graph_tool_roundtrip_returns_evidence_without_autofill(request_payload):
+    from agents.app.rag.ingest import prepare_corpus
+    from agents.app.rag.workflow import MunicipalRag
+
+    corpus = prepare_corpus(ROOT / "agents/examples/rag/manifest.synthetic.json")
+    doc = corpus.chunks[0]
+
+    class Retriever:
+        scope = corpus.manifest.scope
+
+        def search(self, query):
+            return corpus.chunks
+
+    rag_model = ScriptedModel(
+        responses=[
+            tool_call("RelevanceGrade", {"relevant_chunk_ids": [doc.id]}),
+            tool_call(
+                "GroundedAnswer",
+                {
+                    "supported": True,
+                    "answer": "The synthetic guide describes a completeness check.",
+                    "citation_ids": [doc.id],
+                },
+            ),
+        ]
+    )
+    municipal_rag = MunicipalRag(rag_model, Retriever())
+    model = ScriptedModel(
+        responses=[
+            tool_call("search_municipal_documents", {"query": "What happens at triage?"}),
+            turn(
+                intent="ask_question",
+                reply="This is a synthetic guide. Please supply the actual municipal procedure.",
+            ),
+        ]
+    )
+    result = ProcessInterviewAgent(model, municipal_rag=municipal_rag).invoke(request_payload)
+    evidence = json.loads(model.seen[1][-1].content)
+    assert evidence["status"] == "answered"
+    assert evidence["sources"][0]["document_id"] == "demo-permit-guide"
+    assert evidence["sources"][0]["data_kind"] == "synthetic"
+    assert result["form"] == request_payload["form"]
+    assert set(result) == {"assistant_reply", "form", "missing_fields"}
+    request_payload["form"]["municipality"] = "Other City"
+    calls_before = len(model.seen)
+    with pytest.raises(ValueError, match="municipality"):
+        ProcessInterviewAgent(model, municipal_rag=municipal_rag).invoke(request_payload)
+    assert len(model.seen) == calls_before

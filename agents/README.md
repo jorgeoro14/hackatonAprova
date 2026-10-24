@@ -10,15 +10,25 @@ Choose and document the framework/provider, model, server-side environment varia
 
 ## Current implementation
 
-Python 3.11+ and LangChain 1.x `create_agent` implement one interview turn. The initial CLI uses OpenAI through `langchain-openai`; set the model explicitly. `ProcessInterviewAgent(model, catalog=None)` also accepts another compatible LangChain chat model. Decisions and trade-offs are recorded in [the decision log](../docs/decisions.md).
+Python 3.11+ and LangChain 1.x `create_agent` implement one interview turn. The initial CLI uses OpenAI through `langchain-openai`; set the model explicitly. `ProcessInterviewAgent(model, catalog=None, municipal_rag=None)` also accepts another compatible LangChain chat model. Decisions and trade-offs are recorded in [the decision log](../docs/decisions.md).
 
 The backend calls `ProcessInterviewAgent.invoke(request)` with the existing agent-request JSON and receives the existing agent-result JSON. There is no additional HTTP service. The backend must send the current form and conversation on every turn, enforce its overall timeout, validate the result again, and commit the exchange atomically. The agent has no independent session store or confirmation capability.
 
 The model returns only field updates. The adapter validates and merges those updates so omitted fields survive, recomputes advisory missing fields from `x-required-for-review`, and validates the full public result. Arrays replace a collection as a whole, so the model must preserve unrelated items. Invalid results raise without mutating the caller's request; the backend should map failures to the agreed agent error response without logging raw content.
 
+## Project organization
+
+The layout follows the `ai-agent-sales` reference inside this repository's `agents/` boundary. `app/agent/` separates workflow, prompts, tools and helpers; `app/knowledge/` contains catalog/reference lookup code; `app/rag/` contains municipal document ingestion and retrieval; `scripts/` contains CLI and maintenance entry points. `docs/`, `tests/`, `knowledge/` and `examples/` keep guidance, checks and data separate. See [the structure guide](docs/structure.md) for the tree, responsibilities and deployment requirements.
+
+The backend import remains `from agents.interview import ProcessInterviewAgent`, delegating to `app/agent/workflow.py`. The `python -m agents` command is also preserved. Provider setup stays in `scripts/run_interview.py`; importing the workflow does not initialize a model. The dependency manager, shared schemas and backend-owned session lifecycle are unchanged.
+
 ## Intent flow
 
-[intents.json](intents.json) is the machine-readable registry used in the prompt and internal response schema. [intents.md](intents.md) explains the flow, field mapping and acceptance boundaries. Intent labels stay internal; they do not change the frontend/backend contract.
+[intents.json](app/agent/intents.json) is the machine-readable registry used in the prompt and internal response schema. Its 22 intents include the implantation form's specific blocks, legal sources, pending issues and block acceptance. [intents.md](docs/intents.md) explains intent selection and review. Intent labels stay internal; they do not change the frontend/backend contract.
+
+[implementation-form.md](docs/implementation-form.md) is loaded when the workflow is constructed. It follows `setup/base-conhecimento` at commit `acd2de595365622a87f93765b008a1923140dcde`, including the team's questionnaire, `FormularioImplantacao`, `ProcessoModelo` and the interview sequence. It preserves source field paths and enum values while keeping new instructions in English. Deploy this guide alongside the prompt and registry.
+
+The questionnaire is available as an interview target, but its own schema lacks several requested UI sections, and the Python adapter still uses the provisional shared form. The guide separates those boundaries: the agent must not invent target fields, assert unsupported validation, or equate provisional readiness with full implantation. This update does not import the TypeScript backend, replace contracts or connect the branch's knowledge loader.
 
 ## Install and check
 
@@ -28,10 +38,21 @@ From the repository root, with [uv](https://docs.astral.sh/uv/) installed:
 uv sync --project agents --locked
 uv run --project agents pytest agents/tests
 uv run --project agents ruff check agents
+uv run --project agents ruff format --check agents
 node scripts/check-contracts.mjs
 ```
 
-Keep `agents/uv.lock` in version control. The module reads shared schemas from the repository; deploy it with `contracts/schemas/` and the agent prompt/registry files, not as an isolated Python wheel.
+If Make is installed, `make -C agents check` runs the same checks. It is optional.
+
+Keep `agents/uv.lock` in version control. The module reads shared schemas from the repository; deploy it with `contracts/schemas/`, `agents/app/`, `agents/docs/`, `agents/knowledge/` and the required entry points, not as an isolated Python wheel.
+
+## Municipal document RAG
+
+The interview can now choose `search_municipal_documents` for local document evidence. A LangGraph subgraph retrieves within a fixed municipality/corpus, grades relevance, rewrites a weak query once, and produces a cited answer or explicitly returns no evidence. Without a configured index it reports `not_configured`. Document evidence still requires representative review before becoming a desired process requirement.
+
+The ingestion command is ready for the city hall documents you provide. Preview is offline; embedding requires `--embed` and explicit server-side embedding settings. TXT/Markdown, text PDFs and DOCX are supported. Install `uv sync --project agents --extra rag --locked` for the complete pipeline. Full tests use `uv run --project agents --extra rag pytest agents/tests`.
+
+See [the RAG guide](docs/rag.md) for manifests, commands, scope authorization, citations, storage and limitations. No real municipal corpus has been indexed. The tracked example is synthetic. Raw sources and manifests belong in ignored `agents/data/`; local indexes belong in ignored `agents/.local/`.
 
 ## Public Aprova documentation
 
@@ -40,10 +61,10 @@ Keep `agents/uv.lock` in version control. The module reads shared schemas from t
 To inspect a reference without a model key:
 
 ```powershell
-uv run --project agents python -m agents.aprova_reference blueprints
+uv run --project agents python -m agents.app.knowledge.aprova_reference blueprints
 ```
 
-Refresh the schema snapshot with `uv run --project agents python -m agents.extract_aprova_docs`. This fetches only the public documentation. Include `agents/knowledge/aprova/` alongside the module in deployments.
+Refresh the schema snapshot with `uv run --project agents python -m agents.scripts.extract_aprova_docs`. This fetches only the public documentation. Include `agents/knowledge/aprova/` alongside the module in deployments.
 
 ## Run one real turn
 
@@ -55,9 +76,9 @@ uv run --project agents python -m agents contracts/examples/agent-request.json
 
 The command prints only a validated agent-result JSON to stdout, or a sanitized failure message to stderr and a nonzero exit code. It makes real provider calls and requires network access. The example request is synthetic. Do not pass credentials in request JSON.
 
-## Process catalog and official forms
+## Process catalog and implantation form
 
-The public API documentation is bundled separately from municipal mappings. No actual Aprova process catalog or official developer questionnaire is included. By default process lookup returns no matches, and the prompt directs the agent to ask for the mapping while still collecting explicit municipal facts.
+The public API documentation is separate from municipal mappings and from the team's implantation questionnaire. The questionnaire and schema are now described by the pinned guide; this is not a claim of vendor certification. Actual model lookup still returns no matches by default, because the knowledge loader from the source branch has not been integrated. The agent asks for a baseline while collecting explicit municipal facts.
 
 To exercise retrieval with a clearly labeled synthetic catalog:
 
@@ -67,7 +88,7 @@ uv run --project agents python -m agents contracts/examples/agent-request.json -
 
 `JsonProcessCatalog` validates records containing `process_id`, `version`, `source`, `name`, and a full provisional `baseline`. Multiple versions remain separate matches. Its simple case-insensitive name substring or exact ID lookup returns no invented fallback. Inject an implementation of `ProcessCatalog.search(query)` to connect the official source later; it must return the same record shape and expose only authorized records. The current local catalog is deployment-scoped, not tenant-filtered by the tool.
 
-Baseline values are references, not municipal answers. The prompt requires the representative to accept the process/version and indicate unchanged details before reuse. This is currently a prompt-level rule, not an audited provenance record. After the official form arrives, map it into the shared contracts first and update examples and consumers together. Do not claim official procedural completeness from the provisional required-field list.
+Baseline values are proposals, not municipal answers. The representative must accept the applicable model and indicate unchanged details before reuse; never invent a model version. The guide distinguishes model, representative and legal origins, but the provisional transport has no provenance or pending-issue fields. Map the supplied implantation form into shared contracts and update examples and consumers together before enabling full nested output. Do not claim procedural completeness from the provisional required-field list.
 
 ## Observability and validation limits
 

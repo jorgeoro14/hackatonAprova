@@ -3,16 +3,15 @@
 import argparse
 import json
 from copy import deepcopy
-from pathlib import Path
 from typing import Literal
 
-from .contracts import load_json
+from ..contracts import load_json
+from ..paths import KNOWLEDGE_ROOT
 
 AprovaResource = Literal["process", "forms", "templates", "dispatches", "blueprints"]
-KNOWLEDGE_ROOT = Path(__file__).with_name("knowledge") / "aprova"
-API_CONTRACT = load_json(KNOWLEDGE_ROOT / "api-contract.json")
-RESOURCE_GUIDE = load_json(KNOWLEDGE_ROOT / "resources.json")
-RESPONSE_TEMPLATES = load_json(KNOWLEDGE_ROOT / "response-templates.json")
+API_CONTRACT = load_json(KNOWLEDGE_ROOT / "aprova" / "api-contract.json")
+RESOURCE_GUIDE = load_json(KNOWLEDGE_ROOT / "aprova" / "resources.json")
+RESPONSE_TEMPLATES = load_json(KNOWLEDGE_ROOT / "aprova" / "response-templates.json")
 
 
 def get_reference(resource: str, operation_id: str | None = None) -> dict:
