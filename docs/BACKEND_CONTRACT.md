@@ -151,7 +151,8 @@ Client {                      // uma prefeitura atendida
   processesTotal, processesComplete,   // ~100 por prefeitura
   secretariatsTotal, secretariatsDone,
   meetingsCount, hoursSavedMinutes,
-  flowCreationMinutes          // null enquanto nenhum fluxo foi validado
+  flowCreationMinutes          // 0 enquanto nenhum fluxo foi validado
+  flowCreationSamples          // fluxos validados na média (0 = sem dado)
 }
 
 Process {                     // um processo/serviço da prefeitura (ex.: Alvará de reforma)
@@ -192,18 +193,19 @@ Regra de escopo: `implementer` recebe **apenas** dados dos seus clientes. `head`
   "period": { "from": "...", "to": "..." },
   "meetings":        { "value": 12, "baseline": 48, "deltaPct": -75 },        // sucesso = diminui
   "hoursSaved":      { "valueMinutes": 5400 },                                 // economia do implantador
-  "flowCreation":    { "avgMinutes": 2880, "baselineMinutes": 14400, "deltaPct": -80 }, // sucesso = diminui
+  "flowCreation":    { "avgMinutes": 2880, "baselineMinutes": 14400, "deltaPct": -80, "samples": 37 }, // sucesso = diminui
   "processes":       { "total": 400, "complete": 212, "validated": 150 },
   "backAndForthsAvg": 2.1
 }
 ```
 `baseline` = referência do processo manual (por reunião) para comparação; definição e fórmula são do back (ver `docs/metricas-dashboard.md`).
 
-**Sem dado = `null`**, nunca 0: `meetings.deltaPct` e `flowCreation.deltaPct` (sem baseline ou sem amostra), `flowCreation.avgMinutes` e `backAndForthsAvg` (nenhum processo com amostra), `points[].value` de `flowCreation` (balde sem fluxo validado), `Client.flowCreationMinutes` e `Implementer.flowCreationAvgMinutes`. O front mostra "—".
+**Sem dado nunca é `null`**: o valor vem `0` junto com o que indica a falta de amostra, e o front mostra "—". `meetings.deltaPct` → `meetings.baseline === 0`; `flowCreation.avgMinutes`/`deltaPct` → `flowCreation.samples === 0`; `backAndForthsAvg` → `processes.complete === 0`; `points[].value` de `flowCreation` → `points[].samples === 0`; `Client.flowCreationMinutes` → `flowCreationSamples === 0`; `Implementer.flowCreationAvgMinutes` → `flowCreationSamples === 0`. Detalhes em `docs/metricas-dashboard.md`.
 
 `GET /metrics/timeseries?metric=meetings|hoursSaved|flowCreation|processesComplete&from=&to=&granularity=day|week&implementerId=&clientId=`
 ```json
 { "metric": "meetings", "points": [ { "date": "2026-10-01", "value": 3 } ] }
+// flowCreation: { "date": "2026-10-01", "value": 2880, "samples": 2 }
 ```
 
 ### Reuniões (necessário para a métrica de reuniões)
@@ -216,6 +218,7 @@ O back precisa saber quantas reuniões aconteceram. Sugestão: o implantador reg
 - `GET /clients/:id` → `Client` + `{ "secretariats": [{ "id","name","processesTotal","processesComplete" }] }`
 - `GET /clients/:id/processes?secretariat=&status=&q=&page=` → paginado de `Process`
 - `GET /processes/:id` → `ProcessDetail` (`fields[].value` é `""` quando pendente, nunca `null`)
+- `POST /processes/:id/status` `{ "status": "sent_to_dev" | "validated" }` → `Process`. Única ação do painel (o formulário segue só leitura): leva um processo `confirmed` ao dev e à validação, o que fecha a métrica de tempo de fluxo. De outro status → `409 INVALID_TRANSITION`.
 - `GET /processes/:id/form` → `FormularioLeitura` do último formulário do processo (maior revisão); `404` se o agente ainda não emitiu nenhum
 - `GET /forms/:id` → `FormularioLeitura` (abre a partir da mensagem `kind: "form"` em `/conversations/:id`)
 - `GET /clients/:id/conversations?page=` → paginado de `Conversation`
@@ -225,7 +228,7 @@ O back precisa saber quantas reuniões aconteceram. Sugestão: o implantador reg
 - `GET /implementers` → 
 ```json
 [{ "id":"u1","name":"Maria Silva","clientsCount":4,"processesTotal":400,"processesComplete":212,
-   "meetingsCount":12,"hoursSavedMinutes":5400,"flowCreationAvgMinutes":2880,"clientsAtRisk":1 }]
+   "meetingsCount":12,"hoursSavedMinutes":5400,"flowCreationAvgMinutes":2880,"flowCreationSamples":37,"clientsAtRisk":1 }]
 ```
 - `GET /implementers/:id` → mesmo objeto + lista de clientes
 - As rotas de métricas/clientes acima aceitam `implementerId` para o drill-down da head.

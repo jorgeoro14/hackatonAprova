@@ -5,6 +5,8 @@ import { tratarErros } from "../api/erros.js";
 import { conferirSenha, emitirToken, verificarToken, type Usuario } from "./auth.js";
 import { METRICAS_SERIE, resumoMetricas, serieMetrica, type Periodo } from "./metricas.js";
 import {
+  ACOES_PAINEL,
+  avancarProcesso,
   buscarUsuario,
   buscarUsuarioPorUsername,
   clientesNoEscopo,
@@ -185,6 +187,13 @@ export async function rotasDashboard(app: FastifyInstance, opcoes: OpcoesDashboa
   app.get<{ Params: { id: string } }>("/processes/:id/form", async (req) => formularioDoProcesso(db, await usuario(req), req.params.id));
 
   app.get<{ Params: { id: string } }>("/forms/:id", async (req) => detalheFormulario(db, await usuario(req), req.params.id));
+
+  // única escrita sobre processos: fecha o ciclo confirmado → dev → validado (o formulário não é editado)
+  app.post<{ Params: { id: string } }>("/processes/:id/status", async (req) => {
+    const u = await usuario(req);
+    const { status } = validar(z.object({ status: z.enum(ACOES_PAINEL) }), req.body);
+    return avancarProcesso(db, u, req.params.id, status, agora());
+  });
 
   app.get<{ Params: { id: string } }>("/conversations/:id", async (req) => detalheConversa(db, await usuario(req), req.params.id));
 

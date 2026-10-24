@@ -10,6 +10,7 @@ import { ProcessesTab } from '@/features/dashboard/clients/ProcessesTab'
 import { ApiError } from '@/lib/api/client'
 import { useClient } from '@/lib/api/hooks'
 import { formatDate, formatDuration, formatHours, formatNumber } from '@/lib/utils/format'
+import { comAmostra } from '@/features/dashboard/overview/metrics'
 
 type Tab = 'resumo' | 'processos' | 'conversas' | 'reunioes'
 const tabs: { id: Tab; label: string }[] = [
@@ -68,7 +69,7 @@ export function ClientDetailPage() {
             <Stat label="Processos completos" value={`${formatNumber(c.processesComplete)}/${formatNumber(c.processesTotal)}`} />
             <Stat label="Reuniões" value={formatNumber(c.meetingsCount)} />
             <Stat label="Tempo economizado" value={formatHours(c.hoursSavedMinutes)} />
-            <Stat label="Criação do fluxo" value={formatDuration(c.flowCreationMinutes)} />
+            <Stat label="Criação do fluxo" value={formatDuration(comAmostra(c.flowCreationMinutes, c.flowCreationSamples))} />
           </div>
 
           <Tabs tabs={tabs} value={tab} onChange={setTab} />

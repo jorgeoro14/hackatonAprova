@@ -65,26 +65,28 @@ const paginate = <T,>(all: T[], q: URLSearchParams) => {
 
 const isDone = (p: Process) => ['confirmed', 'sent_to_dev', 'validated'].includes(p.status)
 
-/** Média arredondada ignorando null; null sem amostras (igual ao back). */
-const avgOrNull = (xs: (number | null)[]) => {
-  const v = xs.filter((x): x is number => x !== null)
-  return v.length ? Math.round(v.reduce((s, x) => s + x, 0) / v.length) : null
+/** Média do tempo de fluxo ponderada pelas amostras de cada cliente; 0 com 0 amostras (igual ao back). */
+const flowAvg = (cs: Client[]) => {
+  const samples = cs.reduce((s, c) => s + c.flowCreationSamples, 0)
+  const avg = samples ? Math.round(cs.reduce((s, c) => s + c.flowCreationMinutes * c.flowCreationSamples, 0) / samples) : 0
+  return { avg, samples }
 }
 
 function summarize(list: Client[], from: string, to: string) {
   const ps = processes.filter((p) => list.some((c) => c.id === p.clientId))
   const meetings = list.reduce((s, c) => s + c.meetingsCount, 0)
   const baseline = list.reduce((s, c) => s + meetingsBaseline(c), 0)
-  const avgFlow = avgOrNull(list.map((c) => c.flowCreationMinutes))
+  const flow = flowAvg(list)
   const started = ps.filter((p) => p.backAndForths > 0)
   return {
     period: { from, to },
     meetings: { value: meetings, baseline, deltaPct: baseline ? Math.round(((meetings - baseline) / baseline) * 100) : 0 },
     hoursSaved: { valueMinutes: list.reduce((s, c) => s + c.hoursSavedMinutes, 0) },
     flowCreation: {
-      avgMinutes: avgFlow,
+      avgMinutes: flow.avg,
       baselineMinutes: FLOW_BASELINE_MINUTES,
-      deltaPct: avgFlow === null ? null : Math.round(((avgFlow - FLOW_BASELINE_MINUTES) / FLOW_BASELINE_MINUTES) * 100),
+      deltaPct: flow.samples ? Math.round(((flow.avg - FLOW_BASELINE_MINUTES) / FLOW_BASELINE_MINUTES) * 100) : 0,
+      samples: flow.samples,
     },
     processes: { total: ps.length, complete: ps.filter(isDone).length, validated: ps.filter((p) => p.status === 'validated').length },
     backAndForthsAvg: started.length ? Math.round((started.reduce((s, p) => s + p.backAndForths, 0) / started.length) * 10) / 10 : 0,
@@ -266,8 +268,9 @@ export const handlers = [
       processesComplete: [s.processes.complete, true],
     } as const
     const [total, cumulative] = spec[metric]
-    // sem fluxo validado o back devolve null em todos os baldes
-    const points = total === null ? series(metric, 0, days, step, cumulative).map((p) => ({ ...p, value: null })) : series(metric, total, days, step, cumulative)
+    const base = series(metric, total, days, step, cumulative)
+    // flowCreation traz samples por balde; sem fluxo validado, value 0 e samples 0 em todos
+    const points = metric === 'flowCreation' ? base.map((p) => ({ ...p, samples: s.flowCreation.samples ? 1 : 0 })) : base
     return HttpResponse.json({ metric, points })
   })),
 
@@ -461,7 +464,8 @@ function implementerRow(id: string) {
     processesComplete: cs.reduce((s, c) => s + c.processesComplete, 0),
     meetingsCount: cs.reduce((s, c) => s + c.meetingsCount, 0),
     hoursSavedMinutes: cs.reduce((s, c) => s + c.hoursSavedMinutes, 0),
-    flowCreationAvgMinutes: avgOrNull(cs.map((c) => c.flowCreationMinutes)),
+    flowCreationAvgMinutes: flowAvg(cs).avg,
+    flowCreationSamples: flowAvg(cs).samples,
     clientsAtRisk: cs.filter((c) => c.status === 'at_risk').length,
   }
 }

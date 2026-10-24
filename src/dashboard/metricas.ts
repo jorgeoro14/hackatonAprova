@@ -18,10 +18,20 @@ const DIA = 24 * 60 * MIN;
 export const COMPLETOS_SQL = STATUS_COMPLETOS.map((s) => `'${s}'`).join(", ");
 
 const minutosEntre = (inicio: string, fim: string) => (Date.parse(fim) - Date.parse(inicio)) / MIN;
-const media = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null);
-/** Variação percentual inteira em relação à referência; null sem referência. */
-export const deltaPct = (valor: number | null, referencia: number) =>
-  valor === null || referencia <= 0 ? null : Math.round(((valor - referencia) / referencia) * 100);
+/**
+ * Política de "sem dado" (docs/metricas-dashboard.md): nenhuma métrica numérica vem null.
+ * Sem amostra, o valor é 0 e a resposta traz junto o que permite ao front mostrar "—"
+ * (baseline 0, samples 0 ou processes.complete 0).
+ */
+/** Média arredondada (casas decimais opcionais); 0 sem amostras. */
+export const media = (xs: number[], casas = 0) => {
+  if (!xs.length) return 0;
+  const f = 10 ** casas;
+  return Math.round((xs.reduce((a, b) => a + b, 0) / xs.length) * f) / f;
+};
+/** Variação percentual inteira em relação à referência; 0 sem referência ou sem amostra. */
+export const deltaPct = (valor: number, referencia: number, temAmostra = true) =>
+  !temAmostra || referencia <= 0 ? 0 : Math.round(((valor - referencia) / referencia) * 100);
 
 /** Consulta restrita a um conjunto de clientes ($1 = ids); com lista vazia não há o que buscar. */
 async function consulta<T>(db: Banco, clientes: string[], sql: string, ...params: unknown[]): Promise<T[]> {
@@ -76,11 +86,14 @@ function fluxosValidados(db: Banco, clientes: string[], p: Periodo) {
 
 export interface ResumoMetricas {
   period: { from: string; to: string };
-  meetings: { value: number; baseline: number; deltaPct: number | null };
+  /** deltaPct é 0 quando baseline é 0 */
+  meetings: { value: number; baseline: number; deltaPct: number };
   hoursSaved: { valueMinutes: number };
-  flowCreation: { avgMinutes: number | null; baselineMinutes: number; deltaPct: number | null };
+  /** samples = fluxos validados no período; com 0, avgMinutes e deltaPct são 0 */
+  flowCreation: { avgMinutes: number; baselineMinutes: number; deltaPct: number; samples: number };
   processes: { total: number; complete: number; validated: number };
-  backAndForthsAvg: number | null;
+  /** média entre os processos completos (processes.complete); 0 sem nenhum */
+  backAndForthsAvg: number;
 }
 
 export async function resumoMetricas(db: Banco, clientes: string[], p: Periodo): Promise<ResumoMetricas> {
@@ -90,8 +103,7 @@ export async function resumoMetricas(db: Banco, clientes: string[], p: Periodo):
   const economizado = (await itensColetadosPeloAgente(db, clientes, p)).reduce((s, i) => s + minutosManuais(i.categoria), 0);
 
   const tempos = (await fluxosValidados(db, clientes, p)).map((f) => minutosEntre(f.primeiro_contato_em, f.validado_em));
-  const tempoMedio = media(tempos);
-  const avgMinutes = tempoMedio === null ? null : Math.round(tempoMedio);
+  const avgMinutes = media(tempos);
 
   const [proc] = await consulta<{ total: number; complete: number; validated: number; idas: number | null }>(
     db, clientes,
@@ -106,9 +118,14 @@ export async function resumoMetricas(db: Banco, clientes: string[], p: Periodo):
     period: { from: p.de.toISOString(), to: p.ate.toISOString() },
     meetings: { value: reunioes, baseline: baselineReunioes, deltaPct: deltaPct(reunioes, baselineReunioes) },
     hoursSaved: { valueMinutes: economizado },
-    flowCreation: { avgMinutes, baselineMinutes: MINUTOS_FLUXO_MANUAL, deltaPct: deltaPct(avgMinutes, MINUTOS_FLUXO_MANUAL) },
+    flowCreation: {
+      avgMinutes,
+      baselineMinutes: MINUTOS_FLUXO_MANUAL,
+      deltaPct: deltaPct(avgMinutes, MINUTOS_FLUXO_MANUAL, tempos.length > 0),
+      samples: tempos.length,
+    },
     processes: { total: proc?.total ?? 0, complete: proc?.complete ?? 0, validated: proc?.validated ?? 0 },
-    backAndForthsAvg: proc?.idas == null ? null : Math.round(proc.idas * 10) / 10,
+    backAndForthsAvg: proc?.idas == null ? 0 : Math.round(Number(proc.idas) * 10) / 10,
   };
 }
 
@@ -120,7 +137,9 @@ export type Granularidade = "day" | "week";
 
 export interface PontoSerie {
   date: string;
-  value: number | null;
+  value: number;
+  /** só em flowCreation: fluxos validados no balde (0 → value 0 é "sem dado") */
+  samples?: number;
 }
 
 /** Início do balde (UTC) que contém t: o próprio dia, ou a segunda-feira da semana. */
@@ -142,7 +161,7 @@ const chave = (t: number) => new Date(t).toISOString().slice(0, 10);
 
 /**
  * Pontos por dia ou semana. meetings e hoursSaved somam no balde; flowCreation é a média dos fluxos
- * validados no balde (null quando nenhum); processesComplete é acumulado (total com regra completa ao fim do balde).
+ * validados no balde (0 com samples 0 quando nenhum); processesComplete é acumulado (total com regra completa ao fim do balde).
  */
 export async function serieMetrica(
   db: Banco,
@@ -178,8 +197,8 @@ export async function serieMetrica(
       }));
       const grupos = agrupar(fluxos);
       return inicios.map((b) => {
-        const m = media(grupos.get(b) ?? []);
-        return { date: chave(b), value: m === null ? null : Math.round(m) };
+        const tempos = grupos.get(b) ?? [];
+        return { date: chave(b), value: media(tempos), samples: tempos.length };
       });
     }
     case "processesComplete": {
@@ -211,10 +230,10 @@ export interface AgregadoCliente {
   secretariatsDone: number;
   meetingsCount: number;
   hoursSavedMinutes: number;
-  /** média do 1º contato ao fluxo validado (min); null se nenhum fluxo validado */
-  flowCreationMinutes: number | null;
+  /** média do 1º contato ao fluxo validado (min); 0 se nenhum fluxo validado */
+  flowCreationMinutes: number;
   /** tempos individuais, para médias ponderadas acima do cliente */
-  flowCreationSamples: number[];
+  temposFluxo: number[];
 }
 
 /** Agregados de todo o histórico de cada cliente informado. */
@@ -224,7 +243,7 @@ export async function agregarClientes(db: Banco, clientes: string[]): Promise<Ma
     out.set(id, {
       processesTotal: 0, processesComplete: 0, processesValidated: 0, processesStarted: 0,
       secretariatsTotal: 0, secretariatsDone: 0, meetingsCount: 0, hoursSavedMinutes: 0,
-      flowCreationMinutes: null, flowCreationSamples: [],
+      flowCreationMinutes: 0, temposFluxo: [],
     });
   }
   const de = (id: string) => out.get(id)!;
@@ -271,11 +290,8 @@ export async function agregarClientes(db: Banco, clientes: string[]): Promise<Ma
   for (const r of secretarias) Object.assign(de(r.cliente_id), { secretariatsTotal: r.total, secretariatsDone: r.done });
   for (const r of reunioes) de(r.cliente_id).meetingsCount = r.n;
   for (const r of itens) de(r.cliente_id).hoursSavedMinutes += r.n * minutosManuais(r.categoria);
-  for (const r of fluxos) de(r.cliente_id).flowCreationSamples.push(minutosEntre(r.primeiro_contato_em, r.validado_em));
-  for (const a of out.values()) {
-    const m = media(a.flowCreationSamples);
-    a.flowCreationMinutes = m === null ? null : Math.round(m);
-  }
+  for (const r of fluxos) de(r.cliente_id).temposFluxo.push(minutosEntre(r.primeiro_contato_em, r.validado_em));
+  for (const a of out.values()) a.flowCreationMinutes = media(a.temposFluxo);
 
   return out;
 }

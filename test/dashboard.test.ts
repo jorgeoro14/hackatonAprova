@@ -1,9 +1,18 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { criarApp } from "../src/app.js";
 import { emitirToken, hashSenha, verificarToken } from "../src/dashboard/auth.js";
+import lapJson from "../knowledge/dominios/meio-ambiente/processos/licenca-ambiental-previa.json" with { type: "json" };
+import { formularioParaCampos } from "../src/dashboard/campos.js";
 import { resumoMetricas, serieMetrica, statusCliente } from "../src/dashboard/metricas.js";
-import { MINUTOS_FLUXO_MANUAL, MINUTOS_MANUAIS_POR_CATEGORIA, REUNIOES_MANUAIS_POR_SECRETARIA } from "../src/dashboard/parametros.js";
-import { mudarStatusProcesso } from "../src/dashboard/repositorio.js";
+import {
+  MINUTOS_FLUXO_MANUAL,
+  MINUTOS_MANUAIS_POR_CATEGORIA,
+  minutosManuais,
+  REUNIOES_MANUAIS_POR_SECRETARIA,
+} from "../src/dashboard/parametros.js";
+import { gravarCamposProcesso, mudarStatusProcesso } from "../src/dashboard/repositorio.js";
+import { novoFormulario } from "../src/implantacao/formulario.js";
+import { ProcessoModelo } from "../src/knowledge/schemas.js";
 import type { Banco } from "../src/db/banco.js";
 import { idDemo, semearDemo } from "../src/db/seed.js";
 import type { BaseConhecimento } from "../src/knowledge/loader.js";
@@ -57,6 +66,13 @@ async function bancoPequeno() {
   return db;
 }
 
+/** Nenhum valor da resposta pode vir null (política de "sem dado", D1). */
+function semNull(valor: unknown, caminho = "$"): void {
+  expect(valor, caminho).not.toBeNull();
+  if (Array.isArray(valor)) valor.forEach((v, i) => semNull(v, `${caminho}[${i}]`));
+  else if (typeof valor === "object") for (const [k, v] of Object.entries(valor as object)) semNull(v, `${caminho}.${k}`);
+}
+
 const OUTUBRO = { de: new Date("2026-10-01T00:00:00Z"), ate: new Date("2026-10-25T00:00:00Z") };
 
 describe("métricas — fórmulas", () => {
@@ -85,12 +101,15 @@ describe("métricas — fórmulas", () => {
     expect(r.backAndForthsAvg).toBe(2); // média entre p1 (1) e p2 (3)
   });
 
-  it("período sem dados devolve zeros e nulls, sem dividir por zero", async () => {
+  it("período sem dados devolve zeros com a contagem de amostras, sem null e sem dividir por zero", async () => {
     const r = await resumoMetricas(db, [C1], { de: new Date("2025-01-01"), ate: new Date("2025-02-01") });
-    expect(r.meetings).toEqual({ value: 0, baseline: 0, deltaPct: null });
-    expect(r.flowCreation.avgMinutes).toBeNull();
-    expect(r.flowCreation.deltaPct).toBeNull();
-    expect((await resumoMetricas(db, [], OUTUBRO)).processes.total).toBe(0);
+    expect(r.meetings).toEqual({ value: 0, baseline: 0, deltaPct: 0 });
+    expect(r.flowCreation).toEqual({ avgMinutes: 0, baselineMinutes: MINUTOS_FLUXO_MANUAL, deltaPct: 0, samples: 0 });
+    semNull(r);
+    const vazio = await resumoMetricas(db, [], OUTUBRO);
+    expect(vazio.processes.total).toBe(0);
+    expect(vazio.backAndForthsAvg).toBe(0);
+    semNull(vazio);
   });
 
   it("séries por semana começam na segunda e processesComplete é acumulado", async () => {
@@ -102,8 +121,9 @@ describe("métricas — fórmulas", () => {
     const completos = (await serieMetrica(db, [C1], "processesComplete", OUTUBRO, "week")).map((p) => p.value);
     expect(completos).toEqual([0, 1, 2, 2]);
 
-    const fluxo = (await serieMetrica(db, [C1], "flowCreation", OUTUBRO, "week")).map((p) => p.value);
-    expect(fluxo).toEqual([null, 2880, null, null]);
+    const fluxo = await serieMetrica(db, [C1], "flowCreation", OUTUBRO, "week");
+    expect(fluxo.map((p) => p.value)).toEqual([0, 2880, 0, 0]);
+    expect(fluxo.map((p) => p.samples)).toEqual([0, 1, 0, 0]);
 
     const dias = await serieMetrica(db, [C1], "hoursSaved", OUTUBRO, "day");
     expect(dias).toHaveLength(24);
@@ -136,6 +156,196 @@ describe("métricas — fórmulas", () => {
       concluido_em: "2026-10-23T00:00:00.000Z",
       validado_em: "2026-10-24T00:00:00.000Z",
     });
+  });
+});
+
+describe("métricas — fluxo real (formulário → campos → status)", () => {
+  // usuários e clientes deste cenário
+  const HEAD = uuid("e1"), U2 = uuid("e2"), C2 = uuid("c2");
+  const lap = ProcessoModelo.parse(lapJson);
+  const orgao = { municipio: "Prefeitura X", uf: "RS", orgao: "Meio Ambiente", responsavel: { nome: "Fulano" } };
+  const m = MINUTOS_MANUAIS_POR_CATEGORIA;
+  const t = (s: string) => new Date(s);
+  const PERIODO = "from=2026-10-05&to=2026-10-24"; // [05/10, 25/10)
+
+  // p1 confirmado sem pendências: todos os itens contam
+  const prazos = lap.fluxo.etapas.filter((e) => e.prazoDias !== undefined).length + (lap.fluxo.prazoTotalDias ? 1 : 0);
+  const minutosP1 =
+    lap.documentos.length * m.documento + lap.taxas.length * m.taxa + lap.fluxo.etapas.length * m.etapa + prazos * m.prazo +
+    lap.setores.length * m.setor + lap.despachos.length * m.despacho +
+    lap.formulario.secoes.reduce((s, x) => s + x.campos.length, 0) * m.campo_formulario +
+    lap.baseLegal.length * m.base_legal + 2 * m.outro; // resumo e documento final
+  // p2 em rascunho: só os itens fora das pendências
+  const rascunhoP2 = formularioParaCampos(novoFormulario("f2", lap, orgao, t("2026-10-20T08:30:00Z")));
+  const minutosP2 = rascunhoP2.filter((c) => c.status !== "pending").reduce((s, c) => s + minutosManuais(c.categoria), 0);
+  // p1: 1º contato 05/10 09:00, validado pelo painel em AGORA (24/10 12:00)
+  const fluxoP1 = (AGORA.getTime() - Date.parse("2026-10-05T09:00:00Z")) / 60_000;
+
+  let app: ReturnType<typeof appCom>;
+  let imp: { authorization: string };
+
+  beforeAll(async () => {
+    const db = await bancoDeTeste();
+    await db.consultar(
+      `INSERT INTO usuarios (id, nome, username, senha_hash, papel) VALUES
+         ($1, 'Imp', 'imp', $4, 'implementer'), ($2, 'Head', 'chefe', $4, 'head'), ($3, 'Sem Clientes', 'vazio', $4, 'implementer')`,
+      [U1, HEAD, U2, hashSenha(SENHA)],
+    );
+    await db.executar(`
+      INSERT INTO clientes (id, nome, uf, implantador_id, iniciado_em, data_meta) VALUES
+        ('${C1}', 'Prefeitura X', 'RS', '${U1}', '2026-10-01T00:00:00Z', '2026-11-20T00:00:00Z'),
+        ('${C2}', 'Prefeitura Sem Processos', 'SC', '${U1}', '2026-10-01T00:00:00Z', '2026-12-20T00:00:00Z');
+      INSERT INTO secretarias (id, cliente_id, nome) VALUES ('${S1}', '${C1}', 'Meio Ambiente'), ('${S2}', '${C1}', 'Obras');
+      INSERT INTO processos (id, cliente_id, secretaria_id, nome, status) VALUES
+        ('${P1}', '${C1}', '${S1}', 'LAP', 'not_started'),
+        ('${P2}', '${C1}', '${S2}', 'LAP Obras', 'not_started'),
+        ('${P3}', '${C1}', '${S2}', 'ITBI', 'not_started');
+      -- bordas: domingo 23:59:59 e segunda 00:00 caem em semanas diferentes; a de 04/10 fica antes do período
+      INSERT INTO reunioes (cliente_id, realizada_em, duracao_minutos, notas, registrada_por) VALUES
+        ('${C1}', '2026-10-04T23:59:59Z', 60, '', '${U1}'),
+        ('${C1}', '2026-10-11T23:59:59Z', 60, '', '${U1}'),
+        ('${C1}', '2026-10-12T00:00:00Z', 60, '', '${U1}');
+    `);
+
+    // p1: coleta, form apresentado, prefeitura corrige (1 ida e volta), reapresentado e confirmado
+    await mudarStatusProcesso(db, P1, "collecting", t("2026-10-05T09:00:00Z"));
+    const rascunhoP1 = novoFormulario("f1", lap, orgao, t("2026-10-05T10:00:00Z"));
+    await gravarCamposProcesso(db, P1, formularioParaCampos(rascunhoP1));
+    await mudarStatusProcesso(db, P1, "awaiting_confirmation", t("2026-10-06T09:00:00Z"));
+    await mudarStatusProcesso(db, P1, "collecting", t("2026-10-06T15:00:00Z"));
+    await mudarStatusProcesso(db, P1, "awaiting_confirmation", t("2026-10-07T09:00:00Z"));
+    const confirmado = { ...rascunhoP1, status: "confirmado" as const, pendencias: [], atualizadoEm: "2026-10-08T09:00:00.000Z" };
+    await gravarCamposProcesso(db, P1, formularioParaCampos(confirmado));
+    await mudarStatusProcesso(db, P1, "confirmed", t("2026-10-08T09:00:00Z"));
+
+    // p2: só começou a coleta
+    await mudarStatusProcesso(db, P2, "collecting", t("2026-10-20T08:00:00Z"));
+    await gravarCamposProcesso(db, P2, rascunhoP2);
+
+    app = appCom(db);
+    imp = await login(app, "imp");
+    // p1: o implantador leva ao dev e valida pelo painel
+    for (const status of ["sent_to_dev", "validated"]) {
+      const r = await app.inject({ method: "POST", url: `/api/v1/processes/${P1}/status`, headers: imp, payload: { status } });
+      expect(r.statusCode).toBe(200);
+      expect(r.json()).toMatchObject({ id: P1, status });
+    }
+  });
+
+  it("resumo: reuniões vs baseline, horas por categoria, tempo de fluxo, completos e idas e vindas", async () => {
+    const r = (await app.inject({ url: `/api/v1/metrics/summary?clientId=${C1}&${PERIODO}`, headers: imp })).json();
+    expect(r.meetings).toEqual({ value: 2, baseline: 2 * REUNIOES_MANUAIS_POR_SECRETARIA, deltaPct: -67 });
+    expect(r.hoursSaved.valueMinutes).toBe(minutosP1 + minutosP2);
+    expect(r.flowCreation).toEqual({
+      avgMinutes: fluxoP1,
+      baselineMinutes: MINUTOS_FLUXO_MANUAL,
+      deltaPct: Math.round(((fluxoP1 - MINUTOS_FLUXO_MANUAL) / MINUTOS_FLUXO_MANUAL) * 100),
+      samples: 1,
+    });
+    expect(r.processes).toEqual({ total: 3, complete: 1, validated: 1 });
+    expect(r.backAndForthsAvg).toBe(1);
+    semNull(r);
+
+    // "to" só com data inclui o dia; antes de 20/10 o p2 ainda não tinha itens
+    const ate19 = (await app.inject({ url: `/api/v1/metrics/summary?clientId=${C1}&from=2026-10-05&to=2026-10-19`, headers: imp })).json();
+    expect(ate19.hoursSaved.valueMinutes).toBe(minutosP1);
+    expect(ate19.flowCreation.samples).toBe(0);
+  });
+
+  it("processo validado pelo painel fica 100% preenchido e carimbado", async () => {
+    const p = (await app.inject({ url: `/api/v1/processes/${P1}`, headers: imp })).json();
+    expect(p).toMatchObject({ status: "validated", completeness: 100, backAndForths: 1 });
+    expect(p.fields.every((f: { status: string }) => f.status === "filled")).toBe(true);
+  });
+
+  it("séries por dia e semana com bordas em UTC", async () => {
+    const serie = async (metric: string, g: string) =>
+      (await app.inject({ url: `/api/v1/metrics/timeseries?metric=${metric}&granularity=${g}&clientId=${C1}&${PERIODO}`, headers: imp })).json()
+        .points as { date: string; value: number; samples?: number }[];
+
+    expect((await serie("meetings", "week")).map((p) => [p.date, p.value])).toEqual([
+      ["2026-10-05", 1],
+      ["2026-10-12", 1],
+      ["2026-10-19", 0],
+    ]);
+
+    const horas = await serie("hoursSaved", "day");
+    expect(horas).toHaveLength(20);
+    expect(horas.find((p) => p.date === "2026-10-08")!.value).toBe(minutosP1);
+    expect(horas.find((p) => p.date === "2026-10-20")!.value).toBe(minutosP2);
+    expect(horas.reduce((s, p) => s + p.value, 0)).toBe(minutosP1 + minutosP2);
+
+    expect(await serie("flowCreation", "week")).toEqual([
+      { date: "2026-10-05", value: 0, samples: 0 },
+      { date: "2026-10-12", value: 0, samples: 0 },
+      { date: "2026-10-19", value: fluxoP1, samples: 1 },
+    ]);
+
+    const completos = await serie("processesComplete", "day");
+    expect(completos.find((p) => p.date === "2026-10-07")!.value).toBe(0);
+    expect(completos.find((p) => p.date === "2026-10-08")!.value).toBe(1);
+  });
+
+  it("agregados por cliente e por implantador batem com o resumo do mesmo escopo", async () => {
+    const head = await login(app, "chefe");
+    // o relógio do teste é fixo e o p1 foi validado exatamente em AGORA: o "to" padrão (agora, exclusivo) o deixaria de fora
+    const historico = "from=2026-01-01&to=2026-10-24";
+    const c = (await app.inject({ url: `/api/v1/clients/${C1}`, headers: head })).json();
+    const mc = (await app.inject({ url: `/api/v1/metrics/summary?clientId=${C1}&${historico}`, headers: head })).json();
+    expect(c).toMatchObject({
+      processesTotal: mc.processes.total,
+      processesComplete: mc.processes.complete,
+      hoursSavedMinutes: mc.hoursSaved.valueMinutes,
+      meetingsCount: mc.meetings.value,
+      flowCreationMinutes: mc.flowCreation.avgMinutes,
+      flowCreationSamples: mc.flowCreation.samples,
+    });
+
+    const time = (await app.inject({ url: "/api/v1/implementers", headers: head })).json();
+    const mi = (await app.inject({ url: `/api/v1/metrics/summary?implementerId=${U1}&${historico}`, headers: head })).json();
+    expect(time.find((i: { id: string }) => i.id === U1)).toMatchObject({
+      clientsCount: 2,
+      processesTotal: mi.processes.total,
+      processesComplete: mi.processes.complete,
+      meetingsCount: mi.meetings.value,
+      hoursSavedMinutes: mi.hoursSaved.valueMinutes,
+      flowCreationAvgMinutes: mi.flowCreation.avgMinutes,
+      flowCreationSamples: mi.flowCreation.samples,
+    });
+    semNull(time);
+  });
+
+  it("sem dado não vira null: cliente sem processos e implantador sem clientes", async () => {
+    const head = await login(app, "chefe");
+    const c2 = (await app.inject({ url: `/api/v1/clients/${C2}`, headers: head })).json();
+    expect(c2).toMatchObject({ processesTotal: 0, flowCreationMinutes: 0, flowCreationSamples: 0 });
+    semNull(c2);
+    semNull((await app.inject({ url: `/api/v1/metrics/summary?clientId=${C2}`, headers: head })).json());
+    semNull((await app.inject({ url: `/api/v1/metrics/timeseries?metric=flowCreation&clientId=${C2}`, headers: head })).json());
+
+    const vazio = (await app.inject({ url: `/api/v1/implementers/${U2}`, headers: head })).json();
+    expect(vazio).toMatchObject({ clientsCount: 0, flowCreationAvgMinutes: 0, flowCreationSamples: 0, clients: [] });
+    semNull(vazio);
+    const meu = await login(app, "vazio");
+    const r = (await app.inject({ url: "/api/v1/metrics/summary", headers: meu })).json();
+    expect(r.processes.total).toBe(0);
+    semNull(r);
+  });
+
+  it("POST /processes/:id/status só fecha o ciclo de um processo confirmado", async () => {
+    const post = (id: string, payload: Record<string, unknown>, headers = imp) =>
+      app.inject({ method: "POST", url: `/api/v1/processes/${id}/status`, headers, payload });
+
+    const emColeta = await post(P2, { status: "validated" });
+    expect(emColeta.statusCode).toBe(409);
+    expect(emColeta.json().error).toMatchObject({ code: "INVALID_TRANSITION", details: { from: "collecting" } });
+    // o painel não confirma nem reabre: isso é do chat
+    expect((await post(P2, { status: "confirmed" })).statusCode).toBe(400);
+    // repetir o status atual não muda nada
+    expect((await post(P1, { status: "validated" })).json().status).toBe("validated");
+    // processo de outro implantador: 404
+    expect((await post(P1, { status: "validated" }, await login(app, "vazio"))).statusCode).toBe(404);
+    expect((await app.inject({ method: "POST", url: `/api/v1/processes/${P1}/status`, payload: { status: "validated" } })).statusCode).toBe(401);
   });
 });
 

@@ -7,6 +7,7 @@ import { useFilters } from '@/features/dashboard/filters'
 import { ApiError } from '@/lib/api/client'
 import { useImplementer } from '@/lib/api/hooks'
 import { formatDuration, formatHours, formatNumber } from '@/lib/utils/format'
+import { comAmostra } from '@/features/dashboard/overview/metrics'
 
 const Stat = ({ label, value }: { label: string; value: string }) => (
   <Card className="p-4">
@@ -55,7 +56,7 @@ export function ImplementerDetailPage() {
             <Stat label="Processos completos" value={`${formatNumber(i.processesComplete)}/${formatNumber(i.processesTotal)}`} />
             <Stat label="Reuniões" value={formatNumber(i.meetingsCount)} />
             <Stat label="Tempo economizado" value={formatHours(i.hoursSavedMinutes)} />
-            <Stat label="Criação do fluxo (média)" value={formatDuration(i.flowCreationAvgMinutes)} />
+            <Stat label="Criação do fluxo (média)" value={formatDuration(comAmostra(i.flowCreationAvgMinutes, i.flowCreationSamples))} />
           </div>
 
           <Table>

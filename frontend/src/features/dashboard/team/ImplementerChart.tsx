@@ -3,13 +3,14 @@ import { Bar, BarChart, CartesianGrid, LabelList, ResponsiveContainer, Tooltip, 
 import { Card, CardHeader, Tabs } from '@/components/ui'
 import { formatDuration, formatHours, formatNumber, formatPercent } from '@/lib/utils/format'
 import type { Implementer } from '@/types/schemas'
+import { comAmostra } from '@/features/dashboard/overview/metrics'
 
 type Key = 'hours' | 'meetings' | 'flow' | 'progress'
 
 const metrics: Record<Key, { label: string; hint: string; value: (i: Implementer) => number | null; format: (v: number) => string }> = {
   hours: { label: 'Tempo economizado', hint: 'Quanto maior, melhor', value: (i) => i.hoursSavedMinutes, format: (v) => formatHours(v) },
   meetings: { label: 'Reuniões', hint: 'Quanto menor, melhor', value: (i) => i.meetingsCount, format: (v) => formatNumber(v) },
-  flow: { label: 'Criação do fluxo', hint: 'Quanto menor, melhor', value: (i) => i.flowCreationAvgMinutes, format: (v) => formatDuration(v) },
+  flow: { label: 'Criação do fluxo', hint: 'Quanto menor, melhor', value: (i) => comAmostra(i.flowCreationAvgMinutes, i.flowCreationSamples), format: (v) => formatDuration(v) },
   progress: { label: 'Processos completos', hint: 'Quanto maior, melhor', value: (i) => (i.processesTotal ? (i.processesComplete / i.processesTotal) * 100 : 0), format: (v) => formatPercent(v) },
 }
 const tabs = (Object.keys(metrics) as Key[]).map((id) => ({ id, label: metrics[id].label }))

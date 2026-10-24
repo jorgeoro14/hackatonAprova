@@ -9,6 +9,13 @@ interface MetricInfo {
   format: (v: number) => string
 }
 
+/** O back manda 0 quando não há amostra; para exibir, sem amostra vira null ("—" e lacuna nos gráficos). */
+export const comAmostra = (value: number, samples: number | undefined) => (samples === 0 ? null : value)
+
+/** Pontos para os gráficos: balde de flowCreation sem fluxo validado vira lacuna. */
+export const pontosDoGrafico = (points: { date: string; value: number; samples?: number }[]) =>
+  points.map((p) => ({ date: p.date, value: comAmostra(p.value, p.samples) }))
+
 export const METRICS: Record<MetricKey, MetricInfo> = {
   meetings: { label: 'Reuniões', toAxis: (v) => v, axisUnit: '', format: (v) => formatNumber(v) },
   hoursSaved: { label: 'Horas economizadas', toAxis: (v) => v / 60, axisUnit: 'h', format: (v) => formatHours(v) },

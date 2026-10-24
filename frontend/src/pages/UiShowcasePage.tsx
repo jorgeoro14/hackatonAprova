@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useLogin, useMetricsSummary } from '@/lib/api/hooks'
 import { ThemeScope } from '@/lib/theme/ThemeScope'
 import { formatDelta, formatDuration } from '@/lib/utils/format'
+import { comAmostra } from '@/features/dashboard/overview/metrics'
 import {
   Badge, Button, Card, CardHeader, EmptyState, ErrorState, Input, Modal, Select, Skeleton,
   Table, TBody, TD, TH, THead, Tabs, TR, Textarea, ThemeToggle,
@@ -82,7 +83,7 @@ export function UiShowcasePage() {
             {summary.isError && <Badge tone="warning">/metrics sem login → {summary.error.message}</Badge>}
             {summary.data && (
               <span className="tabular text-sm">
-                Reuniões {summary.data.meetings.value} ({summary.data.meetings.deltaPct === null ? '—' : formatDelta(summary.data.meetings.deltaPct)}) · Economia {formatDuration(summary.data.hoursSaved.valueMinutes)} · Fluxo {formatDuration(summary.data.flowCreation.avgMinutes)}
+                Reuniões {summary.data.meetings.value} ({summary.data.meetings.baseline === 0 ? '—' : formatDelta(summary.data.meetings.deltaPct)}) · Economia {formatDuration(summary.data.hoursSaved.valueMinutes)} · Fluxo {formatDuration(comAmostra(summary.data.flowCreation.avgMinutes, summary.data.flowCreation.samples))}
               </span>
             )}
           </div>

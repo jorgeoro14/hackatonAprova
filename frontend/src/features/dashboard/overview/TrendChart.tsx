@@ -4,7 +4,7 @@ import { Card, CardHeader, ErrorState, Skeleton, Tabs } from '@/components/ui'
 import { useTimeseries } from '@/lib/api/hooks'
 import type { Scope } from '@/lib/api/endpoints'
 import type { MetricKey } from '@/types/schemas'
-import { METRICS } from './metrics'
+import { METRICS, pontosDoGrafico } from './metrics'
 
 const tabs = (Object.keys(METRICS) as MetricKey[]).map((id) => ({ id, label: METRICS[id].label }))
 const shortDate = (iso: string) => new Date(iso + 'T12:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })
@@ -13,7 +13,7 @@ export function TrendChart({ scope, granularity }: { scope: Scope; granularity: 
   const [metric, setMetric] = useState<MetricKey>('meetings')
   const q = useTimeseries(metric, { ...scope, granularity })
   const info = METRICS[metric]
-  const data = q.data?.points.map((p) => ({ date: p.date, value: p.value }))
+  const data = q.data && pontosDoGrafico(q.data.points)
 
   return (
     <Card>

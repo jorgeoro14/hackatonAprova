@@ -1,6 +1,7 @@
 import type { Banco, Linha } from "../db/banco.js";
 import type { Usuario } from "./auth.js";
-import { agregarClientes, COMPLETOS_SQL, statusCliente, type StatusCliente } from "./metricas.js";
+import type { CategoriaCampo } from "./parametros.js";
+import { agregarClientes, COMPLETOS_SQL, media, statusCliente, type StatusCliente } from "./metricas.js";
 
 /** Erro no formato do contrato: { error: { code, message, details } }. */
 export class ErroApi extends Error {
@@ -124,7 +125,10 @@ export interface Cliente {
   secretariatsDone: number;
   meetingsCount: number;
   hoursSavedMinutes: number;
-  flowCreationMinutes: number | null;
+  /** 0 enquanto nenhum fluxo foi validado (ver flowCreationSamples) */
+  flowCreationMinutes: number;
+  /** fluxos validados que entram na média */
+  flowCreationSamples: number;
 }
 
 export async function listarClientes(db: Banco, ids: string[], agora: Date): Promise<Cliente[]> {
@@ -156,6 +160,7 @@ export async function listarClientes(db: Banco, ids: string[], agora: Date): Pro
       meetingsCount: a.meetingsCount,
       hoursSavedMinutes: a.hoursSavedMinutes,
       flowCreationMinutes: a.flowCreationMinutes,
+      flowCreationSamples: a.temposFluxo.length,
     };
   });
 }
@@ -284,6 +289,58 @@ export async function mudarStatusProcesso(db: Banco, id: string, novo: StatusPro
       id,
     ],
   );
+}
+
+/** Únicas ações do painel (que fora isso é só leitura): o implantador leva a regra confirmada ao dev e à produção. */
+export const ACOES_PAINEL = ["sent_to_dev", "validated"] as const;
+const ACAO_PERMITIDA: Record<(typeof ACOES_PAINEL)[number], StatusProcesso[]> = {
+  sent_to_dev: ["confirmed"],
+  validated: ["confirmed", "sent_to_dev"],
+};
+
+/** Avança um processo confirmado para `sent_to_dev` ou `validated`; qualquer outra origem → 409. */
+export async function avancarProcesso(
+  db: Banco,
+  usuario: Usuario,
+  id: string,
+  novo: (typeof ACOES_PAINEL)[number],
+  agora = new Date(),
+): Promise<Processo> {
+  const { fields: _, ...atual } = await detalheProcesso(db, usuario, id);
+  if (atual.status === novo) return atual;
+  if (!ACAO_PERMITIDA[novo].includes(atual.status)) {
+    throw new ErroApi(409, "INVALID_TRANSITION", `Processo em "${atual.status}" não pode ir para "${novo}"`, {
+      from: atual.status,
+      allowedFrom: ACAO_PERMITIDA[novo],
+    });
+  }
+  await mudarStatusProcesso(db, id, novo, agora);
+  return paraProcesso((await uma(db, `${SQL_PROCESSO} WHERE p.id = $1`, [id]))!);
+}
+
+/** Linha de campos_processo derivada do formulário (ver src/dashboard/campos.ts). */
+export interface CampoProcesso {
+  chave: string;
+  rotulo: string;
+  categoria: CategoriaCampo;
+  valor: string;
+  status: "filled" | "pending" | "to_validate";
+  origem: "agente" | "implantador";
+  coletadoEm: string | null;
+}
+
+/** Substitui os campos do processo pelos do formulário mais recente. */
+export async function gravarCamposProcesso(db: Banco, processoId: string, campos: CampoProcesso[], mensagemOrigemId?: string) {
+  await db.transacao(async (tx) => {
+    await tx.consultar("DELETE FROM campos_processo WHERE processo_id = $1", [processoId]);
+    for (const c of campos) {
+      await tx.consultar(
+        `INSERT INTO campos_processo (processo_id, chave, rotulo, categoria, valor, status, origem, coletado_em, mensagem_origem_id)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+        [processoId, c.chave, c.rotulo, c.categoria, c.valor, c.status, c.origem, c.coletadoEm, mensagemOrigemId ?? null],
+      );
+    }
+  });
 }
 
 // ---------- Conversas ----------
@@ -436,7 +493,9 @@ export interface ResumoImplantador {
   processesComplete: number;
   meetingsCount: number;
   hoursSavedMinutes: number;
-  flowCreationAvgMinutes: number | null;
+  /** 0 enquanto nenhum fluxo foi validado (ver flowCreationSamples) */
+  flowCreationAvgMinutes: number;
+  flowCreationSamples: number;
   clientsAtRisk: number;
 }
 
@@ -451,7 +510,7 @@ export async function listarImplantadores(db: Banco, agora: Date, apenas?: strin
 
   return implantadores.map((u) => {
     const meus = clientes.filter((c) => c.implementerId === u.id);
-    const amostras = meus.flatMap((c) => agregados.get(c.id)!.flowCreationSamples);
+    const amostras = meus.flatMap((c) => agregados.get(c.id)!.temposFluxo);
     const soma = (f: (c: Cliente) => number) => meus.reduce((s, c) => s + f(c), 0);
     return {
       id: u.id,
@@ -462,7 +521,8 @@ export async function listarImplantadores(db: Banco, agora: Date, apenas?: strin
       meetingsCount: soma((c) => c.meetingsCount),
       hoursSavedMinutes: soma((c) => c.hoursSavedMinutes),
       // média sobre todos os fluxos validados do implantador (não média das médias dos clientes)
-      flowCreationAvgMinutes: amostras.length ? Math.round(amostras.reduce((a, b) => a + b, 0) / amostras.length) : null,
+      flowCreationAvgMinutes: media(amostras),
+      flowCreationSamples: amostras.length,
       clientsAtRisk: meus.filter((c) => c.status === "at_risk").length,
       clientes: meus,
     };
