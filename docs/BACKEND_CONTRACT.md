@@ -167,8 +167,15 @@ ProcessDetail extends Process {
              sourceConversationId?, sourceMessageId?, sourceAttachmentId? }]   // section agrupa na tela; source* = origem p/ auditoria
 }
 
+FormularioLeitura {           // painel do administrador: somente leitura, sem rota de escrita
+  formulario: Formulario,     // mesmo FormularioImplantacao do chat (id/status/atualizadoEm vêm do banco)
+  revision: number,           // cada rodada do agente incrementa
+  confirmedAt: string | null  // preenchido quando status = "confirmado"
+}
+
 Conversation {
-  id, clientId, contactName, contactPhone, secretariat,
+  id, clientId, contactName, contactPhone,
+  secretariat,                // "—" quando a conversa não tem secretaria (nunca null)
   startedAt, lastMessageAt, messagesCount, processesTouched: string[],
   status: "active" | "waiting_confirmation" | "closed"
 }
@@ -208,7 +215,9 @@ O back precisa saber quantas reuniões aconteceram. Sugestão: o implantador reg
 - `GET /clients?implementerId=&status=&q=&page=` → paginado de `Client`
 - `GET /clients/:id` → `Client` + `{ "secretariats": [{ "id","name","processesTotal","processesComplete" }] }`
 - `GET /clients/:id/processes?secretariat=&status=&q=&page=` → paginado de `Process`
-- `GET /processes/:id` → `ProcessDetail`
+- `GET /processes/:id` → `ProcessDetail` (`fields[].value` é `""` quando pendente, nunca `null`)
+- `GET /processes/:id/form` → `FormularioLeitura` do último formulário do processo (maior revisão); `404` se o agente ainda não emitiu nenhum
+- `GET /forms/:id` → `FormularioLeitura` (abre a partir da mensagem `kind: "form"` em `/conversations/:id`)
 - `GET /clients/:id/conversations?page=` → paginado de `Conversation`
 - `GET /conversations/:id` → `Conversation` + `messages: Message[]` (mesmo tipo `Message` do chat)
 

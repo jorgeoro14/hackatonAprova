@@ -20,6 +20,18 @@ const url = (p: string) => `${API_URL}${p}`
 const err = (status: number, code: string, message: string) =>
   HttpResponse.json({ error: { code, message } }, { status })
 
+/** Formulário de leitura do painel, montado a partir do exemplo do chat. */
+function mockFormLeitura(p: Process) {
+  const c = clients.find((x) => x.id === p.clientId)
+  const f = buildFormulario({ id: p.id, municipality: c?.name ?? '', secretariat: p.secretariat } as Session)
+  const confirmado = p.status !== 'awaiting_confirmation'
+  return {
+    formulario: { ...f, id: `f-${p.id}`, status: confirmado ? ('confirmado' as const) : ('em_revisao' as const) },
+    revision: p.backAndForths + 1,
+    confirmedAt: confirmado ? p.updatedAt : null,
+  }
+}
+
 /* ------------------------------ Auth ------------------------------ */
 
 const tokenFor = (id: string) => `mock.${id}`
@@ -322,6 +334,17 @@ export const handlers = [
       }
     })
     return HttpResponse.json({ ...p, fields })
+  })),
+  http.get(url('/processes/:id/form'), authed(({ user, params }) => {
+    const p = processes.find((x) => x.id === params.id)
+    if (!p || !visibleClients(user).some((c) => c.id === p.clientId)) return err(404, 'NOT_FOUND', 'Processo não encontrado')
+    if (p.status === 'not_started' || p.status === 'collecting') return err(404, 'NOT_FOUND', 'Formulário não encontrado')
+    return HttpResponse.json(mockFormLeitura(p))
+  })),
+  http.get(url('/forms/:id'), authed(({ user, params }) => {
+    const p = processes.find((x) => `f-${x.id}` === params.id)
+    if (!p || !visibleClients(user).some((c) => c.id === p.clientId)) return err(404, 'NOT_FOUND', 'Formulário não encontrado')
+    return HttpResponse.json(mockFormLeitura(p))
   })),
   http.get(url('/clients/:id/meetings'), authed(({ user, params }) => {
     if (!visibleClients(user).some((c) => c.id === params.id)) return err(404, 'NOT_FOUND', 'Cliente não encontrado')
