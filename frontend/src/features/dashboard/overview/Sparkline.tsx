@@ -1,6 +1,6 @@
 import { Area, AreaChart, ResponsiveContainer } from 'recharts'
 
-export function Sparkline({ data, id }: { data: { value: number }[]; id: string }) {
+export function Sparkline({ data, id }: { data: { value: number | null }[]; id: string }) {
   return (
     <div className="h-12 w-full" aria-hidden>
       <ResponsiveContainer width="100%" height="100%">
@@ -11,7 +11,7 @@ export function Sparkline({ data, id }: { data: { value: number }[]; id: string 
               <stop offset="100%" stopColor="var(--cyan)" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <Area type="monotone" dataKey="value" stroke="var(--cyan)" strokeWidth={2} fill={`url(#sp-${id})`} isAnimationActive={false} />
+          <Area type="monotone" dataKey="value" stroke="var(--cyan)" strokeWidth={2} fill={`url(#sp-${id})`} isAnimationActive={false} connectNulls />
         </AreaChart>
       </ResponsiveContainer>
     </div>

@@ -48,9 +48,9 @@ export function TrendChart({ scope, granularity }: { scope: Scope; granularity: 
                 contentStyle={{ background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: 8, color: 'var(--ink)', fontSize: 13 }}
                 labelStyle={{ color: 'var(--muted)' }}
                 labelFormatter={(l) => shortDate(String(l))}
-                formatter={(v) => [info.format(Number(v)), info.label]}
+                formatter={(v) => [v == null ? '—' : info.format(Number(v)), info.label]}
               />
-              <Area type="monotone" dataKey="value" stroke="var(--cyan)" strokeWidth={2} fill="url(#trend)" />
+              <Area type="monotone" dataKey="value" stroke="var(--cyan)" strokeWidth={2} fill="url(#trend)" connectNulls />
             </AreaChart>
           </ResponsiveContainer>
         )}

@@ -53,11 +53,17 @@ const paginate = <T,>(all: T[], q: URLSearchParams) => {
 
 const isDone = (p: Process) => ['confirmed', 'sent_to_dev', 'validated'].includes(p.status)
 
+/** Média arredondada ignorando null; null sem amostras (igual ao back). */
+const avgOrNull = (xs: (number | null)[]) => {
+  const v = xs.filter((x): x is number => x !== null)
+  return v.length ? Math.round(v.reduce((s, x) => s + x, 0) / v.length) : null
+}
+
 function summarize(list: Client[], from: string, to: string) {
   const ps = processes.filter((p) => list.some((c) => c.id === p.clientId))
   const meetings = list.reduce((s, c) => s + c.meetingsCount, 0)
   const baseline = list.reduce((s, c) => s + meetingsBaseline(c), 0)
-  const avgFlow = list.length ? Math.round(list.reduce((s, c) => s + c.flowCreationMinutes, 0) / list.length) : 0
+  const avgFlow = avgOrNull(list.map((c) => c.flowCreationMinutes))
   const started = ps.filter((p) => p.backAndForths > 0)
   return {
     period: { from, to },
@@ -66,7 +72,7 @@ function summarize(list: Client[], from: string, to: string) {
     flowCreation: {
       avgMinutes: avgFlow,
       baselineMinutes: FLOW_BASELINE_MINUTES,
-      deltaPct: Math.round(((avgFlow - FLOW_BASELINE_MINUTES) / FLOW_BASELINE_MINUTES) * 100),
+      deltaPct: avgFlow === null ? null : Math.round(((avgFlow - FLOW_BASELINE_MINUTES) / FLOW_BASELINE_MINUTES) * 100),
     },
     processes: { total: ps.length, complete: ps.filter(isDone).length, validated: ps.filter((p) => p.status === 'validated').length },
     backAndForthsAvg: started.length ? Math.round((started.reduce((s, p) => s + p.backAndForths, 0) / started.length) * 10) / 10 : 0,
@@ -130,7 +136,7 @@ function buildFormulario(s: Session): Formulario {
       id: 'alvara-de-reforma',
       nome: 'Alvará de reforma',
       descricao: 'Autoriza reformas em edificações existentes.',
-      resumo: { apresentacao: 'Solicite o alvará para reformar seu imóvel, enviando o projeto e os documentos pelo Portal.', quemPodeSolicitar: 'Proprietário do imóvel ou responsável técnico', abertura: 'Externo (Portal)' },
+      resumo: { apresentacao: 'Solicite o alvará para reformar seu imóvel, enviando o projeto e os documentos pelo Portal.', quemPodeSolicitar: 'Proprietário do imóvel ou responsável técnico', abertura: ['externo'] },
       formulario: {
         secoes: [
           { titulo: 'Requerente', campos: [
@@ -248,7 +254,9 @@ export const handlers = [
       processesComplete: [s.processes.complete, true],
     } as const
     const [total, cumulative] = spec[metric]
-    return HttpResponse.json({ metric, points: series(metric, total, days, step, cumulative) })
+    // sem fluxo validado o back devolve null em todos os baldes
+    const points = total === null ? series(metric, 0, days, step, cumulative).map((p) => ({ ...p, value: null })) : series(metric, total, days, step, cumulative)
+    return HttpResponse.json({ metric, points })
   })),
 
   http.get(url('/clients'), authed(({ user, req }) => {
@@ -430,7 +438,7 @@ function implementerRow(id: string) {
     processesComplete: cs.reduce((s, c) => s + c.processesComplete, 0),
     meetingsCount: cs.reduce((s, c) => s + c.meetingsCount, 0),
     hoursSavedMinutes: cs.reduce((s, c) => s + c.hoursSavedMinutes, 0),
-    flowCreationAvgMinutes: Math.round(cs.reduce((s, c) => s + c.flowCreationMinutes, 0) / cs.length),
+    flowCreationAvgMinutes: avgOrNull(cs.map((c) => c.flowCreationMinutes)),
     clientsAtRisk: cs.filter((c) => c.status === 'at_risk').length,
   }
 }

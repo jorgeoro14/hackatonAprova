@@ -82,7 +82,7 @@ export function UiShowcasePage() {
             {summary.isError && <Badge tone="warning">/metrics sem login → {summary.error.message}</Badge>}
             {summary.data && (
               <span className="tabular text-sm">
-                Reuniões {summary.data.meetings.value} ({formatDelta(summary.data.meetings.deltaPct)}) · Economia {formatDuration(summary.data.hoursSaved.valueMinutes)} · Fluxo {formatDuration(summary.data.flowCreation.avgMinutes)}
+                Reuniões {summary.data.meetings.value} ({summary.data.meetings.deltaPct === null ? '—' : formatDelta(summary.data.meetings.deltaPct)}) · Economia {formatDuration(summary.data.hoursSaved.valueMinutes)} · Fluxo {formatDuration(summary.data.flowCreation.avgMinutes)}
               </span>
             )}
           </div>

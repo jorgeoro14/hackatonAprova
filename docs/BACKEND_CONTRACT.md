@@ -116,7 +116,7 @@ O agente preenche o `FormularioImplantacao` (tipo do back; ver `docs/modelo-form
 { "id": "msg9", "role": "agent", "kind": "form", "text": "Terminei de preencher… confira e envie ao time.", "formularioId": "f-123", ... }
 ```
 
-- `GET /chat/sessions/:sessionId/forms/:formId` → `FormularioImplantacao`. Campos que o front edita hoje: `orgao.*`, `processo.resumo`, `processo.formulario.secoes[].{titulo,campos[]}` (rótulo, tipo, obrigatório, ajuda; adicionar/remover), `processo.documentos`, `processo.taxas`, `processo.fluxo.etapas` (nome, responsável, prazo) e `prazoTotalDias`, `processo.documentoFinal`. Transições são só exibidas. Propriedades desconhecidas são preservadas no envio. **Fora do MVP do front:** setores e despachos.
+- `GET /chat/sessions/:sessionId/forms/:formId` → `FormularioImplantacao`. `processo.resumo.abertura` é lista: `["externo"]`, `["interno"]` ou `["externo","interno"]`. Campos que o front edita hoje: `orgao.*`, `processo.resumo`, `processo.formulario.secoes[].{titulo,campos[]}` (rótulo, tipo, obrigatório, ajuda; adicionar/remover), `processo.documentos`, `processo.taxas`, `processo.fluxo.etapas` (nome, responsável, prazo) e `prazoTotalDias`, `processo.documentoFinal`. Transições são só exibidas. Propriedades desconhecidas são preservadas no envio. **Fora do MVP do front:** setores e despachos.
 - `origens[]` (`caminho` por prefixo: `resumo`, `formulario`, `documentos`, `taxas`, `fluxo`, `documentoFinal`, `orgao`) vira o selo "Do modelo / Você informou / Da legislação" de cada bloco.
 - `pendencias[]` (`caminho` **relativo ao processo**, ex.: `taxas.0.baseCalculo`): o campo aparece com "Falta informar" enquanto estiver vazio; há contador de pendências. O front permite enviar mesmo com pendências.
 - **Enviar:** `POST /chat/sessions/:sessionId/forms/:formId/submit` com o que a prefeitura revisou:
@@ -150,7 +150,8 @@ Client {                      // uma prefeitura atendida
   startedAt, targetDate,      // meta 45–60 dias
   processesTotal, processesComplete,   // ~100 por prefeitura
   secretariatsTotal, secretariatsDone,
-  meetingsCount, hoursSavedMinutes, flowCreationMinutes
+  meetingsCount, hoursSavedMinutes,
+  flowCreationMinutes          // null enquanto nenhum fluxo foi validado
 }
 
 Process {                     // um processo/serviço da prefeitura (ex.: Alvará de reforma)
@@ -189,7 +190,9 @@ Regra de escopo: `implementer` recebe **apenas** dados dos seus clientes. `head`
   "backAndForthsAvg": 2.1
 }
 ```
-`baseline` = referência do processo manual (por reunião) para comparação; definição e fórmula são do back (ver seção 10).
+`baseline` = referência do processo manual (por reunião) para comparação; definição e fórmula são do back (ver `docs/metricas-dashboard.md`).
+
+**Sem dado = `null`**, nunca 0: `meetings.deltaPct` e `flowCreation.deltaPct` (sem baseline ou sem amostra), `flowCreation.avgMinutes` e `backAndForthsAvg` (nenhum processo com amostra), `points[].value` de `flowCreation` (balde sem fluxo validado), `Client.flowCreationMinutes` e `Implementer.flowCreationAvgMinutes`. O front mostra "—".
 
 `GET /metrics/timeseries?metric=meetings|hoursSaved|flowCreation|processesComplete&from=&to=&granularity=day|week&implementerId=&clientId=`
 ```json
@@ -222,7 +225,7 @@ O back precisa saber quantas reuniões aconteceram. Sugestão: o implantador reg
 Dashboard pode usar polling (30s). SSE/WebSocket só se sobrar tempo.
 
 ## 8. Variáveis e execução
-- O back atual sobe em `http://localhost:3333` e **ainda não usa o prefixo `/api/v1`**. Opções: registrar as rotas com `prefix: "/api/v1"` no Fastify (recomendado) ou ajustar `VITE_API_URL` no front. Front: `VITE_API_URL=http://localhost:3333/api/v1` e `VITE_USE_MOCKS=false`.
+- O back sobe em `http://localhost:3333`. As rotas do dashboard (auth, métricas, clientes, processos, conversas, reuniões, implantadores) já estão em `/api/v1`; as do chat público (seção 4) **ainda não existem** — o back tem só `/implantacoes` (sem prefixo), que precisa ser adaptado a este contrato. Front: `VITE_API_URL=http://localhost:3333/api/v1` e `VITE_USE_MOCKS=false`.
 - Seed mínimo para demo: 1 head, 2–3 implantadores, 4+ prefeituras, ~100 processos por prefeitura em estados variados, conversas com mensagens e formulários.
 - Usuários de teste (combinar): `head / ...`, `maria.silva / ...`.
 

@@ -125,9 +125,13 @@ export function FormularioEditor({ form }: { form: Formulario }) {
           <Select
             label="Abertura"
             disabled={readOnly}
-            value={p.resumo.abertura}
-            onChange={(e) => set('processo.resumo.abertura', e.target.value)}
-            options={[{ value: 'Externo (Portal)', label: 'Externo (Portal)' }, { value: 'Interno', label: 'Interno' }]}
+            value={p.resumo.abertura.join(',')}
+            onChange={(e) => set('processo.resumo.abertura', e.target.value.split(','))}
+            options={[
+              { value: 'externo', label: 'Externo (Portal)' },
+              { value: 'interno', label: 'Interno' },
+              { value: 'externo,interno', label: 'Externo e interno' },
+            ]}
           />
         </Block>
       )}

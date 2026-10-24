@@ -85,7 +85,8 @@ export const processoFormSchema = z.looseObject({
     .looseObject({
       apresentacao: z.string().default(''),
       quemPodeSolicitar: z.string().default(''),
-      abertura: z.string().default(''),
+      /** "externo": requerente abre pelo Portal; "interno": servidor abre de ofício */
+      abertura: z.array(z.enum(['externo', 'interno'])).default(['externo']),
     })
     .optional(),
   formulario: z.object({
@@ -168,7 +169,8 @@ export const clientSchema = z.object({
   secretariatsDone: z.number(),
   meetingsCount: z.number(),
   hoursSavedMinutes: z.number(),
-  flowCreationMinutes: z.number(),
+  /** null enquanto nenhum fluxo foi validado */
+  flowCreationMinutes: z.number().nullable(),
 })
 export type Client = z.infer<typeof clientSchema>
 
@@ -250,7 +252,8 @@ export const meetingSchema = z.object({
 })
 export type Meeting = z.infer<typeof meetingSchema>
 
-const deltaMetric = z.object({ value: z.number(), baseline: z.number(), deltaPct: z.number() })
+/** deltaPct é null sem baseline; avgMinutes/backAndForthsAvg são null sem amostras (o front mostra "—"). */
+const deltaMetric = z.object({ value: z.number(), baseline: z.number(), deltaPct: z.number().nullable() })
 
 export const metricsSummarySchema = z.object({
   period: z.object({ from: z.string(), to: z.string() }),
@@ -258,9 +261,9 @@ export const metricsSummarySchema = z.object({
   meetings: deltaMetric,
   hoursSaved: z.object({ valueMinutes: z.number() }),
   /** Sucesso = diminui. */
-  flowCreation: z.object({ avgMinutes: z.number(), baselineMinutes: z.number(), deltaPct: z.number() }),
+  flowCreation: z.object({ avgMinutes: z.number().nullable(), baselineMinutes: z.number(), deltaPct: z.number().nullable() }),
   processes: z.object({ total: z.number(), complete: z.number(), validated: z.number() }),
-  backAndForthsAvg: z.number(),
+  backAndForthsAvg: z.number().nullable(),
 })
 export type MetricsSummary = z.infer<typeof metricsSummarySchema>
 
@@ -269,7 +272,8 @@ export type MetricKey = z.infer<typeof metricKeySchema>
 
 export const timeseriesSchema = z.object({
   metric: metricKeySchema,
-  points: z.array(z.object({ date: z.string(), value: z.number() })),
+  /** flowCreation: null nos baldes sem fluxo validado */
+  points: z.array(z.object({ date: z.string(), value: z.number().nullable() })),
 })
 export type Timeseries = z.infer<typeof timeseriesSchema>
 
@@ -281,7 +285,7 @@ export const implementerSchema = z.object({
   processesComplete: z.number(),
   meetingsCount: z.number(),
   hoursSavedMinutes: z.number(),
-  flowCreationAvgMinutes: z.number(),
+  flowCreationAvgMinutes: z.number().nullable(),
   clientsAtRisk: z.number(),
 })
 export type Implementer = z.infer<typeof implementerSchema>

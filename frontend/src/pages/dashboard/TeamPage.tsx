@@ -37,6 +37,8 @@ export function TeamPage() {
     () => [...(team.data ?? [])].sort((a, b) => {
       const x = sortValue(a, sort.key)
       const y = sortValue(b, sort.key)
+      // sem dado (null) vai sempre para o fim
+      if (x === null || y === null) return x === y ? 0 : x === null ? 1 : -1
       return (typeof x === 'string' ? x.localeCompare(String(y)) : x - Number(y)) * sort.dir
     }),
     [team.data, sort],

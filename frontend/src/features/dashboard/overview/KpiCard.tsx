@@ -10,15 +10,15 @@ interface Props {
   /** Texto de apoio abaixo do valor (ex.: "sem IA: 99 reuniões"). */
   caption?: string
   /** Variação percentual vs. baseline; `goodWhen` diz qual direção é sucesso. */
-  deltaPct?: number
+  deltaPct?: number | null
   goodWhen?: 'down' | 'up'
   chart?: ReactNode
   loading?: boolean
 }
 
 export function KpiCard({ title, value, caption, deltaPct, goodWhen = 'down', chart, loading }: Props) {
-  const good = deltaPct === undefined || deltaPct === 0 ? undefined : goodWhen === 'down' ? deltaPct < 0 : deltaPct > 0
-  const Arrow = deltaPct !== undefined && deltaPct > 0 ? ArrowUpRight : ArrowDownRight
+  const good = deltaPct == null || deltaPct === 0 ? undefined : goodWhen === 'down' ? deltaPct < 0 : deltaPct > 0
+  const Arrow = deltaPct != null && deltaPct > 0 ? ArrowUpRight : ArrowDownRight
   return (
     <Card className="flex flex-col gap-2">
       <p className="text-sm text-muted">{title}</p>
@@ -32,7 +32,7 @@ export function KpiCard({ title, value, caption, deltaPct, goodWhen = 'down', ch
         <>
           <div className="flex items-baseline gap-3">
             <p className="tabular font-title text-3xl font-semibold text-ink">{value}</p>
-            {deltaPct !== undefined && (
+            {deltaPct != null && (
               <span
                 className={cn(
                   'inline-flex items-center gap-0.5 rounded-full px-2 py-0.5 text-xs font-medium',

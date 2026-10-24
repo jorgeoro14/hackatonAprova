@@ -1,5 +1,6 @@
-/** Minutos → "2h 30min" / "45min" / "3d 4h" (dias de 24h). */
-export function formatDuration(minutes: number): string {
+/** Minutos → "2h 30min" / "45min" / "3d 4h" (dias de 24h); null → "—". */
+export function formatDuration(minutes: number | null): string {
+  if (minutes === null) return '—'
   const m = Math.round(Math.abs(minutes))
   if (m < 60) return `${m}min`
   const d = Math.floor(m / 1440)

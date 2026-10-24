@@ -6,7 +6,7 @@ import type { Implementer } from '@/types/schemas'
 
 type Key = 'hours' | 'meetings' | 'flow' | 'progress'
 
-const metrics: Record<Key, { label: string; hint: string; value: (i: Implementer) => number; format: (v: number) => string }> = {
+const metrics: Record<Key, { label: string; hint: string; value: (i: Implementer) => number | null; format: (v: number) => string }> = {
   hours: { label: 'Tempo economizado', hint: 'Quanto maior, melhor', value: (i) => i.hoursSavedMinutes, format: (v) => formatHours(v) },
   meetings: { label: 'Reuniões', hint: 'Quanto menor, melhor', value: (i) => i.meetingsCount, format: (v) => formatNumber(v) },
   flow: { label: 'Criação do fluxo', hint: 'Quanto menor, melhor', value: (i) => i.flowCreationAvgMinutes, format: (v) => formatDuration(v) },
@@ -31,10 +31,10 @@ export function ImplementerChart({ data }: { data: Implementer[] }) {
             <Tooltip
               cursor={{ fill: 'var(--soft)' }}
               contentStyle={{ background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: 8, color: 'var(--ink)', fontSize: 13 }}
-              formatter={(v) => [m.format(Number(v)), m.label]}
+              formatter={(v) => [v == null ? '—' : m.format(Number(v)), m.label]}
             />
             <Bar dataKey="value" fill="var(--cyan)" radius={[6, 6, 0, 0]} maxBarSize={72}>
-              <LabelList dataKey="value" position="top" formatter={(v) => m.format(Number(v))} fill="var(--ink)" fontSize={12} />
+              <LabelList dataKey="value" position="top" formatter={(v) => (v == null ? '—' : m.format(Number(v)))} fill="var(--ink)" fontSize={12} />
             </Bar>
           </BarChart>
         </ResponsiveContainer>

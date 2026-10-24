@@ -78,7 +78,7 @@ export function OverviewPage() {
             </Card>
             <Card>
               <p className="text-sm text-muted">Idas e vindas por processo</p>
-              <p className="tabular mt-1 font-title text-2xl font-semibold">{s ? s.backAndForthsAvg.toLocaleString('pt-BR') : '—'}</p>
+              <p className="tabular mt-1 font-title text-2xl font-semibold">{s && s.backAndForthsAvg !== null ? s.backAndForthsAvg.toLocaleString('pt-BR') : '—'}</p>
               <p className="mt-2 text-xs text-muted">Média até a regra ficar completa</p>
             </Card>
           </section>
